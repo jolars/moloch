@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.2.0](https://github.com/jolars/moloch/compare/v0.1.0...v0.2.0) (2024-01-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove titleformat configuration
+* use beamer's own frame numbering template
+
+### Features
+
+* remove titleformat configuration ([e19f93c](https://github.com/jolars/moloch/commit/e19f93c40a92ae28f5e7bf26cc48b68675501c89))
+* use beamer's own frame numbering template ([01b698c](https://github.com/jolars/moloch/commit/01b698c7838d2e09057a240054c3acb3c75be8dc))
+
 ## 0.1.0 (2024-01-15)
 
 
