@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.3.0](https://github.com/jolars/moloch/compare/v0.2.0...v0.3.0) (2024-03-06)
+
+
+### Features
+
+* bring back the `numbering` option and deprecate it ([9a013e4](https://github.com/jolars/moloch/commit/9a013e4d46e1c009f058862525c4d92983c4103c))
+* make `framenumber` slide numbering the default ([54e0fce](https://github.com/jolars/moloch/commit/54e0fce68b39a10aabf646c000ffa6656dede748))
+* redesign title page ([9e6506e](https://github.com/jolars/moloch/commit/9e6506eccdf1a55ac88540df3bf792b88f07fc7a))
+* reinstate support for `block` option ([bf63dcd](https://github.com/jolars/moloch/commit/bf63dcd17922277a198465485931f414a9426636))
+* remove custom linespread setting ([6a85ef4](https://github.com/jolars/moloch/commit/6a85ef4ecd170550411cd00e65fe1e1a8d88b80b)), closes [#8](https://github.com/jolars/moloch/issues/8)
+* remove parskip setting ([5477051](https://github.com/jolars/moloch/commit/54770512988927ab3c8264c7fce592cd0a4e32f8)), closes [#9](https://github.com/jolars/moloch/issues/9)
+* support subtitles ([1c49957](https://github.com/jolars/moloch/commit/1c499577ea8f8aadf2403bdbd4efa603cf5a64d6))
+
+
+### Bug Fixes
+
+* apply upstream beamer fix for empty shortauthor ([b8b2d10](https://github.com/jolars/moloch/commit/b8b2d1090da3082a8b0370ef3411f70cc6c6fc1f))
+* improve vertical centering of title slide ([6a14981](https://github.com/jolars/moloch/commit/6a149812409ce9072b785677fe562c5c80af22d4))
+* remove extraneous line space after minipage ([c0b9826](https://github.com/jolars/moloch/commit/c0b98267ac70d75d69c5114e93b15722849fe712))
+* remove extraneous space in frametitle continuation template ([66f7d83](https://github.com/jolars/moloch/commit/66f7d833a9e9e55626f38b2d3bc50303317a6b1c))
+* remove font configuration for bibliography; closes [#5](https://github.com/jolars/moloch/issues/5) ([ccd19fe](https://github.com/jolars/moloch/commit/ccd19fe2dd20f40813e07c96a88700d5844b6e5d))
+
 ## [0.2.0](https://github.com/jolars/moloch/compare/v0.1.0...v0.2.0) (2024-01-23)
 
 
