@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/jolars/moloch/compare/v0.3.0...v0.4.0) (2024-05-30)
+
+
+### Features
+
+* add a small amount of vertical space before subtitle ([b224a9b](https://github.com/jolars/moloch/commit/b224a9b5067187e64a7669b61aee029447535729))
+
 ## [0.3.0](https://github.com/jolars/moloch/compare/v0.2.0...v0.3.0) (2024-03-06)
 
 
