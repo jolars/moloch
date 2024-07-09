@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.4.0](https://github.com/jolars/moloch/compare/v0.3.0...v0.4.0) (2024-07-09)
+
+
+### Features
+
+* add a small amount of vertical space before subtitle ([b224a9b](https://github.com/jolars/moloch/commit/b224a9b5067187e64a7669b61aee029447535729))
+* support memoize package (closes [#16](https://github.com/jolars/moloch/issues/16)) ([1ca26e8](https://github.com/jolars/moloch/commit/1ca26e857a331fcb29296c4987b69aea0db90fae))
+* support title format modifications ([#18](https://github.com/jolars/moloch/issues/18)) ([46a4f49](https://github.com/jolars/moloch/commit/46a4f49e8bb95798c2d6f3b69a1b96128d95cb8b))
+
+
+### Bug Fixes
+
+* add % at the end of some commands ([33b9833](https://github.com/jolars/moloch/commit/33b9833f21d3e0654fe2452d0b8ac8e8eb3a47bb))
+* convert raw command in manual to text ([ac305e9](https://github.com/jolars/moloch/commit/ac305e9b547ce44e0573f333adc4e6684eb88b68))
+
 ## [0.3.0](https://github.com/jolars/moloch/compare/v0.2.0...v0.3.0) (2024-03-06)
 
 
