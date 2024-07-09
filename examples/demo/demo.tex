@@ -12,7 +12,7 @@
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
 
-\usepackage{lmodern}
+\usepackage[semibold,light]{FiraSans}
 
 \usepackage{xspace}
 
@@ -38,8 +38,9 @@
 \begin{frame}[fragile]{Moloch}
 
   The \themename theme is a Beamer theme with minimal visual noise. It is a fork of the
-  \href{https://github.com/matze/mtheme}{metropolis theme} by Matthias Vogelgesang, which in turn was inspired by
-  by the \href{https://github.com/hsrmbeamertheme/hsrmbeamertheme}{hsrm theme} by Benjamin Weiss. \medskip
+  \href{https://github.com/matze/mtheme}{metropolis theme} by Matthias Vogelgesang, which in
+  turn was inspired by by the \href{https://github.com/hsrmbeamertheme/hsrmbeamertheme}{hsrm
+    theme} by Benjamin Weiss. \medskip
 
   Enable the theme by calling
   \begin{verbatim}\documentclass{beamer}
@@ -48,8 +49,69 @@
 \begin{frame}[fragile]{Sections}
   Sections group slides of the same topic by introducing a section page between them. A progress bar is shown which indicates how far along in the presentation you are.
 
-  \begin{verbatim}\section{Elements}\end{verbatim}
+  \begin{verbatim}\section{Title Formats}\end{verbatim}
 \end{frame}
+
+\section{Title Formats}
+
+\begin{frame}[fragile]{Moloch Title Formats}
+  \themename supports four different title formats:
+  \begin{itemize}
+    \item \texttt{regular} (Regular)
+    \item \texttt{smallcaps} (\textsc{Small Caps})
+    \item \texttt{allsmallcaps} (\textsc{all small caps})
+    \item \texttt{allcaps} (ALL CAPS)
+  \end{itemize}
+
+  They can either be set globally for every frame or used locally just for the current frame
+  and onwards by using
+  \begin{verbatim}\molochset{titleformat frame=<option>}\end{verbatim}
+\end{frame}
+
+{
+\molochset{titleformat frame=smallcaps}
+\begin{frame}{Small Caps}
+  This frame uses the \texttt{smallcaps} title format.
+
+  \begin{alertblock}{Potential Problems}
+    Be aware that not every font supports small caps. If you use the Computer (or Latin) Modern Sans Serif font, for instance, text in small caps will just be typeset in a normal font.
+  \end{alertblock}
+\end{frame}
+}
+
+{
+\molochset{titleformat frame=allsmallcaps}
+\begin{frame}{All Small Caps}
+  This frame uses the \texttt{allsmallcaps} title format.
+
+  \begin{alertblock}{Potential Problems}
+    This title format also uses small caps, so you face the same problems as with the \texttt{smallcaps} title format.
+
+    \medskip
+
+    In addition, note that numbers and math will be unaffected by this setting and will match
+    poorly with text as a result. For that reason, we suggest you make sure titles are all
+    plain text if you use this option.
+
+    \medskip
+
+    Finally, observe that the height of the frame title box will be modified to account for the
+    decreased text height since there are no capital letters. This too means that numbers and
+    math will not work well.
+  \end{alertblock}
+\end{frame}
+}
+
+{
+\molochset{titleformat frame=allcaps}
+\begin{frame}{All Caps}
+  This frame uses the \texttt{allcaps} title format.
+
+  \begin{alertblock}{Potential Problems}
+    This title format is not as problematic as the \texttt{allsmallcaps} format, but basically suffers from the same deficiencies. So please have a look at the documentation if you want to use it.
+  \end{alertblock}
+\end{frame}
+}
 
 \section{Elements}
 
@@ -223,7 +285,8 @@
   \end{center}
 
   The theme is licensed under the
-  \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Attribution-ShareAlike 4.0 International License}.
+  \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
+    Attribution-ShareAlike 4.0 International License}.
 
   \begin{center}
     \ccbysa

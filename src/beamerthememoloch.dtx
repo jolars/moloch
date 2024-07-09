@@ -52,6 +52,58 @@
 }
 %    \end{macrocode}
 %
+% \begin{macro}{titleformat plain}
+%    Controls the formatting of the text on standout ``plain'' frames.
+%    \begin{macrocode}
+\pgfkeys{
+  /moloch/titleformat plain/.cd,
+  .is choice,
+  regular/.code={%
+      \let\moloch@plaintitleformat\@empty%
+      \setbeamerfont{standout}{shape=\normalfont}%
+    },
+  smallcaps/.code={%
+      \let\moloch@plaintitleformat\@empty%
+      \setbeamerfont{standout}{shape=\scshape}%
+    },
+  allsmallcaps/.code={%
+      \let\moloch@plaintitleformat\MakeLowercase%
+      \setbeamerfont{standout}{shape=\scshape}%
+    },
+  allcaps/.code={%
+      \let\moloch@plaintitleformat\MakeUppercase%
+      \setbeamerfont{standout}{shape=\normalfont}%
+    },
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{titleformat}
+%    Sets a standard format for titles, subtitles, section titles, frame
+%    titles, and the text on standout ``plain'' frames.
+%    \begin{macrocode}
+\pgfkeys{
+  /moloch/titleformat/.code=\pgfkeysalso{
+    font/titleformat title=#1,
+    font/titleformat subtitle=#1,
+    font/titleformat section=#1,
+    font/titleformat frame=#1,
+    titleformat plain=#1,
+  }
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% Set default values for options.
+%
+%    \begin{macrocode}
+\newcommand{\moloch@setdefaults}{
+  \pgfkeys{/moloch/.cd,
+    titleformat plain=regular,
+  }
+}
+%    \end{macrocode}
+%
 % To avoid generating externalized figures of the progressbar we have to disable
 % them with ``tikzexternalenable'' and ``tikzexternaldisable''. However, if the
 % ``external'' libray is not loaded we would get undefined control sequence
@@ -101,6 +153,7 @@
 % \subsubsection{Process package options}
 %
 %    \begin{macrocode}
+\moloch@setdefaults
 \ProcessPgfOptions{/moloch}
 %    \end{macrocode}
 %

@@ -58,7 +58,7 @@
   xrightmargin=0em,
   aboveskip=1em,
   belowskip=1em,
-  morekeywords={usetheme,institute,maketitle,%
+  morekeywords={usetheme,institute,maketitle,@moloch@titleformat,%
                 plain,setbeamercolor,molochset,setsansfont,setmonofont},
 }
 \lstMakeShortInline|
@@ -187,6 +187,7 @@ The following code shows a minimal example of a Beamer presentation using
   \begin{itemize}
     \item |tikz|
     \item |pgfopts|
+    \item |etoolbox|
     \item |calc|
   \end{itemize}
 \end{multicols}
@@ -223,6 +224,27 @@ The list of options is structured as shown in the following example.
 \DescribeOption{option key}{list of possible values}{default}{
   A short description of the option.
 }
+
+
+\subsubsection{Main theme}
+
+\DescribeOption{titleformat}%
+{regular, smallcaps, allsmallcaps, allcaps}
+{regular}{
+  Changes the format of titles, subtitles, section titles, frame titles, and
+  the text on ``standout'' frames. The available options produce
+  Regular, \textsc{SmallCaps}, \textsc{\MakeLowercase{AllSmallCaps}}, or
+  \MakeUppercase{AllCaps} titles. Note that these commands do not
+  affect math and numbers, so may not work as you expect if your titles
+  contain these.
+}
+
+\DescribeOption{titleformat plain}%
+{regular, smallcaps, allsmallcaps, allcaps}%
+{regular}{
+  Changes the format of ``standout'' frames (see |titleformat|, above).
+}
+
 
 \subsubsection{Inner theme}
 
@@ -269,6 +291,20 @@ The list of options is structured as shown in the following example.
   Provides the option to have a dark background and light foreground instead
   of the reverse.
 }
+
+
+\subsubsection{Font theme}
+
+\DescribeMacro{titleformat title}
+\DescribeMacro{titleformat subtitle}
+\DescribeMacro{titleformat section}
+\DescribeOption{titleformat frame}%
+{regular, smallcaps, allsmallcaps, allcaps}%
+{regular}{
+  Individually controls the format of titles, subtitles, section titles, and
+  frame titles (see |titleformat|, above).
+}
+
 
 \subsection{Color Customization}
 
@@ -320,6 +356,18 @@ single sentence or image. To use it, add the key |standout| to the frame:
 \end{lstlisting}
 
 \section{Known Issues}
+
+\subsection{Title Formats}
+
+Be aware that not every font supports small caps, so the |smallcaps| or
+|allsmallcaps| options may not work for all fonts.
+In particular, the Computer Modern sans-serif typeface, which is used
+by default when \themename is compiled with pdf\LaTeX, does not have a
+small-caps variant.
+
+Note that title format options |allsmallcaps| and |allcaps| do not 
+affect the sizes of numerals, punctuation, and math symbol, and are 
+probably best avoided if your titles contain these characters.
 
 \subsection{Interactions with other color themes}
 

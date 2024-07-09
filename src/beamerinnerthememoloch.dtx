@@ -173,7 +173,7 @@
 %    \begin{macrocode}
 \setbeamertemplate{title}{
   \raggedright%
-  \inserttitle%
+  \moloch@titleformat{\inserttitle}%
   \par%
   \vspace*{0.2em}
 }
@@ -186,7 +186,7 @@
 \setbeamertemplate{subtitle}{
   \vspace*{0.1em}
   \raggedright%
-  \insertsubtitle%
+  \moloch@subtitleformat{\insertsubtitle}%
   \par%
   \vspace*{0.2em}
 }
@@ -258,7 +258,7 @@
   \begin{center}
     \usebeamercolor[fg]{section title}
     \usebeamerfont{section title}
-    \insertsectionhead\par
+    \moloch@sectiontitleformat{\insertsectionhead}\par
     \ifx\insertsubsectionhead\@empty\else
       \usebeamercolor[fg]{subsection title}
       \usebeamerfont{subsection title}
@@ -272,7 +272,7 @@
     \raggedright
     \usebeamercolor[fg]{section title}
     \usebeamerfont{section title}
-    \insertsectionhead\\[-1ex]
+    \moloch@sectiontitleformat{\insertsectionhead}\\[-1ex]
     \usebeamertemplate*{progress bar in section page}
     \par
     \ifx\insertsubsectionhead\@empty\else%

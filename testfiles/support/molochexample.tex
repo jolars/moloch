@@ -41,6 +41,39 @@
 \vfil\break
 \END
 
+{
+  \molochset{titleformat frame=smallcaps}
+  \begin{frame}{Small caps}
+    This frame uses the \texttt{smallcaps} title format.
+
+    \begin{block}{Block}
+      Some content
+    \end{block}
+
+    \begin{alertblock}{Alert Block}
+      Yet more content
+    \end{alertblock}
+
+    \begin{exampleblock}{Example Block}
+      Just to try out the different blocks
+    \end{exampleblock}
+  \end{frame}
+}
+
+{
+  \molochset{titleformat frame=allsmallcaps}
+  \begin{frame}{All small caps}
+    This frame uses the \texttt{allsmallcaps} title format.
+  \end{frame}
+}
+
+{
+  \molochset{titleformat frame=allcaps}
+  \begin{frame}{All caps}
+    This frame uses the \texttt{allcaps} title format.
+  \end{frame}
+}
+
 \begin{frame}{Lists}
   \begin{columns}[T,onlytextwidth]
     \column{0.33\textwidth}
