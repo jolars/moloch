@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.5.0](https://github.com/jolars/moloch/compare/v0.4.0...v0.5.0) (2024-08-13)
+
+
+### Features
+
+* replace `\vfill` with `\vfil` in title frame ([8f2a59e](https://github.com/jolars/moloch/commit/8f2a59e239cf0ae32f1a5c8fbf6ad739fa1cd328))
+* switch from fill to fil ([#21](https://github.com/jolars/moloch/issues/21)) ([873ae15](https://github.com/jolars/moloch/commit/873ae154824ed10d45f05c6efe4c4cc73eca1a22))
+
+
+### Bug Fixes
+
+* tag files with date ([28003e7](https://github.com/jolars/moloch/commit/28003e7502ce420a0e24b96e27ba3d30b9b0ecbc))
+
 ## [0.4.0](https://github.com/jolars/moloch/compare/v0.3.0...v0.4.0) (2024-07-09)
 
 
