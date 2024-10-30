@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.5.0](https://github.com/jolars/moloch/compare/v0.4.0...v0.5.0) (2024-10-30)
+
+
+### Features
+
+* replace `\vfill` with `\vfil` in title frame ([8f2a59e](https://github.com/jolars/moloch/commit/8f2a59e239cf0ae32f1a5c8fbf6ad739fa1cd328))
+* switch from fill to fil ([#21](https://github.com/jolars/moloch/issues/21)) ([873ae15](https://github.com/jolars/moloch/commit/873ae154824ed10d45f05c6efe4c4cc73eca1a22))
+
+
+### Bug Fixes
+
+* remove duplicated footnote color specifications ([#26](https://github.com/jolars/moloch/issues/26)) ([1306af5](https://github.com/jolars/moloch/commit/1306af5a73e0a030ece2ad9825496cc28507ad54))
+* remove extra space below progressbar section pages ([#27](https://github.com/jolars/moloch/issues/27)) ([e5be480](https://github.com/jolars/moloch/commit/e5be4806ab9b975be8e8f67434c80fd2155e30b2))
+* set use=block title in block body for fill ([e8921a6](https://github.com/jolars/moloch/commit/e8921a69642166ef22b9b27cd3633a735c22f153)), closes [#28](https://github.com/jolars/moloch/issues/28)
+* tag files with date ([28003e7](https://github.com/jolars/moloch/commit/28003e7502ce420a0e24b96e27ba3d30b9b0ecbc))
+
 ## [0.4.0](https://github.com/jolars/moloch/compare/v0.3.0...v0.4.0) (2024-07-09)
 
 
