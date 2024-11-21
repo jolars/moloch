@@ -1,0 +1,54 @@
+\input regression-test
+
+\documentclass{beamer}
+\usetheme{moloch}
+\usepackage{lmodern}
+
+\begin{document}
+
+\maketitle
+
+\START
+\showoutput
+
+\begin{frame}[c]
+  Sections: progressbar, subsections: progressbar
+\end{frame}
+
+\molochset{sectionpage=progressbar}
+\molochset{subsectionpage=progressbar}
+
+\section{Section}
+\subsection{Subsection}
+
+\begin{frame}[c]
+  Sections: progressbar, subsections: simple
+\end{frame}
+
+\molochset{sectionpage=progressbar}
+
+\section{Section}
+
+\molochset{subsectionpage=simple}
+
+\subsection{Subsection}
+
+\molochset{subsectionpage=progressbar}
+\molochset{sectionpage=progressbar}
+
+\section{Section}
+\subsection{Subsection}
+
+\begin{frame}[c]
+  Sections: simple, subsections: simple
+\end{frame}
+
+\molochset{sectionpage=simple}
+\molochset{subsectionpage=simple}
+
+\section{Section}
+\subsection{Subsection}
+
+% \END
+
+\end{document}
