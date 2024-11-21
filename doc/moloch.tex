@@ -96,9 +96,7 @@
 \maketitle
 \tableofcontents
 
-
 \section{Introduction}
-
 
 Beamer is a great way to make presentations with LaTeX, but its theme
 selection is surprisingly sparse. The stock themes share an aesthetic that can
@@ -179,7 +177,6 @@ The following code shows a minimal example of a Beamer presentation using
 \end{document}
 \end{lstlisting}
 
-
 \subsection{Dependencies}
 
 \themename depends on the |beamer| class and the following standard packages:
@@ -200,7 +197,6 @@ presentations, you can run the following command
 \begin{lstlisting}
 $ pandoc -t beamer -V theme:moloch -o output.pdf input.md
 \end{lstlisting}
-
 
 \section{Customization}
 
@@ -225,7 +221,6 @@ The list of options is structured as shown in the following example.
   A short description of the option.
 }
 
-
 \subsubsection{Main theme}
 
 \DescribeOption{titleformat}%
@@ -245,7 +240,6 @@ The list of options is structured as shown in the following example.
   Changes the format of ``standout'' frames (see |titleformat|, above).
 }
 
-
 \subsubsection{Inner theme}
 
 \DescribeOption{sectionpage}{none, simple, progressbar}{progressbar}{
@@ -262,7 +256,6 @@ The list of options is structured as shown in the following example.
   you may want to use this option together with |sectionpage=none| depending
   on the section structure of your presentation.
 }
-
 
 \subsubsection{Outer theme}
 
@@ -292,7 +285,6 @@ The list of options is structured as shown in the following example.
   of the reverse.
 }
 
-
 \subsubsection{Font theme}
 
 \DescribeMacro{titleformat title}
@@ -304,7 +296,6 @@ The list of options is structured as shown in the following example.
   Individually controls the format of titles, subtitles, section titles, and
   frame titles (see |titleformat|, above).
 }
-
 
 \subsection{Color Customization}
 
@@ -340,7 +331,6 @@ For low-light situations \themename it might be helpful to use the
 \usecolortheme{moloch-highcontrast}
 \end{lstlisting}
 
-
 \subsection{Commands}
 
 \subsubsection{Standout frames}
@@ -365,8 +355,8 @@ In particular, the Computer Modern sans-serif typeface, which is used
 by default when \themename is compiled with pdf\LaTeX, does not have a
 small-caps variant.
 
-Note that title format options |allsmallcaps| and |allcaps| do not 
-affect the sizes of numerals, punctuation, and math symbol, and are 
+Note that title format options |allsmallcaps| and |allcaps| do not
+affect the sizes of numerals, punctuation, and math symbol, and are
 probably best avoided if your titles contain these characters.
 
 \subsection{Interactions with other color themes}
@@ -403,7 +393,6 @@ favourite Beamer color theme. In particular, \themename does not set a
 background color for the title; this will cause issues when using color themes
 like |whale| which set a white foreground for the title.
 
-
 \subsection{Notes on second screen}
 
 If you use the \verb+[show notes on second screen]+ option built in to Beamer and
@@ -423,7 +412,6 @@ on each slide.
 }
 \makeatother
 \end{lstlisting}
-
 
 \subsection{Standout frames with labels}
 
@@ -457,13 +445,11 @@ solution for Org mode users, using |org-set-property|.
    :END:
 \end{lstlisting}
 
-
 \subsection{Standout frames with Pandoc}
 
 With Pandoc versions prior to 1.17.2 it was not possible to create standout frames
 because Pandoc only supported a specific list of frame attributes thus ignoring
 additional attributes such as  |{.standout}|.
-
 
 \section{License}
 
@@ -473,7 +459,6 @@ additional attributes such as  |{.standout}|.
 This means that if you change the theme and re-distribute it, you must retain
 the copyright notice header and license it under the same CC-BY-SA license.
 This does not affect any presentations that you create with the theme.
-
 
 \section{Implementation}
 

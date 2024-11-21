@@ -89,13 +89,42 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{standoutnumbering}
+%    Whether or not to number standout pages. Option |none| means that 
+%    standout pages are not numbered (do not count as frames). |hide| means
+%    that they do count as frames, but that the footer with the number is
+%    not shown. Option |show| means that they both count as frames and
+%    that the footer with a frame count is shown.
+%    \begin{macrocode}
+\providebool{moloch@enableStandoutFooter}
+\providebool{moloch@enableStandoutNumbering}
+\pgfkeys{
+  /moloch/inner/standoutnumbering/.cd,
+  .is choice,
+  none/.code={
+      \boolfalse{moloch@enableStandoutNumbering}
+      \boolfalse{moloch@enableStandoutFooter}
+    },
+  show/.code={
+      \booltrue{moloch@enableStandoutNumbering}
+      \booltrue{moloch@enableStandoutFooter}
+    },
+  hide/.code={
+      \booltrue{moloch@enableStandoutNumbering}
+      \boolfalse{moloch@enableStandoutFooter}
+    }
+}
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\moloch@inner@setdefaults}
 % Set default values for inner theme options.
 %    \begin{macrocode}
 \newcommand{\moloch@inner@setdefaults}{
   \pgfkeys{/moloch/inner/.cd,
     sectionpage=progressbar,
-    subsectionpage=none
+    subsectionpage=none,
+    standoutnumbering=none
   }
 }
 %    \end{macrocode}
@@ -437,7 +466,7 @@
   \booltrue{moloch@standout}
   \begingroup
   \setkeys{beamerframe}{c}
-  \setkeys{beamerframe}{noframenumbering}
+  \ifbool{moloch@enableStandoutNumbering}{}{\setkeys{beamerframe}{noframenumbering}}
   \ifbeamercolorempty[bg]{palette primary}{
     \setbeamercolor{background canvas}{
       use=palette primary,
@@ -453,6 +482,11 @@
     fg=palette primary.fg
   }
   \usebeamercolor[fg]{palette primary}
+  \setbeamercolor{page number in head/foot}{
+    use=palette primary,
+    fg=palette primary.fg
+  }
+  \ifbool{moloch@enableStandoutFooter}{}{\setbeamertemplate{footline}{}}
 }
 %    \end{macrocode}
 %
