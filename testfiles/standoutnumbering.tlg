@@ -40,7 +40,7 @@ Completed box being shipped out [1]
 ..........\hbox(273.14662+0.0)x364.19536
 ...........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ...........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-...........\pdfcolorstack 0 push {0.98 g 0.98 G}
+...........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ...........\rule(273.14662+*)x364.19536
 ...........\pdfcolorstack 0 pop
 ...........\pdfcolorstack 0 pop
@@ -55,31 +55,31 @@ Completed box being shipped out [1]
 .......\glue(\baselineskip) 0.0
 .......\hbox(0.0+0.0)x-56.90549
 ........\hbox(0.0+0.0)x0.0
-.........\hbox(265.20912+0.0)x-28.45274, shifted 265.20912
-..........\hbox(265.20912+0.0)x-28.45274
+.........\hbox(273.14662+0.0)x-28.45274, shifted 273.14662
+..........\hbox(273.14662+0.0)x-28.45274
 ...........\glue -28.45274
 ...........\hbox(0.0+0.0)x0.0
-............\vbox(265.20912+0.0)x0.0, glue set 265.20912fil
+............\vbox(273.14662+0.0)x0.0, glue set 273.14662fil
 .............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 .............\glue 0.0 plus 1.0fil minus 1.0fil
 ............\pdfcolorstack 0 pop
-...........\vbox(265.20912+0.0)x0.0, glue set 265.20912fil
+...........\vbox(273.14662+0.0)x0.0, glue set 273.14662fil
 ............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ............\pdfcolorstack 0 pop
 ............\pdfcolorstack 0 pop
 ............\glue 0.0 plus 1.0fil
 ........\hbox(0.0+0.0)x0.0
-.........\hbox(265.20912+0.0)x335.74261, shifted 265.20912
-..........\hbox(265.20912+0.0)x335.74261
+.........\hbox(273.14662+0.0)x335.74261, shifted 273.14662
+..........\hbox(273.14662+0.0)x335.74261
 ...........\glue 307.28987
 ...........\glue 28.45274
 ...........\hbox(0.0+0.0)x0.0
-............\vbox(265.20912+0.0)x0.0, glue set 265.20912fil
+............\vbox(273.14662+0.0)x0.0, glue set 273.14662fil
 .............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 .............\glue 0.0 plus 1.0fil minus 1.0fil
 ............\pdfcolorstack 0 pop
-...........\vbox(265.20912+0.0)x0.0, glue set 256.20912fill
+...........\vbox(273.14662+0.0)x0.0, glue set 264.14662fill
 ............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ............\glue 0.0 plus 1.0fill
@@ -122,15 +122,16 @@ Completed box being shipped out [1]
 .....\pdfcolorstack 0 pop
 ...\glue 0.0
 ...\glue(\lineskip) 0.0
-...\vbox(261.20912+0.0)x307.28987
+...\vbox(269.14662+0.0)x307.28987
 ....\pdfcolorstack 0 push {0 g 0 G}
 ....\write-{}
 ....\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ....\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ....\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ....\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
+....\pdfcolorstack 0 push {0.98 g 0.98 G}
 ....\glue(\topskip) 0.0
-....\vbox(261.20912+0.0)x307.28987, glue set 123.1202fil
+....\vbox(269.14662+0.0)x307.28987, glue set 124.81012fil
 .....\penalty 10000
 .....\vbox(0.0+0.0)x0.0
 .....\penalty 10000
@@ -144,26 +145,27 @@ Completed box being shipped out [1]
 .....\vbox(0.0+0.0)x0.0
 .....\glue(\parskip) 0.0
 .....\glue(\parskip) 0.0
-.....\glue(\baselineskip) 5.99579
-.....\hbox(7.60422+1.36874)x307.28987, glue set 124.70367fil
+.....\glue(\baselineskip) 7.99992
+.....\hbox(10.00008+1.5264)x307.28987, glue set 111.68523fil
+......\glue(\leftskip) 0.0 plus 1.0fil
 ......\hbox(0.0+0.0)x0.0
-......\OT1/lmss/m/n/10.95 H
-......\OT1/lmss/m/n/10.95 e
-......\OT1/lmss/m/n/10.95 l
-......\OT1/lmss/m/n/10.95 l
-......\OT1/lmss/m/n/10.95 o
-......\OT1/lmss/m/n/10.95 ,
-......\glue 3.65 plus 2.28123 minus 0.97333
-......\OT1/lmss/m/n/10.95 w
-......\kern-0.30418
-......\OT1/lmss/m/n/10.95 o
-......\kern-0.30418
-......\OT1/lmss/m/n/10.95 r
-......\OT1/lmss/m/n/10.95 l
-......\OT1/lmss/m/n/10.95 d
-......\OT1/lmss/m/n/10.95 !
+......\OT1/lmss/bx/n/14.4 H
+......\OT1/lmss/bx/n/14.4 e
+......\OT1/lmss/bx/n/14.4 l
+......\OT1/lmss/bx/n/14.4 l
+......\OT1/lmss/bx/n/14.4 o
+......\OT1/lmss/bx/n/14.4 ,
+......\glue 5.28 plus 3.29997 minus 1.40799
+......\OT1/lmss/bx/n/14.4 w
+......\kern-0.44
+......\OT1/lmss/bx/n/14.4 o
+......\kern-0.44
+......\OT1/lmss/bx/n/14.4 r
+......\OT1/lmss/bx/n/14.4 l
+......\OT1/lmss/bx/n/14.4 d
+......\OT1/lmss/bx/n/14.4 !
 ......\penalty 10000
-......\glue(\parfillskip) 0.0 plus 1.0fil
+......\glue(\parfillskip) 0.0
 ......\glue(\rightskip) 0.0 plus 1.0fil
 .....\glue 0.0 plus 1.0fil
 ....\write1{\@writefile{nav}{\protect \headcommand {\protect \slideentry {0}{0}{1}{1/1}{}{0}}}}
@@ -171,38 +173,17 @@ Completed box being shipped out [1]
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ...\glue(\baselineskip) 4.0
-...\hbox(7.9375+0.0)x307.28987
+...\hbox(0.0+0.0)x307.28987
 ....\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-....\hbox(7.9375+0.0)x307.28987
-.....\vbox(7.9375+0.0)x307.28987
-......\hbox(7.9375+0.0)x307.28987
-.......\hbox(7.9375+0.0)x307.28987
+....\hbox(0.0+0.0)x307.28987, glue set 307.28987fil
+.....\vbox(0.0+0.0)x0.0
+......\hbox(0.0+0.0)x-56.90549
+.......\hbox(0.0+0.0)x-56.90549
 ........\glue -28.45274
-........\hbox(7.9375+0.0)x364.19536
-.........\vbox(7.9375+0.0)x364.19536
+........\hbox(0.0+0.0)x0.0
+.........\vbox(0.0+0.0)x0.0
 ..........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ..........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-..........\hbox(7.9375+0.0)x364.19536
-...........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-...........\vbox(7.9375+0.0)x364.19536
-............\hbox(3.9375+0.0)x364.19536, glue set 345.63286fill
-.............\glue(\leftskip) 4.0
-.............\hbox(0.0+0.0)x0.0
-.............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-.............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-.............\pdfcolorstack 0 pop
-.............\glue 0.0 plus 1.0fill
-.............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-.............\hbox(3.9375+0.0)x9.5625, glue set 6.375fil
-..............\glue 0.0 plus 1.0fil minus 1.0fil
-..............\OT1/lmss/m/n/6 1
-.............\pdfcolorstack 0 pop
-.............\penalty 10000
-.............\glue(\parfillskip) 0.0 plus 1.0fil
-.............\glue(\rightskip) 5.0
-............\glue 4.0
-...........\pdfcolorstack 0 pop
-...........\pdfcolorstack 0 pop
 ..........\pdfcolorstack 0 pop
 ..........\pdfcolorstack 0 pop
 ........\glue -28.45274
@@ -253,7 +234,7 @@ Completed box being shipped out [2]
 ..........\hbox(273.14662+0.0)x364.19536
 ...........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ...........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-...........\pdfcolorstack 0 push {0.98 g 0.98 G}
+...........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ...........\rule(273.14662+*)x364.19536
 ...........\pdfcolorstack 0 pop
 ...........\pdfcolorstack 0 pop
@@ -337,8 +318,10 @@ Completed box being shipped out [2]
 ...\glue(\lineskip) 0.0
 ...\vbox(261.20912+0.0)x307.28987
 ....\write-{}
+....\pdfcolorstack 0 pop
+....\pdfcolorstack 0 push {0.98 g 0.98 G}
 ....\glue(\topskip) 0.0
-....\vbox(261.20912+0.0)x307.28987, glue set 123.1202fil
+....\vbox(261.20912+0.0)x307.28987, glue set 120.84137fil
 .....\penalty 10000
 .....\vbox(0.0+0.0)x0.0
 .....\penalty 10000
@@ -352,26 +335,27 @@ Completed box being shipped out [2]
 .....\vbox(0.0+0.0)x0.0
 .....\glue(\parskip) 0.0
 .....\glue(\parskip) 0.0
-.....\glue(\baselineskip) 5.99579
-.....\hbox(7.60422+1.36874)x307.28987, glue set 124.70367fil
+.....\glue(\baselineskip) 7.99992
+.....\hbox(10.00008+1.5264)x307.28987, glue set 111.68523fil
+......\glue(\leftskip) 0.0 plus 1.0fil
 ......\hbox(0.0+0.0)x0.0
-......\OT1/lmss/m/n/10.95 H
-......\OT1/lmss/m/n/10.95 e
-......\OT1/lmss/m/n/10.95 l
-......\OT1/lmss/m/n/10.95 l
-......\OT1/lmss/m/n/10.95 o
-......\OT1/lmss/m/n/10.95 ,
-......\glue 3.65 plus 2.28123 minus 0.97333
-......\OT1/lmss/m/n/10.95 w
-......\kern-0.30418
-......\OT1/lmss/m/n/10.95 o
-......\kern-0.30418
-......\OT1/lmss/m/n/10.95 r
-......\OT1/lmss/m/n/10.95 l
-......\OT1/lmss/m/n/10.95 d
-......\OT1/lmss/m/n/10.95 !
+......\OT1/lmss/bx/n/14.4 H
+......\OT1/lmss/bx/n/14.4 e
+......\OT1/lmss/bx/n/14.4 l
+......\OT1/lmss/bx/n/14.4 l
+......\OT1/lmss/bx/n/14.4 o
+......\OT1/lmss/bx/n/14.4 ,
+......\glue 5.28 plus 3.29997 minus 1.40799
+......\OT1/lmss/bx/n/14.4 w
+......\kern-0.44
+......\OT1/lmss/bx/n/14.4 o
+......\kern-0.44
+......\OT1/lmss/bx/n/14.4 r
+......\OT1/lmss/bx/n/14.4 l
+......\OT1/lmss/bx/n/14.4 d
+......\OT1/lmss/bx/n/14.4 !
 ......\penalty 10000
-......\glue(\parfillskip) 0.0 plus 1.0fil
+......\glue(\parfillskip) 0.0
 ......\glue(\rightskip) 0.0 plus 1.0fil
 .....\glue 0.0 plus 1.0fil
 ....\write1{\@writefile{nav}{\protect \headcommand {\protect \slideentry {0}{0}{2}{2/2}{}{0}}}}
@@ -396,14 +380,14 @@ Completed box being shipped out [2]
 ............\hbox(3.9375+0.0)x364.19536, glue set 345.63286fill
 .............\glue(\leftskip) 4.0
 .............\hbox(0.0+0.0)x0.0
-.............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-.............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
+.............\pdfcolorstack 0 push {0.98 g 0.98 G}
+.............\pdfcolorstack 0 push {0.98 g 0.98 G}
 .............\pdfcolorstack 0 pop
 .............\glue 0.0 plus 1.0fill
-.............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
+.............\pdfcolorstack 0 push {0.98 g 0.98 G}
 .............\hbox(3.9375+0.0)x9.5625, glue set 6.375fil
 ..............\glue 0.0 plus 1.0fil minus 1.0fil
-..............\OT1/lmss/m/n/6 2
+..............\OT1/lmss/m/n/6 1
 .............\pdfcolorstack 0 pop
 .............\penalty 10000
 .............\glue(\parfillskip) 0.0 plus 1.0fil
@@ -460,7 +444,7 @@ Completed box being shipped out [3]
 ..........\hbox(273.14662+0.0)x364.19536
 ...........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ...........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-...........\pdfcolorstack 0 push {0.98 g 0.98 G}
+...........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ...........\rule(273.14662+*)x364.19536
 ...........\pdfcolorstack 0 pop
 ...........\pdfcolorstack 0 pop
@@ -475,31 +459,31 @@ Completed box being shipped out [3]
 .......\glue(\baselineskip) 0.0
 .......\hbox(0.0+0.0)x-56.90549
 ........\hbox(0.0+0.0)x0.0
-.........\hbox(265.20912+0.0)x-28.45274, shifted 265.20912
-..........\hbox(265.20912+0.0)x-28.45274
+.........\hbox(273.14662+0.0)x-28.45274, shifted 273.14662
+..........\hbox(273.14662+0.0)x-28.45274
 ...........\glue -28.45274
 ...........\hbox(0.0+0.0)x0.0
-............\vbox(265.20912+0.0)x0.0, glue set 265.20912fil
+............\vbox(273.14662+0.0)x0.0, glue set 273.14662fil
 .............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 .............\glue 0.0 plus 1.0fil minus 1.0fil
 ............\pdfcolorstack 0 pop
-...........\vbox(265.20912+0.0)x0.0, glue set 265.20912fil
+...........\vbox(273.14662+0.0)x0.0, glue set 273.14662fil
 ............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ............\pdfcolorstack 0 pop
 ............\pdfcolorstack 0 pop
 ............\glue 0.0 plus 1.0fil
 ........\hbox(0.0+0.0)x0.0
-.........\hbox(265.20912+0.0)x335.74261, shifted 265.20912
-..........\hbox(265.20912+0.0)x335.74261
+.........\hbox(273.14662+0.0)x335.74261, shifted 273.14662
+..........\hbox(273.14662+0.0)x335.74261
 ...........\glue 307.28987
 ...........\glue 28.45274
 ...........\hbox(0.0+0.0)x0.0
-............\vbox(265.20912+0.0)x0.0, glue set 265.20912fil
+............\vbox(273.14662+0.0)x0.0, glue set 273.14662fil
 .............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 .............\glue 0.0 plus 1.0fil minus 1.0fil
 ............\pdfcolorstack 0 pop
-...........\vbox(265.20912+0.0)x0.0, glue set 256.20912fill
+...........\vbox(273.14662+0.0)x0.0, glue set 264.14662fill
 ............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ............\glue 0.0 plus 1.0fill
@@ -542,10 +526,12 @@ Completed box being shipped out [3]
 .....\pdfcolorstack 0 pop
 ...\glue 0.0
 ...\glue(\lineskip) 0.0
-...\vbox(261.20912+0.0)x307.28987
+...\vbox(269.14662+0.0)x307.28987
 ....\write-{}
+....\pdfcolorstack 0 pop
+....\pdfcolorstack 0 push {0.98 g 0.98 G}
 ....\glue(\topskip) 0.0
-....\vbox(261.20912+0.0)x307.28987, glue set 123.1202fil
+....\vbox(269.14662+0.0)x307.28987, glue set 124.81012fil
 .....\penalty 10000
 .....\vbox(0.0+0.0)x0.0
 .....\penalty 10000
@@ -559,26 +545,27 @@ Completed box being shipped out [3]
 .....\vbox(0.0+0.0)x0.0
 .....\glue(\parskip) 0.0
 .....\glue(\parskip) 0.0
-.....\glue(\baselineskip) 5.99579
-.....\hbox(7.60422+1.36874)x307.28987, glue set 124.70367fil
+.....\glue(\baselineskip) 7.99992
+.....\hbox(10.00008+1.5264)x307.28987, glue set 111.68523fil
+......\glue(\leftskip) 0.0 plus 1.0fil
 ......\hbox(0.0+0.0)x0.0
-......\OT1/lmss/m/n/10.95 H
-......\OT1/lmss/m/n/10.95 e
-......\OT1/lmss/m/n/10.95 l
-......\OT1/lmss/m/n/10.95 l
-......\OT1/lmss/m/n/10.95 o
-......\OT1/lmss/m/n/10.95 ,
-......\glue 3.65 plus 2.28123 minus 0.97333
-......\OT1/lmss/m/n/10.95 w
-......\kern-0.30418
-......\OT1/lmss/m/n/10.95 o
-......\kern-0.30418
-......\OT1/lmss/m/n/10.95 r
-......\OT1/lmss/m/n/10.95 l
-......\OT1/lmss/m/n/10.95 d
-......\OT1/lmss/m/n/10.95 !
+......\OT1/lmss/bx/n/14.4 H
+......\OT1/lmss/bx/n/14.4 e
+......\OT1/lmss/bx/n/14.4 l
+......\OT1/lmss/bx/n/14.4 l
+......\OT1/lmss/bx/n/14.4 o
+......\OT1/lmss/bx/n/14.4 ,
+......\glue 5.28 plus 3.29997 minus 1.40799
+......\OT1/lmss/bx/n/14.4 w
+......\kern-0.44
+......\OT1/lmss/bx/n/14.4 o
+......\kern-0.44
+......\OT1/lmss/bx/n/14.4 r
+......\OT1/lmss/bx/n/14.4 l
+......\OT1/lmss/bx/n/14.4 d
+......\OT1/lmss/bx/n/14.4 !
 ......\penalty 10000
-......\glue(\parfillskip) 0.0 plus 1.0fil
+......\glue(\parfillskip) 0.0
 ......\glue(\rightskip) 0.0 plus 1.0fil
 .....\glue 0.0 plus 1.0fil
 ....\write1{\@writefile{nav}{\protect \headcommand {\protect \slideentry {0}{0}{3}{3/3}{}{0}}}}
@@ -586,38 +573,17 @@ Completed box being shipped out [3]
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ...\glue(\baselineskip) 4.0
-...\hbox(7.9375+0.0)x307.28987
+...\hbox(0.0+0.0)x307.28987
 ....\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-....\hbox(7.9375+0.0)x307.28987
-.....\vbox(7.9375+0.0)x307.28987
-......\hbox(7.9375+0.0)x307.28987
-.......\hbox(7.9375+0.0)x307.28987
+....\hbox(0.0+0.0)x307.28987, glue set 307.28987fil
+.....\vbox(0.0+0.0)x0.0
+......\hbox(0.0+0.0)x-56.90549
+.......\hbox(0.0+0.0)x-56.90549
 ........\glue -28.45274
-........\hbox(7.9375+0.0)x364.19536
-.........\vbox(7.9375+0.0)x364.19536
+........\hbox(0.0+0.0)x0.0
+.........\vbox(0.0+0.0)x0.0
 ..........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ..........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-..........\hbox(7.9375+0.0)x364.19536
-...........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-...........\vbox(7.9375+0.0)x364.19536
-............\hbox(3.9375+0.0)x364.19536, glue set 345.63286fill
-.............\glue(\leftskip) 4.0
-.............\hbox(0.0+0.0)x0.0
-.............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-.............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-.............\pdfcolorstack 0 pop
-.............\glue 0.0 plus 1.0fill
-.............\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-.............\hbox(3.9375+0.0)x9.5625, glue set 6.375fil
-..............\glue 0.0 plus 1.0fil minus 1.0fil
-..............\OT1/lmss/m/n/6 3
-.............\pdfcolorstack 0 pop
-.............\penalty 10000
-.............\glue(\parfillskip) 0.0 plus 1.0fil
-.............\glue(\rightskip) 5.0
-............\glue 4.0
-...........\pdfcolorstack 0 pop
-...........\pdfcolorstack 0 pop
 ..........\pdfcolorstack 0 pop
 ..........\pdfcolorstack 0 pop
 ........\glue -28.45274
@@ -628,3 +594,7 @@ Completed box being shipped out [3]
 .....\glue 0.0 plus 1.0fil
 ....\pdfcolorstack 0 pop
 .\kern 0.0
+\tf@nav=\write...
+\tf@toc=\write...
+\tf@snm=\write...
+(standoutnumbering.aux)

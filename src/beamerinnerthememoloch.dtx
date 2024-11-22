@@ -288,12 +288,14 @@
     \usebeamercolor[fg]{section title}
     \usebeamerfont{section title}
     \moloch@sectiontitleformat{\insertsectionhead}\par
-    \ifx\insertsubsectionhead\@empty\else
-      \usebeamercolor[fg]{subsection title}
-      \usebeamerfont{subsection title}
-      \insertsubsectionhead
+    \usebeamercolor[fg]{subsection title}%
+    \usebeamerfont{subsection title}%
+    \strut%
+    \ifx\insertsubsectionhead\@empty\else%
+      \insertsubsectionhead%
     \fi
   \end{center}
+  \vspace{\baselineskip - 1ex + 0.4pt}
 }
 \defbeamertemplate{section page}{progressbar}{
   \centering
@@ -301,17 +303,17 @@
     \raggedright
     \usebeamercolor[fg]{section title}
     \usebeamerfont{section title}
-    \moloch@sectiontitleformat{\insertsectionhead}\\[-1ex]
+    \moloch@sectiontitleformat{\insertsectionhead}\\[-0.5\baselineskip]
     \usebeamertemplate*{progress bar in section page}
     \par
+    \usebeamercolor[fg]{subsection title}%
+    \usebeamerfont{subsection title}%
+    \strut%
     \ifx\insertsubsectionhead\@empty\else%
-      \usebeamercolor[fg]{subsection title}%
-      \usebeamerfont{subsection title}%
-      \insertsubsectionhead
+      \insertsubsectionhead%
     \fi
   \end{minipage}
   \par
-  \vspace{\baselineskip}
 }
 \newcommand{\moloch@disablesectionpage}{
   \AtBeginSection{
