@@ -33,15 +33,20 @@
             microtype
             ;
         };
+        l3build-wrapped = pkgs.writeShellScriptBin "l3build-wrapped" ''
+          # NOTE: the trailing slash in TEXMF is required
+          TEXMF="${texlive}/" ${texlive}/bin/l3build "$@"
+        '';
       in
       {
         devShells.default = pkgs.mkShell {
           buildInputs = [
             texlive
+            l3build-wrapped
           ];
-          shellHook = ''
-            export TEXMF="${texlive}/"
-          '';
+          # shellHook = ''
+          #   export TEXMF="${texlive}/"
+          # '';
         };
       }
     );
