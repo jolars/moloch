@@ -1,0 +1,95 @@
+\documentclass[10pt]{beamer}
+
+\usepackage[T1]{fontenc}
+
+\usetheme{moloch}
+\usecolortheme{moloch-tomorrow}
+\usepackage{lmodern}
+
+\setbeamertemplate{page number in head/foot}[appendixframenumber]
+\setbeamertemplate{section in toc}[sections numbered]
+
+\usepackage{booktabs}
+
+\usepackage{xspace}
+
+\newcommand{\themename}{\textbf{moloch}\xspace}
+
+\title{Moloch}
+\subtitle{A Minimal Beamer Theme}
+\date{\today}
+\author{The Author}
+\institute{Some Institution, Some University}
+\titlegraphic{\hfill\includegraphics[width=3.5cm]{moloch-logo.pdf}}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Table of Contents}
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}[fragile]{Moloch}
+
+  The \themename theme is a Beamer theme with minimal visual noise. It is a fork of the
+  \href{https://github.com/matze/mtheme}{metropolis theme} by Matthias Vogelgesang, which in
+  turn was inspired by by the \href{https://github.com/hsrmbeamertheme/hsrmbeamertheme}{hsrm
+    theme} by Benjamin Weiss. \medskip
+
+  Enable the theme by calling
+  \begin{verbatim}\documentclass{beamer}
+\usetheme{moloch}\end{verbatim}
+\end{frame}
+\begin{frame}[fragile]{Sections}
+  Sections group slides of the same topic by introducing a section page between them. A progress bar is shown which indicates how far along in the presentation you are.
+
+  \begin{verbatim}\section{Title Formats}\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Blocks}
+  Three different block environments are pre-defined: \verb|block|, \verb|alertblock|,
+  and \verb|exampleblock|. They can be styled using the option
+  \verb|block|, which takes values \verb|transparent| (default, left column) and \verb|fill| (right column).
+
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      {
+        \molochset{block=fill}
+
+        \begin{block}{Default}
+          Block content.
+        \end{block}
+
+        \begin{alertblock}{Alert}
+          Block content.
+        \end{alertblock}
+
+        \begin{exampleblock}{Example}
+          Block content.
+        \end{exampleblock}
+      }
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[standout]
+  Questions?
+\end{frame}
+
+\end{document}
