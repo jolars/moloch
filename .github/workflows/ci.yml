@@ -15,9 +15,9 @@ jobs:
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - name: document
-        run: nix develop --command l3build-wrapper doc
+        run: nix develop --command l3build-wrapped doc
       - name: build
-        run: nix develop --command l3build-wrapper ctan -q -H --show-log-on-error
+        run: nix develop --command l3build-wrapped ctan -q -H --show-log-on-error
   release:
     if: ${{ github.ref == 'refs/heads/main' }}
     permissions:
