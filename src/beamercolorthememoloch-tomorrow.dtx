@@ -1,0 +1,51 @@
+% \iffalse meta-comment -------------------------------------------------------
+% Copyright 2015 Matthias Vogelgesang and the LaTeX community. A full list of
+% contributors can be found at
+%
+%     https://github.com/matze/mtheme/graphs/contributors
+%
+% and the original template was based on the HSRM theme by Benjamin Weiss.
+%
+% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0
+% International License (https://creativecommons.org/licenses/by-sa/4.0/).
+%% --------------------------------------------------------------------------- 
+%% Copyright 2024 Johan Larsson and contributors
+% ------------------------------------------------------------------------- \fi
+% \iffalse
+%<*package>
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamercolorthememoloch-tomorrow}[2024-10-30 v0.5.0 Moloch color theme] % x-release-please-version
+%</package>
+% \fi
+% \CheckSum{0}
+% \StopEventually{}
+% \iffalse
+%<*package>
+% ------------------------------------------------------------------------- \fi
+%
+\usecolortheme{moloch}
+
+\definecolor{tomorrowForeground}{HTML}{1d1f21}
+\definecolor{tomorrowBackground}{RGB}{255,255,255}
+\definecolor{tomorrowHeader}{HTML}{1d1f21}
+\definecolor{tomorrowAlert}{HTML}{cc6666}
+\definecolor{tomorrowExample}{HTML}{4271ae}
+\definecolor{tomorrowProgress}{HTML}{8959a8}
+
+\setbeamercolor{normal text}{fg=tomorrowForeground,bg=tomorrowBackground}
+\setbeamercolor{moloch accent}{fg=tomorrowAccent}
+\setbeamercolor{frametitle}{bg=tomorrowHeader}
+\setbeamercolor{alerted text}{fg=tomorrowAlert}
+\setbeamercolor{example text}{fg=tomorrowExample}
+\setbeamercolor{progress bar}{fg=tomorrowProgress}
+
+%
+%    \begin{macrocode}
+\mode<all>
+%    \end{macrocode}
+%
+% \iffalse
+%</package>
+% \fi
+% \Finale
+\endinput
