@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.6.0](https://github.com/jolars/moloch/compare/v0.5.0...v0.6.0) (2025-01-17)
+
+
+### Features
+
+* add back highcontrast theme from metropolis ([3039994](https://github.com/jolars/moloch/commit/3039994e27a01d54d7a3cfa696318413161f5e15))
+* add new color theme based on the tomorrow color theme ([13e7300](https://github.com/jolars/moloch/commit/13e73007c6d29989684aa228f7f74d3bdcce526f))
+* add option to customize frame numbering of standout pages ([d6d0e3c](https://github.com/jolars/moloch/commit/d6d0e3c61565f06d1987c275e2460c9b61ef8ae3)), closes [#33](https://github.com/jolars/moloch/issues/33)
+* deprecate `\mreducelistspacing` ([3d87ec2](https://github.com/jolars/moloch/commit/3d87ec2d8d4a81c09d13083aa61af2a36ce6dd1d))
+* redesign section and subsection pages  ([#30](https://github.com/jolars/moloch/issues/30)) ([5a98c69](https://github.com/jolars/moloch/commit/5a98c69a3f07b5b36d5d2c5e5a117e25c472ad22))
+* use golden rule in top-bottom spacing of title page ([85eabc7](https://github.com/jolars/moloch/commit/85eabc7beef4296dcc7a7ac53eb0f7a785fe8c35))
+
+
+### Reverts
+
+* "feat: deprecate `\mreducelistspacing`" ([eb4bf54](https://github.com/jolars/moloch/commit/eb4bf54e734a64936903d18dbb6d1668d769fa01))
+* "test: remove standoutnumbering test" ([ce7540d](https://github.com/jolars/moloch/commit/ce7540d71caf490cbd3129345cd778b1519394d9))
+
 ## [0.5.0](https://github.com/jolars/moloch/compare/v0.4.0...v0.5.0) (2024-10-30)
 
 
