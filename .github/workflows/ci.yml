@@ -11,29 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: teatimeguest/setup-texlive-action@v3
+      - uses: cachix/install-nix-action@v27
         with:
-          packages: >-
-            scheme-basic
-            beamer
-            biblatex
-            enumitem
-            fileinfo
-            hypdoc
-            hyperref
-            l3build
-            listings
-            metalogo
-            parskip
-            pgf
-            pgfopts
-            setspace
-            xurl
-            microtype
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - name: document
-        run: l3build doc
+        run: nix develop --command l3build doc
       - name: build
-        run: l3build ctan -q -H --show-log-on-error
+        run: nix develop --command l3build ctan -q -H --show-log-on-error
   release:
     if: ${{ github.ref == 'refs/heads/main' }}
     permissions:
