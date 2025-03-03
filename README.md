@@ -13,7 +13,7 @@ The fork was created for the following reasons:
 - To strip away some features that added complexity to the code base without achieving valuable functionality for the majority of users, such as special code block designs and the pgfplots theme.
 
 [Here's a blog post](https://jolars.co/blog/2024-05-30-moloch/) in which I introduce the theme and write in more detail about the changes with respect to Metropolis.
-Also see the [demo](example/demo/demo.pdf) for a quick introduction to the theme.
+Also see the [demo](examples/demo/demo.pdf) for a quick introduction to the theme.
 
 Do not expect this theme to be backwards compatible with the Metropolis theme.
 
