@@ -117,6 +117,29 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{titleseparator linewidth}
+%    Set the width of the line separating the title from the author.
+%    \begin{macrocode}
+\newlength{\moloch@titleseparator@linewidth}
+\pgfkeys{
+  /moloch/inner/.cd,
+  titleseparatorlinewidth/.code={\setlength{\moloch@titleseparator@linewidth}{#1}},
+  titleseparatorlinewidth/.default=0.4pt,
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{titleseparator aliases}
+%    Allows |titleseparator linewidth| to be used in |\usetheme|.
+%    \begin{macrocode}
+\pgfkeys{
+  /moloch/inner/.cd,
+  titleseparator linewidth/.code=\pgfkeysalso{titleseparatorlinewidth=#1},
+}
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\moloch@inner@setdefaults}
 % Set default values for inner theme options.
 %    \begin{macrocode}
@@ -124,7 +147,8 @@
   \pgfkeys{/moloch/inner/.cd,
     sectionpage=progressbar,
     subsectionpage=none,
-    standoutnumbering=none
+    standoutnumbering=none,
+    titleseparator linewidth=0.4pt,
   }
 }
 %    \end{macrocode}
@@ -205,7 +229,6 @@
   \raggedright%
   \moloch@titleformat{\inserttitle}%
   \par%
-  \vspace*{0.2em}
 }
 %    \end{macrocode}
 % \end{macro}
@@ -214,26 +237,23 @@
 %   Set the subtitle on the title page.
 %    \begin{macrocode}
 \setbeamertemplate{subtitle}{
-  \vspace*{0.1em}
+  \vspace*{0.3em}
   \raggedright%
   \moloch@subtitleformat{\insertsubtitle}%
   \par%
-  \vspace*{0.2em}
 }
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{title separator}
-%   Template to set the title graphic in a zero-height box. (It won't
-%   change the position of other elements.)
+%   Template to set the title separator.
 %    \begin{macrocode}
-\newlength{\moloch@titleseparator@linewidth}
-\setlength{\moloch@titleseparator@linewidth}{0.4pt}
 \setbeamertemplate{title separator}{
   \tikzexternaldisable%
-  \begin{tikzpicture}
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
     \mmzUnmemoizable%
     \fill[fg] (0,0) rectangle (\textwidth, \moloch@titleseparator@linewidth);
+    \useasboundingbox (0,0) rectangle (\textwidth,-\moloch@titleseparator@linewidth);
   \end{tikzpicture}%
   \tikzexternalenable%
   \par%
@@ -296,7 +316,7 @@
       \insertsubsectionhead%
     \fi
   \end{center}
-  \vspace{\baselineskip - 1ex + 0.4pt}
+  \vspace{\baselineskip - 1ex + \moloch@titleseparator@linewidth}
 }
 \defbeamertemplate{section page}{progressbar}{
   \centering
@@ -366,15 +386,12 @@
 %   |progress bar in head/foot|.
 %
 %    \begin{macrocode}
-\newlength{\moloch@progressonsectionpage}
-\newlength{\moloch@progressonsectionpage@linewidth}
-\setlength{\moloch@progressonsectionpage@linewidth}{0.4pt}
 \setbeamertemplate{progress bar in section page}{
   \pgfmathsetlength{\moloch@progressonsectionpage}{
     \textwidth * min(1,\insertframenumber/\inserttotalframenumber)
   }%
   \tikzexternaldisable%
-  \begin{tikzpicture}
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
     \mmzUnmemoizable%
     \fill[bg]
     (0,0)
@@ -385,6 +402,7 @@
     rectangle
     (\moloch@progressonsectionpage,
     \moloch@progressonsectionpage@linewidth);
+    \useasboundingbox (0,0) rectangle (\textwidth,-\moloch@progressonsectionpage@linewidth);
   \end{tikzpicture}%
   \tikzexternalenable%
 }

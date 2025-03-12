@@ -71,12 +71,41 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{progressbar linewidth}
+%    Sets the linewidth of the progress bar for sectionpages and frames.
+%    \begin{macrocode}
+\newlength{\moloch@progressonsectionpage}
+\newlength{\moloch@progressonsectionpage@linewidth}
+\newlength{\moloch@progressinheadfoot}
+\newlength{\moloch@progressinheadfoot@linewidth}
+\pgfkeys{
+  /moloch/outer/.cd,
+  progressbarlinewidth/.code={
+      \setlength{\moloch@progressonsectionpage@linewidth}{#1}
+      \setlength{\moloch@progressinheadfoot@linewidth}{#1}
+    },
+  progressbarlinewidth/.default=0.4pt,
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{progressbar aliases}
+%    Allows |progressbar linewidth| to be used in |\molochset|.
+%    \begin{macrocode}
+\pgfkeys{
+  /moloch/outer/.cd,
+  progressbar linewidth/.code=\pgfkeysalso{progressbarlinewidth=#1},
+}
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\moloch@outer@setdefaults}
 %    Sets default values for outer theme options.
 %    \begin{macrocode}
 \newcommand{\moloch@outer@setdefaults}{
   \pgfkeys{/moloch/outer/.cd,
     progressbar=none,
+    progressbar linewidth=0.4pt,
   }
 }
 %    \end{macrocode}%
@@ -210,9 +239,6 @@
 %    on each page. Much of this code is duplicated in the inner theme's
 %    template |progress bar in section page|.
 %    \begin{macrocode}
-\newlength{\moloch@progressinheadfoot}
-\newlength{\moloch@progressinheadfoot@linewidth}
-\setlength{\moloch@progressinheadfoot@linewidth}{0.4pt}
 \setbeamertemplate{progress bar in head/foot}{
   \nointerlineskip%
   \pgfmathsetlength{\moloch@progressinheadfoot}{%

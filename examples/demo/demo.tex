@@ -75,7 +75,6 @@
 \molochset{titleformat frame=smallcaps}
 \begin{frame}
 \frametitle{Small Caps}
-  This frame uses the \texttt{smallcaps} title format.
 
   \begin{alertblock}{Potential Problems}
     Be aware that not every font supports small caps. If you use the Computer (or Latin) Modern Sans Serif font, for instance, text in small caps will just be typeset in a normal font.
@@ -262,6 +261,48 @@
       }
     \end{column}
   \end{columns}
+\end{frame}
+
+\begin{frame}[c]
+  \frametitle{Progress Bars}
+
+  A prominent feature of \themename is the use of progress bars to
+  visualize the progress of the presentation. \medskip
+
+  By default bars are shown on section pages, but this can be toggled
+  through \texttt{sectionpage=progressbar|simple|none} and also enabled for 
+  subsection pages through \texttt{subsectionpage=progressbar}.\medskip
+
+  
+  Finally, you can enable progress bars on frames by setting 
+  \texttt{progressbar=none|head|frametitle|foot} (depending on where
+  you'd like the bar to be placed).\medskip
+\end{frame}
+
+\begin{frame}[c,fragile]
+  \frametitle{Progress Bar Customization}
+  You can customize the width of the bars using
+  \texttt{progressbar linewidth=<length>}.\medskip
+
+  On the following pages, we have set
+\begin{verbatim}\molochset{
+  progressbar=frametitle,
+  progressbar linewidth=1pt
+}
+\end{verbatim}
+  to enable progress bars below the frame title and set its width to 1pt.
+\end{frame}
+
+\molochset{progressbar=frametitle,progressbar linewidth=1pt}
+
+\begin{frame}[c,fragile]
+  \frametitle{The Title Page}
+
+  There is only very little customization available of the title page at the
+  time of writing.\medskip
+
+  But you can at least modify the line width of the title separator
+  by setting \texttt{titleseparator linewidth=<length>}
 \end{frame}
 
 \begin{frame}
