@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/jolars/moloch/compare/v0.6.0...v0.7.0) (2025-03-12)
+
+
+### Features
+
+* add customization of bar line width ([#42](https://github.com/jolars/moloch/issues/42)) ([be0d8f2](https://github.com/jolars/moloch/commit/be0d8f23c72b9760baeb31a58d2e9988cba5d19a))
+
 ## [0.6.0](https://github.com/jolars/moloch/compare/v0.5.0...v0.6.0) (2025-01-17)
 
 
