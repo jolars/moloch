@@ -29,14 +29,14 @@
 \maketitle
 
 \begin{frame}
-\frametitle{Table of Contents}
+  \frametitle{Table of Contents}
   \tableofcontents[hideallsubsections]
 \end{frame}
 
 \section{Introduction}
 
 \begin{frame}[fragile]
-\frametitle{Moloch}
+  \frametitle{Moloch}
 
   The \themename theme is a Beamer theme with minimal visual noise. It is a fork of the
   \href{https://github.com/matze/mtheme}{metropolis theme} by Matthias Vogelgesang, which in
@@ -48,7 +48,7 @@
 \usetheme{moloch}\end{verbatim}
 \end{frame}
 \begin{frame}[fragile]
-\frametitle{Sections}
+  \frametitle{Sections}
   Sections group slides of the same topic by introducing a section page between them. A progress bar is shown which indicates how far along in the presentation you are.
 
   \begin{verbatim}\section{Title Formats}\end{verbatim}
@@ -57,7 +57,7 @@
 \section{Title Formats}
 
 \begin{frame}[fragile]
-\frametitle{Moloch Title Formats}
+  \frametitle{Moloch Title Formats}
   \themename supports four different title formats:
   \begin{itemize}
     \item \texttt{regular} (Regular)
@@ -74,7 +74,7 @@
 {
 \molochset{titleformat frame=smallcaps}
 \begin{frame}
-\frametitle{Small Caps}
+  \frametitle{Small Caps}
 
   \begin{alertblock}{Potential Problems}
     Be aware that not every font supports small caps. If you use the Computer (or Latin) Modern Sans Serif font, for instance, text in small caps will just be typeset in a normal font.
@@ -85,7 +85,7 @@
 {
 \molochset{titleformat frame=allsmallcaps}
 \begin{frame}
-\frametitle{All Small Caps}
+  \frametitle{All Small Caps}
   This frame uses the \texttt{allsmallcaps} title format.
 
   \begin{alertblock}{Potential Problems}
@@ -109,7 +109,7 @@
 {
 \molochset{titleformat frame=allcaps}
 \begin{frame}
-\frametitle{All Caps}
+  \frametitle{All Caps}
   This frame uses the \texttt{allcaps} title format.
 
   \begin{alertblock}{Potential Problems}
@@ -121,7 +121,7 @@
 \section{Elements}
 
 \begin{frame}[fragile]
-\frametitle{Typography}
+  \frametitle{Typography}
   \begin{verbatim}The theme provides sensible defaults to
 \emph{emphasize} text, \alert{accent} parts or show
 \textbf{bold} results.\end{verbatim}
@@ -133,7 +133,7 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Font Features Test}
+  \frametitle{Font Features Test}
   \begin{itemize}
     \item Regular
     \item \textit{Italic}
@@ -149,7 +149,7 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Lists}
+  \frametitle{Lists}
   \begin{columns}[T,onlytextwidth]
     \column{0.3\textwidth}
     Items
@@ -171,7 +171,7 @@
   \end{columns}
 \end{frame}
 \begin{frame}
-\frametitle{Animation}
+  \frametitle{Animation}
   \begin{itemize}[<+- | alert@+>]
     \item \alert<4>{This is\only<4>{ really} important}
     \item Now this
@@ -179,7 +179,7 @@
   \end{itemize}
 \end{frame}
 \begin{frame}
-\frametitle{Figures}
+  \frametitle{Figures}
   \begin{figure}
     \newcounter{density}
     \setcounter{density}{20}
@@ -207,7 +207,7 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Tables}
+  \frametitle{Tables}
   \framesubtitle{Largest cities in the world}
   \begin{table}
     \caption{Largest cities in the world (source: Wikipedia)}
@@ -224,7 +224,7 @@
   \end{table}
 \end{frame}
 \begin{frame}[fragile]
-\frametitle{Blocks}
+  \frametitle{Blocks}
   Three different block environments are pre-defined: \verb|block|, \verb|alertblock|,
   and \verb|exampleblock|. They can be styled using the option
   \verb|block|, which takes values \verb|transparent| (default, left column) and \verb|fill| (right column).
@@ -270,11 +270,10 @@
   visualize the progress of the presentation. \medskip
 
   By default bars are shown on section pages, but this can be toggled
-  through \texttt{sectionpage=progressbar|simple|none} and also enabled for 
+  through \texttt{sectionpage=progressbar|simple|none} and also enabled for
   subsection pages through \texttt{subsectionpage=progressbar}.\medskip
 
-  
-  Finally, you can enable progress bars on frames by setting 
+  Finally, you can enable progress bars on frames by setting
   \texttt{progressbar=none|head|frametitle|foot} (depending on where
   you'd like the bar to be placed).\medskip
 \end{frame}
@@ -285,7 +284,7 @@
   \texttt{progressbar linewidth=<length>}.\medskip
 
   On the following pages, we have set
-\begin{verbatim}\molochset{
+  \begin{verbatim}\molochset{
   progressbar=frametitle,
   progressbar linewidth=1pt
 }
@@ -306,14 +305,14 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Math}
+  \frametitle{Math}
   \begin{equation*}
     e = \lim_{n\to \infty} \left(1 + \frac{1}{n}\right)^n
   \end{equation*}
 \end{frame}
 
 \begin{frame}
-\frametitle{Quotes}
+  \frametitle{Quotes}
   \begin{quote}
     Verily, I say unto you, the days spoken of in the Apocalypse are nigh!
   \end{quote}
@@ -322,21 +321,21 @@
 {%
 \setbeamertemplate{frame footer}{My custom footer}
 \begin{frame}[fragile]
-\frametitle{Frame Footer}
+  \frametitle{Frame Footer}
   \themename defines a custom beamer template to add a text to the footer. It can be set via
   \begin{verbatim}\setbeamertemplate{frame footer}{My custom footer}\end{verbatim}
 \end{frame}
 }
 
 \begin{frame}[fragile]
-\frametitle{References}
+  \frametitle{References}
   Here are some references~\cite{Knuth92,ConcreteMath,Simpson,Er01,greenwade93} to showcase \verb+[allowframebreaks]+.
 \end{frame}
 
 \section{Conclusion}
 
 \begin{frame}
-\frametitle{Summary}
+  \frametitle{Summary}
 
   Get the source of this theme and the demo presentation from
   \begin{center}
