@@ -392,18 +392,19 @@ Completed box being shipped out [2]
 .......\pdfcolorstack 0 push {0.92157 0.50587 0.10588 rg 0.92157 0.50587 0.10588 RG}
 .......\glue(\parskip) 0.0
 .......\glue(\parskip) 0.0
-.......\glue(\baselineskip) 17.6
-.......\hbox(0.4+0.0)x241.99265
+.......\glue(\baselineskip) 18.0
+.......\hbox(0.0+0.79999)x241.99265
 ........\hbox(0.0+0.0)x0.0
-........\hbox(0.4+0.0)x241.99265
+........\hbox(0.79999+0.0)x241.99265, shifted 0.79999
 .........\glue 0.0
-.........\hbox(0.0+0.0)x0.0
+.........\hbox(0.0+0.0)x0.0, shifted -0.4
 ..........\pdfliteral{q }
 ..........\pdfliteral{0.92157 0.50587 0.10588 RG }
 ..........\pdfliteral{0.92157 0.50587 0.10588 rg }
 ..........\pdfliteral{0.3985 w }
 ..........\hbox(0.0+0.0)x0.0
 ...........\pdfliteral{q }
+...........\glue 0.0
 ...........\glue 0.0
 ...........\pdfliteral{q }
 ...........\pdfcolorstack 0 push {0.83824 0.77588 0.71588 rg 0.83824 0.77588 0.71588 RG}
@@ -433,7 +434,10 @@ Completed box being shipped out [2]
 ...........\pdfcolorstack 0 pop
 ...........\pdfliteral{Q }
 ...........\glue 0.0
+...........\glue 0.0
+...........\glue 0.0
 ...........\pdfliteral{Q }
+...........\glue 0.0
 ...........\glue 0.0 plus 1.0fil minus 1.0fil
 ..........\pdfliteral{n }
 ..........\pdfliteral{Q }
@@ -445,7 +449,7 @@ Completed box being shipped out [2]
 .......\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 .......\glue(\parskip) 0.0
 .......\glue(\parskip) 0.0
-.......\glue(\baselineskip) 4.20004
+.......\glue(\baselineskip) 3.40005
 .......\hbox(9.79996+4.20004)x241.99265, glue set 120.99632fil
 ........\hbox(0.0+0.0)x0.0
 ........\rule(9.79996+4.20004)x0.0
