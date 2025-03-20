@@ -164,30 +164,28 @@
 % space on the title slide.
 %    \begin{macrocode}
 \setbeamertemplate{title page}{
-  \begin{minipage}[c][\textheight]{\textwidth}
-    \null%
-    \vspace{0pt plus 1.618fil}%
-    \vfil%
-    \ifx\inserttitlegraphic\@empty\else\usebeamertemplate*{title graphic}\fi
-    \ifx\inserttitle\@empty\else\usebeamertemplate*{title}\fi
-    \ifx\insertsubtitle\@empty\else\usebeamertemplate*{subtitle}\fi
-    \usebeamertemplate*{title separator}
-    \expandafter\ifblank\expandafter{\beamer@andstripped}{}{%
-      \usebeamertemplate*{author}%
-    }
-    \ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi
-    \ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi
-    \vspace{0pt plus 1fil}%
-    \null
-  \end{minipage}%
+  \null%
+  \vspace{0pt plus 1.618fil}%
+  \vfil%
+  \ifx\inserttitlegraphic\@empty\else\usebeamertemplate*{title graphic}\fi
+  \ifx\inserttitle\@empty\else\usebeamertemplate*{title}\fi
+  \ifx\insertsubtitle\@empty\else\usebeamertemplate*{subtitle}\fi
+  \usebeamertemplate*{title separator}
+  \expandafter\ifblank\expandafter{\beamer@andstripped}{}{%
+    \usebeamertemplate*{author}%
+  }
+  \ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi
+  \ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi
+  \vspace{0pt plus 1fil}%
+  \null
 }
 %    \end{macrocode}
 % \end{macro}%
 %
 % Normal people should use |\maketitle| or |\titlepage| instead of using the
 % |title page| beamer template directly. Beamer already defines these macros,
-% but we patch them here to make the title page |[plain]| by default, remove
-% |\@thanks|, and ensure the title frame number doesn't count.
+% but we patch them here to make the title page |[plain]| by default
+% and ensure the title frame number doesn't count.
 %
 % \begin{macro}{\maketitle}
 % \begin{macro}{\titlepage}
@@ -200,11 +198,20 @@
   \ifbeamer@inframe
     \titlepage
   \else
+    \begingroup
+    \renewcommand\footnoterule{}%
     \frame[plain,noframenumbering]{\titlepage}
+    \endgroup
   \fi
 }
 \def\titlepage{%
-  \usebeamertemplate{title page}
+  % Apply title-page specific footnote settings
+  \renewcommand{\@makefntext}[1]{%
+    {\par\usebeamercolor[fg]{thanks}\usebeamerfont{thanks}$^{\@thefnmark}$##1\medskip}%
+  }
+
+  % Process the title page
+  \usebeamertemplate{title page}\@thanks
 }
 %    \end{macrocode}
 % \end{macro}
