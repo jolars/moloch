@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.0](https://github.com/jolars/moloch/compare/v0.6.0...v1.0.0) (2025-04-01)
+
+
+### Features
+
+* add customization of bar line width ([#42](https://github.com/jolars/moloch/issues/42)) ([be0d8f2](https://github.com/jolars/moloch/commit/be0d8f23c72b9760baeb31a58d2e9988cba5d19a))
+* support `\thanks` in title page ([#45](https://github.com/jolars/moloch/issues/45)) ([de3db5e](https://github.com/jolars/moloch/commit/de3db5e517c06d1b8793b3a1c134b9bf4ad8b189))
+
 ## [0.6.0](https://github.com/jolars/moloch/compare/v0.5.0...v0.6.0) (2025-01-17)
 
 
