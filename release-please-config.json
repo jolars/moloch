@@ -10,8 +10,7 @@
         "src/beamerthememoloch.dtx",
         "doc/moloch.tex",
         "build.lua"
-      ],
-      "release-as": "1.0.0"
+      ]
     }
   }
 }
