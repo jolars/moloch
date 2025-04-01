@@ -7,6 +7,8 @@
         "src/beamerfontthememoloch.dtx",
         "src/beamerouterthememoloch.dtx",
         "src/beamerinnerthememoloch.dtx",
+        "src/beamercolorthememoloch-highcontrast.dtx",
+        "src/beamercolorthememoloch-tomorrow.dtx",
         "src/beamerthememoloch.dtx",
         "doc/moloch.tex",
         "build.lua"
