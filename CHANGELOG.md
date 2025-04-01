@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/jolars/moloch/compare/v1.0.0...v1.0.1) (2025-04-01)
+
+
+### Bug Fixes
+
+* add missing files for updating version tags ([ba01d33](https://github.com/jolars/moloch/commit/ba01d33b1993d4992372420f25f6390c5e4baa91))
+* use proper package names ([0c4d38e](https://github.com/jolars/moloch/commit/0c4d38e3c2e2b0b93bfc1b6c1abe6bf0a3a01311))
+
 ## [1.0.0](https://github.com/jolars/moloch/compare/v0.6.0...v1.0.0) (2025-04-01)
 
 
