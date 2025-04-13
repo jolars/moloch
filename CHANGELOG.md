@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/jolars/moloch/compare/v1.0.1...v1.0.2) (2025-04-13)
+
+
+### Bug Fixes
+
+* move command substitutions into inner and outer themes ([fd86a30](https://github.com/jolars/moloch/commit/fd86a305e954e6597fa5bc0f4be4686525b34834))
+
 ## [1.0.1](https://github.com/jolars/moloch/compare/v1.0.0...v1.0.1) (2025-04-01)
 
 
