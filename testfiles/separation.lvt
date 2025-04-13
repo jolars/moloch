@@ -1,0 +1,10 @@
+\documentclass[hyperref={draft}]{beamer}
+
+\useoutertheme{moloch}
+\useinnertheme{moloch}
+\usefonttheme{moloch}
+\usecolortheme{moloch}
+
+\usepackage{lmodern}
+
+\input{molochexample}

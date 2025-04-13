@@ -38,6 +38,20 @@
 %    \end{macrocode}
 %
 %
+% \subsubsection{Memoization and Tikz Externalization}
+%
+% To avoid generating externalized figures of the progressbar we have to disable
+% them with ``tikzexternalenable'' and ``tikzexternaldisable''. However, if the
+% ``external'' library is not loaded we would get undefined control sequence
+% problems, hence we define them as no-ops if they are not defined yet.
+% We do the same for the ``mmzUnmemoizable'' command from the memoize package, in
+% order to avoid memoization of the progress bars.
+%
+%    \begin{macrocode}
+\providecommand{\tikzexternalenable}{}
+\providecommand{\tikzexternaldisable}{}
+\providecommand{\mmzUnmemoizable}{}
+%    \end{macrocode}
 %
 % \subsubsection{Options}
 %
