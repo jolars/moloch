@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.0](https://github.com/jolars/moloch/compare/v1.0.1...v1.1.0) (2025-05-13)
+
+
+### Features
+
+* use beamer-like itemize item and subitem templates ([81037c6](https://github.com/jolars/moloch/commit/81037c66e1a99deb0295d40a2f205a8e757ccb6b))
+
+
+### Bug Fixes
+
+* avoid coloring bullets based on math colors ([81037c6](https://github.com/jolars/moloch/commit/81037c66e1a99deb0295d40a2f205a8e757ccb6b))
+* move command substitutions into inner and outer themes ([fd86a30](https://github.com/jolars/moloch/commit/fd86a305e954e6597fa5bc0f4be4686525b34834))
+
 ## [1.0.1](https://github.com/jolars/moloch/compare/v1.0.0...v1.0.1) (2025-04-01)
 
 
