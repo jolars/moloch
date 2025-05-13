@@ -442,8 +442,10 @@
 % \subsubsection{Lists and Floats}
 %
 %    \begin{macrocode}
-\setbeamertemplate{itemize item}{\(\bullet\)}
-\setbeamertemplate{itemize subitem}{\(\circ\)}
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}{%
+  \usebeamerfont*{itemize subitem}\raise1pt\hbox{\donotcoloroutermaths$\circ$}%
+}
 \setbeamertemplate{itemize subsubitem}{\textbullet}
 \setbeamertemplate{caption label separator}{: }
 \setbeamertemplate{caption}[numbered]
