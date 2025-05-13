@@ -443,10 +443,11 @@
 %
 %    \begin{macrocode}
 \setbeamertemplate{itemize item}[circle]
-\setbeamertemplate{itemize subitem}{%
-  \usebeamerfont*{itemize subitem}\raise1pt\hbox{\donotcoloroutermaths$\circ$}%
+\setbeamertemplate{itemize subitem}{\raise1.5pt\hbox{\vrule width 0.8ex height 0.8ex}}
+\setbeamerfont{itemize subsubitem}{size=\tiny}
+\setbeamertemplate{itemize subsubitem}{%
+  \usebeamerfont*{itemize subsubitem}\raise1.75pt\hbox{\donotcoloroutermaths$\blacktriangleright$}%
 }
-\setbeamertemplate{itemize subsubitem}{\textbullet}
 \setbeamertemplate{caption label separator}{: }
 \setbeamertemplate{caption}[numbered]
 %    \end{macrocode}
