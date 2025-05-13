@@ -1,0 +1,44 @@
+\input regression-test
+
+\title{Moloch Test Suite}
+\subtitle{A subtitle that is way to long and in fact might just need to be split across lines}
+
+\author[Johan]{Johan Larsson}
+\institute[LU]{Lund Univesity//Department of Statistics}
+\date{April 23, 2024}
+
+\begin{document}
+
+\START
+\showoutput
+
+\begin{frame}{Table of contents}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Results}
+
+\subsection{Proof of the Main Theorem}
+
+\begin{frame}<1>
+  \frametitle{There Is No Largest Prime Number}
+  \framesubtitle{The proof uses \textit{reductio ad absurdum}.}
+
+  \begin{theorem}
+    There is no largest prime number.
+  \end{theorem}
+  \begin{proof}
+    \begin{enumerate}
+      \item<1-| alert@1> Suppose $p$ were the largest prime number.
+      \item<2-> Let $q$ be the product of the first $p$ numbers.
+      \item<3-> Then $q$\;+\,$1$ is not divisible by any of them.
+      \item<1-> Thus $q$\;+\,$1$ is also prime and greater than $p$.\qedhere
+    \end{enumerate}
+  \end{proof}
+\end{frame}
+
+\vfil\break
+\END
+
+\end{document}
