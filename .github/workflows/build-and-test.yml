@@ -1,11 +1,15 @@
-name: CI
+name: Build-and-Test
+
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+  workflow_call:
   pull_request:
     branches:
       - main
+  push:
+    branches:
+      - main
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -18,15 +22,3 @@ jobs:
         run: nix develop --command l3build-wrapped doc
       - name: build
         run: nix develop --command l3build-wrapped ctan -q -H --show-log-on-error
-  release:
-    if: ${{ github.ref == 'refs/heads/main' }}
-    permissions:
-      contents: write
-      pull-requests: write
-    needs:
-      - build-and-test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: googleapis/release-please-action@v4
-        with:
-          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
