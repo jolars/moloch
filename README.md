@@ -3,8 +3,8 @@
 [![CTAN](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fctan.org%2Fjson%2F2.0%2Fpkg%2Fmoloch&query=%24.version.number&logo=latex&label=CTAN)](https://ctan.org/pkg/moloch)
 [![Build-and-Test](https://github.com/jolars/moloch/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/jolars/moloch/actions/workflows/build-and-test.yml)
 
-Moloch is a simple Beamer theme suitable for anyone to use. It is a fork of the
-[Metropolis Theme](https://github.com/matze/mtheme).
+Moloch is a minimalistic and functional Beamer theme.
+It is a fork of the [Metropolis Theme](https://github.com/matze/mtheme).
 
 The fork was created for the following reasons:
 
