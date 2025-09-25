@@ -204,14 +204,10 @@
 %    progress bar.
 %    \begin{macrocode}
 \newlength{\moloch@frametitle@padding}
-\setlength{\moloch@frametitle@padding}{2.2ex}
+\setlength{\moloch@frametitle@padding}{2ex}
 \newcommand{\moloch@frametitlestrut@start}{%
-  \rule{0pt}{\moloch@frametitle@padding +%
-    \totalheightof{%
-      \ifcsdef{moloch@frametitleformat}{\moloch@frametitleformat X}{X}%
-    }%
-  }%
-}
+  \rule{0pt}{\moloch@frametitle@padding + \ht\strutbox}%
+}%
 
 \newcommand{\moloch@frametitlestrut@end}{%
   \vphantom{%
