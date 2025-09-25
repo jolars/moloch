@@ -181,6 +181,7 @@ Completed box being shipped out [1]
 ...........\OT1/lmss/bx/n/12 t
 ...........\OT1/lmss/bx/n/12 s
 ...........\hbox(0.0+9.7333)x0.0
+............\rule(0.0+9.7333)x0.0
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 8.8 plus 1.0fil
@@ -734,6 +735,7 @@ Completed box being shipped out [3]
 ...........\OT1/lmss/bx/n/10 .
 ...........\pdfcolorstack 0 pop
 ...........\hbox(0.0+9.7333)x0.0
+............\rule(0.0+9.7333)x0.0
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 8.8 plus 1.0fil

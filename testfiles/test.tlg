@@ -181,6 +181,7 @@ Completed box being shipped out [1]
 ...........\OT1/lmss/bx/n/12 t
 ...........\OT1/lmss/bx/n/12 s
 ...........\hbox(0.0+9.7333)x0.0
+............\rule(0.0+9.7333)x0.0
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 8.8 plus 1.0fil
@@ -734,6 +735,7 @@ Completed box being shipped out [3]
 ...........\OT1/lmss/bx/n/10 .
 ...........\pdfcolorstack 0 pop
 ...........\hbox(0.0+9.7333)x0.0
+............\rule(0.0+9.7333)x0.0
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 8.8 plus 1.0fil
@@ -1445,6 +1447,7 @@ Completed box being shipped out [4]
 ...........\OT1/lmss/bx/sc/12 p
 ...........\OT1/lmss/bx/sc/12 s
 ...........\hbox(0.0+9.7333)x0.0
+............\rule(0.0+9.7333)x0.0
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 8.8 plus 1.0fil
@@ -1940,6 +1943,7 @@ Completed box being shipped out [5]
 ...........\OT1/lmss/bx/sc/12 p
 ...........\OT1/lmss/bx/sc/12 s
 ...........\hbox(0.0+9.7333)x0.0
+............\rule(0.0+9.7333)x0.0
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 8.8 plus 1.0fil
@@ -2229,6 +2233,7 @@ Completed box being shipped out [6]
 ...........\OT1/lmss/bx/sc/12 P
 ...........\OT1/lmss/bx/sc/12 S
 ...........\hbox(0.0+9.7333)x0.0
+............\rule(0.0+9.7333)x0.0
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 8.8 plus 1.0fil
@@ -2513,6 +2518,7 @@ Completed box being shipped out [7]
 ...........\OT1/lmss/bx/sc/12 t
 ...........\OT1/lmss/bx/sc/12 s
 ...........\hbox(0.0+9.7333)x0.0
+............\rule(0.0+9.7333)x0.0
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 8.8 plus 1.0fil
@@ -3235,6 +3241,7 @@ Completed box being shipped out [8]
 ...........\OT1/lmss/bx/sc/12 o
 ...........\OT1/lmss/bx/sc/12 n
 ...........\hbox(0.0+9.7333)x0.0
+............\rule(0.0+9.7333)x0.0
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 8.8 plus 1.0fil
@@ -3622,6 +3629,7 @@ Completed box being shipped out [9]
 ...........\OT1/lmss/bx/sc/12 o
 ...........\OT1/lmss/bx/sc/12 n
 ...........\hbox(0.0+9.7333)x0.0
+............\rule(0.0+9.7333)x0.0
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 8.8 plus 1.0fil
@@ -4011,6 +4019,7 @@ Completed box being shipped out [10]
 ...........\OT1/lmss/bx/sc/12 o
 ...........\OT1/lmss/bx/sc/12 n
 ...........\hbox(0.0+9.7333)x0.0
+............\rule(0.0+9.7333)x0.0
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 8.8 plus 1.0fil
@@ -4402,6 +4411,7 @@ Completed box being shipped out [11]
 ...........\OT1/lmss/bx/sc/12 o
 ...........\OT1/lmss/bx/sc/12 n
 ...........\hbox(0.0+9.7333)x0.0
+............\rule(0.0+9.7333)x0.0
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 8.8 plus 1.0fil
@@ -4800,6 +4810,7 @@ Completed box being shipped out [12]
 ...........\OT1/lmss/bx/sc/12 k
 ...........\OT1/lmss/bx/sc/12 s
 ...........\hbox(0.0+9.7333)x0.0
+............\rule(0.0+9.7333)x0.0
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 8.8 plus 1.0fil
@@ -5554,6 +5565,7 @@ Completed box being shipped out [13]
 ...........\OT1/lmss/bx/sc/12 e
 ...........\OT1/lmss/bx/sc/12 s
 ...........\hbox(0.0+9.7333)x0.0
+............\rule(0.0+9.7333)x0.0
 ...........\penalty 10000
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 8.8 plus 1.0fil
