@@ -1,19 +1,15 @@
-This release of Moloch adds support for `\thanks` in the title page and allows
-customization of the bar line width. The 1.0.0 version was not released
-on CTAN due to a couple of small issues, which were then fixed in 1.0.1.
+This release of Moloch adds introduces a redesigned itemize environment and
+fixes two bugs related to use of color themes and non-roman fonts.
 
-See below fro detailed changes.
+See below for detailed changes.
 
-## [1.0.1](https://github.com/jolars/moloch/compare/v1.0.0...v1.0.1) (2025-04-01)
+1.1.0 (2025-09-25)
+Features
 
-### Bug Fixes
+    redesign itemize environment (#50) (8594369)
+    use beamer-like itemize item and subitem templates (81037c6), closes #49
 
-* add missing files for updating version tags ([ba01d33](https://github.com/jolars/moloch/commit/ba01d33b1993d4992372420f25f6390c5e4baa91))
-* use proper package names ([0c4d38e](https://github.com/jolars/moloch/commit/0c4d38e3c2e2b0b93bfc1b6c1abe6bf0a3a01311))
+Bug Fixes
 
-## [1.0.0](https://github.com/jolars/moloch/compare/v0.6.0...v1.0.0) (2025-04-01)
-
-### Features
-
-* add customization of bar line width ([#42](https://github.com/jolars/moloch/issues/42)) ([be0d8f2](https://github.com/jolars/moloch/commit/be0d8f23c72b9760baeb31a58d2e9988cba5d19a))
-* support `\thanks` in title page ([#45](https://github.com/jolars/moloch/issues/45)) ([de3db5e](https://github.com/jolars/moloch/commit/de3db5e517c06d1b8793b3a1c134b9bf4ad8b189))
+    move command substitutions into inner and outer themes (fd86a30), closes #47
+    use \ht\strutbox instead of X height in title padding (93792f2), closes #54
