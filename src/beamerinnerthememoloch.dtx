@@ -441,13 +441,62 @@
 %
 % \subsubsection{Lists and Floats}
 %
+% Moloch uses custom symbols for the |itemize| environment. The symbols
+% are defined as below, using |pgf| commands to draw the shapes.
+% This is slightly different than what beamer does by default, which is
+% to use font glyphs from the math font. But we want to avoid
+% this reliance on the math font, which may have somewhat
+% surprising side effects.
+%
+% By default, we use a filled circle for the first-level |itemize| items,
+% a filled square for the second level, and a filled triangle for
+% the third level. Since the triangle tapers to a point, we add a slight
+% overhang to it so that it visually aligns better with the other symbols.
+% We do the same for the circle, but to a lower extent.
+%
 %    \begin{macrocode}
-\setbeamertemplate{itemize item}[circle]
-\setbeamertemplate{itemize subitem}{\raise1.5pt\hbox{\vrule width 0.8ex height 0.8ex}}
-\setbeamerfont{itemize subsubitem}{size=\tiny}
-\setbeamertemplate{itemize subsubitem}{%
-  \usebeamerfont*{itemize subsubitem}\raise1.75pt\hbox{\donotcoloroutermaths$\blacktriangleright$}%
+\newcommand{\mitemover}[2]{\makebox[0pt][r]{#1}\kern-#2}
+\newcommand{\mitem}[1]{\mitemover{#1}{0pt}}
+
+\newcommand{\overhangSquare}{0pt}
+\newcommand{\overhangCircle}{0.05ex}
+\newcommand{\overhangTriangle}{0.25ex}
+
+\newcommand{\moloch@circle}{
+  \begin{pgfpicture}
+    \pgfsetbaseline{-0.7ex}
+    \pgfpathcircle{\pgfpoint{0}{0}}{0.16em}
+    \pgfusepath{fill}
+  \end{pgfpicture}%
 }
+%
+\newcommand{\moloch@square}{
+  \begin{pgfpicture}
+    \pgfsetbaseline{-0.7ex}
+    \pgfpathrectangle{\pgfpoint{-0.165em}{-0.165em}}{\pgfpoint{0.31em}{0.31em}}
+    \pgfusepath{fill}
+  \end{pgfpicture}%
+}
+%
+\newcommand{\moloch@triangle}{
+  \begin{pgfpicture}
+    \pgfsetbaseline{-0.7ex}
+    \pgfpathmoveto{\pgfpoint{0.21em}{0}}       % right vertex (tip)
+    \pgfpathlineto{\pgfpoint{-0.21em}{0.21em}}  % top left
+    \pgfpathlineto{\pgfpoint{-0.21em}{-0.21em}} % bottom left
+    \pgfpathclose
+    \pgfusepath{fill}
+  \end{pgfpicture}%
+}
+%    \end{macrocode}
+%
+%    Next, we set the itemize templates to use these symbols.
+%
+%    \begin{macrocode}
+% \setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize item}{\mitemover{\moloch@circle}{\overhangCircle}}
+\setbeamertemplate{itemize subitem}{\mitemover{\moloch@square}{\overhangSquare}}
+\setbeamertemplate{itemize subsubitem}{\mitemover{\moloch@triangle}{\overhangTriangle}}
 \setbeamertemplate{caption label separator}{: }
 \setbeamertemplate{caption}[numbered]
 %    \end{macrocode}

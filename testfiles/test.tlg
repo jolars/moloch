@@ -2353,10 +2353,6 @@ Completed box being shipped out [6]
 .....\glue 0.0 plus 1.0fil
 ....\pdfcolorstack 0 pop
 .\kern 0.0
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line ....
-LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <5> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line ....
 Completed box being shipped out [7]
 \vbox(200.87663+0.0)x263.47263
 .\hbox(0.0+0.0)x0.0
@@ -2572,20 +2568,42 @@ Completed box being shipped out [7]
 .......\glue(\parskip) 0.0
 .......\glue(\baselineskip) 4.39578
 .......\hbox(7.60422+0.0)x79.50616, glue set 26.0655fil, shifted 21.90005
-........\hbox(6.11667+0.0)x0.0
+........\hbox(5.15872+0.0)x0.0
 .........\glue 0.0
 .........\glue -16.42505
 .........\glue -5.475
-.........\hbox(6.11667+0.0)x16.42505, glue set 16.42505fil
+.........\hbox(5.15872+0.0)x16.42505, glue set 16.42505fil
 ..........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ..........\glue 0.0 plus 1.0fil minus 1.0fil
-..........\hbox(6.11667+0.0)x0.0, glue set - 5.475fil
+..........\hbox(5.15872+0.0)x0.0, glue set 0.24335fil
 ...........\glue 0.0 plus 1.0fil minus 1.0fil
 ...........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-...........\hbox(4.86667+0.0)x5.475, shifted -1.25
-............\mathon
-............\OMS/lmsy/m/n/10.95 ^^O
-............\mathoff
+...........\hbox(5.15872+0.0)x0.0, glue set - 7.15405fil
+............\glue 0.0 plus 1.0fil minus 1.0fil
+............\glue 3.65 plus 1.825 minus 1.21666
+............\hbox(3.50406+0.0)x3.50406, shifted -1.65466
+.............\glue 1.75203
+.............\hbox(0.0+0.0)x0.0, shifted -1.75203
+..............\pdfliteral{q }
+..............\pdfliteral{0.13725 0.2157 0.23137 RG }
+..............\pdfliteral{0.13725 0.2157 0.23137 rg }
+..............\pdfliteral{0.3985 w }
+..............\hbox(0.0+0.0)x0.0
+...............\glue 0.0
+...............\glue 0.0
+...............\pdfliteral{1.7455 0.0 m }
+...............\pdfliteral{1.7455 0.964 0.964 1.7455 0.0 1.7455 c }
+...............\pdfliteral{-0.964 1.7455 -1.7455 0.964 -1.7455 0.0 c }
+...............\pdfliteral{-1.7455 -0.964 -0.964 -1.7455 0.0 -1.7455 c }
+...............\pdfliteral{0.964 -1.7455 1.7455 -0.964 1.7455 0.0 c }
+...............\pdfliteral{h }
+...............\pdfliteral{0.0 0.0 m }
+...............\pdfliteral{f }
+...............\glue 0.0 plus 1.0fil minus 1.0fil
+..............\pdfliteral{n }
+..............\pdfliteral{Q }
+..............\glue 0.0 plus 1.0fil minus 1.0fil
+...........\kern -0.24335
 ...........\pdfcolorstack 0 pop
 ..........\pdfcolorstack 0 pop
 .........\glue 5.475
@@ -2607,18 +2625,36 @@ Completed box being shipped out [7]
 .......\glue(\parskip) 0.0
 .......\glue(\baselineskip) 4.0555
 .......\hbox(6.9445+0.0)x57.60611, glue set 13.40057fil, shifted 43.80011
-........\hbox(5.0556+0.0)x0.0
+........\hbox(4.56117+0.0)x0.0
 .........\glue 0.0
 .........\glue -16.42505
 .........\glue -5.475
-.........\hbox(5.0556+0.0)x16.42505, glue set 16.42505fil
+.........\hbox(4.56117+0.0)x16.42505, glue set 16.42505fil
 ..........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ..........\glue 0.0 plus 1.0fil minus 1.0fil
-..........\hbox(5.0556+0.0)x0.0, glue set - 3.5556fil
+..........\hbox(4.56117+0.0)x0.0
 ...........\glue 0.0 plus 1.0fil minus 1.0fil
 ...........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-...........\hbox(3.5556+0.0)x3.5556, shifted -1.5
-............\rule(3.5556+*)x3.5556
+...........\hbox(4.56117+0.0)x0.0, glue set - 6.4333fil
+............\glue 0.0 plus 1.0fil minus 1.0fil
+............\glue 3.33333 plus 1.66666 minus 1.11111
+............\hbox(3.09998+0.0)x3.09998, shifted -1.4612
+.............\glue 1.64993
+.............\hbox(0.0+0.0)x0.0, shifted -1.64993
+..............\pdfliteral{q }
+..............\pdfliteral{0.13725 0.2157 0.23137 RG }
+..............\pdfliteral{0.13725 0.2157 0.23137 rg }
+..............\pdfliteral{0.3985 w }
+..............\hbox(0.0+0.0)x0.0
+...............\glue 0.0
+...............\glue 0.0
+...............\pdfliteral{-1.64378 -1.64378 3.08842 3.08842 re }
+...............\pdfliteral{f }
+...............\glue 0.0 plus 1.0fil minus 1.0fil
+..............\pdfliteral{n }
+..............\pdfliteral{Q }
+..............\glue 0.0 plus 1.0fil minus 1.0fil
+...........\kern 0.0
 ...........\pdfcolorstack 0 pop
 ..........\pdfcolorstack 0 pop
 .........\glue 5.475
@@ -2640,20 +2676,41 @@ Completed box being shipped out [7]
 .......\glue(\parskip) 0.0
 .......\glue(\baselineskip) 4.75
 .......\hbox(6.25+0.0)x35.70605, glue set 8.15077fil, shifted 65.70016
-........\hbox(5.14368+0.0)x0.0
+........\hbox(4.74252+0.0)x0.0
 .........\glue 0.0
 .........\glue -16.42505
 .........\glue -5.475
-.........\hbox(5.14368+0.0)x16.42505, glue set 16.42505fil
+.........\hbox(4.74252+0.0)x16.42505, glue set 16.42505fil
 ..........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ..........\glue 0.0 plus 1.0fil minus 1.0fil
-..........\hbox(5.14368+0.0)x0.0, glue set - 5.35716fil
+..........\hbox(4.74252+0.0)x0.0, glue set 1.0fil
 ...........\glue 0.0 plus 1.0fil minus 1.0fil
 ...........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-...........\hbox(3.39368+0.45404)x5.35716, shifted -1.75
-............\mathon
-............\U/msa/m/n/6 I
-............\mathoff
+...........\hbox(4.74252+0.0)x0.0, glue set - 6.96838fil
+............\glue 0.0 plus 1.0fil minus 1.0fil
+............\glue 3.08331 plus 1.54166 minus 1.02777
+............\hbox(3.88507+0.0)x3.88507, shifted -0.85745
+.............\glue 1.94254
+.............\hbox(0.0+0.0)x0.0, shifted -1.94254
+..............\pdfliteral{q }
+..............\pdfliteral{0.13725 0.2157 0.23137 RG }
+..............\pdfliteral{0.13725 0.2157 0.23137 rg }
+..............\pdfliteral{0.3985 w }
+..............\hbox(0.0+0.0)x0.0
+...............\glue 0.0
+...............\glue 0.0
+...............\glue 0.0
+...............\glue 0.0
+...............\pdfliteral{1.9353 0.0 m }
+...............\pdfliteral{-1.9353 1.9353 l }
+...............\pdfliteral{-1.9353 -1.9353 l }
+...............\pdfliteral{h }
+...............\pdfliteral{f }
+...............\glue 0.0 plus 1.0fil minus 1.0fil
+..............\pdfliteral{n }
+..............\pdfliteral{Q }
+..............\glue 0.0 plus 1.0fil minus 1.0fil
+...........\kern -1.0
 ...........\pdfcolorstack 0 pop
 ..........\pdfcolorstack 0 pop
 .........\glue 5.475
@@ -2684,20 +2741,41 @@ Completed box being shipped out [7]
 .......\glue(\parskip) 0.0
 .......\glue(\baselineskip) 3.0
 .......\hbox(6.25+0.0)x35.70605, glue set 6.25943fil, shifted 65.70016
-........\hbox(5.14368+0.0)x0.0
+........\hbox(4.74252+0.0)x0.0
 .........\glue 0.0
 .........\glue -16.42505
 .........\glue -5.475
-.........\hbox(5.14368+0.0)x16.42505, glue set 16.42505fil
+.........\hbox(4.74252+0.0)x16.42505, glue set 16.42505fil
 ..........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ..........\glue 0.0 plus 1.0fil minus 1.0fil
-..........\hbox(5.14368+0.0)x0.0, glue set - 5.35716fil
+..........\hbox(4.74252+0.0)x0.0, glue set 1.0fil
 ...........\glue 0.0 plus 1.0fil minus 1.0fil
 ...........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-...........\hbox(3.39368+0.45404)x5.35716, shifted -1.75
-............\mathon
-............\U/msa/m/n/6 I
-............\mathoff
+...........\hbox(4.74252+0.0)x0.0, glue set - 6.96838fil
+............\glue 0.0 plus 1.0fil minus 1.0fil
+............\glue 3.08331 plus 1.54166 minus 1.02777
+............\hbox(3.88507+0.0)x3.88507, shifted -0.85745
+.............\glue 1.94254
+.............\hbox(0.0+0.0)x0.0, shifted -1.94254
+..............\pdfliteral{q }
+..............\pdfliteral{0.13725 0.2157 0.23137 RG }
+..............\pdfliteral{0.13725 0.2157 0.23137 rg }
+..............\pdfliteral{0.3985 w }
+..............\hbox(0.0+0.0)x0.0
+...............\glue 0.0
+...............\glue 0.0
+...............\glue 0.0
+...............\glue 0.0
+...............\pdfliteral{1.9353 0.0 m }
+...............\pdfliteral{-1.9353 1.9353 l }
+...............\pdfliteral{-1.9353 -1.9353 l }
+...............\pdfliteral{h }
+...............\pdfliteral{f }
+...............\glue 0.0 plus 1.0fil minus 1.0fil
+..............\pdfliteral{n }
+..............\pdfliteral{Q }
+..............\glue 0.0 plus 1.0fil minus 1.0fil
+...........\kern -1.0
 ...........\pdfcolorstack 0 pop
 ..........\pdfcolorstack 0 pop
 .........\glue 5.475
@@ -2729,20 +2807,42 @@ Completed box being shipped out [7]
 .......\glue(\parskip) 0.0
 .......\glue(\baselineskip) 5.99579
 .......\hbox(7.60422+2.12914)x79.50616, glue set 28.90968fil, shifted 21.90005
-........\hbox(6.11667+0.0)x0.0
+........\hbox(5.15872+0.0)x0.0
 .........\glue 0.0
 .........\glue -16.42505
 .........\glue -5.475
-.........\hbox(6.11667+0.0)x16.42505, glue set 16.42505fil
+.........\hbox(5.15872+0.0)x16.42505, glue set 16.42505fil
 ..........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ..........\glue 0.0 plus 1.0fil minus 1.0fil
-..........\hbox(6.11667+0.0)x0.0, glue set - 5.475fil
+..........\hbox(5.15872+0.0)x0.0, glue set 0.24335fil
 ...........\glue 0.0 plus 1.0fil minus 1.0fil
 ...........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-...........\hbox(4.86667+0.0)x5.475, shifted -1.25
-............\mathon
-............\OMS/lmsy/m/n/10.95 ^^O
-............\mathoff
+...........\hbox(5.15872+0.0)x0.0, glue set - 7.15405fil
+............\glue 0.0 plus 1.0fil minus 1.0fil
+............\glue 3.65 plus 1.825 minus 1.21666
+............\hbox(3.50406+0.0)x3.50406, shifted -1.65466
+.............\glue 1.75203
+.............\hbox(0.0+0.0)x0.0, shifted -1.75203
+..............\pdfliteral{q }
+..............\pdfliteral{0.13725 0.2157 0.23137 RG }
+..............\pdfliteral{0.13725 0.2157 0.23137 rg }
+..............\pdfliteral{0.3985 w }
+..............\hbox(0.0+0.0)x0.0
+...............\glue 0.0
+...............\glue 0.0
+...............\pdfliteral{1.7455 0.0 m }
+...............\pdfliteral{1.7455 0.964 0.964 1.7455 0.0 1.7455 c }
+...............\pdfliteral{-0.964 1.7455 -1.7455 0.964 -1.7455 0.0 c }
+...............\pdfliteral{-1.7455 -0.964 -0.964 -1.7455 0.0 -1.7455 c }
+...............\pdfliteral{0.964 -1.7455 1.7455 -0.964 1.7455 0.0 c }
+...............\pdfliteral{h }
+...............\pdfliteral{0.0 0.0 m }
+...............\pdfliteral{f }
+...............\glue 0.0 plus 1.0fil minus 1.0fil
+..............\pdfliteral{n }
+..............\pdfliteral{Q }
+..............\glue 0.0 plus 1.0fil minus 1.0fil
+...........\kern -0.24335
 ...........\pdfcolorstack 0 pop
 ..........\pdfcolorstack 0 pop
 .........\glue 5.475
@@ -3273,20 +3373,42 @@ Completed box being shipped out [8]
 .....\glue(\parskip) 0.0
 .....\glue(\baselineskip) 5.99579
 .....\hbox(7.60422+2.12914)x285.38982, glue set 103.16849fil, shifted 21.90005
-......\hbox(6.11667+0.0)x0.0
+......\hbox(5.15872+0.0)x0.0
 .......\glue 0.0
 .......\glue -16.42505
 .......\glue -5.475
-.......\hbox(6.11667+0.0)x16.42505, glue set 16.42505fil
+.......\hbox(5.15872+0.0)x16.42505, glue set 16.42505fil
 ........\pdfcolorstack 0 push {0.92157 0.50587 0.10588 rg 0.92157 0.50587 0.10588 RG}
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\hbox(6.11667+0.0)x0.0, glue set - 5.475fil
+........\hbox(5.15872+0.0)x0.0, glue set 0.24335fil
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\pdfcolorstack 0 push {0.92157 0.50587 0.10588 rg 0.92157 0.50587 0.10588 RG}
-.........\hbox(4.86667+0.0)x5.475, shifted -1.25
-..........\mathon
-..........\OMS/lmsy/m/n/10.95 ^^O
-..........\mathoff
+.........\hbox(5.15872+0.0)x0.0, glue set - 7.15405fil
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\glue 3.65 plus 1.825 minus 1.21666
+..........\hbox(3.50406+0.0)x3.50406, shifted -1.65466
+...........\glue 1.75203
+...........\hbox(0.0+0.0)x0.0, shifted -1.75203
+............\pdfliteral{q }
+............\pdfliteral{0.92157 0.50587 0.10588 RG }
+............\pdfliteral{0.92157 0.50587 0.10588 rg }
+............\pdfliteral{0.3985 w }
+............\hbox(0.0+0.0)x0.0
+.............\glue 0.0
+.............\glue 0.0
+.............\pdfliteral{1.7455 0.0 m }
+.............\pdfliteral{1.7455 0.964 0.964 1.7455 0.0 1.7455 c }
+.............\pdfliteral{-0.964 1.7455 -1.7455 0.964 -1.7455 0.0 c }
+.............\pdfliteral{-1.7455 -0.964 -0.964 -1.7455 0.0 -1.7455 c }
+.............\pdfliteral{0.964 -1.7455 1.7455 -0.964 1.7455 0.0 c }
+.............\pdfliteral{h }
+.............\pdfliteral{0.0 0.0 m }
+.............\pdfliteral{f }
+.............\glue 0.0 plus 1.0fil minus 1.0fil
+............\pdfliteral{n }
+............\pdfliteral{Q }
+............\glue 0.0 plus 1.0fil minus 1.0fil
+.........\kern -0.24335
 .........\pdfcolorstack 0 pop
 ........\pdfcolorstack 0 pop
 .......\glue 5.475
@@ -3330,20 +3452,42 @@ Completed box being shipped out [8]
 .....\glue(\parskip) 0.0
 .....\glue(\baselineskip) 3.86665
 .....\hbox(7.60422+0.0)x285.38982, glue set 122.45303fil, shifted 21.90005
-......\hbox(6.11667+0.0)x0.0
+......\hbox(5.15872+0.0)x0.0
 .......\glue 0.0
 .......\glue -16.42505
 .......\glue -5.475
-.......\hbox(6.11667+0.0)x16.42505, glue set 16.42505fil
+.......\hbox(5.15872+0.0)x16.42505, glue set 16.42505fil
 ........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\hbox(6.11667+0.0)x0.0, glue set - 5.475fil
+........\hbox(5.15872+0.0)x0.0, glue set 0.24335fil
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-.........\hbox(4.86667+0.0)x5.475, shifted -1.25
-..........\mathon
-..........\OMS/lmsy/m/n/10.95 ^^O
-..........\mathoff
+.........\hbox(5.15872+0.0)x0.0, glue set - 7.15405fil
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\glue 3.65 plus 1.825 minus 1.21666
+..........\hbox(3.50406+0.0)x3.50406, shifted -1.65466
+...........\glue 1.75203
+...........\hbox(0.0+0.0)x0.0, shifted -1.75203
+............\pdfliteral{q }
+............\pdfliteral{0.13725 0.2157 0.23137 RG }
+............\pdfliteral{0.13725 0.2157 0.23137 rg }
+............\pdfliteral{0.3985 w }
+............\hbox(0.0+0.0)x0.0
+.............\glue 0.0
+.............\glue 0.0
+.............\pdfliteral{1.7455 0.0 m }
+.............\pdfliteral{1.7455 0.964 0.964 1.7455 0.0 1.7455 c }
+.............\pdfliteral{-0.964 1.7455 -1.7455 0.964 -1.7455 0.0 c }
+.............\pdfliteral{-1.7455 -0.964 -0.964 -1.7455 0.0 -1.7455 c }
+.............\pdfliteral{0.964 -1.7455 1.7455 -0.964 1.7455 0.0 c }
+.............\pdfliteral{h }
+.............\pdfliteral{0.0 0.0 m }
+.............\pdfliteral{f }
+.............\glue 0.0 plus 1.0fil minus 1.0fil
+............\pdfliteral{n }
+............\pdfliteral{Q }
+............\glue 0.0 plus 1.0fil minus 1.0fil
+.........\kern -0.24335
 .........\pdfcolorstack 0 pop
 ........\pdfcolorstack 0 pop
 .......\glue 5.475
@@ -3375,20 +3519,42 @@ Completed box being shipped out [8]
 .....\glue(\parskip) 0.0
 .....\glue(\baselineskip) 5.99579
 .....\hbox(7.60422+0.0)x285.38982, glue set 112.36954fil, shifted 21.90005
-......\hbox(6.11667+0.0)x0.0
+......\hbox(5.15872+0.0)x0.0
 .......\glue 0.0
 .......\glue -16.42505
 .......\glue -5.475
-.......\hbox(6.11667+0.0)x16.42505, glue set 16.42505fil
+.......\hbox(5.15872+0.0)x16.42505, glue set 16.42505fil
 ........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\hbox(6.11667+0.0)x0.0, glue set - 5.475fil
+........\hbox(5.15872+0.0)x0.0, glue set 0.24335fil
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-.........\hbox(4.86667+0.0)x5.475, shifted -1.25
-..........\mathon
-..........\OMS/lmsy/m/n/10.95 ^^O
-..........\mathoff
+.........\hbox(5.15872+0.0)x0.0, glue set - 7.15405fil
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\glue 3.65 plus 1.825 minus 1.21666
+..........\hbox(3.50406+0.0)x3.50406, shifted -1.65466
+...........\glue 1.75203
+...........\hbox(0.0+0.0)x0.0, shifted -1.75203
+............\pdfliteral{q }
+............\pdfliteral{0.13725 0.2157 0.23137 RG }
+............\pdfliteral{0.13725 0.2157 0.23137 rg }
+............\pdfliteral{0.3985 w }
+............\hbox(0.0+0.0)x0.0
+.............\glue 0.0
+.............\glue 0.0
+.............\pdfliteral{1.7455 0.0 m }
+.............\pdfliteral{1.7455 0.964 0.964 1.7455 0.0 1.7455 c }
+.............\pdfliteral{-0.964 1.7455 -1.7455 0.964 -1.7455 0.0 c }
+.............\pdfliteral{-1.7455 -0.964 -0.964 -1.7455 0.0 -1.7455 c }
+.............\pdfliteral{0.964 -1.7455 1.7455 -0.964 1.7455 0.0 c }
+.............\pdfliteral{h }
+.............\pdfliteral{0.0 0.0 m }
+.............\pdfliteral{f }
+.............\glue 0.0 plus 1.0fil minus 1.0fil
+............\pdfliteral{n }
+............\pdfliteral{Q }
+............\glue 0.0 plus 1.0fil minus 1.0fil
+.........\kern -0.24335
 .........\pdfcolorstack 0 pop
 ........\pdfcolorstack 0 pop
 .......\glue 5.475
@@ -3661,20 +3827,42 @@ Completed box being shipped out [9]
 .....\glue(\parskip) 0.0
 .....\glue(\baselineskip) 5.99579
 .....\hbox(7.60422+2.12914)x285.38982, glue set 103.16849fil, shifted 21.90005
-......\hbox(6.11667+0.0)x0.0
+......\hbox(5.15872+0.0)x0.0
 .......\glue 0.0
 .......\glue -16.42505
 .......\glue -5.475
-.......\hbox(6.11667+0.0)x16.42505, glue set 16.42505fil
+.......\hbox(5.15872+0.0)x16.42505, glue set 16.42505fil
 ........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\hbox(6.11667+0.0)x0.0, glue set - 5.475fil
+........\hbox(5.15872+0.0)x0.0, glue set 0.24335fil
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-.........\hbox(4.86667+0.0)x5.475, shifted -1.25
-..........\mathon
-..........\OMS/lmsy/m/n/10.95 ^^O
-..........\mathoff
+.........\hbox(5.15872+0.0)x0.0, glue set - 7.15405fil
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\glue 3.65 plus 1.825 minus 1.21666
+..........\hbox(3.50406+0.0)x3.50406, shifted -1.65466
+...........\glue 1.75203
+...........\hbox(0.0+0.0)x0.0, shifted -1.75203
+............\pdfliteral{q }
+............\pdfliteral{0.13725 0.2157 0.23137 RG }
+............\pdfliteral{0.13725 0.2157 0.23137 rg }
+............\pdfliteral{0.3985 w }
+............\hbox(0.0+0.0)x0.0
+.............\glue 0.0
+.............\glue 0.0
+.............\pdfliteral{1.7455 0.0 m }
+.............\pdfliteral{1.7455 0.964 0.964 1.7455 0.0 1.7455 c }
+.............\pdfliteral{-0.964 1.7455 -1.7455 0.964 -1.7455 0.0 c }
+.............\pdfliteral{-1.7455 -0.964 -0.964 -1.7455 0.0 -1.7455 c }
+.............\pdfliteral{0.964 -1.7455 1.7455 -0.964 1.7455 0.0 c }
+.............\pdfliteral{h }
+.............\pdfliteral{0.0 0.0 m }
+.............\pdfliteral{f }
+.............\glue 0.0 plus 1.0fil minus 1.0fil
+............\pdfliteral{n }
+............\pdfliteral{Q }
+............\glue 0.0 plus 1.0fil minus 1.0fil
+.........\kern -0.24335
 .........\pdfcolorstack 0 pop
 ........\pdfcolorstack 0 pop
 .......\glue 5.475
@@ -3719,20 +3907,42 @@ Completed box being shipped out [9]
 .....\glue(\parskip) 0.0
 .....\glue(\baselineskip) 3.86665
 .....\hbox(7.60422+0.0)x285.38982, glue set 122.45303fil, shifted 21.90005
-......\hbox(6.11667+0.0)x0.0
+......\hbox(5.15872+0.0)x0.0
 .......\glue 0.0
 .......\glue -16.42505
 .......\glue -5.475
-.......\hbox(6.11667+0.0)x16.42505, glue set 16.42505fil
+.......\hbox(5.15872+0.0)x16.42505, glue set 16.42505fil
 ........\pdfcolorstack 0 push {0.92157 0.50587 0.10588 rg 0.92157 0.50587 0.10588 RG}
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\hbox(6.11667+0.0)x0.0, glue set - 5.475fil
+........\hbox(5.15872+0.0)x0.0, glue set 0.24335fil
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\pdfcolorstack 0 push {0.92157 0.50587 0.10588 rg 0.92157 0.50587 0.10588 RG}
-.........\hbox(4.86667+0.0)x5.475, shifted -1.25
-..........\mathon
-..........\OMS/lmsy/m/n/10.95 ^^O
-..........\mathoff
+.........\hbox(5.15872+0.0)x0.0, glue set - 7.15405fil
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\glue 3.65 plus 1.825 minus 1.21666
+..........\hbox(3.50406+0.0)x3.50406, shifted -1.65466
+...........\glue 1.75203
+...........\hbox(0.0+0.0)x0.0, shifted -1.75203
+............\pdfliteral{q }
+............\pdfliteral{0.92157 0.50587 0.10588 RG }
+............\pdfliteral{0.92157 0.50587 0.10588 rg }
+............\pdfliteral{0.3985 w }
+............\hbox(0.0+0.0)x0.0
+.............\glue 0.0
+.............\glue 0.0
+.............\pdfliteral{1.7455 0.0 m }
+.............\pdfliteral{1.7455 0.964 0.964 1.7455 0.0 1.7455 c }
+.............\pdfliteral{-0.964 1.7455 -1.7455 0.964 -1.7455 0.0 c }
+.............\pdfliteral{-1.7455 -0.964 -0.964 -1.7455 0.0 -1.7455 c }
+.............\pdfliteral{0.964 -1.7455 1.7455 -0.964 1.7455 0.0 c }
+.............\pdfliteral{h }
+.............\pdfliteral{0.0 0.0 m }
+.............\pdfliteral{f }
+.............\glue 0.0 plus 1.0fil minus 1.0fil
+............\pdfliteral{n }
+............\pdfliteral{Q }
+............\glue 0.0 plus 1.0fil minus 1.0fil
+.........\kern -0.24335
 .........\pdfcolorstack 0 pop
 ........\pdfcolorstack 0 pop
 .......\glue 5.475
@@ -3765,20 +3975,42 @@ Completed box being shipped out [9]
 .....\glue(\parskip) 0.0
 .....\glue(\baselineskip) 5.99579
 .....\hbox(7.60422+0.0)x285.38982, glue set 112.36954fil, shifted 21.90005
-......\hbox(6.11667+0.0)x0.0
+......\hbox(5.15872+0.0)x0.0
 .......\glue 0.0
 .......\glue -16.42505
 .......\glue -5.475
-.......\hbox(6.11667+0.0)x16.42505, glue set 16.42505fil
+.......\hbox(5.15872+0.0)x16.42505, glue set 16.42505fil
 ........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\hbox(6.11667+0.0)x0.0, glue set - 5.475fil
+........\hbox(5.15872+0.0)x0.0, glue set 0.24335fil
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-.........\hbox(4.86667+0.0)x5.475, shifted -1.25
-..........\mathon
-..........\OMS/lmsy/m/n/10.95 ^^O
-..........\mathoff
+.........\hbox(5.15872+0.0)x0.0, glue set - 7.15405fil
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\glue 3.65 plus 1.825 minus 1.21666
+..........\hbox(3.50406+0.0)x3.50406, shifted -1.65466
+...........\glue 1.75203
+...........\hbox(0.0+0.0)x0.0, shifted -1.75203
+............\pdfliteral{q }
+............\pdfliteral{0.13725 0.2157 0.23137 RG }
+............\pdfliteral{0.13725 0.2157 0.23137 rg }
+............\pdfliteral{0.3985 w }
+............\hbox(0.0+0.0)x0.0
+.............\glue 0.0
+.............\glue 0.0
+.............\pdfliteral{1.7455 0.0 m }
+.............\pdfliteral{1.7455 0.964 0.964 1.7455 0.0 1.7455 c }
+.............\pdfliteral{-0.964 1.7455 -1.7455 0.964 -1.7455 0.0 c }
+.............\pdfliteral{-1.7455 -0.964 -0.964 -1.7455 0.0 -1.7455 c }
+.............\pdfliteral{0.964 -1.7455 1.7455 -0.964 1.7455 0.0 c }
+.............\pdfliteral{h }
+.............\pdfliteral{0.0 0.0 m }
+.............\pdfliteral{f }
+.............\glue 0.0 plus 1.0fil minus 1.0fil
+............\pdfliteral{n }
+............\pdfliteral{Q }
+............\glue 0.0 plus 1.0fil minus 1.0fil
+.........\kern -0.24335
 .........\pdfcolorstack 0 pop
 ........\pdfcolorstack 0 pop
 .......\glue 5.475
@@ -4051,20 +4283,42 @@ Completed box being shipped out [10]
 .....\glue(\parskip) 0.0
 .....\glue(\baselineskip) 5.99579
 .....\hbox(7.60422+2.12914)x285.38982, glue set 103.16849fil, shifted 21.90005
-......\hbox(6.11667+0.0)x0.0
+......\hbox(5.15872+0.0)x0.0
 .......\glue 0.0
 .......\glue -16.42505
 .......\glue -5.475
-.......\hbox(6.11667+0.0)x16.42505, glue set 16.42505fil
+.......\hbox(5.15872+0.0)x16.42505, glue set 16.42505fil
 ........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\hbox(6.11667+0.0)x0.0, glue set - 5.475fil
+........\hbox(5.15872+0.0)x0.0, glue set 0.24335fil
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-.........\hbox(4.86667+0.0)x5.475, shifted -1.25
-..........\mathon
-..........\OMS/lmsy/m/n/10.95 ^^O
-..........\mathoff
+.........\hbox(5.15872+0.0)x0.0, glue set - 7.15405fil
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\glue 3.65 plus 1.825 minus 1.21666
+..........\hbox(3.50406+0.0)x3.50406, shifted -1.65466
+...........\glue 1.75203
+...........\hbox(0.0+0.0)x0.0, shifted -1.75203
+............\pdfliteral{q }
+............\pdfliteral{0.13725 0.2157 0.23137 RG }
+............\pdfliteral{0.13725 0.2157 0.23137 rg }
+............\pdfliteral{0.3985 w }
+............\hbox(0.0+0.0)x0.0
+.............\glue 0.0
+.............\glue 0.0
+.............\pdfliteral{1.7455 0.0 m }
+.............\pdfliteral{1.7455 0.964 0.964 1.7455 0.0 1.7455 c }
+.............\pdfliteral{-0.964 1.7455 -1.7455 0.964 -1.7455 0.0 c }
+.............\pdfliteral{-1.7455 -0.964 -0.964 -1.7455 0.0 -1.7455 c }
+.............\pdfliteral{0.964 -1.7455 1.7455 -0.964 1.7455 0.0 c }
+.............\pdfliteral{h }
+.............\pdfliteral{0.0 0.0 m }
+.............\pdfliteral{f }
+.............\glue 0.0 plus 1.0fil minus 1.0fil
+............\pdfliteral{n }
+............\pdfliteral{Q }
+............\glue 0.0 plus 1.0fil minus 1.0fil
+.........\kern -0.24335
 .........\pdfcolorstack 0 pop
 ........\pdfcolorstack 0 pop
 .......\glue 5.475
@@ -4109,20 +4363,42 @@ Completed box being shipped out [10]
 .....\glue(\parskip) 0.0
 .....\glue(\baselineskip) 3.86665
 .....\hbox(7.60422+0.0)x285.38982, glue set 122.45303fil, shifted 21.90005
-......\hbox(6.11667+0.0)x0.0
+......\hbox(5.15872+0.0)x0.0
 .......\glue 0.0
 .......\glue -16.42505
 .......\glue -5.475
-.......\hbox(6.11667+0.0)x16.42505, glue set 16.42505fil
+.......\hbox(5.15872+0.0)x16.42505, glue set 16.42505fil
 ........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\hbox(6.11667+0.0)x0.0, glue set - 5.475fil
+........\hbox(5.15872+0.0)x0.0, glue set 0.24335fil
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-.........\hbox(4.86667+0.0)x5.475, shifted -1.25
-..........\mathon
-..........\OMS/lmsy/m/n/10.95 ^^O
-..........\mathoff
+.........\hbox(5.15872+0.0)x0.0, glue set - 7.15405fil
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\glue 3.65 plus 1.825 minus 1.21666
+..........\hbox(3.50406+0.0)x3.50406, shifted -1.65466
+...........\glue 1.75203
+...........\hbox(0.0+0.0)x0.0, shifted -1.75203
+............\pdfliteral{q }
+............\pdfliteral{0.13725 0.2157 0.23137 RG }
+............\pdfliteral{0.13725 0.2157 0.23137 rg }
+............\pdfliteral{0.3985 w }
+............\hbox(0.0+0.0)x0.0
+.............\glue 0.0
+.............\glue 0.0
+.............\pdfliteral{1.7455 0.0 m }
+.............\pdfliteral{1.7455 0.964 0.964 1.7455 0.0 1.7455 c }
+.............\pdfliteral{-0.964 1.7455 -1.7455 0.964 -1.7455 0.0 c }
+.............\pdfliteral{-1.7455 -0.964 -0.964 -1.7455 0.0 -1.7455 c }
+.............\pdfliteral{0.964 -1.7455 1.7455 -0.964 1.7455 0.0 c }
+.............\pdfliteral{h }
+.............\pdfliteral{0.0 0.0 m }
+.............\pdfliteral{f }
+.............\glue 0.0 plus 1.0fil minus 1.0fil
+............\pdfliteral{n }
+............\pdfliteral{Q }
+............\glue 0.0 plus 1.0fil minus 1.0fil
+.........\kern -0.24335
 .........\pdfcolorstack 0 pop
 ........\pdfcolorstack 0 pop
 .......\glue 5.475
@@ -4156,20 +4432,42 @@ Completed box being shipped out [10]
 .....\glue(\parskip) 0.0
 .....\glue(\baselineskip) 5.99579
 .....\hbox(7.60422+0.0)x285.38982, glue set 112.36954fil, shifted 21.90005
-......\hbox(6.11667+0.0)x0.0
+......\hbox(5.15872+0.0)x0.0
 .......\glue 0.0
 .......\glue -16.42505
 .......\glue -5.475
-.......\hbox(6.11667+0.0)x16.42505, glue set 16.42505fil
+.......\hbox(5.15872+0.0)x16.42505, glue set 16.42505fil
 ........\pdfcolorstack 0 push {0.92157 0.50587 0.10588 rg 0.92157 0.50587 0.10588 RG}
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\hbox(6.11667+0.0)x0.0, glue set - 5.475fil
+........\hbox(5.15872+0.0)x0.0, glue set 0.24335fil
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\pdfcolorstack 0 push {0.92157 0.50587 0.10588 rg 0.92157 0.50587 0.10588 RG}
-.........\hbox(4.86667+0.0)x5.475, shifted -1.25
-..........\mathon
-..........\OMS/lmsy/m/n/10.95 ^^O
-..........\mathoff
+.........\hbox(5.15872+0.0)x0.0, glue set - 7.15405fil
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\glue 3.65 plus 1.825 minus 1.21666
+..........\hbox(3.50406+0.0)x3.50406, shifted -1.65466
+...........\glue 1.75203
+...........\hbox(0.0+0.0)x0.0, shifted -1.75203
+............\pdfliteral{q }
+............\pdfliteral{0.92157 0.50587 0.10588 RG }
+............\pdfliteral{0.92157 0.50587 0.10588 rg }
+............\pdfliteral{0.3985 w }
+............\hbox(0.0+0.0)x0.0
+.............\glue 0.0
+.............\glue 0.0
+.............\pdfliteral{1.7455 0.0 m }
+.............\pdfliteral{1.7455 0.964 0.964 1.7455 0.0 1.7455 c }
+.............\pdfliteral{-0.964 1.7455 -1.7455 0.964 -1.7455 0.0 c }
+.............\pdfliteral{-1.7455 -0.964 -0.964 -1.7455 0.0 -1.7455 c }
+.............\pdfliteral{0.964 -1.7455 1.7455 -0.964 1.7455 0.0 c }
+.............\pdfliteral{h }
+.............\pdfliteral{0.0 0.0 m }
+.............\pdfliteral{f }
+.............\glue 0.0 plus 1.0fil minus 1.0fil
+............\pdfliteral{n }
+............\pdfliteral{Q }
+............\glue 0.0 plus 1.0fil minus 1.0fil
+.........\kern -0.24335
 .........\pdfcolorstack 0 pop
 ........\pdfcolorstack 0 pop
 .......\glue 5.475
@@ -4443,20 +4741,42 @@ Completed box being shipped out [11]
 .....\glue(\parskip) 0.0
 .....\glue(\baselineskip) 5.99579
 .....\hbox(7.60422+2.12914)x285.38982, glue set 89.26804fil, shifted 21.90005
-......\hbox(6.11667+0.0)x0.0
+......\hbox(5.15872+0.0)x0.0
 .......\glue 0.0
 .......\glue -16.42505
 .......\glue -5.475
-.......\hbox(6.11667+0.0)x16.42505, glue set 16.42505fil
+.......\hbox(5.15872+0.0)x16.42505, glue set 16.42505fil
 ........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\hbox(6.11667+0.0)x0.0, glue set - 5.475fil
+........\hbox(5.15872+0.0)x0.0, glue set 0.24335fil
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-.........\hbox(4.86667+0.0)x5.475, shifted -1.25
-..........\mathon
-..........\OMS/lmsy/m/n/10.95 ^^O
-..........\mathoff
+.........\hbox(5.15872+0.0)x0.0, glue set - 7.15405fil
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\glue 3.65 plus 1.825 minus 1.21666
+..........\hbox(3.50406+0.0)x3.50406, shifted -1.65466
+...........\glue 1.75203
+...........\hbox(0.0+0.0)x0.0, shifted -1.75203
+............\pdfliteral{q }
+............\pdfliteral{0.13725 0.2157 0.23137 RG }
+............\pdfliteral{0.13725 0.2157 0.23137 rg }
+............\pdfliteral{0.3985 w }
+............\hbox(0.0+0.0)x0.0
+.............\glue 0.0
+.............\glue 0.0
+.............\pdfliteral{1.7455 0.0 m }
+.............\pdfliteral{1.7455 0.964 0.964 1.7455 0.0 1.7455 c }
+.............\pdfliteral{-0.964 1.7455 -1.7455 0.964 -1.7455 0.0 c }
+.............\pdfliteral{-1.7455 -0.964 -0.964 -1.7455 0.0 -1.7455 c }
+.............\pdfliteral{0.964 -1.7455 1.7455 -0.964 1.7455 0.0 c }
+.............\pdfliteral{h }
+.............\pdfliteral{0.0 0.0 m }
+.............\pdfliteral{f }
+.............\glue 0.0 plus 1.0fil minus 1.0fil
+............\pdfliteral{n }
+............\pdfliteral{Q }
+............\glue 0.0 plus 1.0fil minus 1.0fil
+.........\kern -0.24335
 .........\pdfcolorstack 0 pop
 ........\pdfcolorstack 0 pop
 .......\glue 5.475
@@ -4508,20 +4828,42 @@ Completed box being shipped out [11]
 .....\glue(\parskip) 0.0
 .....\glue(\baselineskip) 3.86665
 .....\hbox(7.60422+0.0)x285.38982, glue set 122.45303fil, shifted 21.90005
-......\hbox(6.11667+0.0)x0.0
+......\hbox(5.15872+0.0)x0.0
 .......\glue 0.0
 .......\glue -16.42505
 .......\glue -5.475
-.......\hbox(6.11667+0.0)x16.42505, glue set 16.42505fil
+.......\hbox(5.15872+0.0)x16.42505, glue set 16.42505fil
 ........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\hbox(6.11667+0.0)x0.0, glue set - 5.475fil
+........\hbox(5.15872+0.0)x0.0, glue set 0.24335fil
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-.........\hbox(4.86667+0.0)x5.475, shifted -1.25
-..........\mathon
-..........\OMS/lmsy/m/n/10.95 ^^O
-..........\mathoff
+.........\hbox(5.15872+0.0)x0.0, glue set - 7.15405fil
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\glue 3.65 plus 1.825 minus 1.21666
+..........\hbox(3.50406+0.0)x3.50406, shifted -1.65466
+...........\glue 1.75203
+...........\hbox(0.0+0.0)x0.0, shifted -1.75203
+............\pdfliteral{q }
+............\pdfliteral{0.13725 0.2157 0.23137 RG }
+............\pdfliteral{0.13725 0.2157 0.23137 rg }
+............\pdfliteral{0.3985 w }
+............\hbox(0.0+0.0)x0.0
+.............\glue 0.0
+.............\glue 0.0
+.............\pdfliteral{1.7455 0.0 m }
+.............\pdfliteral{1.7455 0.964 0.964 1.7455 0.0 1.7455 c }
+.............\pdfliteral{-0.964 1.7455 -1.7455 0.964 -1.7455 0.0 c }
+.............\pdfliteral{-1.7455 -0.964 -0.964 -1.7455 0.0 -1.7455 c }
+.............\pdfliteral{0.964 -1.7455 1.7455 -0.964 1.7455 0.0 c }
+.............\pdfliteral{h }
+.............\pdfliteral{0.0 0.0 m }
+.............\pdfliteral{f }
+.............\glue 0.0 plus 1.0fil minus 1.0fil
+............\pdfliteral{n }
+............\pdfliteral{Q }
+............\glue 0.0 plus 1.0fil minus 1.0fil
+.........\kern -0.24335
 .........\pdfcolorstack 0 pop
 ........\pdfcolorstack 0 pop
 .......\glue 5.475
@@ -4555,20 +4897,42 @@ Completed box being shipped out [11]
 .....\glue(\parskip) 0.0
 .....\glue(\baselineskip) 5.99579
 .....\hbox(7.60422+0.0)x285.38982, glue set 112.36954fil, shifted 21.90005
-......\hbox(6.11667+0.0)x0.0
+......\hbox(5.15872+0.0)x0.0
 .......\glue 0.0
 .......\glue -16.42505
 .......\glue -5.475
-.......\hbox(6.11667+0.0)x16.42505, glue set 16.42505fil
+.......\hbox(5.15872+0.0)x16.42505, glue set 16.42505fil
 ........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\hbox(6.11667+0.0)x0.0, glue set - 5.475fil
+........\hbox(5.15872+0.0)x0.0, glue set 0.24335fil
 .........\glue 0.0 plus 1.0fil minus 1.0fil
 .........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
-.........\hbox(4.86667+0.0)x5.475, shifted -1.25
-..........\mathon
-..........\OMS/lmsy/m/n/10.95 ^^O
-..........\mathoff
+.........\hbox(5.15872+0.0)x0.0, glue set - 7.15405fil
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\glue 3.65 plus 1.825 minus 1.21666
+..........\hbox(3.50406+0.0)x3.50406, shifted -1.65466
+...........\glue 1.75203
+...........\hbox(0.0+0.0)x0.0, shifted -1.75203
+............\pdfliteral{q }
+............\pdfliteral{0.13725 0.2157 0.23137 RG }
+............\pdfliteral{0.13725 0.2157 0.23137 rg }
+............\pdfliteral{0.3985 w }
+............\hbox(0.0+0.0)x0.0
+.............\glue 0.0
+.............\glue 0.0
+.............\pdfliteral{1.7455 0.0 m }
+.............\pdfliteral{1.7455 0.964 0.964 1.7455 0.0 1.7455 c }
+.............\pdfliteral{-0.964 1.7455 -1.7455 0.964 -1.7455 0.0 c }
+.............\pdfliteral{-1.7455 -0.964 -0.964 -1.7455 0.0 -1.7455 c }
+.............\pdfliteral{0.964 -1.7455 1.7455 -0.964 1.7455 0.0 c }
+.............\pdfliteral{h }
+.............\pdfliteral{0.0 0.0 m }
+.............\pdfliteral{f }
+.............\glue 0.0 plus 1.0fil minus 1.0fil
+............\pdfliteral{n }
+............\pdfliteral{Q }
+............\glue 0.0 plus 1.0fil minus 1.0fil
+.........\kern -0.24335
 .........\pdfcolorstack 0 pop
 ........\pdfcolorstack 0 pop
 .......\glue 5.475
