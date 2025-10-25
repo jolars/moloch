@@ -28,6 +28,15 @@
 \definecolor{mAlert}{HTML}{AD003D}
 \definecolor{mExample}{HTML}{005580}
 
+% Register high-contrast-specific light and dark color schemes
+\moloch@register@light@colors{%
+  \setbeamercolor{normal text}{fg=black,bg=white}%
+}
+
+\moloch@register@dark@colors{%
+  \setbeamercolor{normal text}{fg=white,bg=black}%
+}
+
 \setbeamercolor{normal text}{%
   fg=black,
   bg=white
