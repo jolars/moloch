@@ -92,24 +92,56 @@
 % |alerted text|, and |example text|.
 %
 %    \begin{macrocode}
-\newcommand{\moloch@colors@dark}{
-  \setbeamercolor{normal text}{%
-    fg=black!2,
-    bg=mDarkTeal
-  }
-  \usebeamercolor[fg]{normal text}
-}
-\newcommand{\moloch@colors@light}{
-  \setbeamercolor{normal text}{%
-    fg=mDarkTeal,
-    bg=black!2
-  }
-}
 \setbeamercolor{alerted text}{%
   fg=mLightBrown
 }
 \setbeamercolor{example text}{%
   fg=mLightGreen
+}
+%    \end{macrocode}
+
+% \subsubsection{Hooks for Color Themes}
+%
+%
+% Moloch color themes can register light and dark color schemes using the
+% commands below. The registered colors will be stored in the macros
+% |\moloch@define@light@colors| and |\moloch@define@dark@colors| respectively.
+% These macros are invoked when the |background=light| or |background=dark|
+% options are selected.
+%
+%    \begin{macrocode}
+\newcommand{\moloch@define@light@colors}{}
+\newcommand{\moloch@define@dark@colors}{}
+
+\newcommand{\moloch@register@light@colors}[1]{%
+  \renewcommand{\moloch@define@light@colors}{#1}%
+}
+
+\newcommand{\moloch@register@dark@colors}[1]{%
+  \renewcommand{\moloch@define@dark@colors}{#1}%
+}
+
+\newcommand{\moloch@colors@dark}{
+  \moloch@define@dark@colors
+  \usebeamercolor[fg]{normal text}
+}
+\newcommand{\moloch@colors@light}{
+  \moloch@define@light@colors
+  \usebeamercolor[fg]{normal text}
+}
+
+\moloch@register@light@colors{%
+  \setbeamercolor{normal text}{%
+    fg=mDarkTeal,
+    bg=black!2
+  }%
+}
+
+\moloch@register@dark@colors{%
+  \setbeamercolor{normal text}{%
+    fg=black!2,
+    bg=mDarkTeal
+  }%
 }
 %    \end{macrocode}
 %

@@ -1,0 +1,39 @@
+\input regression-test
+
+\molochset{block=fill}
+
+\usecolortheme{moloch-tomorrow}
+
+\begin{document}
+
+\START
+\showoutput
+
+\begin{frame}{A simple frame}
+  With some text
+  \begin{block}{Blocktitle}
+    And a block
+  \end{block}
+\end{frame}
+
+\molochset{background=dark}
+\begin{frame}{An inverted frame}
+  With some more text
+  \begin{block}{Blocktitle}
+    And a block
+  \end{block}
+\end{frame}
+
+\molochset{background=light}
+\begin{frame}{Back to normal}
+  With the same text
+  \begin{block}{Blocktitle}
+    And a block
+  \end{block}
+\end{frame}
+
+\begin{frame}[standout]
+  Also works for standout frames.
+\end{frame}
+
+\end{document}

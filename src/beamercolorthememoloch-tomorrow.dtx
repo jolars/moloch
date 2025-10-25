@@ -32,6 +32,17 @@
 \definecolor{tomorrowExample}{HTML}{4271ae}
 \definecolor{tomorrowProgress}{HTML}{8959a8}
 
+% Register tomorrow-specific light and dark color schemes
+\moloch@register@light@colors{%
+  \setbeamercolor{normal text}{fg=tomorrowForeground,bg=tomorrowBackground}%
+  \setbeamercolor{frametitle}{bg=tomorrowHeader}%
+}
+
+\moloch@register@dark@colors{%
+  \setbeamercolor{normal text}{fg=tomorrowBackground,bg=tomorrowForeground}%
+  \setbeamercolor{frametitle}{bg=tomorrowBackground}%
+}
+
 \setbeamercolor{normal text}{fg=tomorrowForeground,bg=tomorrowBackground}
 \setbeamercolor{moloch accent}{fg=tomorrowAccent}
 \setbeamercolor{frametitle}{bg=tomorrowHeader}
