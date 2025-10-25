@@ -39,6 +39,22 @@
 \setbeamercolor{example text}{fg=tomorrowExample}
 \setbeamercolor{progress bar}{fg=tomorrowProgress}
 
+%    \begin{macrocode}
+\renewcommand{\moloch@colors@dark}{
+  \setbeamercolor{normal text}{%
+    fg=tomorrowBackground,
+    bg=tomorrowForeground
+  }
+  \usebeamercolor[fg]{normal text}
+}
+\renewcommand{\moloch@colors@light}{
+  \setbeamercolor{normal text}{%
+    fg=tomorrowForeground,
+    bg=tomorrowBackground
+  }
+  \usebeamercolor[fg]{normal text}
+}
+%    \end{macrocode}
 %
 %    \begin{macrocode}
 \mode<all>
