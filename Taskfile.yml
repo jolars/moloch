@@ -9,7 +9,7 @@ tasks:
   docs:
     desc: Extract and convert DTX documentation to Markdown
     cmds:
-      - texlua extract-dtx-docs.lua
+      - texlua scripts/extract-dtx-docs.lua
 
   preview-docs:
     desc: Preview the generated documentation in a web browser

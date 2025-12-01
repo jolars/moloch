@@ -24,6 +24,7 @@ Moloch is a LaTeX Beamer presentation theme package. It is a minimalistic fork o
 ### Required Commands Format
 
 All l3build commands must be invoked as:
+
 ```bash
 nix develop --command l3build-wrapped <subcommand>
 ```
@@ -35,40 +36,49 @@ nix develop --command l3build-wrapped <subcommand>
 The documentation system uses a multi-stage pipeline:
 
 1. **Extract DTX documentation to Markdown** (optional - only needed after changing `.dtx` files):
+
    ```bash
-   texlua extract-dtx-docs.lua
+   texlua scripts/extract-dtx-docs.lua
    # Or using task: task docs
    ```
+
    - Extracts implementation docs from `src/*.dtx` files
    - Generates markdown files in `docs/implementation/`
    - Uses `convert-filter.lua` for Pandoc conversion
 
 2. **Build Quarto book** (required after editing `docs/index.md` or DTX changes):
+
    ```bash
    cd docs && nix develop --command quarto render --to pdf
    # Or using task: task build-manual
    ```
+
    - Converts markdown to LaTeX (`docs/moloch.tex`)
    - Generates PDF to `docs/_site/moloch.pdf`
    - **Time**: ~60-90 seconds
 
 3. **Copy generated LaTeX to l3build location**:
+
    ```bash
    cp docs/moloch.tex doc/manual.tex
    # Or using task: task build-manual (does all steps)
    ```
+
    - Required for `l3build-wrapped doc` to work
    - The `doc/manual.tex` file is what l3build typesets
 
 4. **Generate final package documentation PDF**:
+
    ```bash
    nix develop --command l3build-wrapped doc
    ```
+
    - Typesets `doc/manual.tex` to `doc/manual.pdf`
    - **Time**: ~30-60 seconds
    - **Notes**: Must complete without errors before running tests
 
 **Full pipeline shortcut**:
+
 ```bash
 task build-manual  # Runs steps 2-4 automatically
 ```
@@ -78,6 +88,7 @@ task build-manual  # Runs steps 2-4 automatically
 ### Testing
 
 Run the package test suite:
+
 ```bash
 nix develop --command l3build-wrapped check
 ```
@@ -86,6 +97,7 @@ nix develop --command l3build-wrapped check
 **What it tests**: Compiles test files (`.lvt`) and compares output with expected results (`.tlg`)  
 **Test files location**: `testfiles/` directory  
 **Test types**:
+
 - `test.lvt` - Main theme functionality test
 - `sectionpages.lvt` - Section page rendering
 - `separation.lvt` - Element separation
@@ -96,6 +108,7 @@ nix develop --command l3build-wrapped check
 ### Building for CTAN Distribution
 
 Create a CTAN-ready package:
+
 ```bash
 nix develop --command l3build-wrapped ctan -q -H --show-log-on-error
 ```
@@ -103,6 +116,7 @@ nix develop --command l3build-wrapped ctan -q -H --show-log-on-error
 **Time**: ~90-120 seconds  
 **Output**: Creates `moloch-ctan.zip` in project root  
 **Flags**:
+
 - `-q`: Quiet mode (less output)
 - `-H`: Halt on error
 - `--show-log-on-error`: Display build logs if errors occur
@@ -112,6 +126,7 @@ nix develop --command l3build-wrapped ctan -q -H --show-log-on-error
 ### Installing Locally (Testing)
 
 To test the theme locally with LaTeX:
+
 ```bash
 nix develop --command l3build-wrapped install
 ```
@@ -121,6 +136,7 @@ nix develop --command l3build-wrapped install
 ### Cleaning Build Artifacts
 
 Remove all generated files:
+
 ```bash
 nix develop --command l3build-wrapped clean
 ```
@@ -130,12 +146,13 @@ nix develop --command l3build-wrapped clean
 ### Key Directories and Files
 
 #### Root Directory
+
 - `build.lua` - l3build configuration (package metadata, version, test settings)
 - `flake.nix` - Nix flake definition (development environment)
 - `flake.lock` - Locked Nix dependencies
 - `.envrc` - direnv configuration (auto-loads Nix environment)
 - `Taskfile.yml` - Task runner configuration (documentation build helpers)
-- `extract-dtx-docs.lua` - Script to extract docs from DTX to markdown
+- `scripts/extract-dtx-docs.lua` - Script to extract docs from DTX to markdown
 - `convert-filter.lua` - Pandoc Lua filter for DTX → markdown conversion
 - `package.json` - Node.js dependencies for semantic-release
 - `release.config.js` - Semantic release configuration
@@ -144,7 +161,9 @@ nix develop --command l3build-wrapped clean
 - `LICENSE` - Creative Commons BY-SA 4.0
 
 #### Source Files (`src/`)
+
 Contains the theme implementation in documented LaTeX (`.dtx`) format:
+
 - `beamerthememoloch.dtx` - Main theme file (loads sub-themes)
 - `beamerthememoloch.ins` - Extraction script (generates `.sty` files)
 - `beamerinnerthememoloch.dtx` - Inner theme (frames, title page, lists)
@@ -157,10 +176,12 @@ Contains the theme implementation in documented LaTeX (`.dtx`) format:
 **Important**: Edit `.dtx` files, not `.sty` files. The `.sty` files are generated during build and are git-ignored.
 
 #### Documentation (`doc/`)
+
 - `manual.tex` - Package manual source (generates `manual.pdf` via l3build)
   - **Generated file**: Do NOT edit directly! Edit `docs/index.md` instead.
 
 #### Documentation Source (`docs/`)
+
 - `index.md` - Main manual content (Quarto markdown format)
 - `_quarto.yml` - Quarto book configuration
 - `implementation/` - Generated markdown from DTX files
@@ -168,17 +189,20 @@ Contains the theme implementation in documented LaTeX (`.dtx`) format:
 - `_site/` - Built website/PDF output (git-ignored)
 
 #### Test Files (`testfiles/`)
+
 - `*.lvt` - LaTeX test files (inputs)
 - `*.tlg` - Test logs (expected outputs for regression testing)
 - `support/` - Shared test fixtures
 
 #### Examples (`examples/`)
+
 - `demo/` - Full demonstration presentation
 - `colortheme-tomorrow/` - Tomorrow theme example
 
 ### Generated/Ignored Files
 
 Do NOT commit these (already in .gitignore):
+
 - `*.sty` - Generated style files
 - `build/` - Build directory
 - `doc/moloch.pdf` - Generated documentation
@@ -194,6 +218,7 @@ Do NOT commit these (already in .gitignore):
 Runs on: Pull requests and pushes to `main`
 
 Steps:
+
 1. Checkout repository
 2. Install Nix
 3. Run documentation generation: `nix develop --command l3build-wrapped doc`
@@ -206,6 +231,7 @@ Steps:
 Triggered: Manual workflow dispatch only
 
 Process:
+
 1. Runs build-and-test workflow first
 2. If tests pass, runs semantic-release to:
    - Analyze commits (conventional commits format)
@@ -216,6 +242,7 @@ Process:
    - Commit version changes back to main
 
 **Version Update Locations** (handled by semantic-release):
+
 - `build.lua` - `version = "x.y.z"`
 - `doc/moloch.tex` - `\def\molochversion{x.y.z}`
 - All `src/*.dtx` files - `\ProvidesPackage` with date and version
@@ -233,12 +260,14 @@ Process:
 2. **Make the change**: Edit the `.dtx` file, preserving the documented source format
 
 3. **Build and test immediately**:
+
    ```bash
    nix develop --command l3build-wrapped doc
    nix develop --command l3build-wrapped check
    ```
 
 4. **Test CTAN build**:
+
    ```bash
    nix develop --command l3build-wrapped ctan -q -H --show-log-on-error
    ```
@@ -258,7 +287,7 @@ When changing user-facing manual content:
 When changing DTX files (code + inline documentation):
 
 1. Edit the `.dtx` file in `src/`
-2. Extract docs: `texlua extract-dtx-docs.lua` (or `task docs`)
+2. Extract docs: `texlua scripts/extract-dtx-docs.lua` (or `task docs`)
 3. Rebuild manual: `task build-manual`
 
 ### Updating Tests
@@ -297,6 +326,7 @@ When changing theme behavior:
 ```
 
 **Types**:
+
 - `feat:` - New feature (triggers minor version bump)
 - `fix:` - Bug fix (triggers patch version bump)
 - `docs:` - Documentation only changes
@@ -307,6 +337,7 @@ When changing theme behavior:
 **Breaking changes**: Add `!` after type or `BREAKING CHANGE:` in footer for major version bump
 
 **Examples**:
+
 ```
 feat: add support for custom frame numbering format
 fix: correct spacing in title page with long titles
@@ -317,6 +348,7 @@ test: add regression test for standout frame numbering
 ### Version Numbers
 
 Stored in three locations (kept in sync by semantic-release):
+
 1. `build.lua` - Line with `version = "x.y.z"`
 2. `doc/moloch.tex` - Line with `\def\molochversion{x.y.z}`
 3. All `src/*.dtx` files - In `\ProvidesPackage{...}[date vx.y.z ...]` line
@@ -333,16 +365,19 @@ Stored in three locations (kept in sync by semantic-release):
 ### "Cannot find file beamerthememoloch.sty"
 
 **Cause**: Trying to compile examples without building the package first  
-**Solution**: 
+**Solution**:
+
 ```bash
 nix develop --command l3build-wrapped unpack
 ```
+
 This generates `.sty` files from `.dtx` sources
 
 ### Test Failures After Theme Changes
 
 **Cause**: Output changed but `.tlg` files not updated  
 **Solution**: If changes are intentional:
+
 ```bash
 nix develop --command l3build-wrapped save <testname>
 ```
@@ -351,6 +386,7 @@ nix develop --command l3build-wrapped save <testname>
 
 **Cause**: Usually Nix cache/environment mismatch  
 **Solution**: Clean and rebuild:
+
 ```bash
 nix develop --command l3build-wrapped clean
 nix flake update
@@ -401,7 +437,7 @@ nix develop --command l3build-wrapped check    # Run all tests
 nix develop --command l3build-wrapped ctan -q -H --show-log-on-error  # CI build
 
 # Documentation workflow
-texlua extract-dtx-docs.lua                    # Extract DTX → markdown (when .dtx changes)
+texlua scripts/extract-dtx-docs.lua                    # Extract DTX → markdown (when .dtx changes)
 cd docs && nix develop --command quarto render --to pdf  # Build Quarto book
 cp docs/moloch.tex doc/manual.tex              # Copy for l3build
 
@@ -420,6 +456,7 @@ nix develop  # Then run l3build-wrapped commands without prefix
 ## When to Search Further
 
 Search or ask for help if:
+
 - You encounter an error not covered in troubleshooting
 - You need to understand the LaTeX Beamer theme API beyond what's in existing code
 - The build.lua configuration needs options not documented here

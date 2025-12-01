@@ -100,9 +100,9 @@ end
 
 -- Main execution
 function main()
-	local src_dir = "src"
-	local out_dir = "docs/implementation"
-	local filter_file = "convert-filter.lua"
+	local src_dir = "../src"
+	local out_dir = "../docs/implementation"
+	local filter_file = "../convert-filter.lua"
 
 	-- Create output directory
 	os.execute("mkdir -p " .. out_dir)
