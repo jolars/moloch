@@ -5,8 +5,8 @@
 %
 \documentclass[
   letterpaper,
-  DIV=11,
-  numbers=noendperiod]{scrreprt}
+  numbers=noendperiod,
+  DIV=10]{scrreprt}
 
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
@@ -139,8 +139,8 @@
 \usepackage{xcolor}
 \definecolor{JungleGreen}{RGB}{42,127,98}
 \newcommand{\DescribeOption}[4]{
-  \DescribeMacro{#1}
   \begin{minipage}[t]{\textwidth}
+    #1
     \textit{\textbf{\textcolor{JungleGreen}{#2}}}\dotfill\,#3\par
     \begingroup
     \vspace{0.5em}#4\par
@@ -148,22 +148,6 @@
   \end{minipage}
 }
 \KOMAoption{captions}{tableheading}
-\makeatletter
-\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
-\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
-\definecolor{quarto-callout-color}{HTML}{909090}
-\definecolor{quarto-callout-note-color}{HTML}{0758E5}
-\definecolor{quarto-callout-important-color}{HTML}{CC1914}
-\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
-\definecolor{quarto-callout-tip-color}{HTML}{00A047}
-\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
-\definecolor{quarto-callout-color-frame}{HTML}{acacac}
-\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
-\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
-\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
-\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
-\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
-\makeatother
 \makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
 \makeatother
@@ -255,17 +239,17 @@ that can be a little cluttered, while the few distinctive custom themes
 available are often specialized for a particular corporate or
 institutional brand.
 
-The goal of {moloch} is to provide a simple, modern Beamer theme
-suitable for anyone to use. It tries to minimize noise and maximize
-space for content; the only visual flourish it offers is an (optional)
-progress bar added to each slide or to the section slides.
+The goal of Moloch is to provide a simple, modern Beamer theme suitable
+for anyone to use. It tries to minimize noise and maximize space for
+content; the only visual flourish it offers is an (optional) progress
+bar added to each slide or to the section slides.
 
-{moloch}'s codebase is maintained at
+Moloch's codebase is maintained at
 \url{https://github.com/jolars/moloch}. If you have any issues, find
 mistakes in the manual or want to help make the theme even better,
 please get in touch there.
 
-{moloch} is a fork of the popular Metropolis theme by Matthias
+Moloch is a fork of the popular Metropolis theme by Matthias
 Vogelgesang. The motivation for the fork was to fix some longstanding
 bugs in Metropolis and also simplify the codebase to make it easier to
 maintain and less fragile to changes in the underlying Beamer code.
@@ -276,12 +260,11 @@ maintain and less fragile to changes in the underlying Beamer code.
 
 \section{Installing from CTAN}\label{installing-from-ctan}
 
-For most users, we recommend installing {moloch} from
+For most users, we recommend installing Moloch from
 \href{https://www.ctan.org}{CTAN}. If you keep your TeX~distribution
-up-to-date, chances are good that {moloch} is already installed. If it
-is not, you need to update your packages. If your distribution is
-TeX~Live (or MacTeX~on OS X), the following command updates all
-packages.
+up-to-date, chances are good that Moloch is already installed. If it is
+not, you need to update your packages. If your distribution is TeX~Live
+(or MacTeX~on OS X), the following command updates all packages.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -306,8 +289,8 @@ update your packages.
 
 \section{Installing from Source}\label{installing-from-source}
 
-If you want to use the development version of {moloch}, you can install
-it manually. You only need a recent LaTeX~distribution which includes
+If you want to use the development version of Moloch, you can install it
+manually. You only need a recent LaTeX~distribution which includes
 \textbf{l3build}. Then simply follow the steps below.
 
 Download the source with a \texttt{git\ clone} of
@@ -326,7 +309,7 @@ inside the downloaded directory.
 \section{A Minimal Example}\label{a-minimal-example}
 
 The following code shows a minimal example of a Beamer presentation
-using {moloch}.
+using Moloch.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -356,7 +339,7 @@ using {moloch}.
 
 \section{Dependencies}\label{dependencies}
 
-{moloch} depends on the \texttt{beamer} class and the following standard
+Moloch depends on the \texttt{beamer} class and the following standard
 packages:
 
 \begin{itemize}
@@ -419,16 +402,7 @@ Options can be changed at any time---even mid-presentation---with the
 
 The list of options is structured as shown in the following example.
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
-
-\textbf{Options:} {[}list of possible
-
-values{]}\{style=``color: \#2a7f62''\} \textbar{} \textbf{Default:}
-default
-
-A short description of the option.
-
-\end{tcolorbox}
+\DescribeOption{<option-name>}{<list>, <of>, <values>}{<default>}{A short description of the option.}
 
 \subsection{Main Theme}\label{main-theme}
 
@@ -438,120 +412,59 @@ Regular, \textsc{SmallCaps}, \textsc{allsmallcaps}, or ALLCAPS titles.
 Note that these commands do not affect math and numbers, so may not work
 as you expect if your titles contain these.}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
-
-\textbf{Options:} {regular, smallcaps, allsmallcaps, allcaps} \textbar{}
-\textbf{Default:} regular
-
-Changes the format of ``standout'' frames (see \texttt{titleformat},
-above).
-
-\end{tcolorbox}
+\DescribeOption{standoutnumberformat}{regular, smallcaps, allsmallcaps, allcaps}{regular}{Changes the format of ``standout'' frames (see \texttt{titleformat},
+above).}
 
 \subsection{Inner Theme}\label{inner-theme}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
-
-\textbf{Options:} {none, simple, progressbar} \textbar{}
-\textbf{Default:} progressbar
-
-Adds a slide at the start of each section (\texttt{simple}) with an
+\DescribeOption{sectionpage}{none, simple, progressbar}{progressbar}{Adds a slide at the start of each section (\texttt{simple}) with an
 optional thin progress bar below the section title
 (\texttt{progressbar}). The \texttt{none} option disables the section
-page.
+page.}
 
-\end{tcolorbox}
-
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
-
-\textbf{Options:} {none, simple, progressbar} \textbar{}
-\textbf{Default:} none
-
-Optionally adds a slide at the start of each subsection. If enabled with
+\DescribeOption{subsectionpage}{none, simple, progressbar}{none}{Optionally adds a slide at the start of each subsection. If enabled with
 the \texttt{simple} or \texttt{progressbar} options, the style of the
 \texttt{section\ page} will be updated to match the style of the
 \texttt{subsection\ page}. Note that section slides and subsection
 slides can appear consecutively if both are enabled; you may want to use
 this option together with \texttt{sectionpage=none} depending on the
-section structure of your presentation.
+section structure of your presentation.}
 
-\end{tcolorbox}
-
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
-
-\textbf{Options:} {none, hide, show} \textbar{} \textbf{Default:} none
-
-This option decides whether or not to count standout pages as frames if
+\DescribeOption{standoutnumbering}{none, hide, show}{none}{This option decides whether or not to count standout pages as frames if
 frame counting. Option \texttt{none} (the default) means that the
 standout frames are not counted. \texttt{hide} means that they are
 counted but that there won't be any footer showing a frame number.
 \texttt{show} means that they are counted and that the frame number
-count is shown in the same fashion as for regular frames.
-
-\end{tcolorbox}
+count is shown in the same fashion as for regular frames.}
 
 \subsection{Outer Theme}\label{outer-theme}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
-
-\textbf{Options:} {none, counter, fraction} \textbar{} \textbf{Default:}
-(none specified)
-
-\emph{This option is deprecated and will be removed in a future version.
+\DescribeOption{numbering}{none, counter, fraction}{(none specified)}{\emph{This option is deprecated and will be removed in a future version.
 Please use Beamer's \texttt{page\ number\ in\ head/foot} template
 instead.} Controls whether the frame number at the bottom right of each
 slide is omitted (\texttt{none}), shown (\texttt{counter}) or displayed
-as a fraction of the total number of frames (\texttt{fraction}).
+as a fraction of the total number of frames (\texttt{fraction}).}
 
-\end{tcolorbox}
-
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
-
-\textbf{Options:} {none, head, frametitle, foot} \textbar{}
-\textbf{Default:} none
-
-Optionally adds a progress bar to the top of each frame (\texttt{head}),
+\DescribeOption{progressbar}{none, head, frametitle, foot}{none}{Optionally adds a progress bar to the top of each frame (\texttt{head}),
 the bottom of each frame (\texttt{foot}), or directly below each frame
-title (\texttt{frametitle}).
-
-\end{tcolorbox}
+title (\texttt{frametitle}).}
 
 \subsection{Color Theme}\label{color-theme}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
+\DescribeOption{block}{transparent, fill}{transparent}{Optionally adds a light grey background to block environments like
+\texttt{theorem} and \texttt{example}.}
 
-\textbf{Options:} {transparent, fill} \textbar{} \textbf{Default:}
-transparent
-
-Optionally adds a light grey background to block environments like
-\texttt{theorem} and \texttt{example}.
-
-\end{tcolorbox}
-
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
-
-\textbf{Options:} {dark, light} \textbar{} \textbf{Default:} light
-
-Provides the option to have a dark background and light foreground
-instead of the reverse.
-
-\end{tcolorbox}
+\DescribeOption{background}{dark, light}{light}{Provides the option to have a dark background and light foreground
+instead of the reverse.}
 
 \subsection{Font Theme}\label{font-theme}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
-
-\textbf{Options:} {regular, smallcaps, allsmallcaps, allcaps} \textbar{}
-\textbf{Default:} regular
-
-Individually controls the format of titles, subtitles, section titles,
-and frame titles (see \texttt{titleformat}, above).
-
-\end{tcolorbox}
+\DescribeOption{titleformat plain, titleformat frametitle, titleformat section}{regular, smallcaps, allsmallcaps, allcaps}{regular}{Individually controls the format of titles, subtitles, section titles,
+and frame titles (see \texttt{titleformat}, above).}
 
 \section{Color Customization}\label{color-customization}
 
-The included {moloch} color theme is used by default, but its colors can
+The included Moloch color theme is used by default, but its colors can
 be easily changed to suit your tastes. All of the theme's styles are
 defined in terms of three beamer colors:
 
@@ -577,8 +490,8 @@ An easy way to customize the theme is to redefine these colors using
 
 in your preamble. For greater customization, you can redefine any of the
 other stock beamer colors. In addition to the stock colors the theme
-defines a number of {moloch} specific colors, which can also be
-redefined to your liking.
+defines a number of Moloch specific colors, which can also be redefined
+to your liking.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -591,7 +504,7 @@ redefined to your liking.
 
 \subsection{Themes}\label{themes}
 
-For low-light situations {moloch} it might be helpful to use the
+For low-light situations Moloch it might be helpful to use the
 \texttt{moloch-highcontrast} color theme. It is enabled like any other
 color theme:
 
@@ -615,10 +528,10 @@ which you can enable like this:
 
 \subsection{Standout Frames}\label{standout-frames}
 
-The {moloch} inner theme offers a custom frame format with large,
-centered text and an inverted background---perfect for focusing
-attention on single sentence or image. To use it, add the key
-\texttt{standout} to the frame:
+The Moloch inner theme offers a custom frame format with large, centered
+text and an inverted background---perfect for focusing attention on
+single sentence or image. To use it, add the key \texttt{standout} to
+the frame:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -637,7 +550,7 @@ attention on single sentence or image. To use it, add the key
 Be aware that not every font supports small caps, so the
 \texttt{smallcaps} or \texttt{allsmallcaps} options may not work for all
 fonts. In particular, the Computer Modern sans-serif typeface, which is
-used by default when {moloch} is compiled with pdfLaTeX, does not have a
+used by default when Moloch is compiled with pdfLaTeX, does not have a
 small-caps variant.
 
 Note that title format options \texttt{allsmallcaps} and
@@ -648,15 +561,15 @@ characters.
 \section{Interactions with Other Color
 Themes}\label{interactions-with-other-color-themes}
 
-{moloch} can be used along with any other Beamer color theme, such as
+Moloch can be used along with any other Beamer color theme, such as
 \texttt{crane} or \texttt{seahorse}. If you wish to do this, it is
-usually best to include the {moloch} subpackages individually so the
-{moloch} color theme is never loaded. This will prevent conflicts
-between the {moloch} color theme and your preferred theme.
+usually best to include the Moloch subpackages individually so the
+Moloch color theme is never loaded. This will prevent conflicts between
+the Moloch color theme and your preferred theme.
 
 For example, overriding the color theme as follows may not work as
 expected because
-`\texttt{loads\ the\ {[}moloch{]}\{.sans-serif\}\ color\ theme,\ which\ defines\ a\ relationship\ between\ the\ frametitle\ background\ and\ the\ primary\ palette\ of\ the\ theme.\ Since}seahorse`
+`\texttt{loads\ the\ Moloch\ color\ theme,\ which\ defines\ a\ relationship\ between\ the\ frametitle\ background\ and\ the\ primary\ palette\ of\ the\ theme.\ Since}seahorse`
 assumes a different relationship between its palettes, the result is a
 grey, rather than periwinkle, frametitle background.
 
@@ -667,7 +580,7 @@ grey, rather than periwinkle, frametitle background.
 \end{Highlighting}
 \end{Shaded}
 
-The correct colors are chosen if the {moloch} outer, inner, and font
+The correct colors are chosen if the Moloch outer, inner, and font
 themes are loaded seperately:
 
 \begin{Shaded}
@@ -679,28 +592,29 @@ themes are loaded seperately:
 \end{Highlighting}
 \end{Shaded}
 
-Please note that {moloch} may not use all the colors defined in your
-favourite Beamer color theme. In particular, {moloch} does not set a
+Please note that Moloch may not use all the colors defined in your
+favourite Beamer color theme. In particular, Moloch does not set a
 background color for the title; this will cause issues when using color
 themes like \texttt{whale} which set a white foreground for the title.
 
 \section{Notes on Second Screen}\label{notes-on-second-screen}
 
 If you use the \texttt{{[}show\ notes\ on\ second\ screen{]}} option
-built in to Beamer and compile with , text on slides following the first
-section slide may be rendered in white instead of the regular colour.
-This is due to \href{http://tex.stackexchange.com/questions/288408/}{a
-bug} in Beamer or ~itself. You can work around it either by compiling
-with ~or by adding the following code to your preamble to reset the text
-color on each slide.
+built in to Beamer and compile with XeLaTeX, text on slides following
+the first section slide may be rendered in white instead of the regular
+colour. This is due to
+\href{http://tex.stackexchange.com/questions/288408/}{a bug} in Beamer
+or ~itself. You can work around it either by compiling with ~or by
+adding the following code to your preamble to reset the text color on
+each slide.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{\textbackslash{}makeatletter}
 \FunctionTok{\textbackslash{}def\textbackslash{}beamer@framenotesbegin}\NormalTok{\{}\CommentTok{\% at beginning of slide}
-        \FunctionTok{\textbackslash{}usebeamercolor}\NormalTok{[fg]\{normal text\}}
-        \FunctionTok{\textbackslash{}gdef\textbackslash{}beamer@noteitems}\NormalTok{\{\}}\CommentTok{\%}
-        \FunctionTok{\textbackslash{}gdef\textbackslash{}beamer@notes}\NormalTok{\{\}}\CommentTok{\%}
+  \FunctionTok{\textbackslash{}usebeamercolor}\NormalTok{[fg]\{normal text\}}
+  \FunctionTok{\textbackslash{}gdef\textbackslash{}beamer@noteitems}\NormalTok{\{\}}\CommentTok{\%}
+  \FunctionTok{\textbackslash{}gdef\textbackslash{}beamer@notes}\NormalTok{\{\}}\CommentTok{\%}
 \NormalTok{\}}
 \FunctionTok{\textbackslash{}makeatother}
 \end{Highlighting}
@@ -755,7 +669,7 @@ attributes thus ignoring additional attributes such as
 
 \section{License}\label{license}
 
-{moloch} is licensed under a
+Moloch is licensed under a
 \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
 Attribution-ShareAlike 4.0 International License}. This means that if
 you change the theme and re-distribute it, you must retain the copyright

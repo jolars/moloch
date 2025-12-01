@@ -5,29 +5,29 @@ is surprisingly sparse. The stock themes share an aesthetic that can be a little
 cluttered, while the few distinctive custom themes available are often
 specialized for a particular corporate or institutional brand.
 
-The goal of [moloch]{.sans-serif} is to provide a simple, modern Beamer theme
-suitable for anyone to use. It tries to minimize noise and maximize space for
-content; the only visual flourish it offers is an (optional) progress bar added
-to each slide or to the section slides.
+The goal of Moloch is to provide a simple, modern Beamer theme suitable for
+anyone to use. It tries to minimize noise and maximize space for content; the
+only visual flourish it offers is an (optional) progress bar added to each slide
+or to the section slides.
 
-[moloch]{.sans-serif}'s codebase is maintained at
-<https://github.com/jolars/moloch>. If you have any issues, find mistakes in the
-manual or want to help make the theme even better, please get in touch there.
+Moloch's codebase is maintained at <https://github.com/jolars/moloch>. If you
+have any issues, find mistakes in the manual or want to help make the theme even
+better, please get in touch there.
 
-[moloch]{.sans-serif} is a fork of the popular Metropolis theme by Matthias
-Vogelgesang. The motivation for the fork was to fix some longstanding bugs in
-Metropolis and also simplify the codebase to make it easier to maintain and less
-fragile to changes in the underlying Beamer code.
+Moloch is a fork of the popular Metropolis theme by Matthias Vogelgesang. The
+motivation for the fork was to fix some longstanding bugs in Metropolis and also
+simplify the codebase to make it easier to maintain and less fragile to changes
+in the underlying Beamer code.
 
 # Getting Started
 
 ## Installing from CTAN
 
-For most users, we recommend installing [moloch]{.sans-serif} from
+For most users, we recommend installing Moloch from
 [CTAN](https://www.ctan.org). If you keep your TeX distribution up-to-date,
-chances are good that [moloch]{.sans-serif} is already installed. If it is not,
-you need to update your packages. If your distribution is TeX Live (or MacTeX on
-OS X), the following command updates all packages.
+chances are good that Moloch is already installed. If it is not, you need to
+update your packages. If your distribution is TeX Live (or MacTeX on OS X), the
+following command updates all packages.
 
 ```bash
 tlmgr update --all
@@ -48,9 +48,9 @@ your packages.
 
 ## Installing from Source
 
-If you want to use the development version of [moloch]{.sans-serif}, you can
-install it manually. You only need a recent LaTeX distribution which includes
-**l3build**. Then simply follow the steps below.
+If you want to use the development version of Moloch, you can install it
+manually. You only need a recent LaTeX distribution which includes **l3build**.
+Then simply follow the steps below.
 
 Download the source with a `git clone` of <https://github.com/jolars/moloch>
 
@@ -65,7 +65,7 @@ inside the downloaded directory.
 ## A Minimal Example
 
 The following code shows a minimal example of a Beamer presentation using
-[moloch]{.sans-serif}.
+Moloch.
 
 ```latex
 \documentclass{beamer}
@@ -93,8 +93,7 @@ The following code shows a minimal example of a Beamer presentation using
 
 ## Dependencies
 
-[moloch]{.sans-serif} depends on the `beamer` class and the following standard
-packages:
+Moloch depends on the `beamer` class and the following standard packages:
 
 - [tikz](https://ctan.org/pkg/pgf)
 - [pgfopts](https://ctan.org/pkg/pgfopts)
@@ -252,9 +251,9 @@ titles (see `titleformat`, above).
 
 ## Color Customization
 
-The included [moloch]{.sans-serif} color theme is used by default, but its
-colors can be easily changed to suit your tastes. All of the theme's styles are
-defined in terms of three beamer colors:
+The included Moloch color theme is used by default, but its colors can be easily
+changed to suit your tastes. All of the theme's styles are defined in terms of
+three beamer colors:
 
 - `normal text` (dark fg, light bg)
 - `alerted text` (colored fg, should be visible against dark or light)
@@ -268,8 +267,7 @@ An easy way to customize the theme is to redefine these colors using
 
 in your preamble. For greater customization, you can redefine any of the other
 stock beamer colors. In addition to the stock colors the theme defines a number
-of [moloch]{.sans-serif} specific colors, which can also be redefined to your
-liking.
+of Moloch specific colors, which can also be redefined to your liking.
 
 ```latex
 \setbeamercolor{progress bar}{ ... }
@@ -280,7 +278,7 @@ liking.
 
 ### Themes
 
-For low-light situations [moloch]{.sans-serif} it might be helpful to use the
+For low-light situations Moloch it might be helpful to use the
 `moloch-highcontrast` color theme. It is enabled like any other color theme:
 
 ```latex
@@ -299,9 +297,9 @@ you can enable like this:
 
 ### Standout Frames
 
-The [moloch]{.sans-serif} inner theme offers a custom frame format with large,
-centered text and an inverted background---perfect for focusing attention on
-single sentence or image. To use it, add the key `standout` to the frame:
+The Moloch inner theme offers a custom frame format with large, centered text
+and an inverted background---perfect for focusing attention on single sentence
+or image. To use it, add the key `standout` to the frame:
 
 ```latex
 \begin{frame}[standout]
@@ -315,8 +313,8 @@ single sentence or image. To use it, add the key `standout` to the frame:
 
 Be aware that not every font supports small caps, so the `smallcaps` or
 `allsmallcaps` options may not work for all fonts. In particular, the Computer
-Modern sans-serif typeface, which is used by default when [moloch]{.sans-serif}
-is compiled with pdfLaTeX, does not have a small-caps variant.
+Modern sans-serif typeface, which is used by default when Moloch is compiled
+with pdfLaTeX, does not have a small-caps variant.
 
 Note that title format options `allsmallcaps` and `allcaps` do not affect the
 sizes of numerals, punctuation, and math symbol, and are probably best avoided
@@ -324,15 +322,14 @@ if your titles contain these characters.
 
 ## Interactions with Other Color Themes
 
-[moloch]{.sans-serif} can be used along with any other Beamer color theme, such
-as `crane` or `seahorse`. If you wish to do this, it is usually best to include
-the [moloch]{.sans-serif} subpackages individually so the [moloch]{.sans-serif}
-color theme is never loaded. This will prevent conflicts between the
-[moloch]{.sans-serif} color theme and your preferred theme.
+Moloch can be used along with any other Beamer color theme, such as `crane` or
+`seahorse`. If you wish to do this, it is usually best to include the Moloch
+subpackages individually so the Moloch color theme is never loaded. This will
+prevent conflicts between the Moloch color theme and your preferred theme.
 
 For example, overriding the color theme as follows may not work as expected
 because
-``loads the [moloch]{.sans-serif} color theme, which defines a relationship between the frametitle background and the primary palette of the theme. Since`seahorse`
+``loads the Moloch color theme, which defines a relationship between the frametitle background and the primary palette of the theme. Since`seahorse`
 assumes a different relationship between its palettes, the result is a grey,
 rather than periwinkle, frametitle background.
 
@@ -341,8 +338,8 @@ rather than periwinkle, frametitle background.
 \usecolortheme{seahorse}
 ```
 
-The correct colors are chosen if the [moloch]{.sans-serif} outer, inner, and
-font themes are loaded seperately:
+The correct colors are chosen if the Moloch outer, inner, and font themes are
+loaded seperately:
 
 ```latex
 \useoutertheme{moloch}
@@ -351,16 +348,16 @@ font themes are loaded seperately:
 \usecolortheme{seahorse}   % or your preferred color theme
 ```
 
-Please note that [moloch]{.sans-serif} may not use all the colors defined in
-your favourite Beamer color theme. In particular, [moloch]{.sans-serif} does not
-set a background color for the title; this will cause issues when using color
-themes like `whale` which set a white foreground for the title.
+Please note that Moloch may not use all the colors defined in your favourite
+Beamer color theme. In particular, Moloch does not set a background color for
+the title; this will cause issues when using color themes like `whale` which set
+a white foreground for the title.
 
 ## Notes on Second Screen
 
 If you use the `[show notes on second screen]` option built in to Beamer and
-compile with , text on slides following the first section slide may be rendered
-in white instead of the regular colour. This is due to
+compile with XeLaTeX, text on slides following the first section slide may be
+rendered in white instead of the regular colour. This is due to
 [a bug](http://tex.stackexchange.com/questions/288408/) in Beamer or  itself.
 You can work around it either by compiling with  or by adding the following code
 to your preamble to reset the text color on each slide.
@@ -368,9 +365,9 @@ to your preamble to reset the text color on each slide.
 ```latex
 \makeatletter
 \def\beamer@framenotesbegin{% at beginning of slide
-        \usebeamercolor[fg]{normal text}
-        \gdef\beamer@noteitems{}%
-        \gdef\beamer@notes{}%
+  \usebeamercolor[fg]{normal text}
+  \gdef\beamer@noteitems{}%
+  \gdef\beamer@notes{}%
 }
 \makeatother
 ```
@@ -416,7 +413,7 @@ ignoring additional attributes such as `.standout`.
 
 ## License
 
-[moloch]{.sans-serif} is licensed under a
+Moloch is licensed under a
 [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 This means that if you change the theme and re-distribute it, you must retain
 the copyright notice header and license it under the same CC-BY-SA license. This

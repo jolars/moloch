@@ -6,6 +6,8 @@ book:
   title: "Moloch"
   subtitle: "A clean and simple Beamer theme"
   output-file: "moloch"
+  favicon: images/moloch-logo.svg
+  image: images/og.jpg
   author:
     - name: "Johan Larsson"
     - name: "Matthias Vogelgesang"
@@ -14,7 +16,9 @@ book:
         theme"
   date: today
   repo-url: "https://github.com/jolars/moloch"
+
   search: true
+
   page-footer:
     left: "Copyright 2024-2025, Johan Larsson"
     right:
@@ -45,6 +49,7 @@ format:
       file: header.html
   pdf:
     documentclass: scrreprt
+    classoption: DIV=10
     keep-tex: true
     toc: true
     number-sections: true
@@ -58,8 +63,8 @@ format:
         \usepackage{xcolor}
         \definecolor{JungleGreen}{RGB}{42,127,98}
         \newcommand{\DescribeOption}[4]{
-          \DescribeMacro{#1}
           \begin{minipage}[t]{\textwidth}
+            \texttt{#1}
             \textit{\textbf{\textcolor{JungleGreen}{#2}}}\dotfill\,#3\par
             \begingroup
             \vspace{0.5em}#4\par
