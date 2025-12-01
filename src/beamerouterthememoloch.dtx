@@ -113,6 +113,31 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{frametitle margin}
+%    Sets the margins of the frame title.
+%    \begin{macrocode}
+\pgfkeys{
+  /moloch/outer/.cd,
+  frametitlemarginleft/.code=\renewcommand{\moloch@frametitle@margin@left}{#1},
+  frametitlemarginright/.code=\renewcommand{\moloch@frametitle@margin@right}{#1},
+  frametitlemargintop/.code=\renewcommand{\moloch@frametitle@margin@top}{#1},
+  frametitlemarginbottom/.code=\renewcommand{\moloch@frametitle@margin@bottom}{#1},
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{framtitle margin aliases}
+%   Allows |frametitle margin x| to be used in |\molochset|.
+%   \begin{macrocode}
+\pgfkeys{
+  /moloch/outer/.cd,
+  frametitle margin left/.code=\pgfkeysalso{frametitlemarginleft=#1},
+  frametitle margin right/.code=\pgfkeysalso{frametitlemarginright=#1},
+  frametitle margin top/.code=\pgfkeysalso{frametitlemargintop=#1},
+  frametitle margin bottom/.code=\pgfkeysalso{frametitlemarginbottom=#1},
+}
+%   \end{macrocode}
+%
 % \begin{macro}{\moloch@outer@setdefaults}
 %    Sets default values for outer theme options.
 %    \begin{macrocode}
@@ -203,21 +228,25 @@
 %    Templates for the frame title, which is optionally underlined with a
 %    progress bar.
 %    \begin{macrocode}
-\newlength{\moloch@frametitle@padding}
-\setlength{\moloch@frametitle@padding}{2ex}
 \newcommand{\moloch@frametitlestrut@start}{%
-  \rule{0pt}{\moloch@frametitle@padding + \ht\strutbox}%
+  \rule{0pt}{\moloch@frametitle@margin@top + \ht\strutbox}%
 }%
 
 \newcommand{\moloch@frametitlestrut@end}{%
-  \rule[-\moloch@frametitle@padding]{0pt}{\moloch@frametitle@padding}%
+  \rule[-\moloch@frametitle@margin@bottom]{0pt}{\moloch@frametitle@margin@bottom}%
 }
+
+\newcommand{\moloch@frametitle@margin@left}{1.6ex}
+\newcommand{\moloch@frametitle@margin@right}{1.6ex}
+\newcommand{\moloch@frametitle@margin@top}{1.4ex}
+\newcommand{\moloch@frametitle@margin@bottom}{1.4ex}
+
 \defbeamertemplate{frametitle}{plain}{%
   \nointerlineskip%
   \begin{beamercolorbox}[%
       wd=\paperwidth,%
-      leftskip=1.6ex,%
-      rightskip=\the\glueexpr 1.6ex plus 1fil\relax,%
+      leftskip=\moloch@frametitle@margin@left,%
+      rightskip=\the\glueexpr \moloch@frametitle@margin@right plus 1fil\relax,%
     ]{frametitle}%
     \usebeamerfont{frametitle}%
     \moloch@frametitlestrut@start%
