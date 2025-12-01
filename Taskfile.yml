@@ -21,12 +21,11 @@ tasks:
     desc: Build the complete package manual (Quarto -> LaTeX -> PDF)
     cmds:
       - cd docs && nix develop --command quarto render --to pdf
-      - cp docs/moloch.tex doc/manual.tex
       - nix develop --command l3build-wrapped doc
     sources:
       - docs/index.md
       - docs/_quarto.yml
       - docs/implementation/*.md
     generates:
-      - doc/manual.tex
-      - doc/manual.pdf
+      - docs/moloch.tex
+      - docs/moloch.pdf

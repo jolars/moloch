@@ -162,6 +162,9 @@ return {{CodeBlock = CodeBlock}}
 				outfile:write("---\n")
 				outfile:write('title: "' .. title .. '"\n')
 				outfile:write("---\n\n")
+				outfile:write("::: {.callout-note}\n")
+				outfile:write("**Source file:** [`src/" .. basename .. ".dtx`](https://github.com/jolars/moloch/blob/main/src/" .. basename .. ".dtx)\n")
+				outfile:write(":::\n\n")
 				outfile:write(content)
 				outfile:close()
 

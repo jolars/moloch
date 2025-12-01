@@ -6,13 +6,14 @@ book:
   title: "Moloch"
   subtitle: "A clean and simple Beamer theme"
   output-file: "moloch"
-  author: 
+  author:
     - name: "Johan Larsson"
     - name: "Matthias Vogelgesang"
-      note: "Matthias wrote the original version of this manual for the Metropolis theme"
+      note:
+        "Matthias wrote the original version of this manual for the Metropolis
+        theme"
   date: today
   repo-url: "https://github.com/jolars/moloch"
-  repo-actions: [edit, issue]
   search: true
   page-footer:
     left: "Copyright 2024-2025, Johan Larsson"
@@ -22,6 +23,7 @@ book:
         aria-label: "Source for this webpage"
   chapters:
     - index.md
+  appendices:
     - part: "Implementation"
       chapters:
         - implementation/beamerthememoloch.md
@@ -42,18 +44,28 @@ format:
     include-in-header:
       file: header.html
   pdf:
-    documentclass: scrbook
+    documentclass: scrreprt
     keep-tex: true
     toc: true
     number-sections: true
     colorlinks: true
-    geometry:
-      - margin=1in
     include-in-header:
       text: |
         \usepackage{xspace}
         \usepackage{parskip}
         \newcommand{\themename}{\textsf{moloch}\xspace}
+        \usepackage{doc}
+        \usepackage{xcolor}
+        \definecolor{JungleGreen}{RGB}{42,127,98}
+        \newcommand{\DescribeOption}[4]{
+          \DescribeMacro{#1}
+          \begin{minipage}[t]{\textwidth}
+            \textit{\textbf{\textcolor{JungleGreen}{#2}}}\dotfill\,#3\par
+            \begingroup
+            \vspace{0.5em}#4\par
+            \endgroup
+          \end{minipage}
+        }
 
 execute:
   freeze: auto
@@ -61,3 +73,5 @@ execute:
 toc: true
 date-format: "D MMMM YYYY"
 
+filters:
+  - describe-option-filter.lua

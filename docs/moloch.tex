@@ -5,7 +5,8 @@
 %
 \documentclass[
   letterpaper,
-]{scrbook}
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
 
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
@@ -39,7 +40,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\usepackage[margin=1in]{geometry}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \setcounter{secnumdepth}{5}
 % Make \paragraph and \subparagraph free-standing
@@ -135,6 +135,35 @@
 \usepackage{xspace}
 \usepackage{parskip}
 \newcommand{\themename}{\textsf{moloch}\xspace}
+\usepackage{doc}
+\usepackage{xcolor}
+\definecolor{JungleGreen}{RGB}{42,127,98}
+\newcommand{\DescribeOption}[4]{
+  \DescribeMacro{#1}
+  \begin{minipage}[t]{\textwidth}
+    \textit{\textbf{\textcolor{JungleGreen}{#2}}}\dotfill\,#3\par
+    \begingroup
+    \vspace{0.5em}#4\par
+    \endgroup
+  \end{minipage}
+}
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
 \makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
 \makeatother
@@ -188,7 +217,7 @@
   pdftitle={Moloch},
   pdfauthor={Johan Larsson; Matthias Vogelgesang},
   colorlinks=true,
-  linkcolor={Maroon},
+  linkcolor={blue},
   filecolor={Maroon},
   citecolor={Blue},
   urlcolor={Blue},
@@ -207,7 +236,6 @@
 \date{1 December 2025}
 
 \begin{document}
-\frontmatter
 \maketitle
 
 \renewcommand*\contentsname{Table of contents}
@@ -217,7 +245,6 @@
 \tableofcontents
 }
 
-\mainmatter
 \bookmarksetup{startatroot}
 
 \chapter{Introduction}\label{introduction}
@@ -256,19 +283,23 @@ is not, you need to update your packages. If your distribution is
 TeX~Live (or MacTeX~on OS X), the following command updates all
 packages.
 
-\begin{verbatim}
-tlmgr update --all
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{tlmgr}\NormalTok{ update }\AttributeTok{{-}{-}all}
+\end{Highlighting}
+\end{Shaded}
 
 If this results in an error, you may need to run it with administrative
 privileges:
 
-\begin{verbatim}
-sudo tlmgr update --all
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ tlmgr update }\AttributeTok{{-}{-}all}
+\end{Highlighting}
+\end{Shaded}
 
-MacTeX~on OS X also provides a graphical interface for
-\textbar tlmgr\textbar{} called TeX~Live Utility.
+MacTeX~on OS X also provides a graphical interface for \texttt{tlmgr}
+called TeX~Live Utility.
 
 For any other distribution please refer to its documentation on how to
 update your packages.
@@ -279,63 +310,78 @@ If you want to use the development version of {moloch}, you can install
 it manually. You only need a recent LaTeX~distribution which includes
 \textbf{l3build}. Then simply follow the steps below.
 
-\begin{description}
-\item[Download the source]
-with a \textbar git clone\textbar{} of
+Download the source with a \texttt{git\ clone} of
 \url{https://github.com/jolars/moloch}
-\item[Install the package]
-by running \textbar l3build install\textbar{} inside the downloaded
-directory.
-\end{description}
+
+Install the package by running
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{l3build}\NormalTok{ install}
+\end{Highlighting}
+\end{Shaded}
+
+inside the downloaded directory.
 
 \section{A Minimal Example}\label{a-minimal-example}
 
 The following code shows a minimal example of a Beamer presentation
 using {moloch}.
 
-\begin{verbatim}
-\documentclass{beamer}
-\usetheme{moloch}
-\title{A Minimal Example}
-\date{\today}
-\author{Johan Larsson}
-\institute{Some University}
-\begin{document}
-  \maketitle
-  \section{First Section}
-  \begin{frame}{First Frame}
-    Hello, world!
-  \end{frame}
-\end{document}
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{\textbackslash{}documentclass}\NormalTok{\{}\ExtensionTok{beamer}\NormalTok{\}}
+\FunctionTok{\textbackslash{}usetheme}\NormalTok{\{moloch\}}
+
+\FunctionTok{\textbackslash{}title}\NormalTok{\{A Minimal Example\}}
+
+\FunctionTok{\textbackslash{}date}\NormalTok{\{}\FunctionTok{\textbackslash{}today}\NormalTok{\}}
+\FunctionTok{\textbackslash{}author}\NormalTok{\{Johan Larsson\}}
+\FunctionTok{\textbackslash{}institute}\NormalTok{\{Some University\}}
+
+\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{document}\NormalTok{\}}
+    \FunctionTok{\textbackslash{}maketitle}
+
+    \KeywordTok{\textbackslash{}section}\NormalTok{\{First Section\}}
+
+    \KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{frame}\NormalTok{\}}
+        \FunctionTok{\textbackslash{}frametitle}\NormalTok{\{First Frame\}}
+
+\NormalTok{        Hello, world!}
+
+    \KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{frame}\NormalTok{\}}
+\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{document}\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 \section{Dependencies}\label{dependencies}
 
-{moloch} depends on the \textbar beamer\textbar{} class and the
-following standard packages:
-
-3
+{moloch} depends on the \texttt{beamer} class and the following standard
+packages:
 
 \begin{itemize}
+\tightlist
 \item
-  \textbar tikz\textbar{}
+  \href{https://ctan.org/pkg/pgf}{tikz}
 \item
-  \textbar pgfopts\textbar{}
+  \href{https://ctan.org/pkg/pgfopts}{pgfopts}
 \item
-  \textbar etoolbox\textbar{}
+  \href{https://ctan.org/pkg/etoolbox}{etoolbox}
 \item
-  \textbar calc\textbar{}
+  \href{https://ctan.org/pkg/calc}{calc}
 \end{itemize}
 
 \section{Pandoc}\label{pandoc}
 
 To use this theme with
 \href{http://johnmacfarlane.net/pandoc/}{Pandoc}-based presentations,
-you can run the following command
+you can run the following command in your terminal:
 
-\begin{verbatim}
-$ pandoc -t beamer -V theme:moloch -o output.pdf input.md
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{pandoc} \AttributeTok{{-}t}\NormalTok{ beamer }\AttributeTok{{-}V}\NormalTok{ theme:moloch }\AttributeTok{{-}o}\NormalTok{ output.pdf input.md}
+\end{Highlighting}
+\end{Shaded}
 
 \bookmarksetup{startatroot}
 
@@ -345,106 +391,163 @@ $ pandoc -t beamer -V theme:moloch -o output.pdf input.md
 
 The theme provides a number of options, which can be set using a
 key=value interface. The primary way to set options is to provide a
-comma-separated list of option-value pairs when loading {moloch} in the
+comma-separated list of option-value pairs when loading Moloch in the
 preamble:
 
-\begin{verbatim}
-\usetheme[option1=value1, option2=value2, ...]{moloch}
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\textbackslash{}usetheme}\NormalTok{[}
+\NormalTok{    option1=value1,}
+\NormalTok{    option2=value2,}
+\NormalTok{    ...}
+\NormalTok{]\{moloch\}}
+\end{Highlighting}
+\end{Shaded}
 
 Options can be changed at any time---even mid-presentation---with the
-\textbar\textbar{} macro.
+\texttt{molochset()} macro.
 
-\begin{verbatim}
-\molochset{option1=newvalue1, option2=newvalue2, ...}
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\textbackslash{}molochset}\NormalTok{\{}
+\NormalTok{    option1=newvalue1,}
+\NormalTok{    option2=newvalue2,}
+\NormalTok{    ...}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 The list of options is structured as shown in the following example.
 
-\textbf{\emph{{list of possible values}}} default
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
+
+\textbf{Options:} {[}list of possible
+
+values{]}\{style=``color: \#2a7f62''\} \textbar{} \textbf{Default:}
+default
 
 A short description of the option.
 
+\end{tcolorbox}
+
 \subsection{Main Theme}\label{main-theme}
 
-\textbf{\emph{{regular, smallcaps, allsmallcaps, allcaps}}} regular
-
-Changes the format of titles, subtitles, section titles, frame titles,
+\DescribeOption{titleformat}{regular, smallcaps, allsmallcaps, allcaps}{regular}{Changes the format of titles, subtitles, section titles, frame titles,
 and the text on ``standout'' frames. The available options produce
 Regular, \textsc{SmallCaps}, \textsc{allsmallcaps}, or ALLCAPS titles.
 Note that these commands do not affect math and numbers, so may not work
-as you expect if your titles contain these.
+as you expect if your titles contain these.}
 
-\textbf{\emph{{regular, smallcaps, allsmallcaps, allcaps}}} regular
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
 
-Changes the format of ``standout'' frames (see
-\textbar titleformat\textbar, above).
+\textbf{Options:} {regular, smallcaps, allsmallcaps, allcaps} \textbar{}
+\textbf{Default:} regular
+
+Changes the format of ``standout'' frames (see \texttt{titleformat},
+above).
+
+\end{tcolorbox}
 
 \subsection{Inner Theme}\label{inner-theme}
 
-\textbf{\emph{{none, simple, progressbar}}} progressbar
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
 
-Adds a slide at the start of each section (\textbar simple\textbar) with
-an optional thin progress bar below the section title
-(\textbar progressbar\textbar). The \textbar none\textbar{} option
-disables the section page.
+\textbf{Options:} {none, simple, progressbar} \textbar{}
+\textbf{Default:} progressbar
 
-\textbf{\emph{{none, simple, progressbar}}} none
+Adds a slide at the start of each section (\texttt{simple}) with an
+optional thin progress bar below the section title
+(\texttt{progressbar}). The \texttt{none} option disables the section
+page.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
+
+\textbf{Options:} {none, simple, progressbar} \textbar{}
+\textbf{Default:} none
 
 Optionally adds a slide at the start of each subsection. If enabled with
-the \textbar simple\textbar{} or \textbar progressbar\textbar{} options,
-the style of the \textbar section page\textbar{} will be updated to
-match the style of the \textbar subsection page\textbar. Note that
-section slides and subsection slides can appear consecutively if both
-are enabled; you may want to use this option together with
-\textbar sectionpage=none\textbar{} depending on the section structure
-of your presentation.
+the \texttt{simple} or \texttt{progressbar} options, the style of the
+\texttt{section\ page} will be updated to match the style of the
+\texttt{subsection\ page}. Note that section slides and subsection
+slides can appear consecutively if both are enabled; you may want to use
+this option together with \texttt{sectionpage=none} depending on the
+section structure of your presentation.
 
-\textbf{\emph{{none, hide, show}}} none
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
+
+\textbf{Options:} {none, hide, show} \textbar{} \textbf{Default:} none
 
 This option decides whether or not to count standout pages as frames if
-frame counting. Option \textbar none\textbar{} (the default) means that
-the standout frames are not counted. \textbar hide\textbar{} means that
-they are counted but that there won't be any footer showing a frame
-number. \textbar show\textbar{} means that they are counted and that the
-frame number count is shown in the same fashion as for regular frames.
+frame counting. Option \texttt{none} (the default) means that the
+standout frames are not counted. \texttt{hide} means that they are
+counted but that there won't be any footer showing a frame number.
+\texttt{show} means that they are counted and that the frame number
+count is shown in the same fashion as for regular frames.
+
+\end{tcolorbox}
 
 \subsection{Outer Theme}\label{outer-theme}
 
-\textbf{\emph{{none, counter, fraction}}}
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
+
+\textbf{Options:} {none, counter, fraction} \textbar{} \textbf{Default:}
+(none specified)
 
 \emph{This option is deprecated and will be removed in a future version.
-Please use Beamer's \textbar page number in head/foot\textbar{} template
+Please use Beamer's \texttt{page\ number\ in\ head/foot} template
 instead.} Controls whether the frame number at the bottom right of each
-slide is omitted (\textbar none\textbar), shown
-(\textbar counter\textbar) or displayed as a fraction of the total
-number of frames (\textbar fraction\textbar).
+slide is omitted (\texttt{none}), shown (\texttt{counter}) or displayed
+as a fraction of the total number of frames (\texttt{fraction}).
 
-\textbf{\emph{{none, head, frametitle, foot}}} none
+\end{tcolorbox}
 
-Optionally adds a progress bar to the top of each frame
-(\textbar head\textbar), the bottom of each frame
-(\textbar foot\textbar), or directly below each frame title
-(\textbar frametitle\textbar).
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
+
+\textbf{Options:} {none, head, frametitle, foot} \textbar{}
+\textbf{Default:} none
+
+Optionally adds a progress bar to the top of each frame (\texttt{head}),
+the bottom of each frame (\texttt{foot}), or directly below each frame
+title (\texttt{frametitle}).
+
+\end{tcolorbox}
 
 \subsection{Color Theme}\label{color-theme}
 
-\textbf{\emph{{transparent, fill}}} transparent
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
+
+\textbf{Options:} {transparent, fill} \textbar{} \textbf{Default:}
+transparent
 
 Optionally adds a light grey background to block environments like
-\textbar theorem\textbar{} and \textbar example\textbar.
+\texttt{theorem} and \texttt{example}.
 
-\textbf{\emph{{dark, light}}} light
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
+
+\textbf{Options:} {dark, light} \textbar{} \textbf{Default:} light
 
 Provides the option to have a dark background and light foreground
 instead of the reverse.
 
+\end{tcolorbox}
+
 \subsection{Font Theme}\label{font-theme}
 
-\textbf{\emph{{regular, smallcaps, allsmallcaps, allcaps}}} regular
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, left=2mm, leftrule=.75mm, rightrule=.15mm, toprule=.15mm, breakable, arc=.35mm]
+
+\textbf{Options:} {regular, smallcaps, allsmallcaps, allcaps} \textbar{}
+\textbf{Default:} regular
 
 Individually controls the format of titles, subtitles, section titles,
-and frame titles (see \textbar titleformat\textbar, above).
+and frame titles (see \texttt{titleformat}, above).
+
+\end{tcolorbox}
 
 \section{Color Customization}\label{color-customization}
 
@@ -453,51 +556,60 @@ be easily changed to suit your tastes. All of the theme's styles are
 defined in terms of three beamer colors:
 
 \begin{itemize}
+\tightlist
 \item
-  \textbar normal text\textbar{} (dark fg, light bg)
+  \texttt{normal\ text} (dark fg, light bg)
 \item
-  \textbar alerted text\textbar{} (colored fg, should be visible against
-  dark or light)
+  \texttt{alerted\ text} (colored fg, should be visible against dark or
+  light)
 \item
-  \textbar example text\textbar{} (colored fg, should be visible against
-  dark or light)
+  \texttt{example\ text} (colored fg, should be visible against dark or
+  light)
 \end{itemize}
 
 An easy way to customize the theme is to redefine these colors using
 
-\begin{verbatim}
-\setbeamercolor{ ... }{ fg= ... , bg= ... }
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\textbackslash{}setbeamercolor}\NormalTok{\{ ... \}\{ fg= ... , bg= ... \}}
+\end{Highlighting}
+\end{Shaded}
 
 in your preamble. For greater customization, you can redefine any of the
 other stock beamer colors. In addition to the stock colors the theme
 defines a number of {moloch} specific colors, which can also be
 redefined to your liking.
 
-\begin{verbatim}
-\setbeamercolor{progress bar}{ ... }
-\setbeamercolor{title separator}{ ... }
-\setbeamercolor{progress bar in head/foot}{ ... }
-\setbeamercolor{progress bar in section page}{ ... }
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\textbackslash{}setbeamercolor}\NormalTok{\{progress bar\}\{ ... \}}
+\FunctionTok{\textbackslash{}setbeamercolor}\NormalTok{\{title separator\}\{ ... \}}
+\FunctionTok{\textbackslash{}setbeamercolor}\NormalTok{\{progress bar in head/foot\}\{ ... \}}
+\FunctionTok{\textbackslash{}setbeamercolor}\NormalTok{\{progress bar in section page\}\{ ... \}}
+\end{Highlighting}
+\end{Shaded}
 
 \subsection{Themes}\label{themes}
 
 For low-light situations {moloch} it might be helpful to use the
-\textbar moloch-highcontrast\textbar{} color theme. It is enabled like
-any other color theme:
+\texttt{moloch-highcontrast} color theme. It is enabled like any other
+color theme:
 
-\begin{verbatim}
-\usecolortheme{moloch-highcontrast}
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\textbackslash{}usecolortheme}\NormalTok{\{moloch{-}highcontrast\}}
+\end{Highlighting}
+\end{Shaded}
 
 There is also a theme based on the
 \href{tomorrow\%20color\%20theme}{https://github.com/chriskempson/tomorrow-theme},
 which you can enable like this:
 
-\begin{verbatim}
-\usecolortheme{moloch-tomorrow}
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\textbackslash{}usecolortheme}\NormalTok{\{moloch{-}tomorrow\}}
+\end{Highlighting}
+\end{Shaded}
 
 \section{Commands}\label{commands}
 
@@ -506,13 +618,15 @@ which you can enable like this:
 The {moloch} inner theme offers a custom frame format with large,
 centered text and an inverted background---perfect for focusing
 attention on single sentence or image. To use it, add the key
-\textbar standout\textbar{} to the frame:
+\texttt{standout} to the frame:
 
-\begin{verbatim}
-\begin{frame}[standout]
-    Thank you!
-\end{frame}
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{frame}\NormalTok{\}[standout]}
+\NormalTok{    Thank you!}
+\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{frame}\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 \bookmarksetup{startatroot}
 
@@ -521,53 +635,54 @@ attention on single sentence or image. To use it, add the key
 \section{Title Formats}\label{title-formats}
 
 Be aware that not every font supports small caps, so the
-\textbar smallcaps\textbar{} or \textbar allsmallcaps\textbar{} options
-may not work for all fonts. In particular, the Computer Modern
-sans-serif typeface, which is used by default when {moloch} is compiled
-with pdfLaTeX, does not have a small-caps variant.
+\texttt{smallcaps} or \texttt{allsmallcaps} options may not work for all
+fonts. In particular, the Computer Modern sans-serif typeface, which is
+used by default when {moloch} is compiled with pdfLaTeX, does not have a
+small-caps variant.
 
-Note that title format options \textbar allsmallcaps\textbar{} and
-\textbar allcaps\textbar{} do not affect the sizes of numerals,
-punctuation, and math symbol, and are probably best avoided if your
-titles contain these characters.
+Note that title format options \texttt{allsmallcaps} and
+\texttt{allcaps} do not affect the sizes of numerals, punctuation, and
+math symbol, and are probably best avoided if your titles contain these
+characters.
 
 \section{Interactions with Other Color
 Themes}\label{interactions-with-other-color-themes}
 
 {moloch} can be used along with any other Beamer color theme, such as
-\textbar crane\textbar{} or \textbar seahorse\textbar. If you wish to do
-this, it is usually best to include the {moloch} subpackages
-individually so the {moloch} color theme is never loaded. This will
-prevent conflicts between the {moloch} color theme and your preferred
-theme.
+\texttt{crane} or \texttt{seahorse}. If you wish to do this, it is
+usually best to include the {moloch} subpackages individually so the
+{moloch} color theme is never loaded. This will prevent conflicts
+between the {moloch} color theme and your preferred theme.
 
 For example, overriding the color theme as follows may not work as
-expected because \textbar\textbar{} loads the {moloch} color theme,
-which defines a relationship between the frametitle background and the
-primary palette of the theme. Since \textbar seahorse\textbar{} assumes
-a different relationship between its palettes, the result is a grey,
-rather than periwinkle, frametitle background.
+expected because
+`\texttt{loads\ the\ {[}moloch{]}\{.sans-serif\}\ color\ theme,\ which\ defines\ a\ relationship\ between\ the\ frametitle\ background\ and\ the\ primary\ palette\ of\ the\ theme.\ Since}seahorse`
+assumes a different relationship between its palettes, the result is a
+grey, rather than periwinkle, frametitle background.
 
-\begin{verbatim}
-\usetheme{moloch}
-\usecolortheme{seahorse}
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\textbackslash{}usetheme}\NormalTok{\{moloch\}}
+\FunctionTok{\textbackslash{}usecolortheme}\NormalTok{\{seahorse\}}
+\end{Highlighting}
+\end{Shaded}
 
 The correct colors are chosen if the {moloch} outer, inner, and font
 themes are loaded seperately:
 
-\begin{verbatim}
-\useoutertheme{moloch}
-\useinnertheme{moloch}
-\usefonttheme{moloch}
-\usecolortheme{seahorse}   % or your preferred color theme
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\textbackslash{}useoutertheme}\NormalTok{\{moloch\}}
+\FunctionTok{\textbackslash{}useinnertheme}\NormalTok{\{moloch\}}
+\FunctionTok{\textbackslash{}usefonttheme}\NormalTok{\{moloch\}}
+\FunctionTok{\textbackslash{}usecolortheme}\NormalTok{\{seahorse\}   }\CommentTok{\% or your preferred color theme}
+\end{Highlighting}
+\end{Shaded}
 
 Please note that {moloch} may not use all the colors defined in your
 favourite Beamer color theme. In particular, {moloch} does not set a
 background color for the title; this will cause issues when using color
-themes like \textbar whale\textbar{} which set a white foreground for
-the title.
+themes like \texttt{whale} which set a white foreground for the title.
 
 \section{Notes on Second Screen}\label{notes-on-second-screen}
 
@@ -579,60 +694,66 @@ bug} in Beamer or ~itself. You can work around it either by compiling
 with ~or by adding the following code to your preamble to reset the text
 color on each slide.
 
-\begin{verbatim}
-\makeatletter
-\def\beamer@framenotesbegin{% at beginning of slide
-     \usebeamercolor[fg]{normal text}
-     \gdef\beamer@noteitems{}%
-     \gdef\beamer@notes{}%
-}
-\makeatother
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\textbackslash{}makeatletter}
+\FunctionTok{\textbackslash{}def\textbackslash{}beamer@framenotesbegin}\NormalTok{\{}\CommentTok{\% at beginning of slide}
+        \FunctionTok{\textbackslash{}usebeamercolor}\NormalTok{[fg]\{normal text\}}
+        \FunctionTok{\textbackslash{}gdef\textbackslash{}beamer@noteitems}\NormalTok{\{\}}\CommentTok{\%}
+        \FunctionTok{\textbackslash{}gdef\textbackslash{}beamer@notes}\NormalTok{\{\}}\CommentTok{\%}
+\NormalTok{\}}
+\FunctionTok{\textbackslash{}makeatother}
+\end{Highlighting}
+\end{Shaded}
 
 \section{Standout Frames with Labels}\label{standout-frames-with-labels}
 
-Because the \textbar standout\textbar{} frame option creates a group to
-restrict the colour change to a single slide, labels defined after
-calling \textbar standout\textbar{} will stay local to the group. In
-other words, the following may result in a ``label undefined'' error.
+Because the \texttt{standout} frame option creates a group to restrict
+the colour change to a single slide, labels defined after calling
+\texttt{standout} will stay local to the group. In other words, the
+following may result in a ``label undefined'' error.
 
-\begin{verbatim}
-\begin{frame}[standout, label=conclusion]{Conclusion}
-  Awesome slide
-\end{frame}
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{frame}\NormalTok{\}[standout, label=conclusion]\{Conclusion\}}
+\NormalTok{  Awesome slide}
+\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{frame}\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 To fix this problem, change the order of the keys in the frame.
 
-\begin{verbatim}
-\begin{frame}[label=conclusion, standout]{Conclusion}
-  Awesome slide
-\end{frame}
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{frame}\NormalTok{\}[label=conclusion, standout]\{Conclusion\}}
+\NormalTok{  Awesome slide}
+\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{frame}\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 This error can be unwittingly triggered if you export your slides from
 Emacs Org mode, which automatically adds labels after frame options.
 Alex Branham \href{https://github.com/matze/mtheme/issues/203}{offers}
 the following solution for Org mode users, using
-\textbar org-set-property\textbar.
+\texttt{org-set-property}.
 
-\begin{verbatim}
-* Start of a frame
-   :PROPERTIES:
-   :BEAMER_opt: label=conclusion,standout
-   :END:
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{* Start of a frame}
+\NormalTok{    :PROPERTIES:}
+\NormalTok{    :BEAMER\_opt: label=conclusion,standout}
+\NormalTok{    :END:}
+\end{Highlighting}
+\end{Shaded}
 
 \section{Standout Frames with Pandoc}\label{standout-frames-with-pandoc}
 
 With Pandoc versions prior to 1.17.2 it was not possible to create
 standout frames because Pandoc only supported a specific list of frame
 attributes thus ignoring additional attributes such as
-\textbar.standout\textbar.
+\texttt{.standout}.
 
-\bookmarksetup{startatroot}
-
-\chapter{License}\label{license}
+\section{License}\label{license}
 
 {moloch} is licensed under a
 \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
@@ -641,9 +762,12 @@ you change the theme and re-distribute it, you must retain the copyright
 notice header and license it under the same CC-BY-SA license. This does
 not affect any presentations that you create with the theme.
 
-\bookmarksetup{startatroot}
+\section{Implementation}\label{implementation}
 
-\chapter{Implementation}\label{implementation}
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{part}{Appendices}
+\appendix
 
 \part{Implementation}
 
@@ -2364,7 +2488,6 @@ Register high-contrast-specific light and dark color schemes
 
 
 
-\backmatter
 
 
 \end{document}

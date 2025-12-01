@@ -1,2 +1,24 @@
 /* Custom styles for Moloch documentation */
 
+.describe-option {
+  margin: 1em 0;
+  border-left: 3px solid #2a7f62;
+  padding-left: 1em;
+}
+
+.describe-option .option-name {
+  font-weight: bold;
+}
+
+.describe-option .option-values {
+  color: #2a7f62;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.describe-option u {
+  color: #2a7f62;
+  text-decoration: underline;
+  text-decoration-color: #2a7f62;
+  text-decoration-thickness: 2px;
+}
