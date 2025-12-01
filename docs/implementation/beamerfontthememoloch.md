@@ -1,44 +1,19 @@
-% \iffalse meta-comment -------------------------------------------------------
-% Copyright 2015 Matthias Vogelgesang and the LaTeX community. A full list of
-% contributors can be found at
-%
-%     https://github.com/matze/mtheme/graphs/contributors
-%
-% and the original template was based on the HSRM theme by Benjamin Weiss.
-%
-% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0
-% International License (https://creativecommons.org/licenses/by-sa/4.0/).
-%% --------------------------------------------------------------------------- 
-%% Copyright 2024 Johan Larsson and contributors
-% ------------------------------------------------------------------------- \fi
-% \iffalse
-%<*package>
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerfontthememoloch}[2025-09-25 v1.1.0 Moloch font theme]
-%</package>
-% \fi
-% \CheckSum{0}
-% \StopEventually{}
-% \iffalse
-%<*package>
-% ------------------------------------------------------------------------- \fi
-%
-% \subsection{\themename font theme}
-%
-% A \verb|beamer| font theme sets the style of the font used in the document.
-%
-%
-%
-% \subsubsection{Package dependencies}
-%
-%    \begin{macrocode}
+---
+title: "Font Theme"
+---
+
+A `beamer` font theme sets the style of the font used in the document.
+
+### Package dependencies
+
+``` latex
 \RequirePackage{etoolbox}
 \RequirePackage{pgfopts}
-%    \end{macrocode}
-%
-% \subsubsection{General font definitions}
-%
-%    \begin{macrocode}
+```
+
+### General font definitions
+
+``` latex
 \setbeamerfont{title}{size=\Large, series=\bfseries}
 \setbeamerfont{author}{size=\small}
 \setbeamerfont{date}{size=\small}
@@ -52,15 +27,14 @@
 \setbeamerfont{caption name}{series=\bfseries}
 \setbeamerfont{description item}{series=\bfseries}
 \setbeamerfont{standout}{size=\Large, series=\bfseries}
-%    \end{macrocode}
-%
-%
-%
-% \subsubsection{Title format options}
-%
-% \begin{macro}{titleformat title}
-%    Controls the format of the title.
-%    \begin{macrocode}
+```
+
+### Title format options
+
+`titleformat title`
+:    Controls the format of the title.
+
+``` latex
 \pgfkeys{
   /moloch/font/titleformat title/.cd,
   .is choice,
@@ -87,12 +61,12 @@
       }
     },
 }
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{titleformat subtitle}
-%    Control the format of the subtitle.
-%    \begin{macrocode}
+```
+
+`titleformat subtitle`
+:    Control the format of the subtitle.
+
+``` latex
 \pgfkeys{
   /moloch/font/titleformat subtitle/.cd,
   .is choice,
@@ -119,12 +93,12 @@
         lead to problems}
     },
 }
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{titleformat section}
-%    Controls the format of the section title.
-%    \begin{macrocode}
+```
+
+`titleformat section`
+:    Controls the format of the section title.
+
+``` latex
 \pgfkeys{
   /moloch/font/titleformat section/.cd,
   .is choice,
@@ -151,12 +125,12 @@
         can lead to problems}
     },
 }
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{frametitleformat}
-%    Control the format of the frame title.
-%    \begin{macrocode}
+```
+
+`frametitleformat`
+:    Control the format of the frame title.
+
+``` latex
 \pgfkeys{
   /moloch/font/titleformat frame/.cd,
   .is choice,
@@ -183,13 +157,13 @@
       }
     },
 }
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{titleformat aliases}
-%    Allows \verb|titleformat title| et al. to be used in the \verb|\usetheme|
-%    declaration, where \LaTeX{} automatically removes all spaces.
-%    \begin{macrocode}
+```
+
+`titleformat aliases`
+:    Allows `titleformat title` et al. to be used in the `\usetheme`
+    declaration, where LaTeX automatically removes all spaces.
+
+``` latex
 \pgfkeys{
   /moloch/font/.cd,
   titleformattitle/.code=\pgfkeysalso{titleformat title=#1},
@@ -197,12 +171,12 @@
   titleformatsection/.code=\pgfkeysalso{titleformat section=#1},
   titleformatframe/.code=\pgfkeysalso{titleformat frame=#1},
 }
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\moloch@font@setdefaults}
-%    Sets default values for font theme options.
-%    \begin{macrocode}
+```
+
+`@font@setdefaults`
+:    Sets default values for font theme options.
+
+``` latex
 \newcommand{\moloch@font@setdefaults}{
   \pgfkeys{/moloch/font/.cd,
     titleformat title=regular,
@@ -211,33 +185,26 @@
     titleformat frame=regular,
   }
 }
-%    \end{macrocode}
-% \end{macro}
-%
-% We first define hooks to change the case format of the titles.
-%
-%    \begin{macrocode}
+```
+
+We first define hooks to change the case format of the titles.
+
+``` latex
 \def\moloch@titleformat#1{#1}
 \def\moloch@subtitleformat#1{#1}
 \def\moloch@sectiontitleformat#1{#1}
 \def\moloch@frametitleformat#1{#1}
-%    \end{macrocode}
-%
-% To make the uppercase and lowercase macros work in the title, subtitle, etc.,
-% we have to patch the appropriate \verb|beamer| commands that set their values.
-% This solution was suggested by Enrico Gregorio in an answer to
-% \href{http://tex.stackexchange.com/questions/112526/}{this StackExchange
-% question}.
-%
-%
-% \subsubsection{Process package options}
-%
-%    \begin{macrocode}
+```
+
+To make the uppercase and lowercase macros work in the title, subtitle,
+etc., we have to patch the appropriate `beamer` commands that set their
+values. This solution was suggested by Enrico Gregorio in an answer to
+[this StackExchange
+question](http://tex.stackexchange.com/questions/112526/).
+
+### Process package options
+
+``` latex
 \moloch@font@setdefaults
 \ProcessPgfPackageOptions{/moloch/font}
-%    \end{macrocode}
-% \iffalse
-%</package>
-% \fi
-% \Finale
-\endinput
+```

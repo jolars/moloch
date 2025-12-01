@@ -23,9 +23,9 @@
 %<*package>
 % ------------------------------------------------------------------------- \fi
 %
-% \subsection{\themename Inner Theme}
+% \subsection{Moloch Inner Theme}
 %
-% A |beamer| inner theme dictates the style of the frame elements traditionally
+% A \verb|beamer| inner theme dictates the style of the frame elements traditionally
 % set in the ``body'' of each slide. These include:
 %
 % \begin{itemize}
@@ -99,10 +99,10 @@
 % \end{macro}
 %
 % \begin{macro}{standoutnumbering}
-%    Whether or not to number standout pages. Option |none| means that 
-%    standout pages are not numbered (do not count as frames). |hide| means
+%    Whether or not to number standout pages. Option \verb|none| means that 
+%    standout pages are not numbered (do not count as frames). \verb|hide| means
 %    that they do count as frames, but that the footer with the number is
-%    not shown. Option |show| means that they both count as frames and
+%    not shown. Option \verb|show| means that they both count as frames and
 %    that the footer with a frame count is shown.
 %    \begin{macrocode}
 \providebool{moloch@enableStandoutFooter}
@@ -140,7 +140,7 @@
 %
 %
 % \begin{macro}{titleseparator aliases}
-%    Allows |titleseparator linewidth| to be used in |\usetheme|.
+%    Allows \verb|titleseparator linewidth| to be used in \verb|\usetheme|.
 %    \begin{macrocode}
 \pgfkeys{
   /moloch/inner/.cd,
@@ -169,7 +169,7 @@
 %
 % \begin{macro}{title page}
 % Template for the title page. Each element is only typset if it is defined
-% by the user. If |\subtitle| is empty, for example, it won't leave a blank
+% by the user. If \verb|\subtitle| is empty, for example, it won't leave a blank
 % space on the title slide.
 %    \begin{macrocode}
 \setbeamertemplate{title page}{
@@ -191,16 +191,16 @@
 %    \end{macrocode}
 % \end{macro}%
 %
-% Normal people should use |\maketitle| or |\titlepage| instead of using the
-% |title page| beamer template directly. Beamer already defines these macros,
-% but we patch them here to make the title page |[plain]| by default
+% Normal people should use \verb|\maketitle| or \verb|\titlepage| instead of using the
+% \verb|title page| beamer template directly. Beamer already defines these macros,
+% but we patch them here to make the title page \verb|[plain]| by default
 % and ensure the title frame number doesn't count.
 %
 % \begin{macro}{\maketitle}
 % \begin{macro}{\titlepage}
 %
 %   Inserts the title frame, or causes the current frame to use the
-%   |title page| template.
+%   \verb|title page| template.
 %
 %    \begin{macrocode}
 \def\maketitle{%
@@ -399,7 +399,7 @@
 %
 %   Template for the progress bar displayed by default on the section page.
 %   This code is duplicated in large part in the outer theme's template
-%   |progress bar in head/foot|.
+%   \verb|progress bar in head/foot|.
 %
 %    \begin{macrocode}
 \setbeamertemplate{progress bar in section page}{
@@ -424,13 +424,13 @@
 }
 %    \end{macrocode}
 %
-%   The code above assumes that |\insertframenumber| is less than or equal to
-%   |\inserttotalframenumber|. However, this is not true on the first compile;
-%   in the absence of an |.aux| file, |\inserttotalframenumber| defaults to 1.
+%   The code above assumes that \verb|\insertframenumber| is less than or equal to
+%   \verb|\inserttotalframenumber|. However, this is not true on the first compile;
+%   in the absence of an \verb|.aux| file, \verb|\inserttotalframenumber| defaults to 1.
 %   This behaviour could cause fatal errors for long presentations, as
-%   |\moloch@progressonsectionpage| would exceed \TeX's maximum length
+%   \verb|\moloch@progressonsectionpage| would exceed \TeX's maximum length
 %   (16383.99999pt, roughly 5.75 metres or 18.9 feet).
-%   To avoid this, we increase the default value for |\inserttotalframenumber|;
+%   To avoid this, we increase the default value for \verb|\inserttotalframenumber|;
 %   presentations with over 4000 slides will still break on first compile, but
 %   users in that situation likely have deeper problems to solve.
 %
@@ -441,14 +441,14 @@
 %
 % \subsubsection{Lists and Floats}
 %
-% Moloch uses custom symbols for the |itemize| environment. The symbols
-% are defined as below, using |pgf| commands to draw the shapes.
+% Moloch uses custom symbols for the \verb|itemize| environment. The symbols
+% are defined as below, using \verb|pgf| commands to draw the shapes.
 % This is slightly different than what beamer does by default, which is
 % to use font glyphs from the math font. But we want to avoid
 % this reliance on the math font, which may have somewhat
 % surprising side effects.
 %
-% By default, we use a filled circle for the first-level |itemize| items,
+% By default, we use a filled circle for the first-level \verb|itemize| items,
 % a filled square for the second level, and a filled triangle for
 % the third level. Since the triangle tapers to a point, we add a slight
 % overhang to it so that it visually aligns better with the other symbols.
@@ -517,10 +517,10 @@
 % \subsubsection{Text and Spacing Settings}
 %
 %
-% By default, Beamer frames offer the |c| option to \textit{almost} vertically
+% By default, Beamer frames offer the \verb|c| option to \textit{almost} vertically
 % center the text, but the placement is a little too high. To fix this, we
-% redefine the |c| option to equalize |\beamer@frametopskip| and
-% |\beamer@framebottomskip|. This solution was suggested by Enrico Gregorio in
+% redefine the \verb|c| option to equalize \verb|\beamer@frametopskip| and
+% \verb|\beamer@framebottomskip|. This solution was suggested by Enrico Gregorio in
 % an answer to \href{http://tex.stackexchange.com/questions/247826/}{this
 % Stack Exchange question}.
 %
@@ -539,15 +539,15 @@
 % \subsubsection{Standout Frames}
 %
 % \themename offers a custom frame format with large, centered text and an
-% inverted background. To use it, add the key |standout| to the frame:
+% inverted background. To use it, add the key \verb|standout| to the frame:
 %
-% |\begin{frame}[standout] ... \end{frame}|.
+% \verb|\begin{frame}[standout] ... \end{frame}|.
 %
 % \begin{macro}{standout}
 %
 %     Optional arguments to Beamer's frames are implemented using
-%     |\define@key| from the |keyval| package, which will execute code when the
-%     defined option is called. For the |standout| option, we begin a group,
+%     \verb|\define@key| from the \verb|keyval| package, which will execute code when the
+%     defined option is called. For the \verb|standout| option, we begin a group,
 %     change the colors and set frame options.
 %
 %    \begin{macrocode}
@@ -585,7 +585,7 @@
 %    in order to restore the colours and fonts for the rest of the
 %    presentation. Unfortunately, we cannot use \AfterEndEnvironment{frame} for
 %    this (see \url{http://tex.stackexchange.com/questions/226319/}).
-%    Instead, we prepend the |\endgroup| to |\beamer@reseteecodes|, which is run
+%    Instead, we prepend the \verb|\endgroup| to \verb|\beamer@reseteecodes|, which is run
 %    exactly once at the end of each slide.
 %
 %    \begin{macrocode}

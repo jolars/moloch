@@ -31,6 +31,12 @@
             setspace
             xurl
             microtype
+            koma-script
+            booktabs
+            mdwtools
+            caption
+            float
+            fancyvrb
             ;
         };
         l3build-wrapped = pkgs.writeShellScriptBin "l3build-wrapped" ''
@@ -43,6 +49,8 @@
           buildInputs = [
             texlive
             l3build-wrapped
+            pkgs.quartoMinimal
+            pkgs.go-task
           ];
           # shellHook = ''
           #   export TEXMF="${texlive}/"

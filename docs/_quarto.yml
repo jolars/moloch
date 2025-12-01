@@ -1,0 +1,63 @@
+project:
+  type: book
+  output-dir: _site
+
+book:
+  title: "Moloch"
+  subtitle: "A clean and simple Beamer theme"
+  output-file: "moloch"
+  author: 
+    - name: "Johan Larsson"
+    - name: "Matthias Vogelgesang"
+      note: "Matthias wrote the original version of this manual for the Metropolis theme"
+  date: today
+  repo-url: "https://github.com/jolars/moloch"
+  repo-actions: [edit, issue]
+  search: true
+  page-footer:
+    left: "Copyright 2024-2025, Johan Larsson"
+    right:
+      - icon: github
+        href: "https://github.com/jolars/moloch"
+        aria-label: "Source for this webpage"
+  chapters:
+    - index.md
+    - part: "Implementation"
+      chapters:
+        - implementation/beamerthememoloch.md
+        - implementation/beamerinnerthememoloch.md
+        - implementation/beamerouterthememoloch.md
+        - implementation/beamerfontthememoloch.md
+        - implementation/beamercolorthememoloch.md
+        - implementation/beamercolorthememoloch-tomorrow.md
+        - implementation/beamercolorthememoloch-highcontrast.md
+
+highlight-style: breeze
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    html-math-method: katex
+    include-in-header:
+      file: header.html
+  pdf:
+    documentclass: scrbook
+    keep-tex: true
+    toc: true
+    number-sections: true
+    colorlinks: true
+    geometry:
+      - margin=1in
+    include-in-header:
+      text: |
+        \usepackage{xspace}
+        \usepackage{parskip}
+        \newcommand{\themename}{\textsf{moloch}\xspace}
+
+execute:
+  freeze: auto
+
+toc: true
+date-format: "D MMMM YYYY"
+

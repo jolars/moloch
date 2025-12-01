@@ -4,7 +4,7 @@
 module = "moloch"
 
 sourcefiledir = "src"
-docfiledir = "doc"
+docfiledir = "docs"
 typesetfiles = { "*.tex" }
 textfiles = { "*.md", "LICENSE" }
 checkengines = { "pdftex" }

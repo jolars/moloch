@@ -1,0 +1,32 @@
+version: "3"
+
+tasks:
+  install:
+    desc: Install the latex package locally
+    cmds:
+      - l3build install
+
+  docs:
+    desc: Extract and convert DTX documentation to Markdown
+    cmds:
+      - texlua extract-dtx-docs.lua
+
+  preview-docs:
+    desc: Preview the generated documentation in a web browser
+    dir: docs
+    cmds:
+      - quarto preview
+
+  build-manual:
+    desc: Build the complete package manual (Quarto -> LaTeX -> PDF)
+    cmds:
+      - cd docs && nix develop --command quarto render --to pdf
+      - cp docs/moloch.tex doc/manual.tex
+      - nix develop --command l3build-wrapped doc
+    sources:
+      - docs/index.md
+      - docs/_quarto.yml
+      - docs/implementation/*.md
+    generates:
+      - doc/manual.tex
+      - doc/manual.pdf

@@ -38,7 +38,7 @@
 %
 % \begin{macro}{block}
 %    Optionally adds a light grey background to block environments like
-%    |theorem| and |example|.
+%    \verb|theorem| and \verb|example|.
 %    \begin{macrocode}
 \pgfkeys{
   /moloch/color/block/.cd,
@@ -88,8 +88,8 @@
 %
 % \subsubsection{Base Styles}
 %
-% All colors in \themename are derived from the definitions of |normal text|,
-% |alerted text|, and |example text|.
+% All colors in \themename are derived from the definitions of \verb|normal text|,
+% \verb|alerted text|, and \verb|example text|.
 %
 %    \begin{macrocode}
 \setbeamercolor{alerted text}{%
@@ -105,8 +105,8 @@
 %
 % Moloch color themes can register light and dark color schemes using the
 % commands below. The registered colors will be stored in the macros
-% |\moloch@define@light@colors| and |\moloch@define@dark@colors| respectively.
-% These macros are invoked when the |background=light| or |background=dark|
+% \verb|\moloch@define@light@colors| and \verb|\moloch@define@dark@colors| respectively.
+% These macros are invoked when the \verb|background=light| or \verb|background=dark|
 % options are selected.
 %
 %    \begin{macrocode}
@@ -149,11 +149,11 @@
 %
 % \subsubsection{Derived Colors}
 %
-% The titles and structural elements (e.g. |itemize| bullets) are set in the
-% same color as |normal text|. This would ideally done by setting |normal text|
-% as a parent style, which we do to set |titlelike|, but this doesn't work for
-% |structure| as its foreground is set explicitly in
-% |beamercolorthemedefault.sty|.
+% The titles and structural elements (e.g. \verb|itemize| bullets) are set in the
+% same color as \verb|normal text|. This would ideally done by setting \verb|normal text|
+% as a parent style, which we do to set \verb|titlelike|, but this doesn't work for
+% \verb|structure| as its foreground is set explicitly in
+% \verb|beamercolorthemedefault.sty|.
 %
 %    \begin{macrocode}
 \setbeamercolor{titlelike}{use=normal text, parent=normal text}
@@ -183,10 +183,10 @@
 %    \end{macrocode}
 %
 % The \themename inner or outer themes optionally display progress
-% bars in various locations. Their color is set by |progress bar| but the two
+% bars in various locations. Their color is set by \verb|progress bar| but the two
 % different kinds can be customized separately. The horizontal rule on the
 % title page is also set based on the progress bar color and can be customized
-% with |title separator|.
+% with \verb|title separator|.
 %
 %    \begin{macrocode}
 \setbeamercolor{progress bar}{%
@@ -208,9 +208,9 @@
 }
 %    \end{macrocode}
 %
-% Block environments such as |theorem| and |example| have no background color
-% by default. The option |block=fill| sets a background color based on the
-% background and foreground of |normal text|. The option |block=transparent|
+% Block environments such as \verb|theorem| and \verb|example| have no background color
+% by default. The option \verb|block=fill| sets a background color based on the
+% background and foreground of \verb|normal text|. The option \verb|block=transparent|
 % reverts the block environments to an empty background, which can be useful
 % if changing colors mid-presentation.
 %

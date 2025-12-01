@@ -1,63 +1,40 @@
-% \iffalse meta-comment -------------------------------------------------------
-% Copyright 2015 Matthias Vogelgesang and the LaTeX community. A full list of
-% contributors can be found at
-%
-%     https://github.com/matze/mtheme/graphs/contributors
-%
-% and the original template was based on the HSRM theme by Benjamin Weiss.
-%
-% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0
-% International License (https://creativecommons.org/licenses/by-sa/4.0/).
-%% --------------------------------------------------------------------------- 
-%% Copyright 2024 Johan Larsson and contributors
-% ------------------------------------------------------------------------- \fi
-% \iffalse
-%<*package>
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerouterthememoloch}[2025-09-25 v1.1.0 Moloch outer theme]
-%</package>
-% \fi
-% \CheckSum{0}
-% \StopEventually{}
-% \iffalse
-%<*package>
-% ------------------------------------------------------------------------- \fi
-%
-% \subsection{\themename outer theme}
-%
-% A \verb|beamer| outer theme dictates the style of the frame elements traditionally
-% set outside the body of each slide: the head, footline, and frame title.
-%
-%
-%
-% \subsubsection{Package dependencies}
-%
-%    \begin{macrocode}
+---
+title: "Outer Theme"
+---
+
+A `beamer` outer theme dictates the style of the frame elements
+traditionally set outside the body of each slide: the head, footline,
+and frame title.
+
+### Package dependencies
+
+``` latex
 \RequirePackage{calc}
 \RequirePackage{pgfopts}
-%    \end{macrocode}
-%
-%
-% \subsubsection{Memoization and Tikz Externalization}
-%
-% To avoid generating externalized figures of the progressbar we have to disable
-% them with ``tikzexternalenable'' and ``tikzexternaldisable''. However, if the
-% ``external'' library is not loaded we would get undefined control sequence
-% problems, hence we define them as no-ops if they are not defined yet.
-% We do the same for the ``mmzUnmemoizable'' command from the memoize package, in
-% order to avoid memoization of the progress bars.
-%
-%    \begin{macrocode}
+```
+
+### Memoization and Tikz Externalization
+
+To avoid generating externalized figures of the progressbar we have to
+disable them with "tikzexternalenable" and "tikzexternaldisable".
+However, if the "external" library is not loaded we would get undefined
+control sequence problems, hence we define them as no-ops if they are
+not defined yet. We do the same for the "mmzUnmemoizable" command from
+the memoize package, in order to avoid memoization of the progress bars.
+
+``` latex
 \providecommand{\tikzexternalenable}{}
 \providecommand{\tikzexternaldisable}{}
 \providecommand{\mmzUnmemoizable}{}
-%    \end{macrocode}
-%
-% \subsubsection{Options}
-%
-% \begin{macro}{progressbar}
-%    Adds a progress bar to the top, bottom, or frametitle of each slide.
-%    \begin{macrocode}
+```
+
+### Options
+
+`progressbar`
+:    Adds a progress bar to the top, bottom, or frametitle of each
+    slide.
+
+``` latex
 \pgfkeys{
   /moloch/outer/progressbar/.cd,
   .is choice,
@@ -82,12 +59,12 @@
       }
     },
 }
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{progressbar linewidth}
-%    Sets the linewidth of the progress bar for sectionpages and frames.
-%    \begin{macrocode}
+```
+
+`progressbar linewidth`
+:    Sets the linewidth of the progress bar for sectionpages and frames.
+
+``` latex
 \newlength{\moloch@progressonsectionpage}
 \newlength{\moloch@progressonsectionpage@linewidth}
 \newlength{\moloch@progressinheadfoot}
@@ -100,22 +77,22 @@
     },
   progressbarlinewidth/.default=0.4pt,
 }
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{progressbar aliases}
-%    Allows \verb|progressbar linewidth| to be used in \verb|\molochset|.
-%    \begin{macrocode}
+```
+
+`progressbar aliases`
+:    Allows `progressbar linewidth` to be used in `\molochset`.
+
+``` latex
 \pgfkeys{
   /moloch/outer/.cd,
   progressbar linewidth/.code=\pgfkeysalso{progressbarlinewidth=#1},
 }
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{frametitle margin}
-%    Sets the margins of the frame title.
-%    \begin{macrocode}
+```
+
+`frametitle margin`
+:    Sets the margins of the frame title.
+
+``` latex
 \pgfkeys{
   /moloch/outer/.cd,
   frametitlemarginleft/.code=\renewcommand{\moloch@frametitle@margin@left}{#1},
@@ -123,40 +100,16 @@
   frametitlemargintop/.code=\renewcommand{\moloch@frametitle@margin@top}{#1},
   frametitlemarginbottom/.code=\renewcommand{\moloch@frametitle@margin@bottom}{#1},
 }
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{framtitle margin aliases}
-%   Allows \verb|frametitle margin x| to be used in \verb|\molochset|.
-%   \begin{macrocode}
-\pgfkeys{
-  /moloch/outer/.cd,
-  frametitle margin left/.code=\pgfkeysalso{frametitlemarginleft=#1},
-  frametitle margin right/.code=\pgfkeysalso{frametitlemarginright=#1},
-  frametitle margin top/.code=\pgfkeysalso{frametitlemargintop=#1},
-  frametitle margin bottom/.code=\pgfkeysalso{frametitlemarginbottom=#1},
-}
-%   \end{macrocode}
-%
-% \begin{macro}{\moloch@outer@setdefaults}
-%    Sets default values for outer theme options.
-%    \begin{macrocode}
-\newcommand{\moloch@outer@setdefaults}{
-  \pgfkeys{/moloch/outer/.cd,
-    progressbar=none,
-    progressbar linewidth=0.4pt,
-  }
-}
-%    \end{macrocode}%
-% \end{macro}
-%
-% \subsubsection{Deprecated Options}
-%
-% These options are deprecated and will be removed in a future version.
-%
-% \begin{macro}{numbering}
-%    Adds slide numbers to the bottom right of each slide.
-%    \begin{macrocode}
+```
+
+### Deprecated Options
+
+These options are deprecated and will be removed in a future version.
+
+`numbering`
+:    Adds slide numbers to the bottom right of each slide.
+
+``` latex
 \pgfkeys{
   /moloch/outer/numbering/.cd,
   .is choice,
@@ -176,32 +129,36 @@
       \setbeamertemplate{page number in head/foot}[totalframenumber]
     },
 }
-%    \end{macrocode}
-% \end{macro}
-%
-% \subsubsection{Slide Numbering}
-%
-% Moloch defaults to numbering frames. To modify this, simply copy this line to your
-% preamble and replace \verb|framenumber|.
-%
-%    \begin{macrocode}
+```
+
+### Slide Numbering
+
+Moloch defaults to numbering frames. To modify this, simply copy this
+line to your preamble and replace `framenumber`.
+
+``` latex
 \setbeamertemplate{page number in head/foot}[framenumber]
-%    \end{macrocode}
-%
-% \subsubsection{Head and footline}
-%
-% All good \verb|beamer| presentations should already remove the navigation symbols,
-% but \themename removes them automatically (just in case).
-%
-%    \begin{macrocode}
+```
+
+### Head and footline
+
+All good `beamer` presentations should already remove the navigation
+symbols, but removes them automatically (just in case).
+
+``` latex
 \setbeamertemplate{navigation symbols}{}
-%    \end{macrocode}
-%
-%
-% \begin{macro}{headline}
-% \begin{macro}{footline}
-%    Templates for the head- and footline at the top and bottom of each frame.
-%    \begin{macrocode}
+```
+
+`headline`
+:   
+
+<!-- -->
+
+`footline`
+:    Templates for the head- and footline at the top and bottom of each
+    frame.
+
+``` latex
 \defbeamertemplate{headline}{plain}{}
 \defbeamertemplate{footline}{plain}{%
   \begin{beamercolorbox}[
@@ -216,18 +173,15 @@
     \usebeamertemplate*{page number in head/foot}\vskip4pt%
   \end{beamercolorbox}%
 }
-%    \end{macrocode}
-% \end{macro}
-% \end{macro}
-%
-%
-%
-% \subsubsection{Frametitle}
-%
-% \begin{macro}{frametitle}
-%    Templates for the frame title, which is optionally underlined with a
-%    progress bar.
-%    \begin{macrocode}
+```
+
+### Frametitle
+
+`frametitle`
+:    Templates for the frame title, which is optionally underlined with
+    a progress bar.
+
+``` latex
 \newcommand{\moloch@frametitlestrut@start}{%
   \rule{0pt}{\moloch@frametitle@margin@top + \ht\strutbox}%
 }%
@@ -268,14 +222,14 @@
 }
 \setbeamertemplate{frametitle continuation}{%
   \romannumeral\insertcontinuationcount}
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{progress bar in head/foot}
-%    Template for the progress bar optionally displayed below the frame title
-%    on each page. Much of this code is duplicated in the inner theme's
-%    template \verb|progress bar in section page|.
-%    \begin{macrocode}
+```
+
+`progress bar in head/foot`
+:    Template for the progress bar optionally displayed below the frame
+    title on each page. Much of this code is duplicated in the inner
+    theme's template `progress bar in section page`.
+
+``` latex
 \setbeamertemplate{progress bar in head/foot}{
   \nointerlineskip%
   \pgfmathsetlength{\moloch@progressinheadfoot}{%
@@ -297,18 +251,11 @@
     \tikzexternalenable%
   \end{beamercolorbox}
 }
-%    \end{macrocode}
-% \end{macro}
-%
-% \subsubsection{Process package options}
-%
-%    \begin{macrocode}
+```
+
+### Process package options
+
+``` latex
 \moloch@outer@setdefaults
 \ProcessPgfPackageOptions{/moloch/outer}
-%    \end{macrocode}
-%
-% \iffalse
-%</package>
-% \fi
-% \Finale
-\endinput
+```
