@@ -42,8 +42,8 @@ function extract_docs(dtx_file, latex_file)
 			or line:match("^%% \\Finale")
 			or line:match("^%% \\iffalse")
 			or line:match("^%% \\fi")
-			or line:match("^%% %-%-%-%-")  -- Skip separator lines
-			or line:match("^%% \\subsection")  -- Skip subsection headers (we have YAML title)
+			or line:match("^%% %-%-%-%-") -- Skip separator lines
+			or line:match("^%% \\subsection") -- Skip subsection headers (we have YAML title)
 		then
 			goto continue
 		end
@@ -130,13 +130,13 @@ return {{CodeBlock = CodeBlock}}
 
 	-- List of DTX files to process with display names
 	local dtx_files = {
-		{name = "beamerthememoloch", title = "Main Theme"},
-		{name = "beamerinnerthememoloch", title = "Inner Theme"},
-		{name = "beamerouterthememoloch", title = "Outer Theme"},
-		{name = "beamerfontthememoloch", title = "Font Theme"},
-		{name = "beamercolorthememoloch", title = "Color Theme"},
-		{name = "beamercolorthememoloch-tomorrow", title = "Color Theme: Tomorrow"},
-		{name = "beamercolorthememoloch-highcontrast", title = "Color Theme: High Contrast"},
+		{ name = "beamerthememoloch", title = "Main Theme" },
+		{ name = "beamerinnerthememoloch", title = "Inner Theme" },
+		{ name = "beamerouterthememoloch", title = "Outer Theme" },
+		{ name = "beamerfontthememoloch", title = "Font Theme" },
+		{ name = "beamercolorthememoloch", title = "Color Theme" },
+		{ name = "beamercolorthememoloch-tomorrow", title = "Color Theme: Tomorrow" },
+		{ name = "beamercolorthememoloch-highcontrast", title = "Color Theme: High Contrast" },
 	}
 
 	print("Extracting and converting DTX documentation...\n")
@@ -157,14 +157,14 @@ return {{CodeBlock = CodeBlock}}
 				local infile = io.open(md, "r")
 				local content = infile:read("*all")
 				infile:close()
-				
+
 				local outfile = io.open(md, "w")
 				outfile:write("---\n")
-				outfile:write("title: \"" .. title .. "\"\n")
+				outfile:write('title: "' .. title .. '"\n')
 				outfile:write("---\n\n")
 				outfile:write(content)
 				outfile:close()
-				
+
 				print("Converted: " .. dtx .. " -> " .. md)
 				-- Clean up intermediate LaTeX file
 				os.execute("rm " .. latex)
