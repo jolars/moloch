@@ -36,7 +36,7 @@ function Div(el)
 
 			-- Build the header line with values in brackets, highlighting default
 			table.insert(header, pandoc.Str("["))
-			
+
 			if default then
 				-- Split values and highlight the default one
 				local value_parts = {}
@@ -48,7 +48,7 @@ function Div(el)
 						table.insert(value_parts, pandoc.Str(trimmed))
 					end
 				end
-				
+
 				-- Insert values with commas
 				for i, part in ipairs(value_parts) do
 					table.insert(header, part)
@@ -60,7 +60,7 @@ function Div(el)
 			else
 				table.insert(header, pandoc.Span(pandoc.Emph(pandoc.Str(values)), pandoc.Attr("", { "option-values" })))
 			end
-			
+
 			table.insert(header, pandoc.Str("]"))
 
 			-- Prepend header to content
