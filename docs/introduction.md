@@ -88,21 +88,6 @@ presentations, you can run the following command in your terminal:
 pandoc -t beamer -V theme:moloch -o output.pdf input.md
 ```
 
-
-## Commands
-
-### Standout Frames
-
-The Moloch inner theme offers a custom frame format with large, centered text
-and an inverted background---perfect for focusing attention on single sentence
-or image. To use it, add the key `standout` to the frame:
-
-```latex
-\begin{frame}[standout]
-    Thank you!
-\end{frame}
-```
-
 [^1]:
     Matthias wrote the original version of this manual for the Metropolis theme,
     which has since been modified by Johan Larsson.
