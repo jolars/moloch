@@ -5,9 +5,16 @@ project:
 book:
   title: "Moloch"
   subtitle: "A Functional and Minimalist Beamer Theme"
-  output-file: "moloch"
+  description: |
+    Moloch is a functional and minimalist Beamer theme for LaTeX presentations.
+    It tries to keep things simple while still providing a flexible
+    and modern design.
 
-  favicon: images/moloch-logo.svg
+  output-file: "moloch"
+  open-graph:
+    locale: en_US
+  twitter-card: true
+  favicon: images/favicon.svg
   cover-image: images/cover.jpg
   image: images/og.jpg
 
@@ -54,7 +61,9 @@ highlight-style: breeze
 
 format:
   html:
-    theme: flatly
+    theme:
+      light: flatly
+      dark: darkly
     css: styles.css
     html-math-method: katex
     include-in-header:
