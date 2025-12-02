@@ -4,7 +4,7 @@ project:
 
 book:
   title: "Moloch"
-  subtitle: "A clean and simple Beamer theme"
+  subtitle: "A Functional and Minimalist Beamer Theme"
   output-file: "moloch"
   favicon: images/moloch-logo.svg
   cover-image: images/og.jpg
@@ -14,7 +14,7 @@ book:
     - name: "Matthias Vogelgesang"
       note:
         "Matthias wrote the original version of this manual for the Metropolis
-        theme"
+        theme."
   date: today
   repo-url: "https://github.com/jolars/moloch"
   site-url: "https://jolars.github.io/moloch/"

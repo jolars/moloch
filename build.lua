@@ -20,10 +20,9 @@ uploadconfig = {
 	author = "Johan Larsson",
 	uploader = "Johan Larsson",
 	license = "cc-by-sa-4",
-	summary = "A clean and simple beamer theme",
-	description = "Moloch is a clean and simple beamer theme. "
-		.. "It is a fork of the Metropolis theme, but has a "
-		.. "more minimalistic and slightly less opinionated design.",
+	summary = "A Minimalist and Functional Beamer Theme",
+	description = "Moloch is a minimalist and functional theme. "
+		.. "It is a fork of the Metropolis theme.",
 	ctanPath = "/macros/latex/contrib/beamer-contrib/themes/moloch",
 	repository = "https://github.com/jolars/moloch",
 	bugtracker = "https://github.com/jolars/moloch/issues",

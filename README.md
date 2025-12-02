@@ -5,9 +5,8 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17203438.svg)](https://doi.org/10.5281/zenodo.17203438)
 
 Moloch is a minimalistic and functional Beamer theme.
-It is a fork of the [Metropolis Theme](https://github.com/matze/mtheme).
-
-The fork was created for the following reasons:
+It is a fork of the [Metropolis Theme](https://github.com/matze/mtheme),
+that was created for the following reasons:
 
 - To fix some outstanding issues that had not been addressed for a long time.
 - To remove some of the more opinionated design choices, such as special
