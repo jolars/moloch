@@ -44,7 +44,8 @@ tasks:
     desc: Compile all example presentations
     cmds:
       - cd examples/demo && latexmk -pdf -interaction=nonstopmode demo.tex
-      - cd examples/colortheme-tomorrow && latexmk -pdf -interaction=nonstopmode moloch-tomorrow.tex
+      - cd examples/colortheme-tomorrow && latexmk -pdf -interaction=nonstopmode
+        moloch-tomorrow.tex
 
   generate-example-images:
     desc: Generate grid images from all compiled examples
@@ -52,6 +53,9 @@ tasks:
       - compile-examples
     cmds:
       - mkdir -p docs/images
-      - ./scripts/pdf-to-grid.sh examples/demo/demo.pdf docs/images/demo-grid.png 4 150
-      - ./scripts/pdf-to-grid.sh examples/colortheme-tomorrow/moloch-tomorrow.pdf docs/images/tomorrow-grid.png 4 150
+      - ./scripts/pdf-to-grid.sh examples/demo/demo.pdf
+        docs/images/demo-grid.png 2 150
+      - ./scripts/pdf-to-grid.sh
+        examples/colortheme-tomorrow/moloch-tomorrow.pdf
+        docs/images/tomorrow-grid.png 2 150
       - echo "Generated example grids in docs/images/"

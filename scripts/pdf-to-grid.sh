@@ -11,8 +11,8 @@ echo "DEBUG: \$3 = [$3]"
 echo "DEBUG: \$4 = [$4]"
 
 if [ $# -lt 2 ]; then
-    echo "Usage: $0 <input.pdf> <output.png> [columns=4] [density=150]"
-    echo "Example: $0 demo.pdf demo-grid.png 4 150"
+    echo "Usage: $0 <input.pdf> <output.png> [columns=4] [density=150] [range=1-4]"
+    echo "Example: $0 demo.pdf demo-grid.png 4 150 1-4"
     exit 1
 fi
 
@@ -20,20 +20,21 @@ INPUT_PDF="$1"
 OUTPUT_IMAGE="$2"
 COLS="${3:-4}"
 DENSITY="${4:-150}"
+RANGE="${5:-1-4}"
 
-echo "DEBUG: COLS=$COLS, DENSITY=$DENSITY"
+echo "DEBUG: COLS=$COLS, DENSITY=$DENSITY, RANGE=$RANGE"
 
 if [ ! -f "$INPUT_PDF" ]; then
     echo "Error: Input file '$INPUT_PDF' not found"
     exit 1
 fi
 
-echo "Converting PDF to images at ${DENSITY} DPI..."
+echo "Converting PDF to images at ${DENSITY} DPI (pages ${RANGE})..."
 TEMP_DIR=$(mktemp -d)
 trap "rm -rf $TEMP_DIR" EXIT
 
 # Convert PDF pages to PNG images
-pdftoppm -png -r "$DENSITY" "$INPUT_PDF" "$TEMP_DIR/slide"
+pdftoppm -png -r "$DENSITY" -f "$(echo $RANGE | cut -d- -f1)" -l "$(echo $RANGE | cut -d- -f2)" "$INPUT_PDF" "$TEMP_DIR/slide"
 
 # Count the number of slides
 NUM_SLIDES=$(ls "$TEMP_DIR"/slide-*.png 2>/dev/null | wc -l)
@@ -65,7 +66,7 @@ echo "DEBUG: Found ${#all_images[@]} bordered images"
 # Create each row
 for ((row=0; row<NUM_ROWS; row++)); do
     start=$((row * COLS))
-    
+
     row_files=""
     for ((col=0; col<COLS; col++)); do
         idx=$((start + col))
@@ -73,7 +74,7 @@ for ((row=0; row<NUM_ROWS; row++)); do
             row_files="$row_files ${all_images[$idx]}"
         fi
     done
-    
+
     echo "DEBUG: Row $row has $(echo $row_files | wc -w) images"
     if [ -n "$row_files" ]; then
         convert $row_files +append "$TEMP_DIR/row-${row}.png"

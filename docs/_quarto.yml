@@ -6,9 +6,11 @@ book:
   title: "Moloch"
   subtitle: "A Functional and Minimalist Beamer Theme"
   output-file: "moloch"
+
   favicon: images/moloch-logo.svg
-  cover-image: images/og.jpg
+  cover-image: images/cover.jpg
   image: images/og.jpg
+
   author:
     - name: "Johan Larsson"
     - name: "Matthias Vogelgesang"
@@ -16,8 +18,9 @@ book:
         "Matthias wrote the original version of this manual for the Metropolis
         theme."
   date: today
+
   repo-url: "https://github.com/jolars/moloch"
-  site-url: "https://jolars.github.io/moloch/"
+  site-url: "https://moloch.ink"
   repo-branch: main
 
   search: true
