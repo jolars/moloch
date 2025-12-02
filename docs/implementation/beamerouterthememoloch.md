@@ -8,13 +8,14 @@ title: "Outer Theme"
 
 :::
 
-## Moloch outer theme
+## Moloch Outer Theme
+
 
 A `beamer` outer theme dictates the style of the frame elements
 traditionally set outside the body of each slide: the head, footline,
 and frame title.
 
-## Package dependencies
+## Package Dependencies
 
 ``` latex
 \RequirePackage{calc}
@@ -179,7 +180,7 @@ line to your preamble and replace `framenumber`.
 \setbeamertemplate{page number in head/foot}[framenumber]
 ```
 
-## Head and footline
+## Head and Footline
 
 All good `beamer` presentations should already remove the navigation
 symbols, but Moloch removes them automatically (just in case).
@@ -298,7 +299,7 @@ template `progress bar in section page`.
 }
 ```
 
-## Process package options
+## Process Package Options
 
 ``` latex
 \moloch@outer@setdefaults

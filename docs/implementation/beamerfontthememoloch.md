@@ -8,19 +8,20 @@ title: "Font Theme"
 
 :::
 
-## Moloch font theme
+## Moloch Font Theme
 
 The Moloch font theme defines the fonts used throughout the
 presentation.
 
-## Package dependencies
+
+## Package Dependencies
 
 ``` latex
 \RequirePackage{etoolbox}
 \RequirePackage{pgfopts}
 ```
 
-## General font definitions
+## General Font Definitions
 
 ``` latex
 \setbeamerfont{title}{size=\Large, series=\bfseries}
@@ -38,7 +39,7 @@ presentation.
 \setbeamerfont{standout}{size=\Large, series=\bfseries}
 ```
 
-## Title format options
+## Title Format Options
 
 ### `titleformat title`
 
@@ -217,7 +218,7 @@ values. This solution was suggested by Enrico Gregorio in an answer to
 [this StackExchange
 question](http://tex.stackexchange.com/questions/112526/).
 
-## Process package options
+## Process Package Options
 
 ``` latex
 \moloch@font@setdefaults
