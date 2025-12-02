@@ -10,7 +10,6 @@ book:
     It tries to keep things simple while still providing a flexible
     and modern design.
 
-  output-file: "moloch"
   open-graph:
     locale: en_US
   twitter-card: true
