@@ -179,9 +179,6 @@ Inserts the title frame, or causes the current frame to use the
 `title page` template.
 
 ``` latex
-
-\subsubsection{\texttt{\textbackslash{}titlepage}}
-
 \def\maketitle{%
   \ifbeamer@inframe
     \titlepage
@@ -192,9 +189,16 @@ Inserts the title frame, or causes the current frame to use the
     \endgroup
   \fi
 }
-%
-% Also patch \verb|\titlepage| to ensure that footnotes on the title page
-%
+```
+
+Also patch `\titlepage` to ensure that footnotes on the title page are
+formatted correctly.
+
+### `\titlepage`
+
+Inserts the title page using the `title page` beamer template.
+
+``` latex
 \def\titlepage{%
   % Apply title-page specific footnote settings
   \renewcommand{\@makefntext}[1]{%

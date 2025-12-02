@@ -189,7 +189,7 @@
 % Inserts the title frame, or causes the current frame to use the
 % \verb|title page| template.
 %
-%    \begin{macrocode}
+% \begin{macrocode}
 \def\maketitle{%
   \ifbeamer@inframe
     \titlepage
@@ -200,11 +200,17 @@
     \endgroup
   \fi
 }
+% \end{macrocode}
 % \end{macro}
 %
-% Also patch \verb|\titlepage| to ensure that footnotes on the title page
+% Also patch \verb|\titlepage| to ensure that footnotes on the title page 
+% are formatted correctly.
 %
 % \begin{macro}{\titlepage}
+%
+%   Inserts the title page using the \verb|title page| beamer template.
+%
+%   \begin{macrocode}
 \def\titlepage{%
   % Apply title-page specific footnote settings
   \renewcommand{\@makefntext}[1]{%
