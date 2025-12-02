@@ -7,6 +7,7 @@ book:
   subtitle: "A clean and simple Beamer theme"
   output-file: "moloch"
   favicon: images/moloch-logo.svg
+  cover-image: images/og.jpg
   image: images/og.jpg
   author:
     - name: "Johan Larsson"
@@ -16,6 +17,8 @@ book:
         theme"
   date: today
   repo-url: "https://github.com/jolars/moloch"
+  site-url: "https://jolars.github.io/moloch/"
+  repo-branch: main
 
   search: true
 
@@ -27,6 +30,12 @@ book:
         aria-label: "Source for this webpage"
   chapters:
     - index.md
+    - part: User Guide
+      chapters:
+        - introduction.md
+        - customization.md
+        - known-issues.md
+        - license.md
   appendices:
     - part: "Implementation"
       chapters:
