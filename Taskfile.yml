@@ -44,7 +44,6 @@ tasks:
     desc: Compile examples and generate grid images
     sources:
       - examples/*.tex
-    method: checksum
     cmds:
       - for: sources
         cmd: latexmk -pdf -interaction=nonstopmode -cd {{.ITEM}}

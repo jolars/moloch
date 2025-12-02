@@ -1,7 +1,5 @@
 # Customization
 
-## Package Options
-
 The theme provides a number of options, which can be set using a key=value
 interface. The primary way to set options is to provide a comma-separated list
 of option-value pairs when loading Moloch in the preamble:
@@ -34,7 +32,7 @@ A short description of the option.
 
 :::
 
-### Main Theme
+## Main Theme
 
 ::: {.describe-option option-name="titleformat" values="regular, smallcaps,
 allsmallcaps, allcaps" default="regular"}
@@ -54,7 +52,10 @@ Changes the format of "standout" frames (see `titleformat`, above).
 
 :::
 
-### Inner Theme
+## Inner Theme
+
+These options control the inner theme, which is responsible for elements like
+section and subsection pages.
 
 ::: {.describe-option option-name="sectionpage" values="none, simple,
 progressbar" default="progressbar"}
@@ -64,6 +65,29 @@ progress bar below the section title (`progressbar`). The `none` option disables
 the section page.
 
 :::
+
+```latex
+\documentclass{beamer}
+\usetheme{moloch}
+
+\begin{document}
+
+\molochset{sectionpage=progressbar} % the default
+
+\section{Section One}
+
+\molochset{sectionpage=simple}
+
+\section{Section Two}
+
+\molochset{sectionpage=none}
+
+\section{Section Three} % Will not have a section page
+
+\end{document}
+```
+
+![Example of the `sectionpage` options.](./images/example-sectionpage-styles.png)
 
 ::: {.describe-option option-name="subsectionpage" values="none, simple,
 progressbar" default="none"}
@@ -88,7 +112,10 @@ number count is shown in the same fashion as for regular frames.
 
 :::
 
-### Outer Theme
+## Outer Theme
+
+These options control the outer theme, which is responsible for elements like
+the frame numbering and progress bar.
 
 ::: {.describe-option option-name="numbering" values="none, counter, fraction"
 default="(none specified)"}
@@ -109,7 +136,51 @@ each frame (`foot`), or directly below each frame title (`frametitle`).
 
 :::
 
-### Color Theme
+```latex
+\documentclass{beamer}
+
+\usetheme{moloch}
+
+\begin{document}
+
+\molochset{progressbar=none} % the default
+
+\begin{frame}
+  \frametitle{Progress Bar Example}
+
+  The default is to have no progress bar.
+\end{frame}
+
+\molochset{progressbar=head}
+
+\begin{frame}
+  \frametitle{Progress Bar Example}
+
+  The progress bar is now displayed at the top of the frame.
+\end{frame}
+
+\molochset{progressbar=foot}
+
+\begin{frame}
+  \frametitle{Progress Bar Example}
+
+  The progress bar is now displayed at the bottom of the frame.
+\end{frame}
+
+\molochset{progressbar=frametitle}
+
+\begin{frame}
+  \frametitle{Progress Bar Example}
+
+  The progress bar is now displayed in the frametitle area.
+\end{frame}
+
+\end{document}
+```
+
+![Example of the `progressbar` options.](./images/example-progressbar.png)
+
+## Color Theme
 
 These options control color aspects of the theme, and are forwarded to the color
 theme.
@@ -173,7 +244,7 @@ the reverse.
 ![Example of the "background" option set to "dark", swapping the foreground and
 background colors.](./images/example-background.png)
 
-### Font Theme
+## Font Theme
 
 ::: {.describe-option option-name="titleformat plain, titleformat frametitle,
 titleformat section" values="regular, smallcaps, allsmallcaps, allcaps"
@@ -194,15 +265,16 @@ three beamer colors:
 - `alerted text` (colored fg, should be visible against dark or light)
 - `example text` (colored fg, should be visible against dark or light)
 
-An easy way to customize the theme is to redefine these colors using
+An easy way to customize the theme is to redefine these colors using the
+following syntax in your preabmle:
 
 ```latex
 \setbeamercolor{ ... }{ fg= ... , bg= ... }
 ```
 
-in your preamble. For greater customization, you can redefine any of the other
-stock beamer colors. In addition to the stock colors the theme defines a number
-of Moloch specific colors, which can also be redefined to your liking.
+For additional customization, you can redefine any of the other stock beamer
+colors. In addition to the stock colors the theme defines a number of Moloch
+specific colors, which can also be redefined to your liking.
 
 ```latex
 \setbeamercolor{progress bar}{ ... }
@@ -211,7 +283,21 @@ of Moloch specific colors, which can also be redefined to your liking.
 \setbeamercolor{progress bar in section page}{ ... }
 ```
 
-### Themes
+## Themes
+
+### Default Theme
+
+The default color theme is almost exactly the same as in the original Metropolis
+theme, except we have modified the green color for the example blocks to be a
+bit less saturated.
+
+```latex
+\usecolortheme{moloch}
+```
+
+![Example of the default Moloch color theme.](./images/example-colortheme-default.png)
+
+### The High Contrast Theme
 
 For low-light situations Moloch it might be helpful to use the
 `moloch-highcontrast` color theme. It is enabled like any other color theme:
@@ -220,10 +306,16 @@ For low-light situations Moloch it might be helpful to use the
 \usecolortheme{moloch-highcontrast}
 ```
 
+![Example of the high contrast color theme.](./images/example-colortheme-highcontrast.png)
+
+### The Tomorrow Theme
+
 There is also a theme based on the
-[https://github.com/chriskempson/tomorrow-theme](tomorrow color theme), which
+[https://github.com/chriskempson/tomorrow-theme](Tomorrow color theme), which
 you can enable like this:
 
 ```latex
 \usecolortheme{moloch-tomorrow}
 ```
+
+![Example of the Tomorrow color theme.](./images/example-colortheme-tomorrow.png)

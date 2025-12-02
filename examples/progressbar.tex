@@ -1,0 +1,42 @@
+\documentclass{beamer}
+
+\usetheme{moloch}
+
+\begin{document}
+
+\molochset{
+  progressbar=none, % The default
+  progressbar linewidth=5pt % Adjust the thickness of the progress bar
+}
+
+\begin{frame}
+  \frametitle{Progress Bar Example}
+
+  The default is to have no progress bar.
+\end{frame}
+
+\molochset{progressbar=head}
+
+\begin{frame}
+  \frametitle{Progress Bar Example}
+
+  The progress bar is now displayed at the top of the frame.
+\end{frame}
+
+\molochset{progressbar=foot}
+
+\begin{frame}
+  \frametitle{Progress Bar Example}
+
+  The progress bar is now displayed at the bottom of the frame.
+\end{frame}
+
+\molochset{progressbar=frametitle}
+
+\begin{frame}
+  \frametitle{Progress Bar Example}
+
+  The progress bar is now displayed below the frame title block.
+\end{frame}
+
+\end{document}
