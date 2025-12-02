@@ -1,11 +1,11 @@
+name: Docs
+
 on:
   workflow_dispatch:
   workflow_run:
     workflows: ["Release"]
     types:
       - completed
-
-name: Quarto Publish
 
 permissions:
   contents: read
@@ -37,13 +37,8 @@ jobs:
       - name: Restore timestamps
         uses: chetan/git-restore-mtime-action@v2
 
-      - name: Install Pandoc (includes texlua via TinyTeX)
-        run: |
-          which texlua || tlmgr install luatex
-          texlua --version
-
       - name: Extract DTX documentation
-        run: texlua scripts/extract-dtx-docs.lua
+        run: lua scripts/extract-dtx-docs.lua
 
       - name: Render Quarto Project
         uses: quarto-dev/quarto-actions/render@v2
