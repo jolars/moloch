@@ -26,10 +26,8 @@
             l3build-wrapped
             pkgs.quartoMinimal
             pkgs.go-task
+            pkgs.poppler_utils
           ];
-          # shellHook = ''
-          #   export TEXMF="${texlive}/"
-          # '';
         };
       }
     );
