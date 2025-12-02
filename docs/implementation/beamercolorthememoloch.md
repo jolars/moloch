@@ -2,6 +2,14 @@
 title: "Color Theme"
 ---
 
+::: {.callout-note}
+
+**Source file:** [`src/beamercolorthememoloch.dtx`](https://github.com/jolars/moloch/blob/main/src/beamercolorthememoloch.dtx)
+
+:::
+
+## Moloch Color Theme
+
 ### Package Dependencies
 
 ``` latex
@@ -10,9 +18,10 @@ title: "Color Theme"
 
 ### Options
 
-`block`
-:    Optionally adds a light grey background to block environments like
-    `theorem` and `example`.
+### `block`
+
+Optionally adds a light grey background to block environments like
+`theorem` and `example`.
 
 ``` latex
 \pgfkeys{
@@ -23,9 +32,10 @@ title: "Color Theme"
 }
 ```
 
-`colors`
-:    Provides the option to have a dark background and light foreground
-    instead of the reverse.
+### `colors`
+
+Provides the option to have a dark background and light foreground
+instead of the reverse.
 
 ``` latex
 \pgfkeys{
@@ -36,8 +46,9 @@ title: "Color Theme"
 }
 ```
 
-`@color@setdefaults`
-:    Sets default values for color theme options.
+### `\moloch@color@setdefaults`
+
+Sets default values for color theme options.
 
 ``` latex
 \newcommand{\moloch@color@setdefaults}{
@@ -58,7 +69,7 @@ title: "Color Theme"
 
 ### Base Styles
 
-All colors in are derived from the definitions of `normal text`,
+All colors in Moloch are derived from the definitions of `normal text`,
 `alerted text`, and `example text`.
 
 ``` latex
@@ -134,8 +145,8 @@ this doesn't work for `structure` as its foreground is set explicitly in
 ```
 
 The "primary" palette should be used for the most important navigational
-elements, and possibly of other elements. uses it for frame titles and
-slides.
+elements, and possibly of other elements. Moloch uses it for frame
+titles and slides.
 
 ``` latex
 \setbeamercolor{palette primary}{%
@@ -149,11 +160,11 @@ slides.
 }
 ```
 
-The inner or outer themes optionally display progress bars in various
-locations. Their color is set by `progress bar` but the two different
-kinds can be customized separately. The horizontal rule on the title
-page is also set based on the progress bar color and can be customized
-with `title separator`.
+The Moloch inner or outer themes optionally display progress bars in
+various locations. Their color is set by `progress bar` but the two
+different kinds can be customized separately. The horizontal rule on the
+title page is also set based on the progress bar color and can be
+customized with `title separator`.
 
 ``` latex
 \setbeamercolor{progress bar}{%

@@ -6,12 +6,20 @@ tasks:
     cmds:
       - l3build install
 
-  docs:
+  extract-dtx-docs:
     desc: Extract and convert DTX documentation to Markdown
     cmds:
       - texlua scripts/extract-dtx-docs.lua
 
-  preview-docs:
+  docs:
+    desc: Build the documentation site (Quarto)
+    dir: docs
+    deps:
+      - extract-dtx-docs
+    cmds:
+      - quarto render
+
+  docs-preview:
     desc: Preview the generated documentation in a web browser
     dir: docs
     cmds:

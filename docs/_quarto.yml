@@ -58,7 +58,6 @@ format:
       text: |
         \usepackage{xspace}
         \usepackage{parskip}
-        \newcommand{\themename}{\textsf{moloch}\xspace}
         \usepackage{doc}
         \usepackage{xcolor}
         \definecolor{JungleGreen}{RGB}{42,127,98}

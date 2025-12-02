@@ -2,17 +2,25 @@
 title: "Main Theme"
 ---
 
-The primary job of this package is to load the component sub-packages of
-the theme and route the theme options accordingly. It also provides some
-custom commands and environments for the user.
+::: {.callout-note}
 
-### Package Dependencies
+**Source file:** [`src/beamerthememoloch.dtx`](https://github.com/jolars/moloch/blob/main/src/beamerthememoloch.dtx)
+
+:::
+
+## Moloch Parent Theme
+
+The primary job of this package is to load the component sub-packages of
+the Moloch theme and route the theme options accordingly. It also
+provides some custom commands and environments for the user.
+
+## Package Dependencies
 
 ``` latex
 \RequirePackage{pgfopts}
 ```
 
-### Options
+## Options
 
 Most options are passed off to the component sub-packages.
 
@@ -27,8 +35,9 @@ Most options are passed off to the component sub-packages.
 }
 ```
 
-`titleformat plain`
-:    Controls the formatting of the text on standout "plain" frames.
+### `titleformat plain`
+
+Controls the formatting of the text on standout "plain" frames.
 
 ``` latex
 \pgfkeys{
@@ -53,9 +62,10 @@ Most options are passed off to the component sub-packages.
 }
 ```
 
-`titleformat`
-:    Sets a standard format for titles, subtitles, section titles, frame
-    titles, and the text on standout "plain" frames.
+### `titleformat`
+
+Sets a standard format for titles, subtitles, section titles, frame
+titles, and the text on standout "plain" frames.
 
 ``` latex
 \pgfkeys{
@@ -79,7 +89,7 @@ Set default values for options.
 }
 ```
 
-### Component Sub-Packages
+## Component Sub-Packages
 
 Having processed the options, we can now load the component sub-packages
 of the theme.
@@ -91,25 +101,26 @@ of the theme.
 \usefonttheme{moloch}
 ```
 
-### Custom Commands
+## Custom Commands
 
 The parent theme defines custom commands as their proper usage may
 depend on multiple sub-packages.
 
-`Allows`
-:    the user to change options midway through a presentation.
+### `\molochset`
+
+Allows the user to change options midway through a presentation.
 
 ``` latex
 \newcommand{\molochset}[1]{\pgfkeys{/moloch/.cd,#1}}
 ```
 
-::: macro
+### `\mreducelistspacing`
+
 ``` latex
 \newcommand{\mreducelistspacing}{\vspace{-\topsep}}
 ```
-:::
 
-### Process Package Options
+## Process Package Options
 
 ``` latex
 \moloch@setdefaults

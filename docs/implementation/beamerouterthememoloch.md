@@ -2,18 +2,26 @@
 title: "Outer Theme"
 ---
 
+::: {.callout-note}
+
+**Source file:** [`src/beamerouterthememoloch.dtx`](https://github.com/jolars/moloch/blob/main/src/beamerouterthememoloch.dtx)
+
+:::
+
+## Moloch outer theme
+
 A `beamer` outer theme dictates the style of the frame elements
 traditionally set outside the body of each slide: the head, footline,
 and frame title.
 
-### Package dependencies
+## Package dependencies
 
 ``` latex
 \RequirePackage{calc}
 \RequirePackage{pgfopts}
 ```
 
-### Memoization and Tikz Externalization
+## Memoization and Tikz Externalization
 
 To avoid generating externalized figures of the progressbar we have to
 disable them with "tikzexternalenable" and "tikzexternaldisable".
@@ -28,11 +36,11 @@ the memoize package, in order to avoid memoization of the progress bars.
 \providecommand{\mmzUnmemoizable}{}
 ```
 
-### Options
+## Options
 
-`progressbar`
-:    Adds a progress bar to the top, bottom, or frametitle of each
-    slide.
+### `progressbar`
+
+Adds a progress bar to the top, bottom, or frametitle of each slide.
 
 ``` latex
 \pgfkeys{
@@ -61,8 +69,9 @@ the memoize package, in order to avoid memoization of the progress bars.
 }
 ```
 
-`progressbar linewidth`
-:    Sets the linewidth of the progress bar for sectionpages and frames.
+### `progressbar linewidth`
+
+Sets the linewidth of the progress bar for sectionpages and frames.
 
 ``` latex
 \newlength{\moloch@progressonsectionpage}
@@ -79,8 +88,9 @@ the memoize package, in order to avoid memoization of the progress bars.
 }
 ```
 
-`progressbar aliases`
-:    Allows `progressbar linewidth` to be used in `\molochset`.
+### `progressbar aliases`
+
+Allows `progressbar linewidth` to be used in `\molochset`.
 
 ``` latex
 \pgfkeys{
@@ -89,8 +99,9 @@ the memoize package, in order to avoid memoization of the progress bars.
 }
 ```
 
-`frametitle margin`
-:    Sets the margins of the frame title.
+### `frametitle margin`
+
+Sets the margins of the frame title.
 
 ``` latex
 \pgfkeys{
@@ -102,12 +113,40 @@ the memoize package, in order to avoid memoization of the progress bars.
 }
 ```
 
-### Deprecated Options
+### `framtitle margin aliases`
+
+Allows `frametitle margin x` to be used in `\molochset`.
+
+``` latex
+\pgfkeys{
+  /moloch/outer/.cd,
+  frametitle margin left/.code=\pgfkeysalso{frametitlemarginleft=#1},
+  frametitle margin right/.code=\pgfkeysalso{frametitlemarginright=#1},
+  frametitle margin top/.code=\pgfkeysalso{frametitlemargintop=#1},
+  frametitle margin bottom/.code=\pgfkeysalso{frametitlemarginbottom=#1},
+}
+```
+
+### `\moloch@outer@setdefaults`
+
+Sets default values for outer theme options.
+
+``` latex
+\newcommand{\moloch@outer@setdefaults}{
+  \pgfkeys{/moloch/outer/.cd,
+    progressbar=none,
+    progressbar linewidth=0.4pt,
+  }
+}
+```
+
+## Deprecated Options
 
 These options are deprecated and will be removed in a future version.
 
-`numbering`
-:    Adds slide numbers to the bottom right of each slide.
+### `numbering`
+
+Adds slide numbers to the bottom right of each slide.
 
 ``` latex
 \pgfkeys{
@@ -131,7 +170,7 @@ These options are deprecated and will be removed in a future version.
 }
 ```
 
-### Slide Numbering
+## Slide Numbering
 
 Moloch defaults to numbering frames. To modify this, simply copy this
 line to your preamble and replace `framenumber`.
@@ -140,26 +179,30 @@ line to your preamble and replace `framenumber`.
 \setbeamertemplate{page number in head/foot}[framenumber]
 ```
 
-### Head and footline
+## Head and footline
 
 All good `beamer` presentations should already remove the navigation
-symbols, but removes them automatically (just in case).
+symbols, but Moloch removes them automatically (just in case).
 
 ``` latex
 \setbeamertemplate{navigation symbols}{}
 ```
 
-`headline`
-:   
+### `headline`
 
-<!-- -->
-
-`footline`
-:    Templates for the head- and footline at the top and bottom of each
-    frame.
+Template for the headline at the top of each frame, which is empty by
+default.
 
 ``` latex
 \defbeamertemplate{headline}{plain}{}
+```
+
+### `footline`
+
+Template for the footline at the bottom of each frame, which includes
+the slide number on the right.
+
+``` latex
 \defbeamertemplate{footline}{plain}{%
   \begin{beamercolorbox}[
       leftskip=4pt,%
@@ -175,11 +218,12 @@ symbols, but removes them automatically (just in case).
 }
 ```
 
-### Frametitle
+## Frametitle
 
-`frametitle`
-:    Templates for the frame title, which is optionally underlined with
-    a progress bar.
+### `frametitle`
+
+Templates for the frame title, which is optionally underlined with a
+progress bar.
 
 ``` latex
 \newcommand{\moloch@frametitlestrut@start}{%
@@ -224,10 +268,11 @@ symbols, but removes them automatically (just in case).
   \romannumeral\insertcontinuationcount}
 ```
 
-`progress bar in head/foot`
-:    Template for the progress bar optionally displayed below the frame
-    title on each page. Much of this code is duplicated in the inner
-    theme's template `progress bar in section page`.
+### `progress bar in head/foot`
+
+Template for the progress bar optionally displayed below the frame title
+on each page. Much of this code is duplicated in the inner theme's
+template `progress bar in section page`.
 
 ``` latex
 \setbeamertemplate{progress bar in head/foot}{
@@ -253,7 +298,7 @@ symbols, but removes them automatically (just in case).
 }
 ```
 
-### Process package options
+## Process package options
 
 ``` latex
 \moloch@outer@setdefaults

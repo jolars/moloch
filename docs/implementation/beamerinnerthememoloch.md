@@ -2,20 +2,16 @@
 title: "Inner Theme"
 ---
 
-A `beamer` inner theme dictates the style of the frame elements
-traditionally set in the "body" of each slide. These include:
+::: {.callout-note}
 
-- title, part, and section pages;
+**Source file:** [`src/beamerinnerthememoloch.dtx`](https://github.com/jolars/moloch/blob/main/src/beamerinnerthememoloch.dtx)
 
-- itemize, enumerate, and description environments;
+:::
 
-- block environments including theorems and proofs;
+The `beamer` inner theme dictates the style of the frame elements
+traditionally set in the "body" of each slide.
 
-- figures and tables; and
-
-- footnotes and plain text.
-
-### Package Dependencies
+## Package Dependencies
 
 ``` latex
 \RequirePackage{keyval}
@@ -24,7 +20,7 @@ traditionally set in the "body" of each slide. These include:
 \RequirePackage{tikz}
 ```
 
-### Memoization and Tikz Externalization
+## Memoization and Tikz Externalization
 
 See the documentation for the correspondign section under the outer
 theme for more information on the following lines.
@@ -35,10 +31,11 @@ theme for more information on the following lines.
 \providecommand{\mmzUnmemoizable}{}
 ```
 
-### Options
+## Options
 
-`sectionpage`
-:    Optionally add a slide marking the beginning of each section.
+### `sectionpage`
+
+Optionally add a slide marking the beginning of each section.
 
 ``` latex
 \pgfkeys{
@@ -56,8 +53,9 @@ theme for more information on the following lines.
 }
 ```
 
-`subsectionpage`
-:    Optionally add a slide marking the beginning of each subsection.
+### `subsectionpage`
+
+Optionally add a slide marking the beginning of each subsection.
 
 ``` latex
 \pgfkeys{
@@ -75,12 +73,13 @@ theme for more information on the following lines.
 }
 ```
 
-`standoutnumbering`
-:    Whether or not to number standout pages. Option `none` means that
-    standout pages are not numbered (do not count as frames). `hide`
-    means that they do count as frames, but that the footer with the
-    number is not shown. Option `show` means that they both count as
-    frames and that the footer with a frame count is shown.
+### `standoutnumbering`
+
+Whether or not to number standout pages. Option `none` means that
+standout pages are not numbered (do not count as frames). `hide` means
+that they do count as frames, but that the footer with the number is not
+shown. Option `show` means that they both count as frames and that the
+footer with a frame count is shown.
 
 ``` latex
 \providebool{moloch@enableStandoutFooter}
@@ -103,8 +102,9 @@ theme for more information on the following lines.
 }
 ```
 
-`titleseparator linewidth`
-:    Set the width of the line separating the title from the author.
+### `titleseparator linewidth`
+
+Set the width of the line separating the title from the author.
 
 ``` latex
 \newlength{\moloch@titleseparator@linewidth}
@@ -115,8 +115,9 @@ theme for more information on the following lines.
 }
 ```
 
-`titleseparator aliases`
-:    Allows `titleseparator linewidth` to be used in `\usetheme`.
+### `titleseparator aliases`
+
+Allows `titleseparator linewidth` to be used in `\usetheme`.
 
 ``` latex
 \pgfkeys{
@@ -125,8 +126,9 @@ theme for more information on the following lines.
 }
 ```
 
-`@inner@setdefaults`
-:    Set default values for inner theme options.
+### `\moloch@inner@setdefaults`
+
+Set default values for inner theme options.
 
 ``` latex
 \newcommand{\moloch@inner@setdefaults}{
@@ -139,12 +141,13 @@ theme for more information on the following lines.
 }
 ```
 
-### Title Page
+## Title Page
 
-`title page`
-:    Template for the title page. Each element is only typset if it is
-    defined by the user. If `\subtitle` is empty, for example, it won't
-    leave a blank space on the title slide.
+### `title page`
+
+Template for the title page. Each element is only typset if it is
+defined by the user. If `\subtitle` is empty, for example, it won't
+leave a blank space on the title slide.
 
 ``` latex
 \setbeamertemplate{title page}{
@@ -170,13 +173,15 @@ the `title page` beamer template directly. Beamer already defines these
 macros, but we patch them here to make the title page `[plain]` by
 default and ensure the title frame number doesn't count.
 
-::: macro
+### `\maketitle`
 
-`Inserts`
-:    the title frame, or causes the current frame to use the
-    `title page` template.
+Inserts the title frame, or causes the current frame to use the
+`title page` template.
 
 ``` latex
+
+\subsubsection{\texttt{\textbackslash{}titlepage}}
+
 \def\maketitle{%
   \ifbeamer@inframe
     \titlepage
@@ -187,6 +192,9 @@ default and ensure the title frame number doesn't count.
     \endgroup
   \fi
 }
+%
+% Also patch \verb|\titlepage| to ensure that footnotes on the title page
+%
 \def\titlepage{%
   % Apply title-page specific footnote settings
   \renewcommand{\@makefntext}[1]{%
@@ -197,11 +205,11 @@ default and ensure the title frame number doesn't count.
   \usebeamertemplate{title page}\@thanks
 }
 ```
-:::
 
-`title graphic`
-:    Set the title graphic in a zero-height box, so it doesn't change
-    the position of other elements.
+### `title graphic`
+
+Set the title graphic in a zero-height box, so it doesn't change the
+position of other elements.
 
 ``` latex
 \setbeamertemplate{title graphic}{
@@ -211,8 +219,9 @@ default and ensure the title frame number doesn't count.
 }
 ```
 
-`title`
-:    Set the title on the title page.
+### `title`
+
+Set the title on the title page.
 
 ``` latex
 \setbeamertemplate{title}{
@@ -222,8 +231,9 @@ default and ensure the title frame number doesn't count.
 }
 ```
 
-`subtitle`
-:    Set the subtitle on the title page.
+### `subtitle`
+
+Set the subtitle on the title page.
 
 ``` latex
 \setbeamertemplate{subtitle}{
@@ -234,8 +244,9 @@ default and ensure the title frame number doesn't count.
 }
 ```
 
-`title separator`
-:    Template to set the title separator.
+### `title separator`
+
+Template to set the title separator.
 
 ``` latex
 \setbeamertemplate{title separator}{
@@ -251,8 +262,9 @@ default and ensure the title frame number doesn't count.
 }
 ```
 
-`author`
-:    Set the author on the title page.
+### `author`
+
+Set the author on the title page.
 
 ``` latex
 \setbeamertemplate{author}{
@@ -263,8 +275,9 @@ default and ensure the title frame number doesn't count.
 }
 ```
 
-`institute`
-:    Set the institute on the title page.
+### `institute`
+
+Set the institute on the title page.
 
 ``` latex
 \setbeamertemplate{institute}{
@@ -274,8 +287,9 @@ default and ensure the title frame number doesn't count.
 }
 ```
 
-`date`
-:    Set the date on the title page.
+### `date`
+
+Set the date on the title page.
 
 ``` latex
 \setbeamertemplate{date}{
@@ -284,10 +298,9 @@ default and ensure the title frame number doesn't count.
 }
 ```
 
-### Section Page
+## Section Pages
 
-`section Page`
-:   
+### `section Page`
 
 Template for the section title slide at the beginning of each section.
 
@@ -340,8 +353,7 @@ Template for the section title slide at the beginning of each section.
 }
 ```
 
-`subsection page`
-:   
+### `subsection page`
 
 Template for the subsection title slide that can optionally be added to
 at the beginning of each subsection.
@@ -366,8 +378,7 @@ at the beginning of each subsection.
 }
 ```
 
-`progress bar in section page`
-:   
+### `progress bar in section page`
 
 Template for the progress bar displayed by default on the section page.
 This code is duplicated in large part in the outer theme's template
@@ -410,7 +421,7 @@ but users in that situation likely have deeper problems to solve.
 \def\inserttotalframenumber{100}
 ```
 
-### Lists and Floats
+## Lists and Floats
 
 Moloch uses custom symbols for the `itemize` environment. The symbols
 are defined as below, using `pgf` commands to draw the shapes. This is
@@ -471,7 +482,7 @@ Next, we set the itemize templates to use these symbols.
 \setbeamertemplate{caption}[numbered]
 ```
 
-### Footnotes
+## Footnotes
 
 ``` latex
 \setbeamertemplate{footnote}{%
@@ -481,7 +492,7 @@ Next, we set the itemize templates to use these symbols.
 }
 ```
 
-### Text and Spacing Settings
+## Text and Spacing Settings
 
 By default, Beamer frames offer the `c` option to *almost* vertically
 center the text, but the placement is a little too high. To fix this, we
@@ -500,15 +511,14 @@ question](http://tex.stackexchange.com/questions/247826/).
 }
 ```
 
-### Standout Frames
+## Standout Frames
 
-offers a custom frame format with large, centered text and an inverted
-background. To use it, add the key `standout` to the frame:
+Moloch offers a custom frame format with large, centered text and an
+inverted background. To use it, add the key `standout` to the frame:
 
 `\begin{frame}[standout] ... \end{frame}`.
 
-`standout`
-:   
+### `standout`
 
 Optional arguments to Beamer's frames are implemented using
 `\define@key` from the `keyval` package, which will execute code when
@@ -548,10 +558,10 @@ group, change the colors and set frame options.
 
 Then we just have to close the group after the standout slide is
 finished in order to restore the colours and fonts for the rest of the
-presentation. Unfortunately, we cannot use for this (see
-<http://tex.stackexchange.com/questions/226319/>). Instead, we prepend
-the `\endgroup` to `\beamer@reseteecodes`, which is run exactly once at
-the end of each slide.
+presentation. Unfortunately, we cannot use `\AfterEndEnvironment{frame}`
+for this (see <http://tex.stackexchange.com/questions/226319/>).
+Instead, we prepend the `\endgroup` to `\beamer@reseteecodes`, which is
+run exactly once at the end of each slide.
 
 ``` latex
 \pretocmd{\beamer@reseteecodes}{%
@@ -562,8 +572,9 @@ the end of each slide.
 }{}{}
 ```
 
-We set the fonts and the alignment on the inner content, in such a way
-that the speaker's note layout isn't affected by the custom formatting.
+We set the fonts and the `\centering` alignment on the inner content, in
+such a way that the speaker's note layout isn't affected by the custom
+formatting.
 
 ``` latex
 \AtBeginEnvironment{beamer@frameslide}{
@@ -574,7 +585,7 @@ that the speaker's note layout isn't affected by the custom formatting.
 }
 ```
 
-### Process Package Options
+## Process Package Options
 
 ``` latex
 \moloch@inner@setdefaults

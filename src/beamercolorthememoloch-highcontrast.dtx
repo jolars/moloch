@@ -23,20 +23,40 @@
 %<*package>
 % ------------------------------------------------------------------------- \fi
 %
+% This is a high-contrast variant of the Moloch color theme. It provides better
+% readability for users with visual impairments by using stark color contrasts.
+%
+% First, we load the base Moloch color theme.
+%
+% \begin{macrocode}
 \usecolortheme{moloch}
-
+% \end{macrocode}
+%
+% Next, we define the high-contrast-specific colors.
+%
+% \begin{macrocode}
 \definecolor{mAlert}{HTML}{AD003D}
 \definecolor{mExample}{HTML}{005580}
-
+% \end{macrocode}
+%
+% \subsection{Registering Color Schemes}
+%
 % Register high-contrast-specific light and dark color schemes
+%
+% \begin{macrocode}
 \moloch@register@light@colors{%
   \setbeamercolor{normal text}{fg=black,bg=white}%
 }
-
 \moloch@register@dark@colors{%
   \setbeamercolor{normal text}{fg=white,bg=black}%
 }
-
+% \end{macrocode}
+%
+% \subsection{Color Adjustments}
+%
+% Apply high-contrast-specific color adjustments.
+%
+% \begin{macrocode}
 \setbeamercolor{normal text}{%
   fg=black,
   bg=white
@@ -47,10 +67,13 @@
 \setbeamercolor{example text}{%
   fg=mExample,
 }
+% \end{macrocode}
 %
-%    \begin{macrocode}
+% Make sure the adjustments apply in all modes.
+%
+% \begin{macrocode}
 \mode<all>
-%    \end{macrocode}
+% \end{macrocode}
 %
 % \iffalse
 %</package>

@@ -2,16 +2,25 @@
 title: "Font Theme"
 ---
 
-A `beamer` font theme sets the style of the font used in the document.
+::: {.callout-note}
 
-### Package dependencies
+**Source file:** [`src/beamerfontthememoloch.dtx`](https://github.com/jolars/moloch/blob/main/src/beamerfontthememoloch.dtx)
+
+:::
+
+## Moloch font theme
+
+The Moloch font theme defines the fonts used throughout the
+presentation.
+
+## Package dependencies
 
 ``` latex
 \RequirePackage{etoolbox}
 \RequirePackage{pgfopts}
 ```
 
-### General font definitions
+## General font definitions
 
 ``` latex
 \setbeamerfont{title}{size=\Large, series=\bfseries}
@@ -29,10 +38,11 @@ A `beamer` font theme sets the style of the font used in the document.
 \setbeamerfont{standout}{size=\Large, series=\bfseries}
 ```
 
-### Title format options
+## Title format options
 
-`titleformat title`
-:    Controls the format of the title.
+### `titleformat title`
+
+Controls the format of the title.
 
 ``` latex
 \pgfkeys{
@@ -63,8 +73,9 @@ A `beamer` font theme sets the style of the font used in the document.
 }
 ```
 
-`titleformat subtitle`
-:    Control the format of the subtitle.
+### `titleformat subtitle`
+
+Control the format of the subtitle.
 
 ``` latex
 \pgfkeys{
@@ -95,8 +106,9 @@ A `beamer` font theme sets the style of the font used in the document.
 }
 ```
 
-`titleformat section`
-:    Controls the format of the section title.
+### `titleformat section`
+
+Controls the format of the section title.
 
 ``` latex
 \pgfkeys{
@@ -127,8 +139,9 @@ A `beamer` font theme sets the style of the font used in the document.
 }
 ```
 
-`frametitleformat`
-:    Control the format of the frame title.
+### `frametitleformat`
+
+Control the format of the frame title.
 
 ``` latex
 \pgfkeys{
@@ -159,9 +172,10 @@ A `beamer` font theme sets the style of the font used in the document.
 }
 ```
 
-`titleformat aliases`
-:    Allows `titleformat title` et al. to be used in the `\usetheme`
-    declaration, where LaTeX automatically removes all spaces.
+### `titleformat aliases`
+
+Allows `titleformat title` et al. to be used in the `\usetheme`
+declaration, where LaTeX automatically removes all spaces.
 
 ``` latex
 \pgfkeys{
@@ -173,8 +187,9 @@ A `beamer` font theme sets the style of the font used in the document.
 }
 ```
 
-`@font@setdefaults`
-:    Sets default values for font theme options.
+### `\moloch@font@setdefaults`
+
+Sets default values for font theme options.
 
 ``` latex
 \newcommand{\moloch@font@setdefaults}{
@@ -202,7 +217,7 @@ values. This solution was suggested by Enrico Gregorio in an answer to
 [this StackExchange
 question](http://tex.stackexchange.com/questions/112526/).
 
-### Process package options
+## Process package options
 
 ``` latex
 \moloch@font@setdefaults

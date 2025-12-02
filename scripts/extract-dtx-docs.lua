@@ -19,6 +19,7 @@ function extract_docs(dtx_file, latex_file)
 
 	local skip_until_package = true
 	local in_macrocode = false
+	local in_macro_env = false
 	local code_lines = {}
 
 	for line in infile:lines() do
@@ -43,8 +44,24 @@ function extract_docs(dtx_file, latex_file)
 			or line:match("^%% \\iffalse")
 			or line:match("^%% \\fi")
 			or line:match("^%% %-%-%-%-") -- Skip separator lines
-			or line:match("^%% \\subsection") -- Skip subsection headers (we have YAML title)
 		then
+			goto continue
+		end
+
+		-- Handle macro environment - convert to subsubsection
+		if line:match("^%% \\begin{macro}{") then
+			in_macro_env = true
+			local macro_name = line:match("^%% \\begin{macro}{(.-)}")
+			if macro_name then
+				-- Escape backslashes for LaTeX: \foo -> \textbackslash{}foo
+				local escaped_name = macro_name:gsub("\\", "\\textbackslash{}")
+				outfile:write("\n\\subsubsection{\\texttt{" .. escaped_name .. "}}\n\n")
+			end
+			goto continue
+		end
+
+		if line:match("^%% \\end{macro}") then
+			in_macro_env = false
 			goto continue
 		end
 
@@ -100,9 +117,9 @@ end
 
 -- Main execution
 function main()
-	local src_dir = "../src"
-	local out_dir = "../docs/implementation"
-	local filter_file = "../convert-filter.lua"
+	local src_dir = "./src"
+	local out_dir = "./docs/implementation"
+	local filter_file = "./convert-filter.lua"
 
 	-- Create output directory
 	os.execute("mkdir -p " .. out_dir)
@@ -162,8 +179,14 @@ return {{CodeBlock = CodeBlock}}
 				outfile:write("---\n")
 				outfile:write('title: "' .. title .. '"\n')
 				outfile:write("---\n\n")
-				outfile:write("::: {.callout-note}\n")
-				outfile:write("**Source file:** [`src/" .. basename .. ".dtx`](https://github.com/jolars/moloch/blob/main/src/" .. basename .. ".dtx)\n")
+				outfile:write("::: {.callout-note}\n\n")
+				outfile:write(
+					"**Source file:** [`src/"
+						.. basename
+						.. ".dtx`](https://github.com/jolars/moloch/blob/main/src/"
+						.. basename
+						.. ".dtx)\n\n"
+				)
 				outfile:write(":::\n\n")
 				outfile:write(content)
 				outfile:close()

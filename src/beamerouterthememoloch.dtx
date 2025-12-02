@@ -23,14 +23,14 @@
 %<*package>
 % ------------------------------------------------------------------------- \fi
 %
-% \subsection{\themename outer theme}
+% \subsection{Moloch outer theme}
 %
 % A \verb|beamer| outer theme dictates the style of the frame elements traditionally
 % set outside the body of each slide: the head, footline, and frame title.
 %
 %
 %
-% \subsubsection{Package dependencies}
+% \subsection{Package dependencies}
 %
 %    \begin{macrocode}
 \RequirePackage{calc}
@@ -38,7 +38,7 @@
 %    \end{macrocode}
 %
 %
-% \subsubsection{Memoization and Tikz Externalization}
+% \subsection{Memoization and Tikz Externalization}
 %
 % To avoid generating externalized figures of the progressbar we have to disable
 % them with ``tikzexternalenable'' and ``tikzexternaldisable''. However, if the
@@ -53,7 +53,7 @@
 \providecommand{\mmzUnmemoizable}{}
 %    \end{macrocode}
 %
-% \subsubsection{Options}
+% \subsection{Options}
 %
 % \begin{macro}{progressbar}
 %    Adds a progress bar to the top, bottom, or frametitle of each slide.
@@ -150,7 +150,7 @@
 %    \end{macrocode}%
 % \end{macro}
 %
-% \subsubsection{Deprecated Options}
+% \subsection{Deprecated Options}
 %
 % These options are deprecated and will be removed in a future version.
 %
@@ -179,7 +179,7 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsubsection{Slide Numbering}
+% \subsection{Slide Numbering}
 %
 % Moloch defaults to numbering frames. To modify this, simply copy this line to your
 % preamble and replace \verb|framenumber|.
@@ -188,10 +188,10 @@
 \setbeamertemplate{page number in head/foot}[framenumber]
 %    \end{macrocode}
 %
-% \subsubsection{Head and footline}
+% \subsection{Head and footline}
 %
 % All good \verb|beamer| presentations should already remove the navigation symbols,
-% but \themename removes them automatically (just in case).
+% but Moloch removes them automatically (just in case).
 %
 %    \begin{macrocode}
 \setbeamertemplate{navigation symbols}{}
@@ -199,10 +199,21 @@
 %
 %
 % \begin{macro}{headline}
-% \begin{macro}{footline}
-%    Templates for the head- and footline at the top and bottom of each frame.
+%
+%   Template for the headline at the top of each frame, which is empty by default.
+%
 %    \begin{macrocode}
 \defbeamertemplate{headline}{plain}{}
+%    \end{macrocode}
+%
+% \end{macro}
+%
+% \begin{macro}{footline}
+%
+%    Template for the footline at the bottom of each frame, which includes the
+%    slide number on the right.
+%
+%    \begin{macrocode}
 \defbeamertemplate{footline}{plain}{%
   \begin{beamercolorbox}[
       leftskip=4pt,%
@@ -218,11 +229,10 @@
 }
 %    \end{macrocode}
 % \end{macro}
-% \end{macro}
 %
 %
 %
-% \subsubsection{Frametitle}
+% \subsection{Frametitle}
 %
 % \begin{macro}{frametitle}
 %    Templates for the frame title, which is optionally underlined with a
@@ -300,7 +310,7 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsubsection{Process package options}
+% \subsection{Process package options}
 %
 %    \begin{macrocode}
 \moloch@outer@setdefaults

@@ -23,22 +23,10 @@
 %<*package>
 % ------------------------------------------------------------------------- \fi
 %
-% \subsection{Moloch Inner Theme}
+% The \verb|beamer| inner theme dictates the style of the frame elements traditionally
+% set in the ``body'' of each slide. 
 %
-% A \verb|beamer| inner theme dictates the style of the frame elements traditionally
-% set in the ``body'' of each slide. These include:
-%
-% \begin{itemize}
-%   \item title, part, and section pages;
-%   \item itemize, enumerate, and description environments;
-%   \item block environments including theorems and proofs;
-%   \item figures and tables; and
-%   \item footnotes and plain text.
-% \end{itemize}
-%
-%
-%
-% \subsubsection{Package Dependencies}
+% \subsection{Package Dependencies}
 %
 %    \begin{macrocode}
 \RequirePackage{keyval}
@@ -47,7 +35,7 @@
 \RequirePackage{tikz}
 %    \end{macrocode}
 %
-% \subsubsection{Memoization and Tikz Externalization}
+% \subsection{Memoization and Tikz Externalization}
 %
 % See the documentation for the correspondign section under the outer theme for
 % more information on the following lines.
@@ -58,7 +46,7 @@
 \providecommand{\mmzUnmemoizable}{}
 %    \end{macrocode}
 %
-% \subsubsection{Options}
+% \subsection{Options}
 %
 % \begin{macro}{sectionpage}
 %    Optionally add a slide marking the beginning of each section.
@@ -165,7 +153,7 @@
 %
 %
 %
-% \subsubsection{Title Page}
+% \subsection{Title Page}
 %
 % \begin{macro}{title page}
 % Template for the title page. Each element is only typset if it is defined
@@ -197,10 +185,9 @@
 % and ensure the title frame number doesn't count.
 %
 % \begin{macro}{\maketitle}
-% \begin{macro}{\titlepage}
 %
-%   Inserts the title frame, or causes the current frame to use the
-%   \verb|title page| template.
+% Inserts the title frame, or causes the current frame to use the
+% \verb|title page| template.
 %
 %    \begin{macrocode}
 \def\maketitle{%
@@ -213,6 +200,11 @@
     \endgroup
   \fi
 }
+% \end{macro}
+%
+% Also patch \verb|\titlepage| to ensure that footnotes on the title page
+%
+% \begin{macro}{\titlepage}
 \def\titlepage{%
   % Apply title-page specific footnote settings
   \renewcommand{\@makefntext}[1]{%
@@ -223,7 +215,6 @@
   \usebeamertemplate{title page}\@thanks
 }
 %    \end{macrocode}
-% \end{macro}
 % \end{macro}
 %
 % \begin{macro}{title graphic}
@@ -313,7 +304,7 @@
 % \end{macro}
 %
 %
-% \subsubsection{Section Page}
+% \subsection{Section Pages}
 %
 % \begin{macro}{section Page}
 %
@@ -439,7 +430,7 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsubsection{Lists and Floats}
+% \subsection{Lists and Floats}
 %
 % Moloch uses custom symbols for the \verb|itemize| environment. The symbols
 % are defined as below, using \verb|pgf| commands to draw the shapes.
@@ -503,7 +494,7 @@
 %
 %
 %
-% \subsubsection{Footnotes}
+% \subsection{Footnotes}
 %    \begin{macrocode}
 \setbeamertemplate{footnote}{%
   \parindent 0em\noindent\raggedright \usebeamercolor{footnote}\hbox to
@@ -514,7 +505,7 @@
 %
 %
 %
-% \subsubsection{Text and Spacing Settings}
+% \subsection{Text and Spacing Settings}
 %
 %
 % By default, Beamer frames offer the \verb|c| option to \textit{almost} vertically
@@ -536,9 +527,9 @@
 %
 %
 %
-% \subsubsection{Standout Frames}
+% \subsection{Standout Frames}
 %
-% \themename offers a custom frame format with large, centered text and an
+% Moloch offers a custom frame format with large, centered text and an
 % inverted background. To use it, add the key \verb|standout| to the frame:
 %
 % \verb|\begin{frame}[standout] ... \end{frame}|.
@@ -583,7 +574,7 @@
 %
 %    Then we just have to close the group after the standout slide is finished
 %    in order to restore the colours and fonts for the rest of the
-%    presentation. Unfortunately, we cannot use \AfterEndEnvironment{frame} for
+%    presentation. Unfortunately, we cannot use \verb|\AfterEndEnvironment{frame}| for
 %    this (see \url{http://tex.stackexchange.com/questions/226319/}).
 %    Instead, we prepend the \verb|\endgroup| to \verb|\beamer@reseteecodes|, which is run
 %    exactly once at the end of each slide.
@@ -597,7 +588,7 @@
 }{}{}
 %    \end{macrocode}
 %
-%    We set the fonts and the \centering alignment on the inner content,
+%    We set the fonts and the \verb|\centering| alignment on the inner content,
 %    in such a way that the speaker's note layout isn't affected by the custom
 %    formatting.
 %
@@ -611,7 +602,7 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsubsection{Process Package Options}
+% \subsection{Process Package Options}
 %
 %    \begin{macrocode}
 \moloch@inner@setdefaults
