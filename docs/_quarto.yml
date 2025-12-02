@@ -16,10 +16,6 @@ book:
   twitter-card:
     image: images/og.jpg
   favicon: images/favicon.svg
-  cover-image: images/cover.jpg
-  cover-image-alt: |
-    The words Moloch are projected onto a Metropolis-themed skyscraper
-    from a vintage movie projector.
   image: images/og.jpg
   author:
     - name: "Johan Larsson"
@@ -50,7 +46,8 @@ book:
         - commands.md
         - known-issues.md
         - license.md
-    - part: "Implementation"
+  appendices:
+    - part: Implementation
       chapters:
         - implementation/beamerthememoloch.md
         - implementation/beamerinnerthememoloch.md
