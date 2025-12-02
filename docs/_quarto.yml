@@ -23,7 +23,7 @@ book:
   search: true
 
   page-footer:
-    left: "Copyright 2024-2025, Johan Larsson"
+    left: "Moloch v{{< meta version >}} | Copyright 2024-2025, Johan Larsson"
     right:
       - icon: github
         href: "https://github.com/jolars/moloch"
@@ -87,4 +87,5 @@ toc: true
 date-format: "D MMMM YYYY"
 
 filters:
+  - _pre-render.lua
   - describe-option-filter.lua

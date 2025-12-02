@@ -39,12 +39,11 @@ The documentation system uses a multi-stage pipeline:
 
    ```bash
    texlua scripts/extract-dtx-docs.lua
-   # Or using task: task docs
    ```
 
    - Extracts implementation docs from `src/*.dtx` files
    - Generates markdown files in `docs/implementation/`
-   - Uses `convert-filter.lua` for Pandoc conversion
+   - Uses `scripts/convert-filter.lua` for Pandoc conversion
 
 2. **Build Quarto book** (required after editing `docs/index.md` or DTX changes):
 
@@ -244,7 +243,6 @@ Process:
 **Version Update Locations** (handled by semantic-release):
 
 - `build.lua` - `version = "x.y.z"`
-- `doc/moloch.tex` - `\def\molochversion{x.y.z}`
 - All `src/*.dtx` files - `\ProvidesPackage` with date and version
 
 ## Common Development Workflows

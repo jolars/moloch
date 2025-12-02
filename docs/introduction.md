@@ -87,7 +87,3 @@ presentations, you can run the following command in your terminal:
 ```bash
 pandoc -t beamer -V theme:moloch -o output.pdf input.md
 ```
-
-[^1]:
-    Matthias wrote the original version of this manual for the Metropolis theme,
-    which has since been modified by Johan Larsson.
