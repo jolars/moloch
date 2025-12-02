@@ -2,6 +2,9 @@
 toc: false
 ---
 
+![](images/og.jpg){fig.alt="The Maschinenmensch is projecting the Moloch logo
+onto a Metropolis-like skyscraper using a vintage movie projector."}
+
 # Introduction {-}
 
 Beamer is a great way to make presentations with LaTeX, but its theme selection
