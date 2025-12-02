@@ -35,7 +35,7 @@ book:
     - index.md
     - part: User Guide
       chapters:
-        - introduction.md
+        - getting-started.md
         - customization.md
         - commands.md
         - known-issues.md

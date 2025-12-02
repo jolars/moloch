@@ -111,6 +111,9 @@ each frame (`foot`), or directly below each frame title (`frametitle`).
 
 ### Color Theme
 
+These options control color aspects of the theme, and are forwarded to the color
+theme.
+
 ::: {.describe-option option-name="block" values="transparent, fill"
 default="transparent"}
 
@@ -119,6 +122,30 @@ Optionally adds a light grey background to block environments like `theorem` and
 
 :::
 
+```latex
+\documentclass{beamer}
+\usetheme{moloch}
+
+\begin{document}
+
+\begin{frame}
+  \begin{block}{Default Block}
+    This is a standard block.
+  \end{block}
+
+  \molochset{block=fill}
+
+  \begin{block}{Filled Block}
+    This is a filled block.
+  \end{block}
+
+\end{frame}
+\end{document}
+```
+
+![Example of the "block" option set to "fill", adding a light grey background to
+the second block.](./images/example-blocks.png)
+
 ::: {.describe-option option-name="background" values="dark, light"
 default="light"}
 
@@ -126,6 +153,25 @@ Provides the option to have a dark background and light foreground instead of
 the reverse.
 
 :::
+
+```latex
+\documentclass{beamer}
+
+\usetheme[background=dark]{moloch}
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{Background Color}
+
+  This slide uses the \texttt{background=dark} option, swaps the
+  foreground and background colors defined by the moloch theme.
+\end{frame}
+\end{document}
+```
+
+![Example of the "background" option set to "dark", swapping the foreground and
+background colors.](./images/example-background.png)
 
 ### Font Theme
 

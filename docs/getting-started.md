@@ -22,24 +22,27 @@ sudo tlmgr update --all
 MacTeX on OS X also provides a graphical interface for `tlmgr` called TeX Live
 Utility.
 
-For any other distribution please refer to its documentation on how to update
-your packages.
+For other distributions, please refer to its documentation on how to update your
+packages.
 
 ## Installing from Source
 
 If you want to use the development version of Moloch, you can install it
-manually. You only need a recent LaTeX distribution which includes **l3build**.
-Then simply follow the steps below.
+manually. You need a recent LaTeX distribution which includes **l3build**. Then
+simply follow the steps below.
 
-Download the source with a `git clone` of <https://github.com/jolars/moloch>
-
-Install the package by running
+Download the source with a `git clone` of <https://github.com/jolars/moloch>:
 
 ```bash
-l3build install
+git clone https://github.com/jolars/moloch.git
 ```
 
-inside the downloaded directory.
+Then navigate into the downloaded directory and install the package by running:
+
+```bash
+cd moloch
+l3build install
+```
 
 ## A Minimal Example
 
@@ -57,18 +60,20 @@ Moloch.
 \institute{Some University}
 
 \begin{document}
-    \maketitle
+\maketitle
 
-    \section{First Section}
+\section{First Section}
 
-    \begin{frame}
-        \frametitle{First Frame}
+\begin{frame}
+  \frametitle{First Frame}
 
-        Hello, world!
+  Hello, world!
 
-    \end{frame}
+\end{frame}
 \end{document}
 ```
+
+![A minimal example of a Beamer presentation using Moloch.](./images/example-minimal.png)
 
 ## Dependencies
 
