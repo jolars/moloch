@@ -37,7 +37,6 @@ book:
         - commands.md
         - known-issues.md
         - license.md
-  appendices:
     - part: "Implementation"
       chapters:
         - implementation/beamerthememoloch.md
