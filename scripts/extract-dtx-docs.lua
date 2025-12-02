@@ -1,4 +1,4 @@
-#!/usr/bin/env texlua
+#!/usr/bin/env lua
 
 -- DTX documentation extractor with Pandoc conversion
 -- Extracts documentation from .dtx files and converts to Markdown
