@@ -12,11 +12,15 @@ book:
 
   open-graph:
     locale: en_US
-  twitter-card: true
+    image: images/og.jpg
+  twitter-card:
+    image: images/og.jpg
   favicon: images/favicon.svg
   cover-image: images/cover.jpg
+  cover-image-alt: |
+    The words Moloch are projected onto a Metropolis-themed skyscraper
+    from a vintage movie projector.
   image: images/og.jpg
-
   author:
     - name: "Johan Larsson"
     - name: "Matthias Vogelgesang"

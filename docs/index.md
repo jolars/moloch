@@ -1,3 +1,7 @@
+---
+toc: false
+---
+
 # Introduction {-}
 
 Beamer is a great way to make presentations with LaTeX, but its theme selection
@@ -18,6 +22,8 @@ Moloch is a fork of the popular Metropolis theme by Matthias Vogelgesang. The
 motivation for the fork was to fix some longstanding bugs in Metropolis and also
 simplify the codebase to make it easier to maintain and less fragile to changes
 in the underlying Beamer code.
+
+## A First Example
 
 Here's a small demo of what Moloch looks like:
 
