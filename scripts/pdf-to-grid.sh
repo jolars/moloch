@@ -41,7 +41,7 @@ echo "Generated $NUM_SLIDES slide images"
 # Add borders to each slide
 echo "Adding borders to slides..."
 for img in "$TEMP_DIR"/slide-*.png; do
-    magick "$img" -bordercolor gray -border 1 -bordercolor white -border 10 "$img.bordered"
+    magick "$img" -bordercolor gray -border 1 -bordercolor transparent -border 10 "$img.bordered"
 done
 
 # Calculate grid dimensions
@@ -71,6 +71,6 @@ for ((row=0; row<NUM_ROWS; row++)); do
 done
 
 # Combine all rows vertically
-magick "$TEMP_DIR"/row-*.png -append -background white "$OUTPUT_IMAGE"
+magick "$TEMP_DIR"/row-*.png -append -background transparent "$OUTPUT_IMAGE"
 
 echo "Grid saved to: $OUTPUT_IMAGE"
