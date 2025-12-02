@@ -27,6 +27,15 @@ tasks:
 
   build-manual:
     desc: Build the complete package manual (Quarto -> LaTeX -> PDF)
+    deps:
+      - extract-dtx-docs
     cmds:
       - cd docs && quarto render
       - l3build-wrapped doc
+
+  ctan:
+    desc: Prepare the package for CTAN submission
+    deps:
+      - build-manual
+    cmds:
+      - l3build-wrapped ctan
