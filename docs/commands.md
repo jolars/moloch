@@ -20,4 +20,4 @@ or image. To use it, add the key `standout` to the frame:
 ```
 
 ![Example of a standout frame with large, centered text and an inverted
-background.](./images/example-standout.png)
+background.](./images/example-standout.png){.lightbox}

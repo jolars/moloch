@@ -30,4 +30,4 @@ in the underlying Beamer code.
 
 Here's a small demo of what Moloch looks like:
 
-![An example of the Moloch theme.](./images/example-demo.png)
+![An example of the Moloch theme.](./images/example-demo.png){.lightbox}

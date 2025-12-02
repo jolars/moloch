@@ -87,7 +87,7 @@ the section page.
 \end{document}
 ```
 
-![Example of the `sectionpage` options.](./images/example-sectionpage-styles.png)
+![Example of the `sectionpage` options.](./images/example-sectionpage-styles.png){.lightbox}
 
 ::: {.describe-option option-name="subsectionpage" values="none, simple,
 progressbar" default="none"}
@@ -178,7 +178,7 @@ each frame (`foot`), or directly below each frame title (`frametitle`).
 \end{document}
 ```
 
-![Example of the `progressbar` options.](./images/example-progressbar.png)
+![Example of the `progressbar` options.](./images/example-progressbar.png){.lightbox}
 
 ## Color Theme
 
@@ -215,7 +215,7 @@ Optionally adds a light grey background to block environments like `theorem` and
 ```
 
 ![Example of the "block" option set to "fill", adding a light grey background to
-the second block.](./images/example-blocks.png)
+the second block.](./images/example-blocks.png){.lightbox}
 
 ::: {.describe-option option-name="background" values="dark, light"
 default="light"}
@@ -242,7 +242,7 @@ the reverse.
 ```
 
 ![Example of the "background" option set to "dark", swapping the foreground and
-background colors.](./images/example-background.png)
+background colors.](./images/example-background.png){.lightbox}
 
 ## Font Theme
 
@@ -295,7 +295,7 @@ bit less saturated.
 \usecolortheme{moloch}
 ```
 
-![Example of the default Moloch color theme.](./images/example-colortheme-default.png)
+![Example of the default Moloch color theme.](./images/example-colortheme-default.png){.lightbox}
 
 ### The High Contrast Theme
 
@@ -306,7 +306,7 @@ For low-light situations Moloch it might be helpful to use the
 \usecolortheme{moloch-highcontrast}
 ```
 
-![Example of the high contrast color theme.](./images/example-colortheme-highcontrast.png)
+![Example of the high contrast color theme.](./images/example-colortheme-highcontrast.png){.lightbox}
 
 ### The Tomorrow Theme
 
@@ -318,4 +318,4 @@ you can enable like this:
 \usecolortheme{moloch-tomorrow}
 ```
 
-![Example of the Tomorrow color theme.](./images/example-colortheme-tomorrow.png)
+![Example of the Tomorrow color theme.](./images/example-colortheme-tomorrow.png){.lightbox}
