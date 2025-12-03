@@ -180,6 +180,42 @@ each frame (`foot`), or directly below each frame title (`frametitle`).
 
 ![Example of the `progressbar` options.](./images/example-progressbar.png){.lightbox}
 
+::: {.describe-option option-name="frametitle margin top/bottom/left/right"
+values="numeric" default="1.4ex/1.4ex/1.6ex/1.6ex"}
+
+Controls the margins around the frame title. The default is `1.4ex` for the top
+and bottom margins, and `1.6ex` for the left and right margins.
+
+:::
+
+```latex
+\documentclass{beamer}
+\usetheme{moloch}
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{This is a frame title with default margins}
+
+\end{frame}
+
+\molochset{frametitle margin top=1cm}
+
+\begin{frame}
+  \frametitle{This is a frame title with increased top margin}
+\end{frame}
+
+\molochset{frametitle margin left=0pt}
+
+\begin{frame}
+  \frametitle{And now the left margin is removed}
+\end{frame}
+
+\end{document}
+```
+
+![Example of the `frametitle margin` options.](./images/example-frametitle-margins.png){.lightbox}
+
 ## Color Theme
 
 These options control color aspects of the theme, and are forwarded to the color
