@@ -401,7 +401,7 @@
 %    \begin{macrocode}
 \setbeamertemplate{progress bar in section page}{
   \pgfmathsetlength{\moloch@progressonsectionpage}{
-    \textwidth * min(1,\insertframenumber/\inserttotalframenumber)
+    \textwidth * min(1,\insertframenumber/max(1,\inserttotalframenumber))
   }%
   \tikzexternaldisable%
   \begin{tikzpicture}[baseline=(current bounding box.north)]
