@@ -21,10 +21,13 @@ Moloch is maintained at <https://github.com/jolars/moloch>. If you have any
 issues, find mistakes in the manual or want to help make the theme even better,
 please get in touch there.
 
-Moloch is a fork of the popular Metropolis theme by Matthias Vogelgesang. The
-motivation for the fork was to fix some longstanding bugs in Metropolis and also
+Moloch is a fork of the excellent
+[Metropolis theme](https://github.com/matze/mtheme) by Matthias Vogelgesang. The
+motivation for the fork was to fix some longstanding bugs in Metropolis and
 simplify the codebase to make it easier to maintain and less fragile to changes
-in the underlying Beamer code.
+in the underlying Beamer code. Since then, Moloch has grown to include several
+new features, such as new color themes, as well as additional customization
+options.
 
 ## A First Example
 
