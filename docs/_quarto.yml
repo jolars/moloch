@@ -99,5 +99,5 @@ toc: true
 date-format: "D MMMM YYYY"
 
 filters:
-  - _pre-render.lua
-  - describe-option-filter.lua
+  - filters/pre-render.lua
+  - filters/describe-option.lua
