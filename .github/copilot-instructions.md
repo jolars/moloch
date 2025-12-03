@@ -56,33 +56,19 @@ The documentation system uses a multi-stage pipeline:
    - Generates PDF to `docs/_site/moloch.pdf`
    - **Time**: ~60-90 seconds
 
-3. **Copy generated LaTeX to l3build location**:
+3. **Documentation build complete**:
 
-   ```bash
-   cp docs/moloch.tex doc/manual.tex
-   # Or using task: task build-manual (does all steps)
-   ```
-
-   - Required for `l3build-wrapped doc` to work
-   - The `doc/manual.tex` file is what l3build typesets
-
-4. **Generate final package documentation PDF**:
-
-   ```bash
-   nix develop --command l3build-wrapped doc
-   ```
-
-   - Typesets `doc/manual.tex` to `doc/manual.pdf`
-   - **Time**: ~30-60 seconds
-   - **Notes**: Must complete without errors before running tests
+   - Generates PDF to `docs/_site/moloch.pdf`
+   - **Time**: ~60-90 seconds
+   - **Notes**: This is the final documentation output
 
 **Full pipeline shortcut**:
 
 ```bash
-task build-manual  # Runs steps 2-4 automatically
+task build-manual  # Runs step 2 automatically
 ```
 
-**IMPORTANT**: When editing documentation content, edit `docs/index.md`, not `doc/manual.tex` or `docs/moloch.tex`. Those are generated files.
+**IMPORTANT**: When editing documentation content, edit `docs/index.md`, not `docs/moloch.tex`. That is a generated file.
 
 ### Testing
 
@@ -174,12 +160,7 @@ Contains the theme implementation in documented LaTeX (`.dtx`) format:
 
 **Important**: Edit `.dtx` files, not `.sty` files. The `.sty` files are generated during build and are git-ignored.
 
-#### Documentation (`doc/`)
-
-- `manual.tex` - Package manual source (generates `manual.pdf` via l3build)
-  - **Generated file**: Do NOT edit directly! Edit `docs/index.md` instead.
-
-#### Documentation Source (`docs/`)
+#### Documentation (`docs/`)
 
 - `index.md` - Main manual content (Quarto markdown format)
 - `_quarto.yml` - Quarto book configuration
@@ -204,7 +185,7 @@ Do NOT commit these (already in .gitignore):
 
 - `*.sty` - Generated style files
 - `build/` - Build directory
-- `doc/moloch.pdf` - Generated documentation
+- `docs/_site/` - Generated documentation site
 - `*-ctan.zip` - Distribution archives
 - `node_modules/` - Node.js dependencies
 - `.direnv/` - Direnv cache
@@ -220,10 +201,9 @@ Steps:
 
 1. Checkout repository
 2. Install Nix
-3. Run documentation generation: `nix develop --command l3build-wrapped doc`
-4. Run CTAN build: `nix develop --command l3build-wrapped ctan -q -H --show-log-on-error`
+3. Run CTAN build: `nix develop --command l3build-wrapped ctan -q -H --show-log-on-error`
 
-**To replicate CI locally**: Run both commands in sequence. If both succeed, CI will pass.
+**To replicate CI locally**: Run the CTAN build command. If it succeeds, CI will pass.
 
 ### release.yml (Release Workflow)
 
@@ -271,7 +251,7 @@ Process:
    ```
 
 5. **Review the generated output** (if applicable):
-   - View `doc/moloch.pdf` for documentation changes
+   - View `docs/_site/moloch.pdf` for documentation changes
    - Install locally and test with example presentations for theme changes
 
 ### Updating Documentation
@@ -280,7 +260,7 @@ When changing user-facing manual content:
 
 1. Edit `docs/index.md` (main content) or `docs/implementation/*.md` (if changing DTX structure)
 2. Run full build pipeline: `task build-manual`
-3. Verify output: Check `doc/manual.pdf` or `docs/_site/moloch.pdf`
+3. Verify output: Check `docs/_site/moloch.pdf`
 
 When changing DTX files (code + inline documentation):
 
@@ -345,11 +325,10 @@ test: add regression test for standout frame numbering
 
 ### Version Numbers
 
-Stored in three locations (kept in sync by semantic-release):
+Stored in two locations (kept in sync by semantic-release):
 
 1. `build.lua` - Line with `version = "x.y.z"`
-2. `doc/moloch.tex` - Line with `\def\molochversion{x.y.z}`
-3. All `src/*.dtx` files - In `\ProvidesPackage{...}[date vx.y.z ...]` line
+2. All `src/*.dtx` files - In `\ProvidesPackage{...}[date vx.y.z ...]` line
 
 **Do NOT manually edit version numbers**. Let semantic-release handle it.
 
@@ -430,14 +409,12 @@ task build-manual  # Build complete manual pipeline (quarto + copy to doc/)
 ```bash
 # Most common workflow - validate changes
 task build-manual                              # Build complete documentation
-nix develop --command l3build-wrapped doc      # Typeset manual (after build-manual)
 nix develop --command l3build-wrapped check    # Run all tests
 nix develop --command l3build-wrapped ctan -q -H --show-log-on-error  # CI build
 
 # Documentation workflow
 texlua scripts/extract-dtx-docs.lua                    # Extract DTX → markdown (when .dtx changes)
 cd docs && nix develop --command quarto render --to pdf  # Build Quarto book
-cp docs/moloch.tex doc/manual.tex              # Copy for l3build
 
 # Development helpers
 nix develop --command l3build-wrapped unpack   # Generate .sty files for testing
