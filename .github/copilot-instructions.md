@@ -11,23 +11,41 @@ Moloch is a LaTeX Beamer presentation theme package. It is a minimalistic fork o
 - **Size**: Small (~10 source files, focused package)
 - **Version**: Currently 1.1.0 (uses semantic versioning)
 
+## Active Development Plans
+
+**Color System Redesign** (In Progress): A major redesign of the color system is planned to provide granular color customization and easier theme switching. See `docs/color-redesign-plan.md` for the complete design specification. This redesign aims to maintain full backwards compatibility while adding new capabilities.
+
 ## Critical Build Requirements
 
 ### Environment Setup
 
 **IMPORTANT**: This project requires Nix for building and testing. The LaTeX environment is managed through Nix flakes. Do NOT attempt to use system LaTeX tools directly.
 
-1. **Always use Nix**: All build and test commands MUST be run via `nix develop --command`
-2. **Never use system l3build**: The repository provides `l3build-wrapped` through Nix
-3. **Environment setup is automatic**: When using `nix develop`, all dependencies are loaded
+1. **Nix + direnv**: If Nix is available, assume direnv is also available and will auto-load the development environment
+2. **l3build vs l3build-wrapped**:
+   - **Use `l3build-wrapped`** for: `doc`, `check`, and `save` commands only
+   - **Use `l3build`** for: all other commands (`install`, `clean`, `unpack`, `ctan`, etc.)
+3. **Never use system l3build**: The repository provides l3build through Nix
 
 ### Required Commands Format
 
-All l3build commands must be invoked as:
-
+**With direnv (preferred)**:
 ```bash
-nix develop --command l3build-wrapped <subcommand>
+l3build-wrapped doc     # Documentation generation only
+l3build-wrapped check   # Testing only
+l3build-wrapped save    # Update test expectations
+l3build <subcommand>    # All other commands (install, clean, ctan, etc.)
 ```
+
+**Without direnv**:
+```bash
+nix develop --command l3build-wrapped doc
+nix develop --command l3build-wrapped check
+nix develop --command l3build-wrapped save
+nix develop --command l3build <subcommand>
+```
+
+**Note**: The rest of this document uses the direnv format for brevity. If direnv is not available, prefix commands with `nix develop --command`.
 
 ## Build, Test, and Validation Steps
 
@@ -48,7 +66,7 @@ The documentation system uses a multi-stage pipeline:
 2. **Build Quarto book** (required after editing `docs/index.md` or DTX changes):
 
    ```bash
-   cd docs && nix develop --command quarto render --to pdf
+   cd docs && quarto render --to pdf
    # Or using task: task build-manual
    ```
 
@@ -70,12 +88,160 @@ task build-manual  # Runs step 2 automatically
 
 **IMPORTANT**: When editing documentation content, edit `docs/index.md`, not `docs/moloch.tex`. That is a generated file.
 
+## Documentation Standards
+
+### Two Types of Documentation
+
+The Moloch package maintains two distinct types of documentation:
+
+#### 1. Implementation Documentation (DTX Files)
+
+**Location**: `src/*.dtx` files  
+**Audience**: Developers and advanced users  
+**Style**: Literate programming
+
+Implementation docs are embedded in the `.dtx` source files using LaTeX-style comments with the `macrocode` and `macro` environments:
+
+```latex
+% \begin{macro}{\somecommand}
+%    Description of what this macro does and why it exists.
+%    This is like an annotated journal of the implementation.
+%    \begin{macrocode}
+\newcommand{\somecommand}{%
+  % actual code here
+}
+%    \end{macrocode}
+% \end{macro}
+```
+
+**Key characteristics**:
+- Describes implementation details (what and why)
+- Uses LaTeX syntax in special comments
+- Extracted automatically to `docs/implementation/*.md`
+- Compiled into the technical documentation section of the manual
+
+#### 2. User-Facing Documentation (Markdown Files)
+
+**Location**: `docs/*.md` files (especially `docs/customization.md`)  
+**Audience**: End users of the theme  
+**Style**: User guide with examples
+
+User docs are written in Quarto-flavored Markdown and describe how to use the theme.
+
+**Documenting Options**: Use special fenced divs with the `describe-option` class:
+
+```markdown
+::: {.describe-option option-name="<name>" values="<val1>, <val2>" default="<default>"}
+
+A clear description of what this option does, written for end users.
+
+:::
+```
+
+**Example**:
+```markdown
+::: {.describe-option option-name="block" values="transparent, fill" default="transparent"}
+
+Optionally adds a light grey background to block environments like `theorem` and
+`example`.
+
+:::
+```
+
+**Documenting Keys with Arbitrary Values**: For keys that accept arbitrary values
+(like colors, dimensions, or strings) rather than fixed choices, use the
+`describe-key` class:
+
+```markdown
+::: {.describe-key key-name="<name>" type="<type>" default="<default>"}
+
+A clear description of what this key does, written for end users.
+
+:::
+```
+
+**Example**:
+```markdown
+::: {.describe-key key-name="alerted text" type="<color>" default="theme-dependent"}
+
+Sets the foreground color for alerted text and alerted block titles.
+
+:::
+```
+
+Common type values: `<color>`, `<length>`, `<dimension>`, `<number>`, `<string>`
+
+**Adding Examples**: Place example code in fenced code blocks with the `latex` language identifier. If visual output would be helpful, create a corresponding example file:
+
+1. **In documentation** (`docs/customization.md`):
+```markdown
+\```latex
+\documentclass{beamer}
+\usetheme[background=dark]{moloch}
+
+\begin{document}
+\begin{frame}
+  \frametitle{Background Color}
+  This slide uses the \texttt{background=dark} option.
+\end{frame}
+\end{document}
+\```
+
+![Example of the "background" option.](./images/example-background.png){.lightbox}
+```
+
+2. **Create example file** (`examples/background.tex`):
+```latex
+\documentclass{beamer}
+\usetheme[background=dark]{moloch}
+
+\begin{document}
+\begin{frame}
+  \frametitle{Background Color}
+  This slide uses the \texttt{background=dark} option.
+\end{frame}
+\end{document}
+```
+
+3. **Generate image** using the task runner:
+```bash
+task generate-example-images
+```
+
+This compiles all `.tex` files in `examples/` to PDF and converts them to PNG grid images in `docs/images/`.
+
+**Image naming convention**: `example-<basename>.png` where `<basename>` is the `.tex` filename without extension.
+
+### Documentation Workflow
+
+When adding or changing a user-facing option:
+
+1. **Update DTX file** (`src/*.dtx`) - Add/modify implementation with literate programming comments
+2. **Document in markdown** (`docs/customization.md`) - Add a `describe-option` div
+3. **Add example** (optional but recommended):
+   - Create `examples/<name>.tex` with a minimal example
+   - Run `task generate-example-images`
+   - Reference the generated image in the markdown: `![Description](./images/example-<name>.png){.lightbox}`
+4. **Rebuild documentation**:
+   ```bash
+   task build-manual  # Extracts DTX docs + builds Quarto book
+   ```
+
+### Important Documentation Notes
+
+- **Never edit** `docs/moloch.tex` or `docs/Moloch.tex` - these are generated files
+- **Edit** `docs/index.md` and `docs/*.md` files for user documentation
+- **Use describe-option divs** for all theme options - this creates consistent formatting
+- **Keep examples minimal** - show only what's needed to demonstrate the feature
+- **Use lightbox images** - add `{.lightbox}` after image references for click-to-zoom
+- **Extract DTX changes**: Run `task extract-dtx-docs` or `texlua scripts/extract-dtx-docs.lua` after modifying `.dtx` files
+
 ### Testing
 
 Run the package test suite:
 
 ```bash
-nix develop --command l3build-wrapped check
+l3build-wrapped check  # Use l3build-wrapped for testing
 ```
 
 **Time**: ~60-90 seconds  
@@ -95,7 +261,7 @@ nix develop --command l3build-wrapped check
 Create a CTAN-ready package:
 
 ```bash
-nix develop --command l3build-wrapped ctan -q -H --show-log-on-error
+l3build ctan -q -H --show-log-on-error
 ```
 
 **Time**: ~90-120 seconds  
@@ -113,7 +279,7 @@ nix develop --command l3build-wrapped ctan -q -H --show-log-on-error
 To test the theme locally with LaTeX:
 
 ```bash
-nix develop --command l3build-wrapped install
+l3build install
 ```
 
 **Notes**: Installs to local texmf tree for testing
@@ -123,7 +289,7 @@ nix develop --command l3build-wrapped install
 Remove all generated files:
 
 ```bash
-nix develop --command l3build-wrapped clean
+l3build clean
 ```
 
 ## Repository Structure
@@ -240,14 +406,14 @@ Process:
 3. **Build and test immediately**:
 
    ```bash
-   nix develop --command l3build-wrapped doc
-   nix develop --command l3build-wrapped check
+   l3build-wrapped doc    # Use l3build-wrapped for doc
+   l3build-wrapped check  # Use l3build-wrapped for check
    ```
 
 4. **Test CTAN build**:
 
    ```bash
-   nix develop --command l3build-wrapped ctan -q -H --show-log-on-error
+   l3build ctan -q -H --show-log-on-error
    ```
 
 5. **Review the generated output** (if applicable):
@@ -273,10 +439,10 @@ When changing DTX files (code + inline documentation):
 When changing theme behavior:
 
 1. Make the code change in `src/*.dtx`
-2. Run tests: `nix develop --command l3build-wrapped check`
+2. Run tests: `l3build-wrapped check`
 3. If tests fail due to intentional output changes:
    ```bash
-   nix develop --command l3build-wrapped save <testname>
+   l3build save <testname>
    ```
    This updates the `.tlg` file with the new expected output
 4. Verify tests now pass
@@ -336,8 +502,10 @@ Stored in two locations (kept in sync by semantic-release):
 
 ### "l3build: command not found"
 
-**Cause**: Trying to run l3build without Nix  
-**Solution**: Always use `nix develop --command l3build-wrapped <command>`
+**Cause**: Trying to run l3build without Nix environment loaded  
+**Solution**: 
+- **With direnv**: Ensure you're in the project directory (direnv should auto-load)
+- **Without direnv**: Use `nix develop --command l3build <command>` (or `l3build-wrapped` for `doc`/`check`)
 
 ### "Cannot find file beamerthememoloch.sty"
 
@@ -345,7 +513,7 @@ Stored in two locations (kept in sync by semantic-release):
 **Solution**:
 
 ```bash
-nix develop --command l3build-wrapped unpack
+l3build unpack
 ```
 
 This generates `.sty` files from `.dtx` sources
@@ -356,7 +524,7 @@ This generates `.sty` files from `.dtx` sources
 **Solution**: If changes are intentional:
 
 ```bash
-nix develop --command l3build-wrapped save <testname>
+l3build-wrapped save <testname>
 ```
 
 ### CI Passes But Manual Build Fails
@@ -365,9 +533,9 @@ nix develop --command l3build-wrapped save <testname>
 **Solution**: Clean and rebuild:
 
 ```bash
-nix develop --command l3build-wrapped clean
+l3build clean
 nix flake update
-nix develop --command l3build-wrapped ctan -q -H --show-log-on-error
+l3build ctan -q -H --show-log-on-error
 ```
 
 ### Nix Not Available in Environment
@@ -407,25 +575,29 @@ task build-manual  # Build complete manual pipeline (quarto + copy to doc/)
 ## Quick Reference Command Summary
 
 ```bash
-# Most common workflow - validate changes
-task build-manual                              # Build complete documentation
-nix develop --command l3build-wrapped check    # Run all tests
-nix develop --command l3build-wrapped ctan -q -H --show-log-on-error  # CI build
+# Most common workflow - validate changes (assumes direnv is active)
+task build-manual          # Build complete documentation
+l3build-wrapped check      # Run all tests (use l3build-wrapped for check)
+l3build ctan -q -H --show-log-on-error  # CI build
 
 # Documentation workflow
-texlua scripts/extract-dtx-docs.lua                    # Extract DTX → markdown (when .dtx changes)
-cd docs && nix develop --command quarto render --to pdf  # Build Quarto book
+texlua scripts/extract-dtx-docs.lua   # Extract DTX → markdown (when .dtx changes)
+cd docs && quarto render --to pdf     # Build Quarto book
+l3build-wrapped doc                   # Generate DTX documentation (use l3build-wrapped)
 
 # Development helpers
-nix develop --command l3build-wrapped unpack   # Generate .sty files for testing
-nix develop --command l3build-wrapped install  # Install locally
-nix develop --command l3build-wrapped clean    # Remove build artifacts
+l3build unpack    # Generate .sty files for testing
+l3build install   # Install locally
+l3build clean     # Remove build artifacts
 
 # Test management
-nix develop --command l3build-wrapped save <testname>  # Update test expectations
+l3build-wrapped save <testname>  # Update test expectations
 
-# Enter development shell (for multiple commands)
-nix develop  # Then run l3build-wrapped commands without prefix
+# Without direnv (prefix all commands)
+nix develop --command l3build-wrapped doc    # Only for doc
+nix develop --command l3build-wrapped check  # Only for check
+nix develop --command l3build-wrapped save   # Only for save
+nix develop --command l3build <subcommand>   # For everything else
 ```
 
 ## When to Search Further

@@ -91,6 +91,16 @@ format:
             \endgroup
           \end{minipage}
         }
+        \newcommand{\DescribeKey}[4]{
+          \begin{minipage}[t]{\textwidth}
+            \texttt{#1}
+            \textit{\textbf{\textcolor{JungleGreen}{#2}}}%
+            \ifx&#3&\else\dotfill\,default: #3\fi\par
+            \begingroup
+            \vspace{0.5em}#4\par
+            \endgroup
+          \end{minipage}
+        }
 
 execute:
   freeze: auto
@@ -101,3 +111,4 @@ date-format: "D MMMM YYYY"
 filters:
   - filters/pre-render.lua
   - filters/describe-option.lua
+  - filters/describe-key.lua

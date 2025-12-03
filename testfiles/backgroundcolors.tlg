@@ -126,12 +126,15 @@ Completed box being shipped out [1]
 ....\pdfcolorstack 0 push {0 g 0 G}
 ....\write-{}
 ....\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
+....\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
+....\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
+....\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
 ....\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
 ....\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
 ....\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
 ....\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
 ....\glue(\topskip) 0.0
-....\vbox(261.20912+0.0)x307.28987, glue set 88.95172fil
+....\vbox(261.20912+0.0)x307.28987, glue set 89.41087fil
 .....\penalty 10000
 .....\vbox(0.0+0.0)x0.0
 .....\penalty 10000
@@ -222,53 +225,32 @@ Completed box being shipped out [1]
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0 plus 1.0fil
 .....\glue 6.0 plus 2.0 minus 2.0
+.....\glue(\baselineskip) 5.99579
+.....\hbox(7.60422+0.0)x307.28987
+......\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
+......\vbox(7.60422+0.0)x307.28987
+.......\hbox(7.60422+0.0)x307.28987, glue set 129.44882fil
+........\hbox(0.0+0.0)x0.0
+........\OT1/lmss/bx/n/10.95 B
+........\OT1/lmss/bx/n/10.95 l
+........\OT1/lmss/bx/n/10.95 o
+........\kern0.33458
+........\OT1/lmss/bx/n/10.95 c
+........\OT1/lmss/bx/n/10.95 k
+........\OT1/lmss/bx/n/10.95 t
+........\OT1/lmss/bx/n/10.95 i
+........\OT1/lmss/bx/n/10.95 t
+........\OT1/lmss/bx/n/10.95 l
+........\OT1/lmss/bx/n/10.95 e
+........\penalty 10000
+........\glue(\parfillskip) 0.0 plus 1.0fil
+........\glue(\rightskip) 0.0 plus 1.0fil
+......\pdfcolorstack 0 pop
 .....\glue(\lineskip) 1.0
-.....\hbox(15.01831+0.0)x307.28987
-......\glue -3.65004
-......\pdfcolorstack 0 push {0.82275 0.82431 0.82588 rg 0.82275 0.82431 0.82588 RG}
-......\pdfcolorstack 0 push {0.82275 0.82431 0.82588 rg 0.82275 0.82431 0.82588 RG}
-......\hbox(15.01831+0.0)x0.0, glue set - 314.58995fil
-.......\rule(15.01831+0.0)x314.58995
-.......\glue 0.0 plus 1.0fil minus 1.0fil
-......\pdfcolorstack 0 pop
-......\hbox(15.01831+0.0)x314.58995
-.......\kern 0.0
-.......\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
-.......\glue 3.65004
-.......\hbox(15.01831+0.0)x307.28987
-........\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
-........\vbox(15.01831+0.0)x307.28987
-.........\glue 3.65004
-.........\glue(\parskip) 0.0
-.........\glue(\parskip) 0.0
-.........\hbox(7.60422+0.0)x307.28987, glue set 129.44882fil
-..........\hbox(0.0+0.0)x0.0
-..........\OT1/lmss/bx/n/10.95 B
-..........\OT1/lmss/bx/n/10.95 l
-..........\OT1/lmss/bx/n/10.95 o
-..........\kern0.33458
-..........\OT1/lmss/bx/n/10.95 c
-..........\OT1/lmss/bx/n/10.95 k
-..........\OT1/lmss/bx/n/10.95 t
-..........\OT1/lmss/bx/n/10.95 i
-..........\OT1/lmss/bx/n/10.95 t
-..........\OT1/lmss/bx/n/10.95 l
-..........\OT1/lmss/bx/n/10.95 e
-..........\penalty 10000
-..........\glue(\parfillskip) 0.0 plus 1.0fil
-..........\glue(\rightskip) 0.0 plus 1.0fil
-.........\glue 3.76405
-........\pdfcolorstack 0 pop
-.......\pdfcolorstack 0 pop
-.......\glue 3.65004
-.......\kern 0.0
-......\pdfcolorstack 0 pop
-......\glue -3.65004
-.....\glue -0.5
 .....\hbox(17.25005+0.0)x307.28987
 ......\glue -3.65004
-......\pdfcolorstack 0 push {0.91138 0.91216 0.91295 rg 0.91138 0.91216 0.91295 RG}
-......\pdfcolorstack 0 push {0.91138 0.91216 0.91295 rg 0.91138 0.91216 0.91295 RG}
+......\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+......\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
 ......\hbox(17.25005+0.0)x0.0, glue set - 314.58995fil
 .......\rule(17.25005+0.0)x314.58995
 .......\glue 0.0 plus 1.0fil minus 1.0fil
@@ -366,6 +348,8 @@ Completed box being shipped out [1]
 ....\pdfcolorstack 0 pop
 .\kern 0.0
 .\kern 0.0
+Package beamercolorthememoloch Warning: Option 'background=dark' is deprecated.
+(beamercolorthememoloch)                Use 'colortheme variant=dark' instead  on input line ....
 Completed box being shipped out [2]
 \vbox(200.87663+0.0)x263.47263
 .\hbox(0.0+0.0)x0.0
@@ -491,7 +475,7 @@ Completed box being shipped out [2]
 ....\write-{}
 ....\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
 ....\glue(\topskip) 0.0
-....\vbox(261.20912+0.0)x307.28987, glue set 88.95172fil
+....\vbox(261.20912+0.0)x307.28987, glue set 89.41087fil
 .....\penalty 10000
 .....\vbox(0.0+0.0)x0.0
 .....\penalty 10000
@@ -591,53 +575,32 @@ Completed box being shipped out [2]
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0 plus 1.0fil
 .....\glue 6.0 plus 2.0 minus 2.0
+.....\glue(\baselineskip) 5.99579
+.....\hbox(7.60422+0.0)x307.28987
+......\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+......\vbox(7.60422+0.0)x307.28987
+.......\hbox(7.60422+0.0)x307.28987, glue set 129.44882fil
+........\hbox(0.0+0.0)x0.0
+........\OT1/lmss/bx/n/10.95 B
+........\OT1/lmss/bx/n/10.95 l
+........\OT1/lmss/bx/n/10.95 o
+........\kern0.33458
+........\OT1/lmss/bx/n/10.95 c
+........\OT1/lmss/bx/n/10.95 k
+........\OT1/lmss/bx/n/10.95 t
+........\OT1/lmss/bx/n/10.95 i
+........\OT1/lmss/bx/n/10.95 t
+........\OT1/lmss/bx/n/10.95 l
+........\OT1/lmss/bx/n/10.95 e
+........\penalty 10000
+........\glue(\parfillskip) 0.0 plus 1.0fil
+........\glue(\rightskip) 0.0 plus 1.0fil
+......\pdfcolorstack 0 pop
 .....\glue(\lineskip) 1.0
-.....\hbox(15.01831+0.0)x307.28987
-......\glue -3.65004
-......\pdfcolorstack 0 push {0.29099 0.29727 0.30353 rg 0.29099 0.29727 0.30353 RG}
-......\pdfcolorstack 0 push {0.29099 0.29727 0.30353 rg 0.29099 0.29727 0.30353 RG}
-......\hbox(15.01831+0.0)x0.0, glue set - 314.58995fil
-.......\rule(15.01831+0.0)x314.58995
-.......\glue 0.0 plus 1.0fil minus 1.0fil
-......\pdfcolorstack 0 pop
-......\hbox(15.01831+0.0)x314.58995
-.......\kern 0.0
-.......\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
-.......\glue 3.65004
-.......\hbox(15.01831+0.0)x307.28987
-........\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
-........\vbox(15.01831+0.0)x307.28987
-.........\glue 3.65004
-.........\glue(\parskip) 0.0
-.........\glue(\parskip) 0.0
-.........\hbox(7.60422+0.0)x307.28987, glue set 129.44882fil
-..........\hbox(0.0+0.0)x0.0
-..........\OT1/lmss/bx/n/10.95 B
-..........\OT1/lmss/bx/n/10.95 l
-..........\OT1/lmss/bx/n/10.95 o
-..........\kern0.33458
-..........\OT1/lmss/bx/n/10.95 c
-..........\OT1/lmss/bx/n/10.95 k
-..........\OT1/lmss/bx/n/10.95 t
-..........\OT1/lmss/bx/n/10.95 i
-..........\OT1/lmss/bx/n/10.95 t
-..........\OT1/lmss/bx/n/10.95 l
-..........\OT1/lmss/bx/n/10.95 e
-..........\penalty 10000
-..........\glue(\parfillskip) 0.0 plus 1.0fil
-..........\glue(\rightskip) 0.0 plus 1.0fil
-.........\glue 3.76405
-........\pdfcolorstack 0 pop
-.......\pdfcolorstack 0 pop
-.......\glue 3.65004
-.......\kern 0.0
-......\pdfcolorstack 0 pop
-......\glue -3.65004
-.....\glue -0.5
 .....\hbox(17.25005+0.0)x307.28987
 ......\glue -3.65004
-......\pdfcolorstack 0 push {0.20236 0.20943 0.21648 rg 0.20236 0.20943 0.21648 RG}
-......\pdfcolorstack 0 push {0.20236 0.20943 0.21648 rg 0.20236 0.20943 0.21648 RG}
+......\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
+......\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
 ......\hbox(17.25005+0.0)x0.0, glue set - 314.58995fil
 .......\rule(17.25005+0.0)x314.58995
 .......\glue 0.0 plus 1.0fil minus 1.0fil
@@ -734,6 +697,8 @@ Completed box being shipped out [2]
 .....\glue 0.0 plus 1.0fil
 ....\pdfcolorstack 0 pop
 .\kern 0.0
+Package beamercolorthememoloch Warning: Option 'background=light' is deprecated.
+(beamercolorthememoloch)                Use 'colortheme variant=light' instead  on input line ....
 Completed box being shipped out [3]
 \vbox(200.87663+0.0)x263.47263
 .\hbox(0.0+0.0)x0.0
@@ -859,7 +824,7 @@ Completed box being shipped out [3]
 ....\write-{}
 ....\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
 ....\glue(\topskip) 0.0
-....\vbox(261.20912+0.0)x307.28987, glue set 88.95172fil
+....\vbox(261.20912+0.0)x307.28987, glue set 89.41087fil
 .....\penalty 10000
 .....\vbox(0.0+0.0)x0.0
 .....\penalty 10000
@@ -955,53 +920,32 @@ Completed box being shipped out [3]
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0 plus 1.0fil
 .....\glue 6.0 plus 2.0 minus 2.0
+.....\glue(\baselineskip) 5.99579
+.....\hbox(7.60422+0.0)x307.28987
+......\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
+......\vbox(7.60422+0.0)x307.28987
+.......\hbox(7.60422+0.0)x307.28987, glue set 129.44882fil
+........\hbox(0.0+0.0)x0.0
+........\OT1/lmss/bx/n/10.95 B
+........\OT1/lmss/bx/n/10.95 l
+........\OT1/lmss/bx/n/10.95 o
+........\kern0.33458
+........\OT1/lmss/bx/n/10.95 c
+........\OT1/lmss/bx/n/10.95 k
+........\OT1/lmss/bx/n/10.95 t
+........\OT1/lmss/bx/n/10.95 i
+........\OT1/lmss/bx/n/10.95 t
+........\OT1/lmss/bx/n/10.95 l
+........\OT1/lmss/bx/n/10.95 e
+........\penalty 10000
+........\glue(\parfillskip) 0.0 plus 1.0fil
+........\glue(\rightskip) 0.0 plus 1.0fil
+......\pdfcolorstack 0 pop
 .....\glue(\lineskip) 1.0
-.....\hbox(15.01831+0.0)x307.28987
-......\glue -3.65004
-......\pdfcolorstack 0 push {0.82275 0.82431 0.82588 rg 0.82275 0.82431 0.82588 RG}
-......\pdfcolorstack 0 push {0.82275 0.82431 0.82588 rg 0.82275 0.82431 0.82588 RG}
-......\hbox(15.01831+0.0)x0.0, glue set - 314.58995fil
-.......\rule(15.01831+0.0)x314.58995
-.......\glue 0.0 plus 1.0fil minus 1.0fil
-......\pdfcolorstack 0 pop
-......\hbox(15.01831+0.0)x314.58995
-.......\kern 0.0
-.......\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
-.......\glue 3.65004
-.......\hbox(15.01831+0.0)x307.28987
-........\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
-........\vbox(15.01831+0.0)x307.28987
-.........\glue 3.65004
-.........\glue(\parskip) 0.0
-.........\glue(\parskip) 0.0
-.........\hbox(7.60422+0.0)x307.28987, glue set 129.44882fil
-..........\hbox(0.0+0.0)x0.0
-..........\OT1/lmss/bx/n/10.95 B
-..........\OT1/lmss/bx/n/10.95 l
-..........\OT1/lmss/bx/n/10.95 o
-..........\kern0.33458
-..........\OT1/lmss/bx/n/10.95 c
-..........\OT1/lmss/bx/n/10.95 k
-..........\OT1/lmss/bx/n/10.95 t
-..........\OT1/lmss/bx/n/10.95 i
-..........\OT1/lmss/bx/n/10.95 t
-..........\OT1/lmss/bx/n/10.95 l
-..........\OT1/lmss/bx/n/10.95 e
-..........\penalty 10000
-..........\glue(\parfillskip) 0.0 plus 1.0fil
-..........\glue(\rightskip) 0.0 plus 1.0fil
-.........\glue 3.76405
-........\pdfcolorstack 0 pop
-.......\pdfcolorstack 0 pop
-.......\glue 3.65004
-.......\kern 0.0
-......\pdfcolorstack 0 pop
-......\glue -3.65004
-.....\glue -0.5
 .....\hbox(17.25005+0.0)x307.28987
 ......\glue -3.65004
-......\pdfcolorstack 0 push {0.91138 0.91216 0.91295 rg 0.91138 0.91216 0.91295 RG}
-......\pdfcolorstack 0 push {0.91138 0.91216 0.91295 rg 0.91138 0.91216 0.91295 RG}
+......\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+......\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
 ......\hbox(17.25005+0.0)x0.0, glue set - 314.58995fil
 .......\rule(17.25005+0.0)x314.58995
 .......\glue 0.0 plus 1.0fil minus 1.0fil

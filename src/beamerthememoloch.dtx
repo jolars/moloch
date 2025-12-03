@@ -47,8 +47,18 @@
       /moloch/inner,
       /moloch/outer,
       /moloch/color,
+      /moloch/colors,
       /moloch/font,
     }
+}
+%    \end{macrocode}
+%
+% Route color theme options to the new color system.
+%
+%    \begin{macrocode}
+\pgfkeys{/moloch/.cd,
+  colortheme/.code=\pgfkeysalso{/moloch/colors/theme=#1},
+  colorthemevariant/.code=\pgfkeysalso{/moloch/colors/variant=#1},
 }
 %    \end{macrocode}
 %

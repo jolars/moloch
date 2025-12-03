@@ -13,7 +13,32 @@
       system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        texlive = pkgs.texlive.combined.scheme-full;
+        texlive = pkgs.texlive.combine {
+          inherit (pkgs.texlive)
+            scheme-basic
+            l3build
+            beamer
+            biblatex
+            enumitem
+            fileinfo
+            hypdoc
+            hyperref
+            listings
+            metalogo
+            parskip
+            pgf
+            pgfopts
+            setspace
+            xurl
+            microtype
+            koma-script
+            booktabs
+            mdwtools
+            caption
+            float
+            fancyvrb
+            ;
+        };
         l3build-wrapped = pkgs.writeShellScriptBin "l3build-wrapped" ''
           # NOTE: the trailing slash in TEXMF is required
           TEXMF="${texlive}/" ${texlive}/bin/l3build "$@"

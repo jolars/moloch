@@ -214,12 +214,16 @@ and bottom margins, and `1.6ex` for the left and right margins.
 \end{document}
 ```
 
-![Example of the `frametitle margin` options.](./images/example-frametitle-margins.png){.lightbox}
+![Example of the `frametitle margin` options.](./images/example-frametitle-margin.png){.lightbox}
 
 ## Color Theme
 
-These options control color aspects of the theme, and are forwarded to the color
-theme.
+Moloch provides extensive color customization options, from choosing preset color
+themes to fine-tuning individual colors for light and dark variants.
+
+### Color Options
+
+These basic color options control visual aspects of the theme:
 
 ::: {.describe-option option-name="block" values="transparent, fill"
 default="transparent"}
@@ -257,7 +261,8 @@ the second block.](./images/example-blocks.png){.lightbox}
 default="light"}
 
 Provides the option to have a dark background and light foreground instead of
-the reverse.
+the reverse. **Note:** This option is deprecated in favor of the new
+`\molochcolors{variant=dark}` syntax (see below).
 
 :::
 
@@ -291,67 +296,265 @@ titles (see `titleformat`, above).
 
 :::
 
-## Color Customization
+### Color Themes
 
-The included Moloch color theme is used by default, but its colors can be easily
-changed to suit your tastes. All of the theme's styles are defined in terms of
-three beamer colors:
+Moloch includes several preset color themes. You can select a theme using the
+`\usecolortheme` command or the newer `\molochcolors{theme=...}` syntax.
 
-- `normal text` (dark fg, light bg)
-- `alerted text` (colored fg, should be visible against dark or light)
-- `example text` (colored fg, should be visible against dark or light)
-
-An easy way to customize the theme is to redefine these colors using the
-following syntax in your preabmle:
-
-```latex
-\setbeamercolor{ ... }{ fg= ... , bg= ... }
-```
-
-For additional customization, you can redefine any of the other stock beamer
-colors. In addition to the stock colors the theme defines a number of Moloch
-specific colors, which can also be redefined to your liking.
-
-```latex
-\setbeamercolor{progress bar}{ ... }
-\setbeamercolor{title separator}{ ... }
-\setbeamercolor{progress bar in head/foot}{ ... }
-\setbeamercolor{progress bar in section page}{ ... }
-```
-
-## Themes
-
-### Default Theme
+#### Default Theme
 
 The default color theme is almost exactly the same as in the original Metropolis
 theme, except we have modified the green color for the example blocks to be a
 bit less saturated.
 
 ```latex
-\usecolortheme{moloch}
+\usetheme[colortheme=default]{moloch}
+% Or equivalently:
+% \molochcolors{theme=default}
 ```
 
 ![Example of the default Moloch color theme.](./images/example-colortheme-default.png){.lightbox}
 
-### The High Contrast Theme
+#### The High Contrast Theme
 
-For low-light situations Moloch it might be helpful to use the
-`moloch-highcontrast` color theme. It is enabled like any other color theme:
+For low-light situations it might be helpful to use the `moloch-highcontrast`
+color theme:
 
 ```latex
-\usecolortheme{moloch-highcontrast}
+\usetheme[colortheme=highcontrast]{moloch}
+% Or equivalently:
+% \molochcolors{theme=highcontrast}
 ```
 
 ![Example of the high contrast color theme.](./images/example-colortheme-highcontrast.png){.lightbox}
 
-### The Tomorrow Theme
+#### The Tomorrow Theme
 
-There is also a theme based on the
-[https://github.com/chriskempson/tomorrow-theme](Tomorrow color theme), which
-you can enable like this:
+There is also a theme based on the [Tomorrow color
+theme](https://github.com/chriskempson/tomorrow-theme):
 
 ```latex
-\usecolortheme{moloch-tomorrow}
+\usetheme[colortheme=tomorrow]{moloch}
+% Or equivalently:
+% \molochcolors{theme=tomorrow}
 ```
 
 ![Example of the Tomorrow color theme.](./images/example-colortheme-tomorrow.png){.lightbox}
+
+### Color Customization
+
+The included Moloch color theme is used by default, but its colors can be easily
+changed to suit your tastes. Moloch provides two ways to customize colors:
+
+1. **Using `\molochcolors`** (recommended): A convenient key-value interface for
+   customizing individual colors, especially useful for setting up different
+   colors for light and dark variants. See the detailed documentation below.
+
+2. **Using `\setbeamercolor`** (advanced): For low-level customization or when
+   you need to set colors not exposed through `\molochcolors`, you can use
+   Beamer's standard color setting command:
+
+```latex
+\setbeamercolor{<beamer color name>}{fg=..., bg=...}
+```
+
+For example, to customize Moloch-specific colors:
+
+```latex
+\setbeamercolor{progress bar}{fg=orange, bg=orange!50!black!30}
+\setbeamercolor{title separator}{fg=teal}
+\setbeamercolor{progress bar in head/foot}{parent=progress bar}
+\setbeamercolor{progress bar in section page}{parent=progress bar}
+```
+
+### Granular Color Customization with `\molochcolors`
+
+For more convenient color customization, Moloch provides the `\molochcolors`
+command, which allows you to customize individual colors using a key-value
+interface. This is especially useful when you want to customize specific colors
+for both light and dark variants of a theme.
+
+The basic syntax is:
+
+```latex
+\molochcolors{
+    option1=color1,
+    option2=color2,
+    ...
+}
+```
+
+#### Theme and Variant Selection
+
+Before customizing individual colors, you can select a theme preset and variant:
+
+::: {.describe-option option-name="theme" values="default, tomorrow, highcontrast" default="default"}
+
+Selects a color theme preset. Each preset defines complete color schemes for
+both light and dark variants.
+
+:::
+
+::: {.describe-option option-name="variant" values="light, dark" default="light"}
+
+Switches between light and dark variants of the current theme. Color
+customizations are preserved when switching variants, so you can set up colors
+once and freely toggle between light and dark modes.
+
+:::
+
+```latex
+\documentclass{beamer}
+\usetheme{moloch}
+
+\begin{document}
+
+% Start with tomorrow theme in dark mode
+\molochcolors{theme=tomorrow, variant=dark}
+
+\begin{frame}
+  \frametitle{Dark Tomorrow Theme}
+  This uses the Tomorrow theme in dark mode.
+\end{frame}
+
+% Switch to light variant
+\molochcolors{variant=light}
+
+\begin{frame}
+  \frametitle{Light Tomorrow Theme}
+  Same theme, but now in light mode.
+\end{frame}
+
+\end{document}
+```
+
+#### Customizable Colors
+
+You can customize individual colors using the following keys. Each key has
+three variants:
+
+- **Variant-agnostic** (e.g., `normal text fg`): Sets the color for the current
+  variant and stores it for that variant
+- **Light-specific** (e.g., `light/normal text fg`): Sets the color for the
+  light variant (applies immediately if in light mode, otherwise stored for when
+  you switch to light)
+- **Dark-specific** (e.g., `dark/normal text fg`): Sets the color for the dark
+  variant (applies immediately if in dark mode, otherwise stored for when you
+  switch to dark)
+
+::: {.describe-key key-name="alerted text" type="<color>" default="theme-dependent"}
+
+Sets the foreground color for alerted text (e.g., `\alert{text}`) and alerted
+block titles. This affects both inline alerted text and `alertblock` titles.
+
+:::
+
+::: {.describe-key key-name="example text" type="<color>" default="theme-dependent"}
+
+Sets the foreground color for example text and example block titles. This
+affects both inline example text and `exampleblock` titles.
+
+:::
+
+::: {.describe-key key-name="normal text fg" type="<color>" default="theme-dependent"}
+
+Sets the foreground color for normal text. Changing this automatically updates
+title elements, author, date, and other text colors that derive from normal
+text.
+
+:::
+
+::: {.describe-key key-name="normal text bg" type="<color>" default="theme-dependent"}
+
+Sets the background color for normal text.
+
+:::
+
+::: {.describe-key key-name="frametitle fg" type="<color>" default="theme-dependent"}
+
+Sets the foreground color for frame titles.
+
+:::
+
+::: {.describe-key key-name="frametitle bg" type="<color>" default="theme-dependent"}
+
+Sets the background color for frame titles.
+
+:::
+
+::: {.describe-key key-name="progressbar fg" type="<color>" default="theme-dependent"}
+
+Sets the foreground color for progress bars. This affects progress bars in all
+locations (head, foot, frame title, section pages) and the title separator on
+the title page.
+
+:::
+
+::: {.describe-key key-name="progressbar bg" type="<color>" default="theme-dependent"}
+
+Sets the background color for progress bars.
+
+:::
+
+::: {.describe-key key-name="standout fg" type="<color>" default="theme-dependent"}
+
+Sets the foreground color for standout frames (created with
+`\begin{frame}[standout]`).
+
+:::
+
+::: {.describe-key key-name="standout bg" type="<color>" default="theme-dependent"}
+
+Sets the background color for standout frames.
+
+:::
+
+#### Example: Customizing Colors Per Variant
+
+You can set different colors for light and dark variants:
+
+```latex
+\documentclass{beamer}
+\usetheme{moloch}
+
+\begin{document}
+
+% Customize colors for both variants
+\molochcolors{
+    light/alerted text=red!80!black,
+    dark/alerted text=orange,
+    light/progressbar fg=blue,
+    dark/progressbar fg=cyan
+}
+
+% Start in light mode
+\molochcolors{variant=light}
+
+\begin{frame}
+  \frametitle{Light Mode}
+  \alert{Alerted text} is red-ish, progress bar is blue.
+\end{frame}
+
+% Switch to dark mode - your customizations are preserved!
+\molochcolors{variant=dark}
+
+\begin{frame}
+  \frametitle{Dark Mode}
+  \alert{Alerted text} is orange, progress bar is cyan.
+\end{frame}
+
+\end{document}
+```
+
+#### Example: Quick Color Tweaks
+
+For simple adjustments to the current variant:
+
+```latex
+\molochcolors{
+    alerted text=purple,
+    progressbar fg=teal
+}
+```
+
+This sets the colors for whichever variant is currently active (light or dark).
