@@ -22,3 +22,24 @@
   text-decoration-color: #2a7f62;
   text-decoration-thickness: 2px;
 }
+
+.describe-key {
+  margin: 1em 0;
+  border-left: 3px solid #2a7f62;
+  padding-left: 1em;
+}
+
+.describe-key .key-name {
+  font-weight: bold;
+}
+
+.describe-key .key-type {
+  color: #2a7f62;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.describe-key .key-default {
+  color: #666;
+  font-size: 0.9em;
+}

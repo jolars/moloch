@@ -42,6 +42,7 @@ tasks:
 
   generate-example-images:
     desc: Compile examples and generate grid images
+    method: none
     sources:
       - examples/*.tex
     cmds:

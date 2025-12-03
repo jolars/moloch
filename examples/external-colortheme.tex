@@ -1,0 +1,104 @@
+\documentclass{beamer}
+
+\usetheme{moloch}
+
+\title{Variant-Specific Colors Demo}
+
+\begin{document}
+
+\begin{frame}{Light Mode - Default Colors}
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      {
+        \molochset{block=fill}
+
+        \begin{block}{Default}
+          Block content.
+        \end{block}
+
+        \begin{alertblock}{Alert}
+          Block content.
+        \end{alertblock}
+
+        \begin{exampleblock}{Example}
+          Block content.
+        \end{exampleblock}
+      }
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[standout]
+  Something goes here
+  
+\end{frame}
+
+\section{Test}
+
+% Switch to dark variant
+% \molochcolors{variant=dark}
+
+\molochcolors{
+  progressbar=green,
+  alert=black,
+  frametitle bg=brown,
+  standout bg=black,
+  standout fg=red
+}
+
+\begin{frame}{Dark Mode - Brighter Colors}
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      {
+        \molochset{block=fill}
+
+        \begin{block}{Default}
+          Block content.
+        \end{block}
+
+        \begin{alertblock}{Alert}
+          Block content.
+        \end{alertblock}
+
+        \begin{exampleblock}{Example}
+          Block content.
+        \end{exampleblock}
+      }
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[standout]
+  Something goes here
+  
+\end{frame}
+
+\section{Test}
+
+\end{document}

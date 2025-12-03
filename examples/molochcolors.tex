@@ -1,0 +1,136 @@
+\documentclass{beamer}
+
+\author{Author Name}
+
+\institute{Institute Name}
+
+\usetheme{moloch}
+
+\molochcolors{theme=tomorrow}
+
+\molochcolors{
+  light/alerted text=orange,
+  light/frametitle bg=blue!20,
+  light/example text=yellow,
+  dark/example text=orange,
+  dark/frametitle bg=green,
+  light/progressbar bg=cyan,
+  dark/progressbar bg=magenta,
+  % dark/example=red,
+  dark/alerted text=purple
+}
+
+\title{Test White Alert}
+
+\begin{document}
+
+\maketitle
+
+\molochcolors{theme=default}
+
+\begin{frame}{Light Mode}
+  \alert{his should be orange}
+
+  % \molochcolors{light/example=red}
+
+  \begin{exampleblock}{Example Block}
+    This is an example block in light mode.
+  \end{exampleblock}
+\end{frame}
+
+\molochcolors{variant=dark,alerted text=green}
+
+\molochset{progressbar=foot,progressbar linewidth=1cm}
+
+\begin{frame}{Dark Mode}
+  \alert{This should be green if variant switching works}
+
+  \molochcolors{light/example text=red}
+
+  \begin{exampleblock}{Example Block}
+    This is an example block in dark mode.
+  \end{exampleblock}
+
+  \molochcolors{alerted text=red}
+
+  \begin{alertblock}{Alert Block}
+    This is an example block in dark mode.
+  \end{alertblock}
+\end{frame}
+
+\section{Another Section}
+
+\molochcolors{variant=light,frametitle fg=brown}
+\molochcolors{frametitle fg=brown}
+
+\begin{frame}{Dark Mode}
+  \alert{This should be orange again variant switching works}
+\end{frame}
+
+\molochcolors{variant=dark}
+
+\begin{frame}{Dark Mode}
+  \alert{This should be green again variant switching works}
+\end{frame}
+
+% \molochcolors{variant=light,normal text bg=brown}
+
+\begin{frame}{Dark Mode}
+  \alert{This should be orange again, but only for this frame!}
+\end{frame}
+
+\section{Test Section}
+
+\molochcolors{
+  light/standout bg=green,
+  dark/standout bg=yellow,
+  dark/standout fg=blue
+}
+
+\begin{frame}[standout]
+  This is a test frame.
+\end{frame}
+
+\molochcolors{light/block title alerted bg=brown}
+
+\begin{frame}
+  \frametitle{Tomorrow Color Theme}
+
+  The Tomorrow color theme has a higher contrast than the standard Moloch
+  theme, and uses different colors for alerts and examples.
+
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      {
+        \molochset{block=fill}
+
+        \begin{block}{Default}
+          Block content.
+        \end{block}
+
+        \begin{alertblock}{Alert}
+          Block content.
+        \end{alertblock}
+
+        \begin{exampleblock}{Example}
+          Block content.
+        \end{exampleblock}
+      }
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,92 @@
+\documentclass{beamer}
+
+\usetheme[colortheme=tomorrow, colorthemevariant=light]{moloch}
+
+\title{Color Theme Switching Example}
+\date{\today}
+\author{Test User}
+\institute{Test University}
+
+\begin{document} \maketitle
+
+\section{Default Theme}
+
+\begin{frame}{Default Theme - Light}
+  This presentation starts with the tomorrow theme in light mode.
+
+  \begin{itemize}
+    \item Regular text item
+    \item \alert{Alerted text item}
+    \item \structure{Structured text}
+  \end{itemize}
+
+  \begin{exampleblock}{Example}
+    Example text in a block.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[standout]
+  Standout Frame
+\end{frame}
+
+% Switch to dark variant
+\molochcolors{variant=dark}
+
+\section{Dark Variant}
+
+\begin{frame}{Tomorrow Theme - Dark}
+  Now we've switched to the dark variant of the tomorrow theme.
+
+  \begin{itemize}
+    \item Regular text item
+    \item \alert{Alerted text item}
+    \item \structure{Structured text}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[standout]
+  Standout in Dark Mode
+\end{frame}
+
+% Switch to default theme
+\molochcolors{theme=default}
+
+\section{Default Color Theme}
+
+\begin{frame}{Default Theme}
+  Now using the default moloch color theme (should stay in dark variant).
+
+  \begin{itemize}
+    \item Regular text item
+    \item \alert{Alerted text item}
+    \item \structure{Structured text}
+  \end{itemize}
+\end{frame}
+
+% Switch to light variant
+\molochcolors{variant=light}
+
+\begin{frame}{Default Theme - Light}
+  Back to light variant with default theme.
+\end{frame}
+
+% Switch to highcontrast theme in dark mode
+\molochcolors{theme=highcontrast, variant=dark}
+
+\section{High Contrast}
+
+\begin{frame}{High Contrast Dark}
+  High contrast theme in dark mode.
+
+  \begin{itemize}
+    \item Regular text item
+    \item \alert{Alerted text item}
+    \item \structure{Structured text}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[standout]
+  High Contrast Standout
+\end{frame}
+
+\end{document}
