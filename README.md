@@ -22,7 +22,7 @@ introduction to the theme.
 
 Do not expect this theme to be backwards compatible with the Metropolis theme.
 
-![Screenshot](https://raw.githubusercontent.com/jolars/moloch/main/assets/screenshot.svg)
+![Screenshot](https://raw.githubusercontent.com/jolars/moloch/main/docs/images/example-demo.png)
 
 ## Installation
 
