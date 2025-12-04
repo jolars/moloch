@@ -1,4 +1,7 @@
-# Customization
+---
+title: "Customization"
+lightbox: true
+---
 
 The theme provides a number of options, which can be set using a key=value
 interface. The primary way to set options is to provide a comma-separated list
@@ -362,9 +365,11 @@ and favorable conditions.
 % \molochcolors{theme=catppuccin}
 ```
 
-![Example of the light version of the Catppuccin color theme.](./images/example-colortheme-catppuccin-light.png){.lightbox}
+![Example of the light version of the Catppuccin color theme.](./images/example-colortheme-catppuccin-light.png){.lightbox
+group="catppuccin"}
 
-![Example of the dark version of the Catppuccin color theme.](./images/example-colortheme-catppuccin-dark.png){.lightbox}
+![Example of the dark version of the Catppuccin color theme.](./images/example-colortheme-catppuccin-dark.png){.lightbox
+group="catppuccin"}
 
 ### Color Customization
 
