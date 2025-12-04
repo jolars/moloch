@@ -588,6 +588,68 @@
 %    \end{macrocode}
 % \end{macro}
 %
+%
+% \begin{macro}{\moloch@colortheme@catppuccin}
+%    A color theme with soothing pastels and
+%    light contrasts.
+%
+%    \begin{macrocode}
+\newcommand{\moloch@colortheme@catppuccin}{%
+
+  \definecolor{mNormaltextFgLight}{HTML}{4C4F69}
+  \definecolor{mNormaltextBgLight}{HTML}{EFF1F5}
+  \definecolor{mFrametitleFgLight}{HTML}{CAD3F5}
+  \definecolor{mFrametitleBgLight}{HTML}{303446}
+  \definecolor{mAlertLight}{HTML}{D20F39}%
+  \definecolor{mExampleLight}{HTML}{1E66F5}%
+  \definecolor{mProgressbarFgLight}{HTML}{DC8A78}
+  \definecolor{mTitleseparatorLight}{HTML}{40A02B}
+  \definecolor{mStandoutFgLight}{HTML}{CAD3F5}
+  \definecolor{mStandoutBgLight}{HTML}{303446}
+
+  \moloch@register@light@colors{%
+    \setbeamercolor{normal text}{fg=mNormaltextFgLight, bg=mNormaltextBgLight}%
+    \setbeamercolor{frametitle}{fg=mFrametitleFgLight, bg=mFrametitleBgLight}%
+    \setbeamercolor{palette primary}{fg=mFrametitleFgLight, bg=mFrametitleBgLight}%
+    \setbeamercolor{alerted text}{fg=mAlertLight}%
+    \setbeamercolor{example text}{fg=mExampleLight}%
+    \setbeamercolor{progress bar}{fg=mProgressbarFgLight, bg=black!20}%
+    \setbeamercolor{title separator}{fg=mTitleseparatorLight}%
+    \setbeamercolor{footnote}{fg=black!90}%
+    \setbeamercolor{footnote mark}{fg=.}%
+    \setbeamercolor{standout}{fg=mStandoutFgLight, bg=mStandoutBgLight}
+  }%
+
+  \definecolor{mNormaltextFgDark}{HTML}{CAD3F5}
+  \definecolor{mNormaltextBgDark}{HTML}{24273A}
+  \definecolor{mFrametitleFgDark}{HTML}{CAD3F5}
+  \definecolor{mFrametitleBgDark}{HTML}{24273A}
+  \definecolor{mAlertDark}{HTML}{ED8796}%
+  \definecolor{mExampleDark}{HTML}{8AADF4}%
+  \definecolor{mProgressbarFgDark}{HTML}{EED49F}
+  \definecolor{mTitleseparatorDark}{HTML}{A6DA95}
+  \definecolor{mStandoutFgDark}{HTML}{4C4F69}
+  \definecolor{mStandoutBgDark}{HTML}{EFF1F5}
+
+  \moloch@register@dark@colors{%
+    \setbeamercolor{normal text}{fg=mNormaltextFgDark, bg=mNormaltextBgDark}%
+    \setbeamercolor{frametitle}{fg=mFrametitleFgDark, bg=mFrametitleBgDark}%
+    \setbeamercolor{palette primary}{fg=mFrametitleFgDark, bg=mFrametitleBgDark}%
+    \setbeamercolor{alerted text}{fg=mAlertDark}%
+    \setbeamercolor{example text}{fg=mExampleDark}%
+    \setbeamercolor{progress bar}{fg=mProgressbarFgDark, bg=black!20}%
+    \setbeamercolor{title separator}{fg=mTitleseparatorDark}%
+    \setbeamercolor{footnote}{fg=black!10}%
+    \setbeamercolor{footnote mark}{fg=.}%
+    \setbeamercolor{standout}{fg=mStandoutFgDark, bg=mStandoutBgDark}
+  }%
+
+  % Apply current variant after registering both
+  \moloch@apply@current@variant
+}
+%    \end{macrocode}
+% \end{macro}
+%
 % \subsubsection{New Color System}
 %
 % The color system provides a unified interface for theme selection, variant
@@ -624,6 +686,7 @@
   theme/tomorrow/.code=\moloch@colortheme@tomorrow,
   theme/highcontrast/.code=\moloch@colortheme@highcontrast,
   theme/paper/.code=\moloch@colortheme@paper,
+  theme/catppuccin/.code=\moloch@colortheme@catppuccin,
   variant/.is choice,
   variant/light/.code={%
       \moloch@variant@darkfalse
