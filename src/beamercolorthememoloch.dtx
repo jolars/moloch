@@ -563,14 +563,16 @@
       bg=normal text.fg
     }
   }%
+  \definecolor{mAlertDark}{HTML}{F7768E}%
+  \definecolor{mExampleDark}{HTML}{7AA2F7}%
 
   % Register dark variant
   \moloch@register@dark@colors{%
     \setbeamercolor{normal text}{fg=white, bg=black}%
-    \setbeamercolor{frametitle}{fg=black, bg=white}%
+    \setbeamercolor{frametitle}{fg=white, bg=black}%
     \setbeamercolor{palette primary}{fg=black, bg=white}%
     \setbeamercolor{alerted text}{fg=mAlert}%
-    \setbeamercolor{example text}{fg=mExample,bg=green}%
+    \setbeamercolor{example text}{fg=mExample}%
     \setbeamercolor{progress bar}{fg=mAlert, bg=mAlert!50!black!30}%
     \setbeamercolor{title separator}{fg=mAlert, bg=mAlert!50!black!30}%
     \setbeamercolor{footnote}{fg=white!90}%
