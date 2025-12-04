@@ -10,7 +10,6 @@ title: "Outer Theme"
 
 ## Moloch Outer Theme
 
-
 A `beamer` outer theme dictates the style of the frame elements
 traditionally set outside the body of each slide: the head, footline,
 and frame title.
@@ -85,7 +84,6 @@ Sets the linewidth of the progress bar for sectionpages and frames.
       \setlength{\moloch@progressonsectionpage@linewidth}{#1}
       \setlength{\moloch@progressinheadfoot@linewidth}{#1}
     },
-  progressbarlinewidth/.default=0.4pt,
 }
 ```
 
@@ -114,7 +112,7 @@ Sets the margins of the frame title.
 }
 ```
 
-### `framtitle margin aliases`
+### `frametitle margin aliases`
 
 Allows `frametitle margin x` to be used in `\molochset`.
 
@@ -136,7 +134,7 @@ Sets default values for outer theme options.
 \newcommand{\moloch@outer@setdefaults}{
   \pgfkeys{/moloch/outer/.cd,
     progressbar=none,
-    progressbar linewidth=0.4pt,
+    progressbar linewidth=1pt,
   }
 }
 ```

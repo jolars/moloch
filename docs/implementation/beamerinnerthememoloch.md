@@ -111,7 +111,6 @@ Set the width of the line separating the title from the author.
 \pgfkeys{
   /moloch/inner/.cd,
   titleseparatorlinewidth/.code={\setlength{\moloch@titleseparator@linewidth}{#1}},
-  titleseparatorlinewidth/.default=0.4pt,
 }
 ```
 
@@ -136,7 +135,7 @@ Set default values for inner theme options.
     sectionpage=progressbar,
     subsectionpage=none,
     standoutnumbering=none,
-    titleseparator linewidth=0.4pt,
+    titleseparator linewidth=0.5pt,
   }
 }
 ```
@@ -391,7 +390,7 @@ This code is duplicated in large part in the outer theme's template
 ``` latex
 \setbeamertemplate{progress bar in section page}{
   \pgfmathsetlength{\moloch@progressonsectionpage}{
-    \textwidth * min(1,\insertframenumber/\inserttotalframenumber)
+    \textwidth * min(1,\insertframenumber/max(1,\inserttotalframenumber))
   }%
   \tikzexternaldisable%
   \begin{tikzpicture}[baseline=(current bounding box.north)]
@@ -537,24 +536,24 @@ group, change the colors and set frame options.
   \setkeys{beamerframe}{c}
   \ifbool{moloch@enableStandoutNumbering}{}{%
     \setkeys{beamerframe}{noframenumbering}}
-  \ifbeamercolorempty[bg]{palette primary}{
+  \ifbeamercolorempty[bg]{standout}{
     \setbeamercolor{background canvas}{
-      use=palette primary,
-      bg=-palette primary.fg
+      use=standout,
+      bg=-standout.fg
     }
   }{
     \setbeamercolor{background canvas}{
-      use=palette primary,
-      bg=palette primary.bg
+      use=standout,
+      bg=standout.bg
     }
   }
   \setbeamercolor{local structure}{
-    fg=palette primary.fg
+    fg=standout.fg
   }
-  \usebeamercolor[fg]{palette primary}
+  \usebeamercolor[fg]{standout}
   \setbeamercolor{page number in head/foot}{
-    use=palette primary,
-    fg=palette primary.fg
+    use=standout,
+    fg=standout.fg
   }
   \ifbool{moloch@enableStandoutFooter}{}{\setbeamertemplate{footline}{}}
 }

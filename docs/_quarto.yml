@@ -61,6 +61,7 @@ highlight-style: breeze
 
 format:
   html:
+    toc: true
     theme:
       light: flatly
       dark: darkly
@@ -80,6 +81,8 @@ format:
         \usepackage{parskip}
         \usepackage{doc}
         \usepackage{xcolor}
+        \usepackage{makeidx}
+        \makeindex
         \definecolor{JungleGreen}{RGB}{42,127,98}
         \newcommand{\DescribeOption}[4]{
           \begin{minipage}[t]{\textwidth}
@@ -100,6 +103,9 @@ format:
             \endgroup
           \end{minipage}
         }
+    include-after-body:
+      text: |
+        \printindex
 
 execute:
   freeze: auto

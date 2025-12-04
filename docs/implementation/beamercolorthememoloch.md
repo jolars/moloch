@@ -32,6 +32,15 @@ Optionally adds a light grey background to block environments like
 }
 ```
 
+### `Variant tracking`
+
+Boolean to track whether we're in dark or light variant.
+
+``` latex
+\newif\ifmoloch@variant@dark
+\moloch@variant@darkfalse  % Default to light variant
+```
+
 ### `colors`
 
 Provides the option to have a dark background and light foreground
@@ -41,8 +50,16 @@ instead of the reverse.
 \pgfkeys{
   /moloch/color/background/.cd,
   .is choice,
-  dark/.code=\moloch@colors@dark,
-  light/.code=\moloch@colors@light,
+  dark/.code={%
+      \PackageWarning{beamercolorthememoloch}{%
+        Option 'background' is deprecated.\MessageBreak
+        Use 'colortheme variant=light/dark' instead
+      }%
+      \moloch@colors@dark
+    },
+  light/.code={%
+      \moloch@colors@light
+    },
 }
 ```
 
@@ -60,6 +77,10 @@ Sets default values for color theme options.
 
 ### Base Colors
 
+These are the base colors used in the default Moloch color theme. They
+are kept here mostly for backwards compatibility, and colors for the
+themes are now defined in the preset commands below.
+
 ``` latex
 \definecolor{mDarkBrown}{HTML}{604c38}
 \definecolor{mDarkTeal}{HTML}{23373b}
@@ -67,97 +88,822 @@ Sets default values for color theme options.
 \definecolor{mLightGreen}{RGB}{0,128,128}
 ```
 
-### Base Styles
-
-All colors in Moloch are derived from the definitions of `normal text`,
-`alerted text`, and `example text`.
-
-``` latex
-\setbeamercolor{alerted text}{%
-  fg=mLightBrown
-}
-\setbeamercolor{example text}{%
-  fg=mLightGreen
-}
-```
-
 ### Hooks for Color Themes
 
 Moloch color themes can register light and dark color schemes using the
 commands below. The registered colors will be stored in the macros
 `\moloch@define@light@colors` and `\moloch@define@dark@colors`
-respectively. These macros are invoked when the `background=light` or
-`background=dark` options are selected.
+respectively. These macros are invoked when the `variant=light` or
+`variant=dark` options are selected, allowing theme presets to define
+complete color schemes for both variants.
+
+### `\moloch@define@light@colors`
+
+### `\moloch@define@dark@colors`
+
+Storage macros for the light and dark color definitions. Initialized
+empty and filled by color theme presets via the registration commands.
 
 ``` latex
 \newcommand{\moloch@define@light@colors}{}
 \newcommand{\moloch@define@dark@colors}{}
+```
 
+### `\moloch@register@light@colors`
+
+Allows color theme presets to register their light variant color scheme.
+The argument should contain `\setbeamercolor` commands that define all
+necessary colors for the light variant.
+
+``` latex
 \newcommand{\moloch@register@light@colors}[1]{%
   \renewcommand{\moloch@define@light@colors}{#1}%
 }
+```
 
+### `\moloch@register@dark@colors`
+
+Allows color theme presets to register their dark variant color scheme.
+The argument should contain `\setbeamercolor` commands that define all
+necessary colors for the dark variant.
+
+``` latex
 \newcommand{\moloch@register@dark@colors}[1]{%
   \renewcommand{\moloch@define@dark@colors}{#1}%
 }
+```
 
+### `\moloch@setup@block@colors`
+
+Configures the colors for block environments to derive from normal text
+and alerted/example text colors. This is called after switching variants
+to ensure block colors stay consistent with the current color scheme.
+Block titles inherit from normal text foreground, while alerted and
+example block titles additionally use their respective text colors.
+
+``` latex
+\newcommand{\moloch@setup@block@colors}{%
+  \setbeamercolor{block title}{%
+    use=normal text,
+    fg=normal text.fg,
+    bg=
+  }%
+  \setbeamercolor{block title alerted}{%
+    use={block title, alerted text}
+  }%
+  \setbeamercolor{block title example}{%
+    use={block title, example text}
+  }%
+  \setbeamercolor{block body alerted}{use=block body, parent=block body}%
+  \setbeamercolor{block body example}{use=block body, parent=block body}%
+}
+```
+
+### `\moloch@setup@text@colors`
+
+Configures title-related colors to derive from normal text. This ensures
+that when normal text color changes (e.g., during variant switching),
+all title elements automatically adapt. Institute and thanks use a
+slightly muted version (80% mix) for visual hierarchy.
+
+``` latex
+\newcommand{\moloch@setup@text@colors}{%
+  \setbeamercolor{titlelike}{use=normal text, parent=normal text}%
+  \setbeamercolor{author}{use=normal text, parent=normal text}%
+  \setbeamercolor{date}{use=normal text, parent=normal text}%
+  \setbeamercolor{institute}{%
+    use=normal text, fg=normal text.fg!80!normal text.bg}%
+  \setbeamercolor{structure}{use=normal text, fg=normal text.fg}%
+  \setbeamercolor{thanks}{%
+    use=normal text,fg=normal text.fg!80!normal text.bg}%
+}
+```
+
+### `\moloch@setup@progressbar@parents`
+
+Updates colors that derive from the progress bar color. This includes
+the title separator (horizontal rule on title page) and progress bars in
+various locations (head, foot, section pages). Called whenever the
+progress bar foreground or background color is customized.
+
+``` latex
+\newcommand{\moloch@setup@progressbar@parents}{%
+  \setbeamercolor{progress bar in head/foot}{%
+    use=progress bar,
+    parent=progress bar
+  }%
+  \setbeamercolor{progress bar in section page}{%
+    use=progress bar,
+    parent=progress bar
+  }%
+}
+```
+
+### Variant Switching Commands
+
+### `\moloch@colors@dark`
+
+Switches to the dark variant color scheme. This command:
+
+1.  Sets the dark variant flag
+
+2.  Applies the registered dark colors from the current theme preset
+
+3.  Ensures normal text color is active
+
+4.  Updates dependent colors (blocks, text) to match
+
+5.  Applies any stored user customizations for the dark variant
+
+``` latex
 \newcommand{\moloch@colors@dark}{
+  \moloch@variant@darktrue
   \moloch@define@dark@colors
   \usebeamercolor[fg]{normal text}
+
+  \moloch@setup@block@colors
+  \moloch@setup@text@colors
+
+  % Apply stored dark variant colors
+  \moloch@apply@store@dark@colors
 }
+```
+
+### `\moloch@colors@light`
+
+Switches to the light variant color scheme. Mirrors the dark variant
+command but applies light colors instead. The sequence ensures that user
+customizations override theme defaults.
+
+``` latex
 \newcommand{\moloch@colors@light}{
+  \moloch@variant@darkfalse
   \moloch@define@light@colors
   \usebeamercolor[fg]{normal text}
-}
 
-\moloch@register@light@colors{%
-  \setbeamercolor{normal text}{%
-    fg=mDarkTeal,
-    bg=black!2
-  }%
-}
+  \moloch@setup@block@colors
+  \moloch@setup@text@colors
 
-\moloch@register@dark@colors{%
-  \setbeamercolor{normal text}{%
-    fg=black!2,
-    bg=mDarkTeal
-  }%
+  \setbeamercolor{title separator}{
+    use=progress bar,
+    parent=progress bar
+  }
+  \moloch@setup@progressbar@parents
+
+  % Apply stored light variant colors AFTER block definitions
+  \moloch@apply@store@light@colors
 }
 ```
 
-### Derived Colors
+### `\moloch@apply@current@variant`
 
-The titles and structural elements (e.g. `itemize` bullets) are set in
-the same color as `normal text`. This would ideally done by setting
-`normal text` as a parent style, which we do to set `titlelike`, but
-this doesn't work for `structure` as its foreground is set explicitly in
-`beamercolorthemedefault.sty`.
+Helper command that applies the appropriate variant based on the
+`\ifmoloch@variant@dark` boolean flag. Used during initialization and
+when switching color theme presets to ensure the correct variant is
+applied.
 
 ``` latex
-\setbeamercolor{titlelike}{use=normal text, parent=normal text}
-\setbeamercolor{author}{use=normal text, parent=normal text}
-\setbeamercolor{date}{use=normal text, parent=normal text}
-\setbeamercolor{institute}{%
-  use=normal text, fg=normal text.fg!80!normal text.bg}
-\setbeamercolor{structure}{use=normal text, fg=normal text.fg}
-\setbeamercolor{thanks}{%
-  use=normal text,fg=normal text.fg!80!normal text.bg}
+\newcommand{\moloch@apply@current@variant}{%
+  \ifmoloch@variant@dark
+    \moloch@colors@dark
+  \else
+    \moloch@colors@light
+  \fi
+}
 ```
 
-The "primary" palette should be used for the most important navigational
-elements, and possibly of other elements. Moloch uses it for frame
-titles and slides.
+### Color Customization Storage System
+
+The storage system allows users to customize individual colors while
+preserving those customizations across variant switches. Each color
+option has separate storage for light and dark variants. When a user
+sets a color, it's both applied immediately and stored. When switching
+variants, stored customizations are reapplied on top of the theme
+defaults.
+
+### `\moloch@apply@store@light@colors`
+
+Applies stored user customizations for the light variant. Checks each
+storage macro and applies it if non-empty. This is called after applying
+the theme's light colors to override with user preferences. For colors
+that affect multiple elements (like `alerted text` affecting both inline
+text and block titles), both are updated. Setup functions are called
+when needed to propagate changes to dependent colors.
 
 ``` latex
-\setbeamercolor{palette primary}{%
-  use=normal text,
-  fg=normal text.bg,
-  bg=normal text.fg
+\newcommand{\moloch@apply@store@light@colors}{%
+  \ifx\moloch@store@light@alerted@text\empty\else
+    \setbeamercolor{alerted text}{fg=\moloch@store@light@alerted@text}%
+    \setbeamercolor{block title alerted}{fg=\moloch@store@light@alerted@text}%
+  \fi
+  \ifx\moloch@store@light@example@text\empty\else
+    \setbeamercolor{example text}{fg=\moloch@store@light@example@text}%
+    \setbeamercolor{block title example}{fg=\moloch@store@light@example@text}%
+  \fi
+  \ifx\moloch@store@light@frametitle@fg\empty\else
+    \setbeamercolor{frametitle}{fg=\moloch@store@light@frametitle@fg}%
+  \fi
+  \ifx\moloch@store@light@frametitle@bg\empty\else
+    \setbeamercolor{frametitle}{bg=\moloch@store@light@frametitle@bg}%
+  \fi
+  \ifx\moloch@store@light@progressbar@fg\empty\else
+    \setbeamercolor{progress bar}{fg=\moloch@store@light@progressbar@fg}%
+    \moloch@setup@progressbar@parents
+  \fi
+  \ifx\moloch@store@light@progressbar@bg\empty\else
+    \setbeamercolor{progress bar}{bg=\moloch@store@light@progressbar@bg}%
+    \moloch@setup@progressbar@parents
+  \fi
+  \ifx\moloch@store@light@standout@fg\empty\else
+    \setbeamercolor{standout}{fg=\moloch@store@light@standout@fg}%
+  \fi
+  \ifx\moloch@store@light@standout@bg\empty\else
+    \setbeamercolor{standout}{bg=\moloch@store@light@standout@bg}%
+  \fi
+  \ifx\moloch@store@light@normal@text@fg\empty\else
+    \setbeamercolor{normal text}{fg=\moloch@store@light@normal@text@fg}%
+    \moloch@setup@text@colors
+    \moloch@setup@block@colors
+  \fi
+  \ifx\moloch@store@light@normal@text@bg\empty\else
+    \setbeamercolor{normal text}{bg=\moloch@store@light@normal@text@bg}%
+  \fi
 }
-\setbeamercolor{frametitle}{%
-  use=palette primary,
-  parent=palette primary
+```
+
+### `\moloch@apply@store@dark@colors`
+
+Applies stored user customizations for the dark variant. Mirrors the
+light variant application but for dark colors. The logic is identical:
+check each storage macro, apply if non-empty, and call setup functions
+for colors that affect dependent elements.
+
+``` latex
+\newcommand{\moloch@apply@store@dark@colors}{%
+  \ifx\moloch@store@dark@alerted@text\empty\else
+    \setbeamercolor{alerted text}{fg=\moloch@store@dark@alerted@text}%
+    \setbeamercolor{block title alerted}{fg=\moloch@store@dark@alerted@text}%
+  \fi
+  \ifx\moloch@store@dark@example@text\empty\else
+    \setbeamercolor{example text}{fg=\moloch@store@dark@example@text}%
+    \setbeamercolor{block title example}{fg=\moloch@store@dark@example@text}%
+  \fi
+  \ifx\moloch@store@dark@frametitle@fg\empty\else
+    \setbeamercolor{frametitle}{fg=\moloch@store@dark@frametitle@fg}%
+  \fi
+  \ifx\moloch@store@dark@frametitle@bg\empty\else
+    \setbeamercolor{frametitle}{bg=\moloch@store@dark@frametitle@bg}%
+  \fi
+  \ifx\moloch@store@dark@progressbar@fg\empty\else
+    \setbeamercolor{progress bar}{fg=\moloch@store@dark@progressbar@fg}%
+    \moloch@setup@progressbar@parents
+  \fi
+  \ifx\moloch@store@dark@progressbar@bg\empty\else
+    \setbeamercolor{progress bar}{bg=\moloch@store@dark@progressbar@bg}%
+    \moloch@setup@progressbar@parents
+  \fi
+  \ifx\moloch@store@dark@standout@fg\empty\else
+    \setbeamercolor{standout}{fg=\moloch@store@dark@standout@fg}%
+  \fi
+  \ifx\moloch@store@dark@standout@bg\empty\else
+    \setbeamercolor{standout}{bg=\moloch@store@dark@standout@bg}%
+  \fi
+  \ifx\moloch@store@dark@normal@text@fg\empty\else
+    \setbeamercolor{normal text}{fg=\moloch@store@dark@normal@text@fg}%
+    \moloch@setup@text@colors
+    \moloch@setup@block@colors
+  \fi
+  \ifx\moloch@store@dark@normal@text@bg\empty\else
+    \setbeamercolor{normal text}{bg=\moloch@store@dark@normal@text@bg}%
+  \fi
 }
+```
+
+### Color Theme Presets
+
+These commands define complete color schemes that can be switched
+between. Each preset registers both light and dark variants.
+
+### `\moloch@colortheme@default`
+
+The default moloch color scheme.
+
+``` latex
+\newcommand{\moloch@colortheme@default}{%
+  % Colors already defined above as base colors
+
+  % Register light variant
+  \moloch@register@light@colors{%
+    \setbeamercolor{normal text}{fg=mDarkTeal, bg=black!2}%
+    \setbeamercolor{frametitle}{fg=black!2, bg=mDarkTeal}%
+    \setbeamercolor{palette primary}{fg=black!2, bg=mDarkTeal}%
+    \setbeamercolor{thanks}{fg=mDarkTeal!80!black!2}%
+    \setbeamercolor{alerted text}{fg=mLightBrown}%
+    \setbeamercolor{example text}{fg=mLightGreen}%
+    \setbeamercolor{progress bar}{fg=mLightBrown, bg=mLightBrown!50!black!30}%
+    \setbeamercolor{title separator}{fg=mLightBrown, bg=mLightBrown!50!black!30}%
+    \setbeamercolor{footnote}{fg=mDarkTeal!90}%
+    \setbeamercolor{footnote mark}{fg=.}%
+    \setbeamercolor{standout}{%
+      use=normal text,
+      fg=normal text.bg,
+      bg=normal text.fg
+    }
+  }%
+
+  % Register dark variant - use brighter colors for better contrast
+  \moloch@register@dark@colors{%
+    \setbeamercolor{normal text}{fg=black!2, bg=mDarkTeal}%
+    \setbeamercolor{frametitle}{fg=mDarkTeal, bg=black!2}%
+    \setbeamercolor{palette primary}{fg=mDarkTeal, bg=black!2}%
+    \setbeamercolor{alerted text}{fg=orange!60!white}%
+    \setbeamercolor{example text}{fg=mLightGreen!70!white,bg=}%
+    \setbeamercolor{progress bar}{fg=orange!90!white, bg=orange!50!black!30}%
+    \setbeamercolor{title separator}{fg=orange!90!white, bg=orange!50!black!30}%
+    \setbeamercolor{footnote}{fg=black!2!90}%
+    \setbeamercolor{footnote mark}{fg=.}%
+    \setbeamercolor{standout}{%
+      use=normal text,
+      fg=normal text.bg,
+      bg=normal text.fg
+    }
+  }%
+
+  % Apply current variant after registering both
+  \moloch@apply@current@variant
+}
+```
+
+### `\moloch@colortheme@tomorrow`
+
+The Tomorrow color scheme by Chris Kempson.
+
+``` latex
+\newcommand{\moloch@colortheme@tomorrow}{%
+  % Define tomorrow colors
+  \definecolor{tomorrowForeground}{HTML}{1d1f21}%
+  \definecolor{tomorrowBackground}{RGB}{255,255,255}%
+  \definecolor{tomorrowHeader}{HTML}{1d1f21}%
+  \definecolor{tomorrowAlert}{HTML}{cc6666}%
+  \definecolor{tomorrowExample}{HTML}{4271ae}%
+  \definecolor{tomorrowProgress}{HTML}{8959a8}%
+
+  % Register light variant
+  \moloch@register@light@colors{%
+    \setbeamercolor{normal text}{fg=tomorrowForeground, bg=tomorrowBackground}%
+    \setbeamercolor{frametitle}{fg=tomorrowBackground, bg=tomorrowHeader}%
+    \setbeamercolor{palette primary}{fg=tomorrowBackground, bg=tomorrowForeground}%
+    \setbeamercolor{alerted text}{fg=tomorrowAlert}%
+    \setbeamercolor{example text}{fg=tomorrowExample}%
+    \setbeamercolor{progress bar}{fg=tomorrowProgress, bg=tomorrowProgress!50!black!30}%
+    \setbeamercolor{title separator}{fg=tomorrowProgress, bg=tomorrowProgress!50!black!30}%
+    \setbeamercolor{footnote}{fg=tomorrowForeground!90}%
+    \setbeamercolor{footnote mark}{fg=.}%
+    \setbeamercolor{standout}{%
+      use=normal text,
+      fg=normal text.bg,
+      bg=normal text.fg
+    }
+  }%
+
+  % Register dark variant
+  \moloch@register@dark@colors{%
+    \setbeamercolor{normal text}{fg=tomorrowBackground, bg=tomorrowForeground}%
+    \setbeamercolor{frametitle}{fg=tomorrowForeground, bg=tomorrowBackground}%
+    \setbeamercolor{palette primary}{fg=tomorrowForeground, bg=tomorrowBackground}%
+    \setbeamercolor{alerted text}{fg=tomorrowAlert}%
+    \setbeamercolor{example text}{fg=tomorrowExample}%
+    \setbeamercolor{progress bar}{fg=tomorrowProgress, bg=tomorrowProgress!50!black!30}%
+    \setbeamercolor{title separator}{fg=tomorrowProgress, bg=tomorrowProgress!50!black!30}%
+    \setbeamercolor{footnote}{fg=tomorrowBackground!90}%
+    \setbeamercolor{footnote mark}{fg=.}%
+    \setbeamercolor{standout}{%
+      use=normal text,
+      fg=normal text.bg,
+      bg=normal text.fg
+    }
+  }%
+
+  % Apply current variant after registering both
+  \moloch@apply@current@variant
+}
+```
+
+### `\moloch@colortheme@paper`
+
+A crisp and clean color scheme with white frametitle background and high
+contrast.
+
+``` latex
+\newcommand{\moloch@colortheme@paper}{%
+  \definecolor{mAlert}{HTML}{FF0039}%
+  \definecolor{mExample}{HTML}{287BB5}%
+  \definecolor{mProgressbarLight}{HTML}{EEBA61}
+  \definecolor{mTitleseparatorLight}{HTML}{287BB5}
+
+  \moloch@register@light@colors{%
+    \setbeamercolor{normal text}{fg=black, bg=white}%
+    \setbeamercolor{frametitle}{fg=black, bg=white}%
+    \setbeamercolor{palette primary}{fg=white, bg=black}%
+    \setbeamercolor{alerted text}{fg=mAlert}%
+    \setbeamercolor{example text}{fg=mExample}%
+    \setbeamercolor{progress bar}{fg=mProgressbarLight, bg=black!20}%
+    \setbeamercolor{title separator}{fg=mTitleseparatorLight}%
+    \setbeamercolor{footnote}{fg=black!90}%
+    \setbeamercolor{footnote mark}{fg=.}%
+    \setbeamercolor{standout}{%
+      fg=white,
+      bg=black!60,
+    }
+  }%
+
+  \moloch@register@dark@colors{%
+    \setbeamercolor{normal text}{fg=white, bg=black}%
+    \setbeamercolor{frametitle}{fg=black, bg=white}%
+    \setbeamercolor{palette primary}{fg=black, bg=white}%
+    \setbeamercolor{alerted text}{fg=mAlert}%
+    \setbeamercolor{example text}{fg=mExample,bg=green}%
+    \setbeamercolor{progress bar}{fg=mAlert, bg=mAlert!50!black!30}%
+    \setbeamercolor{title separator}{fg=mAlert, bg=mAlert!50!black!30}%
+    \setbeamercolor{footnote}{fg=white!90}%
+    \setbeamercolor{footnote mark}{fg=.}%
+    \setbeamercolor{standout}{%
+      use=normal text,
+      fg=normal text.bg,
+      bg=normal text.fg
+    }
+  }%
+
+  % Apply current variant after registering both
+  \moloch@apply@current@variant
+}
+```
+
+### `\moloch@colortheme@highcontrast`
+
+High contrast color scheme for better accessibility.
+
+``` latex
+\newcommand{\moloch@colortheme@highcontrast}{%
+  % Define high contrast colors
+  \definecolor{mAlert}{HTML}{AD003D}%
+  \definecolor{mExample}{HTML}{005580}%
+
+  % Register light variant
+  \moloch@register@light@colors{%
+    \setbeamercolor{normal text}{fg=black, bg=white}%
+    \setbeamercolor{frametitle}{fg=white, bg=black}%
+    \setbeamercolor{palette primary}{fg=white, bg=black}%
+    \setbeamercolor{alerted text}{fg=mAlert}%
+    \setbeamercolor{example text}{fg=mExample}%
+    \setbeamercolor{progress bar}{fg=mAlert, bg=mAlert!50!black!30}%
+    \setbeamercolor{title separator}{fg=mAlert, bg=mAlert!50!black!30}%
+    \setbeamercolor{footnote}{fg=black!90}%
+    \setbeamercolor{footnote mark}{fg=.}%
+    \setbeamercolor{standout}{%
+      use=normal text,
+      fg=normal text.bg,
+      bg=normal text.fg
+    }
+  }%
+
+  % Register dark variant
+  \moloch@register@dark@colors{%
+    \setbeamercolor{normal text}{fg=white, bg=black}%
+    \setbeamercolor{frametitle}{fg=black, bg=white}%
+    \setbeamercolor{palette primary}{fg=black, bg=white}%
+    \setbeamercolor{alerted text}{fg=mAlert}%
+    \setbeamercolor{example text}{fg=mExample,bg=green}%
+    \setbeamercolor{progress bar}{fg=mAlert, bg=mAlert!50!black!30}%
+    \setbeamercolor{title separator}{fg=mAlert, bg=mAlert!50!black!30}%
+    \setbeamercolor{footnote}{fg=white!90}%
+    \setbeamercolor{footnote mark}{fg=.}%
+    \setbeamercolor{standout}{%
+      use=normal text,
+      fg=normal text.bg,
+      bg=normal text.fg
+    }
+  }%
+
+  % Apply current variant after registering both
+  \moloch@apply@current@variant
+}
+```
+
+### New Color System
+
+The color system provides a unified interface for theme selection,
+variant switching, and granular color customization. It uses pgfkeys to
+organize options into a `/moloch/colors/` namespace.
+
+The system supports three layers of customization:
+
+1.  Theme presets (default, tomorrow, highcontrast)
+
+2.  Variant switching (light/dark)
+
+3.  Per-variant color overrides for individual elements
+
+All customizations are preserved when switching between variants,
+allowing users to set up colors once and then freely toggle between
+light and dark modes without losing their customizations.
+
+### `Color theme and variant options`
+
+The main pgfkeys tree defines theme selection, variant switching, and
+the storage system for user customizations. Storage keys are defined
+first to declare the macros, then initialized to empty, and finally the
+actual color setting commands reference these storage macros.
+
+The storage system uses a convention: for each customizable color, there
+are separate storage macros for light and dark variants named
+`\moloch@store@<variant>@<color>@<property>`. For example:
+`\moloch@store@light@progressbar@fg` stores the light variant's progress
+bar foreground color.
+
+``` latex
+\pgfkeys{
+  /moloch/colors/.cd,
+  theme/.is choice,
+  theme/default/.code=\moloch@colortheme@default,
+  theme/tomorrow/.code=\moloch@colortheme@tomorrow,
+  theme/highcontrast/.code=\moloch@colortheme@highcontrast,
+  theme/paper/.code=\moloch@colortheme@paper,
+  variant/.is choice,
+  variant/light/.code={%
+      \moloch@variant@darkfalse
+      \moloch@colors@light
+    },
+  variant/dark/.code={%
+      \moloch@variant@darktrue
+      \moloch@colors@dark
+    },
+  % Storage keys - store in macros
+  % These define the storage macros that will hold user customizations
+  store/light/alerted text/.store in=\moloch@store@light@alerted@text,
+  store/dark/alerted text/.store in=\moloch@store@dark@alerted@text,
+  store/light/frametitle fg/.store in=\moloch@store@light@frametitle@fg,
+  store/dark/frametitle fg/.store in=\moloch@store@dark@frametitle@fg,
+  store/light/frametitle bg/.store in=\moloch@store@light@frametitle@bg,
+  store/dark/frametitle bg/.store in=\moloch@store@dark@frametitle@bg,
+  store/light/example text/.store in=\moloch@store@light@example@text,
+  store/dark/example text/.store in=\moloch@store@dark@example@text,
+  store/light/progressbar fg/.store in=\moloch@store@light@progressbar@fg,
+  store/dark/progressbar fg/.store in=\moloch@store@dark@progressbar@fg,
+  store/light/progressbar bg/.store in=\moloch@store@light@progressbar@bg,
+  store/dark/progressbar bg/.store in=\moloch@store@dark@progressbar@bg,
+  store/light/standout fg/.store in=\moloch@store@light@standout@fg,
+  store/dark/standout fg/.store in=\moloch@store@dark@standout@fg,
+  store/light/standout bg/.store in=\moloch@store@light@standout@bg,
+  store/dark/standout bg/.store in=\moloch@store@dark@standout@bg,
+  store/light/normal text fg/.store in=\moloch@store@light@normal@text@fg,
+  store/dark/normal text fg/.store in=\moloch@store@dark@normal@text@fg,
+  store/light/normal text bg/.store in=\moloch@store@light@normal@text@bg,
+  store/dark/normal text bg/.store in=\moloch@store@dark@normal@text@bg,
+  % Initialize storage macros as empty
+  % This prevents errors when checking if macros are set
+  store/light/alerted text=,
+  store/dark/alerted text=,
+  store/light/frametitle fg=,
+  store/dark/frametitle fg=,
+  store/light/frametitle bg=,
+  store/dark/frametitle bg=,
+  store/light/example text=,
+  store/dark/example text=,
+  store/light/progressbar fg=,
+  store/dark/progressbar fg=,
+  store/light/progressbar bg=,
+  store/dark/progressbar bg=,
+  store/light/standout fg=,
+  store/dark/standout fg=,
+  store/light/standout bg=,
+  store/dark/standout bg=,
+  store/light/normal text fg=,
+  store/dark/normal text fg=,
+  store/light/normal text bg=,
+  store/dark/normal text bg=,
+  % Color setting commands
+  % Each color has three variants:
+  % 1. Variant-agnostic: sets current variant + stores for current
+  % 2. light/<color>: sets if in light mode, always stores for light
+  % 3. dark/<color>: sets if in dark mode, always stores for dark
+  progressbar fg/.code={%
+      \setbeamercolor{progress bar}{fg=#1}%
+      \moloch@setup@progressbar@parents
+      \ifmoloch@variant@dark
+        \pgfkeys{/moloch/colors/store/dark/progressbar fg=#1}%
+      \else
+        \pgfkeys{/moloch/colors/store/light/progressbar fg=#1}%
+      \fi
+    },
+  light/progressbar fg/.code={%
+      \pgfkeys{/moloch/colors/store/light/progressbar fg=#1}%
+      \ifmoloch@variant@dark\else
+        \setbeamercolor{progress bar}{fg=#1}%
+        \moloch@setup@progressbar@parents
+      \fi
+    },
+  dark/progressbar fg/.code={%
+      \pgfkeys{/moloch/colors/store/dark/progressbar fg=#1}%
+      \ifmoloch@variant@dark
+        \setbeamercolor{progress bar}{fg=#1}%
+        \moloch@setup@progressbar@parents
+      \fi
+    },
+  progressbar bg/.code={%
+      \setbeamercolor{progress bar}{bg=#1}%
+      \moloch@setup@progressbar@parents
+      \ifmoloch@variant@dark
+        \pgfkeys{/moloch/colors/store/dark/progressbar bg=#1}%
+      \else
+        \pgfkeys{/moloch/colors/store/light/progressbar bg=#1}%
+      \fi
+    },
+  light/progressbar bg/.code={%
+      \pgfkeys{/moloch/colors/store/light/progressbar bg=#1}%
+      \ifmoloch@variant@dark\else
+        \setbeamercolor{progress bar}{bg=#1}%
+        \moloch@setup@progressbar@parents
+      \fi
+    },
+  dark/progressbar bg/.code={%
+      \pgfkeys{/moloch/colors/store/dark/progressbar bg=#1}%
+      \ifmoloch@variant@dark
+        \setbeamercolor{progress bar}{bg=#1}%
+        \moloch@setup@progressbar@parents
+      \fi
+    },
+  normal text fg/.code={%
+      \setbeamercolor{normal text}{fg=#1}%
+      \moloch@setup@text@colors
+      \moloch@setup@block@colors
+      \ifmoloch@variant@dark
+        \pgfkeys{/moloch/colors/store/dark/normal text fg=#1}%
+      \else
+        \pgfkeys{/moloch/colors/store/light/normal text fg=#1}%
+      \fi
+    },
+  light/normal text fg/.code={%
+      \pgfkeys{/moloch/colors/store/light/normal text fg=#1}%
+      \ifmoloch@variant@dark\else
+        \setbeamercolor{normal text}{fg=#1}%
+        \moloch@setup@text@colors
+        \moloch@setup@block@colors
+      \fi
+    },
+  dark/normal text fg/.code={%
+      \pgfkeys{/moloch/colors/store/dark/normal text fg=#1}%
+      \ifmoloch@variant@dark
+        \setbeamercolor{normal text}{fg=#1}%
+        \moloch@setup@text@colors
+        \moloch@setup@block@colors
+      \fi
+    },
+  normal text bg/.code={%
+      \setbeamercolor{normal text}{bg=#1}%
+      \ifmoloch@variant@dark
+        \pgfkeys{/moloch/colors/store/dark/normal text bg=#1}%
+      \else
+        \pgfkeys{/moloch/colors/store/light/normal text bg=#1}%
+      \fi
+    },
+  light/normal text bg/.code={%
+      \pgfkeys{/moloch/colors/store/light/normal text bg=#1}%
+      \ifmoloch@variant@dark\else
+        \setbeamercolor{normal text}{bg=#1}%
+      \fi
+    },
+  dark/normal text bg/.code={%
+      \pgfkeys{/moloch/colors/store/dark/normal text bg=#1}%
+      \ifmoloch@variant@dark
+        \setbeamercolor{normal text}{bg=#1}%
+      \fi
+    },
+  alerted text/.code={%
+      \setbeamercolor{alerted text}{fg=#1}%
+      \setbeamercolor{block title alerted}{fg=#1}%
+      \ifmoloch@variant@dark
+        \pgfkeys{/moloch/colors/store/dark/alerted text=#1}%
+      \else
+        \pgfkeys{/moloch/colors/store/light/alerted text=#1}%
+      \fi
+    },
+  light/alerted text/.code={%
+      \pgfkeys{/moloch/colors/store/light/alerted text=#1}%
+      \ifmoloch@variant@dark\else
+        \setbeamercolor{alerted text}{fg=#1}%
+        \setbeamercolor{block title alerted}{fg=#1}%
+      \fi
+    },
+  dark/alerted text/.code={%
+      \pgfkeys{/moloch/colors/store/dark/alerted text=#1}%
+      \ifmoloch@variant@dark
+        \setbeamercolor{alerted text}{fg=#1}%
+        \setbeamercolor{block title alerted}{fg=#1}%
+      \fi
+    },
+  example text/.code={%
+      \setbeamercolor{example text}{fg=#1}%
+      \setbeamercolor{block title example}{fg=#1}%
+      \ifmoloch@variant@dark
+        \pgfkeys{/moloch/colors/store/dark/example text=#1}%
+      \else
+        \pgfkeys{/moloch/colors/store/light/example text=#1}%
+      \fi
+    },
+  light/example text/.code={%
+      \pgfkeys{/moloch/colors/store/light/example text=#1}%
+      \ifmoloch@variant@dark\else
+        \setbeamercolor{example text}{fg=#1}%
+        \setbeamercolor{block title example}{fg=#1}%
+      \fi
+    },
+  dark/example text/.code={%
+      \pgfkeys{/moloch/colors/store/dark/example text=#1}%
+      \ifmoloch@variant@dark
+        \setbeamercolor{example text}{fg=#1}%
+        \setbeamercolor{block title example}{fg=#1}%
+      \fi
+    },
+  frametitle fg/.code={%
+      \setbeamercolor{frametitle}{fg=#1}%
+      \ifmoloch@variant@dark
+        \pgfkeys{/moloch/colors/store/dark/frametitle fg=#1}%
+      \else
+        \pgfkeys{/moloch/colors/store/light/frametitle fg=#1}%
+      \fi
+    },
+  frametitle bg/.code={%
+      \setbeamercolor{frametitle}{bg=#1}%
+      \ifmoloch@variant@dark
+        \pgfkeys{/moloch/colors/store/dark/frametitle bg=#1}%
+      \else
+        \pgfkeys{/moloch/colors/store/light/frametitle bg=#1}%
+      \fi
+    },
+  light/frametitle fg/.code={%
+      \pgfkeys{/moloch/colors/store/light/frametitle fg=#1}%
+      \ifmoloch@variant@dark\else
+        \setbeamercolor{frametitle}{fg=#1}%
+      \fi
+    },
+  dark/frametitle fg/.code={%
+      \pgfkeys{/moloch/colors/store/dark/frametitle fg=#1}%
+      \ifmoloch@variant@dark
+        \setbeamercolor{frametitle}{fg=#1}%
+      \fi
+    },
+  light/frametitle bg/.code={%
+      \pgfkeys{/moloch/colors/store/light/frametitle bg=#1}%
+      \ifmoloch@variant@dark\else
+        \setbeamercolor{frametitle}{bg=#1}%
+      \fi
+    },
+  dark/frametitle bg/.code={%
+      \pgfkeys{/moloch/colors/store/dark/frametitle bg=#1}%
+      \ifmoloch@variant@dark
+        \setbeamercolor{frametitle}{bg=#1}%
+      \fi
+    },
+  standout fg/.code={%
+      \setbeamercolor{standout}{fg=#1}%
+    },
+  light/standout fg/.code={%
+      \pgfkeys{/moloch/colors/store/light/standout fg=#1}%
+      \ifmoloch@variant@dark\else
+        \setbeamercolor{standout}{fg=#1}%
+      \fi
+    },
+  dark/standout fg/.code={%
+      \pgfkeys{/moloch/colors/store/dark/standout fg=#1}%
+      \ifmoloch@variant@dark
+        \setbeamercolor{standout}{fg=#1}%
+      \fi
+    },
+  standout bg/.code={%
+      \setbeamercolor{standout}{bg=#1}%
+    },
+  light/standout bg/.code={%
+      \pgfkeys{/moloch/colors/store/light/standout bg=#1}%
+      \ifmoloch@variant@dark\else
+        \setbeamercolor{standout}{bg=#1}%
+      \fi
+    },
+  dark/standout bg/.code={%
+      \pgfkeys{/moloch/colors/store/dark/standout bg=#1}%
+      \ifmoloch@variant@dark
+        \setbeamercolor{standout}{bg=#1}%
+      \fi
+    },
+}
+```
+
+### `\molochcolors`
+
+User-facing command for color customization.
+
+``` latex
+\newcommand{\molochcolors}[1]{\pgfkeys{/moloch/colors/.cd,#1}}
 ```
 
 The Moloch inner or outer themes optionally display progress bars in
@@ -193,55 +939,8 @@ on the background and foreground of `normal text`. The option
 background, which can be useful if changing colors mid-presentation.
 
 ``` latex
-\newcommand{\moloch@block@transparent}{
-  \setbeamercolor{block title}{bg=}
-  \setbeamercolor{block body}{bg=}
-  \setbeamercolor{block title alerted}{bg=}
-  \setbeamercolor{block title example}{bg=}
-}
-\newcommand{\moloch@block@fill}{
-  \setbeamercolor{block title}{%
-    bg=normal text.bg!80!fg
-  }
-  \setbeamercolor{block body}{%
-    use=block title,
-    bg=block title.bg!50!normal text.bg
-  }
-  \setbeamercolor{block title alerted}{%
-    bg=block title.bg,
-  }
-  \setbeamercolor{block title example}{%
-    bg=block title.bg,
-  }
-}
-\setbeamercolor{block title}{%
-  use=normal text,
-  fg=normal text.fg
-}
-\setbeamercolor{block title alerted}{%
-  use={block title, alerted text},
-  fg=alerted text.fg
-}
-\setbeamercolor{block title example}{%
-  use={block title, example text},
-  fg=example text.fg
-}
-\setbeamercolor{block body alerted}{use=block body, parent=block body}
-\setbeamercolor{block body example}{use=block body, parent=block body}
-```
 
-Footnotes
-
-``` latex
-\setbeamercolor{footnote}{fg=normal text.fg!90}
-\setbeamercolor{footnote mark}{fg=.}
-```
-
-We also reset the bibliography colors in order to pick up the
-surrounding colors at the time of use. This prevents us having to set
-the correct color in normal and standout mode.
-
-``` latex
+\begin{verbatim}
 \setbeamercolor{bibliography entry author}{fg=, bg=}
 \setbeamercolor{bibliography entry title}{fg=, bg=}
 \setbeamercolor{bibliography entry location}{fg=, bg=}
@@ -251,6 +950,7 @@ the correct color in normal and standout mode.
 ### Process Package Options
 
 ``` latex
+\moloch@colortheme@default
 \moloch@color@setdefaults
 \ProcessPgfPackageOptions{/moloch/color}
 ```

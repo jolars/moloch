@@ -30,8 +30,18 @@ Most options are passed off to the component sub-packages.
       /moloch/inner,
       /moloch/outer,
       /moloch/color,
+      /moloch/colors,
       /moloch/font,
     }
+}
+```
+
+Route color theme options to the new color system.
+
+``` latex
+\pgfkeys{/moloch/.cd,
+  colortheme/.code=\pgfkeysalso{/moloch/colors/theme=#1},
+  colorthemevariant/.code=\pgfkeysalso{/moloch/colors/variant=#1},
 }
 ```
 

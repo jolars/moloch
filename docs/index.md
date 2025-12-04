@@ -1,5 +1,7 @@
 ---
-toc: false
+format:
+  html:
+    toc: false
 ---
 
 ![](images/og.jpg){fig.alt="The Maschinenmensch is projecting the Moloch logo

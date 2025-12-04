@@ -13,7 +13,6 @@ title: "Font Theme"
 The Moloch font theme defines the fonts used throughout the
 presentation.
 
-
 ## Package Dependencies
 
 ``` latex
