@@ -358,6 +358,25 @@ book.
 
 ![Example of the Paper color theme.](./images/example-colortheme-paper-dark.png){.lightbox}
 
+#### The Catppuccin Theme
+
+A theme based on the popular
+[Catppuccin color palette](https://catppuccin.com/). The themes are based on the
+Latte (light) and Macchiato (dark) variants. The Cattpuccin theme provides a
+soft color theme with pastel colors and not a lot of contrast, and might
+therefore work best for online presentations unless you have a good projector
+and favorable conditions.
+
+```latex
+\usetheme[colortheme=catppuccin]{moloch}
+% Or equivalently:
+% \molochcolors{theme=catppuccin}
+```
+
+![Example of the light version of the Catppuccin color theme.](./images/example-colortheme-catppuccin-light.png){.lightbox}
+
+![Example of the dark version of the Catppuccin color theme.](./images/example-colortheme-catppuccin-dark.png){.lightbox}
+
 ### Color Customization
 
 The included Moloch color theme is used by default, but its colors can be easily
