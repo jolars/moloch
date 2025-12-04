@@ -2,7 +2,7 @@
 
 \usepackage[T1]{fontenc}
 
-\usetheme{moloch}
+\usetheme[colortheme=paper,colortheme variant=dark]{moloch}
 
 \setbeamertemplate{page number in head/foot}[appendixframenumber]
 \setbeamertemplate{section in toc}[sections numbered]
@@ -77,6 +77,10 @@
   \begin{alertblock}{Potential Problems}
     Be aware that not every font supports small caps. If you use the Computer (or Latin) Modern Sans Serif font, for instance, text in small caps will just be typeset in a normal font.
   \end{alertblock}
+
+  \begin{exampleblock}{Potential Problems}
+    Be aware that not every font supports small caps. If you use the Computer (or Latin) Modern Sans Serif font, for instance, text in small caps will just be typeset in a normal font.
+  \end{exampleblock}
 \end{frame}
 }
 
@@ -117,6 +121,8 @@
 }
 
 \section{Elements}
+
+\section{Blocks}
 
 \begin{frame}[fragile]
   \frametitle{Typography}
@@ -290,7 +296,7 @@
   to enable progress bars below the frame title and set its width to 1pt.
 \end{frame}
 
-\molochset{progressbar=frametitle,progressbar linewidth=1pt}
+\molochset{progressbar=frametitle}
 
 \begin{frame}[c,fragile]
   \frametitle{The Title Page}

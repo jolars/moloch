@@ -218,8 +218,8 @@ and bottom margins, and `1.6ex` for the left and right margins.
 
 ## Color Theme
 
-Moloch provides extensive color customization options, from choosing preset color
-themes to fine-tuning individual colors for light and dark variants.
+Moloch provides extensive color customization options, from choosing preset
+color themes to fine-tuning individual colors for light and dark variants.
 
 ### Color Options
 
@@ -303,9 +303,8 @@ Moloch includes several preset color themes. You can select a theme using the
 
 #### Default Theme
 
-The default color theme is almost exactly the same as in the original Metropolis
-theme, except we have modified the green color for the example blocks to be a
-bit less saturated.
+The default color theme is based on the original Metropolis theme, except we
+have modified the green color for the example blocks to be a bit less saturated.
 
 ```latex
 \usetheme[colortheme=default]{moloch}
@@ -313,7 +312,9 @@ bit less saturated.
 % \molochcolors{theme=default}
 ```
 
-![Example of the default Moloch color theme.](./images/example-colortheme-default.png){.lightbox}
+![Example of the default Moloch color theme.](./images/example-colortheme-default-light.png){.lightbox}
+
+![Example of the dark version of the default Moloch color theme.](./images/example-colortheme-default-dark.png){.lightbox}
 
 #### The High Contrast Theme
 
@@ -326,12 +327,16 @@ color theme:
 % \molochcolors{theme=highcontrast}
 ```
 
-![Example of the high contrast color theme.](./images/example-colortheme-highcontrast.png){.lightbox}
+![Example of the light version of the high contrast color theme.](./images/example-colortheme-highcontrast-light.png){.lightbox}
+
+The dark version of the High Contrast theme uses white text on a black.
+
+![Example of the dark version of the high contrast color theme.](./images/example-colortheme-highcontrast-dark.png){.lightbox}
 
 #### The Tomorrow Theme
 
-There is also a theme based on the [Tomorrow color
-theme](https://github.com/chriskempson/tomorrow-theme):
+There is also a theme based on the
+[Tomorrow color theme](https://github.com/chriskempson/tomorrow-theme):
 
 ```latex
 \usetheme[colortheme=tomorrow]{moloch}
@@ -339,7 +344,19 @@ theme](https://github.com/chriskempson/tomorrow-theme):
 % \molochcolors{theme=tomorrow}
 ```
 
-![Example of the Tomorrow color theme.](./images/example-colortheme-tomorrow.png){.lightbox}
+![Example of the light version of the Tomorrow color theme.](./images/example-colortheme-tomorrow-light.png){.lightbox}
+
+![Example of the dark version of the Tomorrow color theme.](./images/example-colortheme-tomorrow-dark.png){.lightbox}
+
+#### The Paper Theme
+
+A minimalistic theme with black text on white background, no frame title
+background. The colors uses are based on Stephen Few's _Show Me the Numbers_
+book.
+
+![Example of the Paper color theme.](./images/example-colortheme-paper-light.png){.lightbox}
+
+![Example of the Paper color theme.](./images/example-colortheme-paper-dark.png){.lightbox}
 
 ### Color Customization
 
@@ -388,14 +405,16 @@ The basic syntax is:
 
 Before customizing individual colors, you can select a theme preset and variant:
 
-::: {.describe-option option-name="theme" values="default, tomorrow, highcontrast" default="default"}
+::: {.describe-option option-name="theme" values="default, tomorrow,
+highcontrast" default="default"}
 
 Selects a color theme preset. Each preset defines complete color schemes for
 both light and dark variants.
 
 :::
 
-::: {.describe-option option-name="variant" values="light, dark" default="light"}
+::: {.describe-option option-name="variant" values="light, dark"
+default="light"}
 
 Switches between light and dark variants of the current theme. Color
 customizations are preserved when switching variants, so you can set up colors
@@ -430,8 +449,8 @@ once and freely toggle between light and dark modes.
 
 #### Customizable Colors
 
-You can customize individual colors using the following keys. Each key has
-three variants:
+You can customize individual colors using the following keys. Each key has three
+variants:
 
 - **Variant-agnostic** (e.g., `normal text fg`): Sets the color for the current
   variant and stores it for that variant
@@ -442,21 +461,24 @@ three variants:
   variant (applies immediately if in dark mode, otherwise stored for when you
   switch to dark)
 
-::: {.describe-key key-name="alerted text" type="<color>" default="theme-dependent"}
+::: {.describe-key key-name="alerted text" type="<color>"
+default="theme-dependent"}
 
 Sets the foreground color for alerted text (e.g., `\alert{text}`) and alerted
 block titles. This affects both inline alerted text and `alertblock` titles.
 
 :::
 
-::: {.describe-key key-name="example text" type="<color>" default="theme-dependent"}
+::: {.describe-key key-name="example text" type="<color>"
+default="theme-dependent"}
 
 Sets the foreground color for example text and example block titles. This
 affects both inline example text and `exampleblock` titles.
 
 :::
 
-::: {.describe-key key-name="normal text fg" type="<color>" default="theme-dependent"}
+::: {.describe-key key-name="normal text fg" type="<color>"
+default="theme-dependent"}
 
 Sets the foreground color for normal text. Changing this automatically updates
 title elements, author, date, and other text colors that derive from normal
@@ -464,25 +486,29 @@ text.
 
 :::
 
-::: {.describe-key key-name="normal text bg" type="<color>" default="theme-dependent"}
+::: {.describe-key key-name="normal text bg" type="<color>"
+default="theme-dependent"}
 
 Sets the background color for normal text.
 
 :::
 
-::: {.describe-key key-name="frametitle fg" type="<color>" default="theme-dependent"}
+::: {.describe-key key-name="frametitle fg" type="<color>"
+default="theme-dependent"}
 
 Sets the foreground color for frame titles.
 
 :::
 
-::: {.describe-key key-name="frametitle bg" type="<color>" default="theme-dependent"}
+::: {.describe-key key-name="frametitle bg" type="<color>"
+default="theme-dependent"}
 
 Sets the background color for frame titles.
 
 :::
 
-::: {.describe-key key-name="progressbar fg" type="<color>" default="theme-dependent"}
+::: {.describe-key key-name="progressbar fg" type="<color>"
+default="theme-dependent"}
 
 Sets the foreground color for progress bars. This affects progress bars in all
 locations (head, foot, frame title, section pages) and the title separator on
@@ -490,20 +516,23 @@ the title page.
 
 :::
 
-::: {.describe-key key-name="progressbar bg" type="<color>" default="theme-dependent"}
+::: {.describe-key key-name="progressbar bg" type="<color>"
+default="theme-dependent"}
 
 Sets the background color for progress bars.
 
 :::
 
-::: {.describe-key key-name="standout fg" type="<color>" default="theme-dependent"}
+::: {.describe-key key-name="standout fg" type="<color>"
+default="theme-dependent"}
 
 Sets the foreground color for standout frames (created with
 `\begin{frame}[standout]`).
 
 :::
 
-::: {.describe-key key-name="standout bg" type="<color>" default="theme-dependent"}
+::: {.describe-key key-name="standout bg" type="<color>"
+default="theme-dependent"}
 
 Sets the background color for standout frames.
 

@@ -488,6 +488,56 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\moloch@colortheme@paper}
+%    A crisp and clean color scheme with white frametitle
+%    background and high contrast.
+%
+%    \begin{macrocode}
+\newcommand{\moloch@colortheme@paper}{%
+  \definecolor{mAlertLight}{HTML}{E5276F}%
+  \definecolor{mExampleLight}{HTML}{265DAB}%
+  \definecolor{mProgressbarLight}{HTML}{60BD68}
+  \definecolor{mTitleseparatorLight}{HTML}{F15854}
+
+  \moloch@register@light@colors{%
+    \setbeamercolor{normal text}{fg=black, bg=white}%
+    \setbeamercolor{frametitle}{fg=black, bg=white}%
+    \setbeamercolor{palette primary}{fg=white, bg=black}%
+    \setbeamercolor{alerted text}{fg=mAlertLight}%
+    \setbeamercolor{example text}{fg=mExampleLight}%
+    \setbeamercolor{progress bar}{fg=mProgressbarLight, bg=black!20}%
+    \setbeamercolor{title separator}{fg=mTitleseparatorLight}%
+    \setbeamercolor{footnote}{fg=black!90}%
+    \setbeamercolor{footnote mark}{fg=.}%
+    \setbeamercolor{standout}{fg=white, bg=black!60}
+  }%
+
+  \definecolor{mNormaltextBg}{HTML}{3f3f3f}%
+  \definecolor{mAlertDark}{HTML}{F17CB0}%
+  \definecolor{mExampleDark}{HTML}{88BDE6}%
+  \definecolor{mProgressbarDark}{HTML}{90CD97}
+  \definecolor{mTitleseparatorDark}{HTML}{F07E6E}
+  \definecolor{mStandoutBgDark}{HTML}{212121}
+
+  \moloch@register@dark@colors{%
+    \setbeamercolor{normal text}{fg=white, bg=mNormaltextBg}%
+    \setbeamercolor{frametitle}{fg=white, bg=mNormaltextBg}%
+    \setbeamercolor{palette primary}{fg=black, bg=white}%
+    \setbeamercolor{alerted text}{fg=mAlertDark}%
+    \setbeamercolor{example text}{fg=mExampleDark}%
+    \setbeamercolor{progress bar}{fg=mProgressbarDark, bg=black!70}%
+    \setbeamercolor{title separator}{fg=mTitleseparatorDark}%
+    \setbeamercolor{footnote}{fg=white!90}%
+    \setbeamercolor{footnote mark}{fg=.}%
+    \setbeamercolor{standout}{fg=white, bg=mStandoutBgDark}
+  }%
+
+  % Apply current variant after registering both
+  \moloch@apply@current@variant
+}
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\moloch@colortheme@highcontrast}
 %    High contrast color scheme for better accessibility.
 %    \begin{macrocode}
@@ -573,6 +623,7 @@
   theme/default/.code=\moloch@colortheme@default,
   theme/tomorrow/.code=\moloch@colortheme@tomorrow,
   theme/highcontrast/.code=\moloch@colortheme@highcontrast,
+  theme/paper/.code=\moloch@colortheme@paper,
   variant/.is choice,
   variant/light/.code={%
       \moloch@variant@darkfalse

@@ -1,0 +1,61 @@
+\documentclass{beamer}
+
+\usetheme[colortheme=tomorrow, colortheme variant=dark]{moloch}
+
+\title{Tomorrow Color Theme Example}
+
+\date{\today}
+\author{Johan Larsson}
+\institute{Some University}
+
+\begin{document}
+
+\maketitle
+
+\section{A Section Page}
+
+\begin{frame}[fragile]
+  \frametitle{Tomorrow Color Theme}
+
+  The Tomorrow color theme has a higher contrast than the standard Moloch
+  theme, and uses different colors for alerts and examples.
+
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      {
+        \molochset{block=fill}
+
+        \begin{block}{Default}
+          Block content.
+        \end{block}
+
+        \begin{alertblock}{Alert}
+          Block content.
+        \end{alertblock}
+
+        \begin{exampleblock}{Example}
+          Block content.
+        \end{exampleblock}
+      }
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[standout]
+  Questions?
+\end{frame}
+
+\end{document}
