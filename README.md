@@ -90,8 +90,8 @@ The project uses [semantic versioning](https://semver.org).
 
 ## Acknowledgments
 
-Almost all of **moloch** is a result of [Mathias
-Vogelgesang's](https://github.com/matze) hard work on the **metropolis theme**
-(of which **moloch** is a fork).
+Much of **Moloch** is the result of [Mathias
+Vogelgesang's](https://github.com/matze) hard work on the **Metropolis theme**
+(of which **Moloch** is a fork).
 
 Thanks to [samcarter](https://github.com/samcarter) for the logo!
