@@ -13,8 +13,8 @@
       system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        texlive = pkgs.texlive.combine {
-          inherit (pkgs.texlive)
+        texlive = pkgs.texliveMedium.withPackages (
+          ps: with ps; [
             scheme-basic
             l3build
             beamer
@@ -37,8 +37,12 @@
             caption
             float
             fancyvrb
-            ;
-        };
+            tcolorbox
+            tikzfill
+            pdfcol
+            fontawesome5
+          ]
+        );
         l3build-wrapped = pkgs.writeShellScriptBin "l3build-wrapped" ''
           # NOTE: the trailing slash in TEXMF is required
           TEXMF="${texlive}/" ${texlive}/bin/l3build "$@"

@@ -16,6 +16,7 @@ tasks:
     dir: docs
     deps:
       - extract-dtx-docs
+      - generate-example-images
     cmds:
       - quarto render
 
@@ -26,12 +27,12 @@ tasks:
       - quarto preview
 
   build-manual:
-    desc: Build the complete package manual (Quarto -> LaTeX -> PDF)
+    desc: Build the PDF manual
     deps:
       - extract-dtx-docs
+      - generate-example-images
     cmds:
-      - cd docs && quarto render
-      - l3build-wrapped doc
+      - cd docs && quarto render --to pdf
 
   ctan:
     desc: Prepare the package for CTAN submission
