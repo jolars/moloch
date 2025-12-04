@@ -15,10 +15,11 @@ that was created for the following reasons:
   achieving valuable functionality for the majority of users, such as special
   code block designs and the pgfplots theme.
 
-[Here's a blog post](https://jolars.co/blog/2024-05-30-moloch/) in which I
+Please check out [the documentatioon](https://moloch.ink) for
+more information on how to use the theme. If you're interested, there 
+is also [a blog post](https://jolars.co/blog/2024-05-30-moloch/) in which I
 introduce the theme and write in more detail about the changes with respect to
-Metropolis. Also see the [demo](examples/demo/demo.pdf) for a quick
-introduction to the theme.
+Metropolis. 
 
 Do not expect this theme to be backwards compatible with the Metropolis theme.
 
