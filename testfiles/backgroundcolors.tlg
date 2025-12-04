@@ -348,8 +348,8 @@ Completed box being shipped out [1]
 ....\pdfcolorstack 0 pop
 .\kern 0.0
 .\kern 0.0
-Package beamercolorthememoloch Warning: Option 'background=dark' is deprecated.
-(beamercolorthememoloch)                Use 'colortheme variant=dark' instead  on input line ....
+Package beamercolorthememoloch Warning: Option 'background' is deprecated.
+(beamercolorthememoloch)                Use 'colortheme variant=light/dark' instead  on input line ....
 Completed box being shipped out [2]
 \vbox(200.87663+0.0)x263.47263
 .\hbox(0.0+0.0)x0.0
@@ -697,8 +697,6 @@ Completed box being shipped out [2]
 .....\glue 0.0 plus 1.0fil
 ....\pdfcolorstack 0 pop
 .\kern 0.0
-Package beamercolorthememoloch Warning: Option 'background=light' is deprecated.
-(beamercolorthememoloch)                Use 'colortheme variant=light' instead  on input line ....
 Completed box being shipped out [3]
 \vbox(200.87663+0.0)x263.47263
 .\hbox(0.0+0.0)x0.0
