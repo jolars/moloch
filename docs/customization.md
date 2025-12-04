@@ -285,17 +285,6 @@ the reverse. **Note:** This option is deprecated in favor of the new
 ![Example of the "background" option set to "dark", swapping the foreground and
 background colors.](./images/example-background.png){.lightbox}
 
-## Font Theme
-
-::: {.describe-option option-name="titleformat plain, titleformat frametitle,
-titleformat section" values="regular, smallcaps, allsmallcaps, allcaps"
-default="regular"}
-
-Individually controls the format of titles, subtitles, section titles, and frame
-titles (see `titleformat`, above).
-
-:::
-
 ### Color Themes
 
 Moloch includes several preset color themes. You can select a theme using the
@@ -606,3 +595,14 @@ For simple adjustments to the current variant:
 ```
 
 This sets the colors for whichever variant is currently active (light or dark).
+
+## Font Theme
+
+::: {.describe-option option-name="titleformat plain, titleformat frametitle,
+titleformat section" values="regular, smallcaps, allsmallcaps, allcaps"
+default="regular"}
+
+Individually controls the format of titles, subtitles, section titles, and frame
+titles (see `titleformat`, above).
+
+:::
