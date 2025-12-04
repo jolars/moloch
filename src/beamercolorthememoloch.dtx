@@ -66,16 +66,12 @@
   .is choice,
   dark/.code={%
       \PackageWarning{beamercolorthememoloch}{%
-        Option 'background=dark' is deprecated.\MessageBreak
-        Use 'colortheme variant=dark' instead
+        Option 'background' is deprecated.\MessageBreak
+        Use 'colortheme variant=light/dark' instead
       }%
       \moloch@colors@dark
     },
   light/.code={%
-      \PackageWarning{beamercolorthememoloch}{%
-        Option 'background=light' is deprecated.\MessageBreak
-        Use 'colortheme variant=light' instead
-      }%
       \moloch@colors@light
     },
 }
