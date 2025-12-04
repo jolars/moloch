@@ -70,8 +70,7 @@ format:
       file: header.html
   pdf:
     documentclass: scrreprt
-    classoption: DIV=10
-    keep-tex: true
+    classoption: toc=graduated
     toc: true
     number-sections: true
     colorlinks: true
