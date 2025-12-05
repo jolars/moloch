@@ -32,7 +32,8 @@ jobs:
         with:
           packages: >
             l3build scheme-basic fontawesome5 pdfcol tikzfill float caption
-            hypdoc
+            hypdoc koma-script xcolor lualatex-math unicode-math fancyvrb
+            booktabs mdwtools parskip tcolorbox luatexbase
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
