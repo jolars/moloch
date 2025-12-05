@@ -3,20 +3,11 @@
 % Parse colortheme and variant from \jobname
 % Expected format: colortheme-<theme>-<variant>
 % Example: colortheme-catppuccin-dark
-% If not in that format, use defaults
 \def\parsejobname#1-#2-#3\relax{%
   \def\themename{#2}%
   \def\variantname{#3}%
 }
-\expandafter\parsejobname\jobname-default-light\relax
-
-% Check if parsing failed (no hyphen in \jobname)
-% If \themename contains the full \jobname, use defaults
-\edef\checkname{\jobname-default}
-\ifx\themename\checkname
-  \def\themename{default}%
-  \def\variantname{light}%
-\fi
+\expandafter\parsejobname\jobname\relax
 
 % Load theme with parsed options
 \usetheme[colortheme=\themename, colortheme variant=\variantname]{moloch}
@@ -35,7 +26,7 @@
   \frametitle{Color Theme Showcase}
 
   This example demonstrates the color theme with different block
-  styles\footnote{Theme: \themename, Variant: \variantname}.
+  styles.\footnote{Theme: \themename, Variant: \variantname}
 
   \begin{columns}[T]
     \begin{column}{0.45\textwidth}
