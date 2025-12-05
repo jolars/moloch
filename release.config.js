@@ -24,20 +24,6 @@ module.exports = {
       {
         replacements: [
           {
-            files: ["doc/moloch.tex"],
-            from: "\\\\def\\\\molochversion\\{([0-9]+\\.[0-9]+\\.[0-9]+)\\}",
-            to: "\\def\\molochversion{${nextRelease.version}}",
-            results: [
-              {
-                file: "doc/moloch.tex",
-                hasChanged: true,
-                numMatches: 1,
-                numReplacements: 1,
-              },
-            ],
-            countMatches: true,
-          },
-          {
             files: ["build.lua"],
             from: 'version = "([0-9]+\\.[0-9]+\\.[0-9]+)"',
             to: 'version = "${nextRelease.version}"',
@@ -134,7 +120,6 @@ module.exports = {
           "src/beamerinnerthememoloch.dtx",
           "src/beamerouterthememoloch.dtx",
           "src/beamerthememoloch.dtx",
-          "doc/moloch.tex",
           "build.lua",
           "CHANGELOG.md",
         ],
