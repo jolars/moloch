@@ -1,5 +1,29 @@
 # Changelog
 
+## [2.0.0](https://github.com/jolars/moloch/compare/v1.1.0...v2.0.0) (2025-12-05)
+
+### ⚠ BREAKING CHANGES
+
+* refactor color theme
+
+### Features
+
+* add `frametitle margin` options ([bc02e8a](https://github.com/jolars/moloch/commit/bc02e8a31472ef8b15ad9c043a8a9829d01d1189))
+* add catppuccin theme ([3452624](https://github.com/jolars/moloch/commit/3452624b6406a05a1f6e0022413dff8ad3826527))
+* add new "Paper" color theme ([05de59a](https://github.com/jolars/moloch/commit/05de59a0e2fe0a444abd72dc69e452695bac789e))
+* change default progressbar linewidth to 1pt ([3b71fc9](https://github.com/jolars/moloch/commit/3b71fc99e4c1af6daaf5782eb663f702d3adc233))
+* draw all itemize symbols manually ([a82527c](https://github.com/jolars/moloch/commit/a82527c6f46a4dce49e90f8d5a059b7f8e98ce29))
+* refactor color theme ([37d3a37](https://github.com/jolars/moloch/commit/37d3a373b20b3e1c2aab8447b2341c64be907549))
+* tune color themes ([a11710f](https://github.com/jolars/moloch/commit/a11710f1ca5fe7032861944e37268ac1417ba10a))
+* use brighter aler and example colors in dark hcontr ([8babd1e](https://github.com/jolars/moloch/commit/8babd1e421875a79e5f4fd3b0e49faabd76f68bc))
+
+### Bug Fixes
+
+* enable background macro for alternative color themes ([59b4d79](https://github.com/jolars/moloch/commit/59b4d79ccc088ea13249aafefa12bb88cf6cb89e))
+* remove and fix examples ([35523ee](https://github.com/jolars/moloch/commit/35523ee6a2c625c96f3f13ea68691772788efd57))
+* remove example text bg in highcontrast theme ([528ea8d](https://github.com/jolars/moloch/commit/528ea8d424c2ae485103240d4d4899fb194c5a7c))
+* work-around division by zero in progress bar arithmetic ([28fc1a2](https://github.com/jolars/moloch/commit/28fc1a28ca2b92376b4b87a33ab73e32c2dc959f))
+
 ## [1.1.0](https://github.com/jolars/moloch/compare/v1.0.1...v1.1.0) (2025-09-25)
 
 ### Features

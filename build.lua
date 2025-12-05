@@ -17,7 +17,7 @@ maxprintline = 9999
 
 uploadconfig = {
 	pkg = "moloch",
-	version = "1.1.0",
+	version = "2.0.0",
 	author = "Johan Larsson",
 	uploader = "Johan Larsson",
 	license = "cc-by-sa-4",
