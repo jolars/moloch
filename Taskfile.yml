@@ -43,14 +43,30 @@ tasks:
 
   generate-example-images:
     desc: Compile examples and generate grid images
-    method: none
-    sources:
-      - examples/*.tex
     cmds:
-      - for: sources
-        cmd: latexmk -pdf -interaction=nonstopmode -cd {{.ITEM}}
+      # Generate colortheme examples from template
+      - |
+        cd examples
+        for theme in default tomorrow paper catppuccin highcontrast; do
+          for variant in light dark; do
+            pdflatex -jobname="colortheme-${theme}-${variant}" \
+                     -interaction=nonstopmode \
+                     colortheme-template.tex
+          done
+        done
+      # Compile other standalone examples (skip template and generated files)
+      - |
+        for file in examples/*.tex; do
+          basename=$(basename "$file")
+          if [ "$basename" != "colortheme-template.tex" ] && [ ! -f "examples/colortheme-${basename%.tex}.pdf" ]; then
+            latexmk -pdf -interaction=nonstopmode -cd "$file"
+          fi
+        done
+      # Generate grid images
       - mkdir -p docs/images
-      - for: sources
-        cmd:
-          ./scripts/pdf-to-grid.sh {{replace ".tex" ".pdf" .ITEM}}
-          docs/images/example-{{trimSuffix ".tex" (base .ITEM)}}.png 2 150
+      - |
+        for pdf in examples/*.pdf; do
+          basename="${pdf##*/}"
+          basename="${basename%.pdf}"
+          ./scripts/pdf-to-grid.sh "$pdf" "docs/images/example-${basename}.png" 2 150
+        done
