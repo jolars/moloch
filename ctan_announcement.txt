@@ -1,15 +1,26 @@
-This release of Moloch adds introduces a redesigned itemize environment and
-fixes two bugs related to use of color themes and non-roman fonts.
+This release of Moloch is a major update, with a refactored color system,
+revamped itemize environment, and bug fixes.
 
 See below for detailed changes.
 
-1.1.0 (2025-09-25)
+BREAKING CHANGES
+
+- refactor color theme
+
 Features
 
-    redesign itemize environment (#50) (8594369)
-    use beamer-like itemize item and subitem templates (81037c6), closes #49
+- add frametitle margin options (bc02e8a)
+- add catppuccin theme (3452624)
+- add new “Paper” color theme (05de59a)
+- change default progressbar linewidth to 1pt (3b71fc9)
+- draw all itemize symbols manually (a82527c)
+- refactor color theme (37d3a37)
+- tune color themes (a11710f)
+- use brighter alert and example colors in dark hcontr (8babd1e)
 
 Bug Fixes
 
-    move command substitutions into inner and outer themes (fd86a30), closes #47
-    use \ht\strutbox instead of X height in title padding (93792f2), closes #54
+- enable background macro for alternative color themes (59b4d79)
+- remove and fix examples (35523ee)
+- remove example text bg in highcontrast theme (528ea8d)
+- work-around division by zero in progress bar arithmetic (28fc1a2)
