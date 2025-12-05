@@ -27,10 +27,15 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Install TeX Live
+        uses: zauguin/install-texlive@v4
+        with:
+          packages: >
+            l3build scheme-basic fontawesome5 pdfcol tikzfill float caption
+            hypdoc
+
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          tinytex: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
