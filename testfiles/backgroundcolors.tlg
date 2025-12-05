@@ -40,7 +40,7 @@ Completed box being shipped out [1]
 ..........\hbox(273.14662+0.0)x364.19536
 ...........\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
 ...........\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
-...........\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+...........\pdfcolorstack 0 push {1 g 1 G}
 ...........\rule(273.14662+*)x364.19536
 ...........\pdfcolorstack 0 pop
 ...........\pdfcolorstack 0 pop
@@ -142,7 +142,7 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\vbox(0.0+0.0)x0.0
 .....\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
-.....\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+.....\pdfcolorstack 0 push {1 g 1 G}
 .....\hbox(17.4999+7.69994)x307.28987, glue set - 1.0
 ......\glue 0.0 minus 28.45274
 ......\hbox(17.4999+7.69994)x364.19536
@@ -155,10 +155,10 @@ Completed box being shipped out [1]
 .......\pdfcolorstack 0 pop
 .......\hbox(17.4999+7.69994)x364.19536
 ........\kern 0.0
-........\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+........\pdfcolorstack 0 push {1 g 1 G}
 ........\glue 0.0
 ........\hbox(17.4999+7.69994)x364.19536
-.........\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+.........\pdfcolorstack 0 push {1 g 1 G}
 .........\vbox(17.4999+7.69994)x364.19536
 ..........\hbox(17.4999+7.69994)x364.19536, glue set 131.6012fil
 ...........\glue(\leftskip) 8.8
@@ -249,8 +249,8 @@ Completed box being shipped out [1]
 .....\glue(\lineskip) 1.0
 .....\hbox(17.25005+0.0)x307.28987
 ......\glue -3.65004
-......\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
-......\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+......\pdfcolorstack 0 push {1 g 1 G}
+......\pdfcolorstack 0 push {1 g 1 G}
 ......\hbox(17.25005+0.0)x0.0, glue set - 314.58995fil
 .......\rule(17.25005+0.0)x314.58995
 .......\glue 0.0 plus 1.0fil minus 1.0fil
@@ -379,7 +379,7 @@ Completed box being shipped out [2]
 ...\vbox(0.0+0.0)x307.28987
 ....\glue 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x307.28987
-.....\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+.....\pdfcolorstack 0 push {1 g 1 G}
 .....\hbox(0.0+0.0)x307.28987
 ......\vbox(0.0+0.0)x307.28987
 .......\hbox(0.0+0.0)x-28.45274
@@ -387,9 +387,9 @@ Completed box being shipped out [2]
 ........\hbox(0.0+0.0)x0.0
 .........\hbox(273.14662+0.0)x364.19536, shifted 273.14662
 ..........\hbox(273.14662+0.0)x364.19536
-...........\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
-...........\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
-...........\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
+...........\pdfcolorstack 0 push {1 g 1 G}
+...........\pdfcolorstack 0 push {1 g 1 G}
+...........\pdfcolorstack 0 push {0.15686 0.16472 0.18039 rg 0.15686 0.16472 0.18039 RG}
 ...........\rule(273.14662+*)x364.19536
 ...........\pdfcolorstack 0 pop
 ...........\pdfcolorstack 0 pop
@@ -397,8 +397,8 @@ Completed box being shipped out [2]
 ........\hbox(0.0+0.0)x0.0
 .........\hbox(0.0+0.0)x0.0
 ..........\hbox(0.0+0.0)x0.0
-...........\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
-...........\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+...........\pdfcolorstack 0 push {1 g 1 G}
+...........\pdfcolorstack 0 push {1 g 1 G}
 ...........\pdfcolorstack 0 pop
 ...........\pdfcolorstack 0 pop
 .......\glue(\baselineskip) 0.0
@@ -409,12 +409,12 @@ Completed box being shipped out [2]
 ...........\glue -28.45274
 ...........\hbox(0.0+0.0)x0.0
 ............\vbox(265.20912+0.0)x0.0, glue set 265.20912fil
-.............\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+.............\pdfcolorstack 0 push {1 g 1 G}
 .............\glue 0.0 plus 1.0fil minus 1.0fil
 ............\pdfcolorstack 0 pop
 ...........\vbox(265.20912+0.0)x0.0, glue set 265.20912fil
-............\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
-............\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+............\pdfcolorstack 0 push {1 g 1 G}
+............\pdfcolorstack 0 push {1 g 1 G}
 ............\pdfcolorstack 0 pop
 ............\pdfcolorstack 0 pop
 ............\glue 0.0 plus 1.0fil
@@ -425,24 +425,24 @@ Completed box being shipped out [2]
 ...........\glue 28.45274
 ...........\hbox(0.0+0.0)x0.0
 ............\vbox(265.20912+0.0)x0.0, glue set 265.20912fil
-.............\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+.............\pdfcolorstack 0 push {1 g 1 G}
 .............\glue 0.0 plus 1.0fil minus 1.0fil
 ............\pdfcolorstack 0 pop
 ...........\vbox(265.20912+0.0)x0.0, glue set 256.20912fill
-............\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
-............\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+............\pdfcolorstack 0 push {1 g 1 G}
+............\pdfcolorstack 0 push {1 g 1 G}
 ............\glue 0.0 plus 1.0fill
 ............\hbox(0.0+0.0)x0.0, glue set - 2.84544fil
 .............\glue 0.0 plus 1.0fil minus 1.0fil
-.............\pdfcolorstack 0 push {0.75 0.75 0.75 rg 0.75 0.75 0.75 RG}
+.............\pdfcolorstack 0 push {0.75 g 0.75 G}
 .............\pdfcolorstack 0 pop
 .............\glue 2.84544
 ............\glue 2.0
 ............\glue(\baselineskip) 5.0
 ............\hbox(0.0+0.0)x0.0, glue set - 2.84544fil
 .............\glue 0.0 plus 1.0fil minus 1.0fil
-.............\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
-.............\pdfcolorstack 0 push {0.46825 0.47295 0.47765 rg 0.46825 0.47295 0.47765 RG}
+.............\pdfcolorstack 0 push {1 g 1 G}
+.............\pdfcolorstack 0 push {0.49411 0.49883 0.50824 rg 0.49411 0.49883 0.50824 RG}
 .............\pdfcolorstack 0 pop
 .............\pdfcolorstack 0 pop
 .............\glue 2.84544
@@ -454,8 +454,8 @@ Completed box being shipped out [2]
 .........\glue -28.45274
 .........\hbox(0.0+0.0)x0.0
 ..........\vbox(0.0+0.0)x0.0
-...........\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
-...........\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+...........\pdfcolorstack 0 push {1 g 1 G}
+...........\pdfcolorstack 0 push {1 g 1 G}
 ...........\pdfcolorstack 0 pop
 ...........\pdfcolorstack 0 pop
 .........\glue -28.45274
@@ -473,7 +473,7 @@ Completed box being shipped out [2]
 ...\glue(\lineskip) 0.0
 ...\vbox(261.20912+0.0)x307.28987
 ....\write-{}
-....\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+....\pdfcolorstack 0 push {1 g 1 G}
 ....\glue(\topskip) 0.0
 ....\vbox(261.20912+0.0)x307.28987, glue set 89.41087fil
 .....\penalty 10000
@@ -482,24 +482,24 @@ Completed box being shipped out [2]
 .....\penalty 10000
 .....\penalty 10000
 .....\vbox(0.0+0.0)x0.0
-.....\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
-.....\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
+.....\pdfcolorstack 0 push {1 g 1 G}
+.....\pdfcolorstack 0 push {1 g 1 G}
 .....\hbox(17.4999+7.69994)x307.28987, glue set - 1.0
 ......\glue 0.0 minus 28.45274
 ......\hbox(17.4999+7.69994)x364.19536
 .......\glue 0.0
-.......\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
-.......\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+.......\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
+.......\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
 .......\hbox(17.4999+7.69994)x0.0, glue set - 364.19536fil
 ........\rule(17.4999+7.69994)x364.19536
 ........\glue 0.0 plus 1.0fil minus 1.0fil
 .......\pdfcolorstack 0 pop
 .......\hbox(17.4999+7.69994)x364.19536
 ........\kern 0.0
-........\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
+........\pdfcolorstack 0 push {1 g 1 G}
 ........\glue 0.0
 ........\hbox(17.4999+7.69994)x364.19536
-.........\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
+.........\pdfcolorstack 0 push {1 g 1 G}
 .........\vbox(17.4999+7.69994)x364.19536
 ..........\hbox(17.4999+7.69994)x364.19536, glue set 123.40657fil
 ...........\glue(\leftskip) 8.8
@@ -577,7 +577,7 @@ Completed box being shipped out [2]
 .....\glue 6.0 plus 2.0 minus 2.0
 .....\glue(\baselineskip) 5.99579
 .....\hbox(7.60422+0.0)x307.28987
-......\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+......\pdfcolorstack 0 push {1 g 1 G}
 ......\vbox(7.60422+0.0)x307.28987
 .......\hbox(7.60422+0.0)x307.28987, glue set 129.44882fil
 ........\hbox(0.0+0.0)x0.0
@@ -599,18 +599,18 @@ Completed box being shipped out [2]
 .....\glue(\lineskip) 1.0
 .....\hbox(17.25005+0.0)x307.28987
 ......\glue -3.65004
-......\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
-......\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
+......\pdfcolorstack 0 push {0.15686 0.16472 0.18039 rg 0.15686 0.16472 0.18039 RG}
+......\pdfcolorstack 0 push {0.15686 0.16472 0.18039 rg 0.15686 0.16472 0.18039 RG}
 ......\hbox(17.25005+0.0)x0.0, glue set - 314.58995fil
 .......\rule(17.25005+0.0)x314.58995
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\pdfcolorstack 0 pop
 ......\hbox(17.25005+0.0)x314.58995
 .......\kern 0.0
-.......\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+.......\pdfcolorstack 0 push {1 g 1 G}
 .......\glue 3.65004
 .......\hbox(17.25005+0.0)x307.28987
-........\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+........\pdfcolorstack 0 push {1 g 1 G}
 ........\vbox(17.25005+0.0)x307.28987
 .........\glue 3.65004
 .........\glue -3.65004
@@ -656,7 +656,7 @@ Completed box being shipped out [2]
 ....\glue 0.0
 ...\glue(\baselineskip) 4.0
 ...\hbox(7.9375+0.0)x307.28987
-....\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+....\pdfcolorstack 0 push {1 g 1 G}
 ....\hbox(7.9375+0.0)x307.28987
 .....\vbox(7.9375+0.0)x307.28987
 ......\hbox(7.9375+0.0)x307.28987
@@ -664,19 +664,19 @@ Completed box being shipped out [2]
 ........\glue -28.45274
 ........\hbox(7.9375+0.0)x364.19536
 .........\vbox(7.9375+0.0)x364.19536
-..........\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
-..........\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+..........\pdfcolorstack 0 push {1 g 1 G}
+..........\pdfcolorstack 0 push {1 g 1 G}
 ..........\hbox(7.9375+0.0)x364.19536
-...........\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+...........\pdfcolorstack 0 push {1 g 1 G}
 ...........\vbox(7.9375+0.0)x364.19536
 ............\hbox(3.9375+0.0)x364.19536, glue set 345.63286fill
 .............\glue(\leftskip) 4.0
 .............\hbox(0.0+0.0)x0.0
-.............\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
-.............\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+.............\pdfcolorstack 0 push {1 g 1 G}
+.............\pdfcolorstack 0 push {1 g 1 G}
 .............\pdfcolorstack 0 pop
 .............\glue 0.0 plus 1.0fill
-.............\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+.............\pdfcolorstack 0 push {1 g 1 G}
 .............\hbox(3.9375+0.0)x9.5625, glue set 6.375fil
 ..............\glue 0.0 plus 1.0fil minus 1.0fil
 ..............\OT1/lmss/m/n/6 2
@@ -736,7 +736,7 @@ Completed box being shipped out [3]
 ..........\hbox(273.14662+0.0)x364.19536
 ...........\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
 ...........\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
-...........\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+...........\pdfcolorstack 0 push {1 g 1 G}
 ...........\rule(273.14662+*)x364.19536
 ...........\pdfcolorstack 0 pop
 ...........\pdfcolorstack 0 pop
@@ -830,7 +830,7 @@ Completed box being shipped out [3]
 .....\penalty 10000
 .....\vbox(0.0+0.0)x0.0
 .....\pdfcolorstack 0 push {0.11374 0.12158 0.12941 rg 0.11374 0.12158 0.12941 RG}
-.....\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+.....\pdfcolorstack 0 push {1 g 1 G}
 .....\hbox(17.4999+7.69994)x307.28987, glue set - 1.0
 ......\glue 0.0 minus 28.45274
 ......\hbox(17.4999+7.69994)x364.19536
@@ -843,10 +843,10 @@ Completed box being shipped out [3]
 .......\pdfcolorstack 0 pop
 .......\hbox(17.4999+7.69994)x364.19536
 ........\kern 0.0
-........\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+........\pdfcolorstack 0 push {1 g 1 G}
 ........\glue 0.0
 ........\hbox(17.4999+7.69994)x364.19536
-.........\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+.........\pdfcolorstack 0 push {1 g 1 G}
 .........\vbox(17.4999+7.69994)x364.19536
 ..........\hbox(17.4999+7.69994)x364.19536, glue set 130.90611fil
 ...........\glue(\leftskip) 8.8
@@ -942,8 +942,8 @@ Completed box being shipped out [3]
 .....\glue(\lineskip) 1.0
 .....\hbox(17.25005+0.0)x307.28987
 ......\glue -3.65004
-......\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
-......\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+......\pdfcolorstack 0 push {1 g 1 G}
+......\pdfcolorstack 0 push {1 g 1 G}
 ......\hbox(17.25005+0.0)x0.0, glue set - 314.58995fil
 .......\rule(17.25005+0.0)x314.58995
 .......\glue 0.0 plus 1.0fil minus 1.0fil
@@ -1163,7 +1163,7 @@ Completed box being shipped out [4]
 ...\glue(\lineskip) 0.0
 ...\vbox(269.14662+0.0)x307.28987
 ....\write-{}
-....\pdfcolorstack 0 push {1 1 1 rg 1 1 1 RG}
+....\pdfcolorstack 0 push {1 g 1 G}
 ....\glue(\topskip) 0.0
 ....\vbox(269.14662+0.0)x307.28987, glue set 125.57332fil
 .....\penalty 10000

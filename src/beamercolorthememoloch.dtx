@@ -380,6 +380,47 @@
 %
 %
 %
+% \subsubsection{Semantic Color Helper}
+%
+% \begin{macro}{\moloch@apply@semantic@colors}
+%    Maps semantic color names to Beamer color definitions. This helper expects
+%    the following colors to be defined (via \verb|\definecolor| or \verb|\colorlet|)
+%    before being called:
+%
+%    \begin{itemize}
+%      \item \texttt{mNormaltextFg} - Normal text foreground
+%      \item \texttt{mNormaltextBg} - Normal text background
+%      \item \texttt{mFrametitleFg} - Frame title foreground
+%      \item \texttt{mFrametitleBg} - Frame title background
+%      \item \texttt{mAlertFg} - Alerted text foreground
+%      \item \texttt{mExampleFg} - Example text foreground
+%      \item \texttt{mProgressbarFg} - Progress bar foreground
+%      \item \texttt{mProgressbarBg} - Progress bar background
+%      \item \texttt{mStandoutFg} - Standout frame foreground
+%      \item \texttt{mStandoutBg} - Standout frame background
+%      \item \texttt{mFootnoteFg} - Footnote foreground
+%    \end{itemize}
+%
+%    Color themes should define all these colors (using any color specification
+%    method: HTML, RGB, color names, or color expressions), then call this
+%    helper to apply them to the appropriate Beamer color elements.
+%    \begin{macrocode}
+\newcommand{\moloch@apply@semantic@colors}{%
+  % Apply semantic colors to Beamer color definitions
+  \setbeamercolor{normal text}{fg=mNormaltextFg, bg=mNormaltextBg}%
+  \setbeamercolor{frametitle}{fg=mFrametitleFg, bg=mFrametitleBg}%
+  \setbeamercolor{palette primary}{use=frametitle, parent=frametitle}%
+  \setbeamercolor{alerted text}{fg=mAlertFg}%
+  \setbeamercolor{example text}{fg=mExampleFg}%
+  \setbeamercolor{progress bar}{fg=mProgressbarFg, bg=mProgressbarBg}%
+  \setbeamercolor{title separator}{fg=mTitleseparatorFg}%
+  \setbeamercolor{footnote}{fg=mFootnoteFg}%
+  \setbeamercolor{footnote mark}{fg=.}%
+  \setbeamercolor{standout}{fg=mStandoutFg, bg=mStandoutBg}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
 % \subsubsection{Color Theme Presets}
 %
 % These commands define complete color schemes that can be switched between.
@@ -389,43 +430,39 @@
 %    The default moloch color scheme.
 %    \begin{macrocode}
 \newcommand{\moloch@colortheme@default}{%
-  % Colors already defined above as base colors
-
-  % Register light variant
   \moloch@register@light@colors{%
-    \setbeamercolor{normal text}{fg=mDarkTeal, bg=black!2}%
-    \setbeamercolor{frametitle}{fg=black!2, bg=mDarkTeal}%
-    \setbeamercolor{palette primary}{fg=black!2, bg=mDarkTeal}%
-    \setbeamercolor{thanks}{fg=mDarkTeal!80!black!2}%
-    \setbeamercolor{alerted text}{fg=mLightBrown}%
-    \setbeamercolor{example text}{fg=mLightGreen}%
-    \setbeamercolor{progress bar}{fg=mLightBrown, bg=mLightBrown!50!black!30}%
-    \setbeamercolor{title separator}{fg=mLightBrown, bg=mLightBrown!50!black!30}%
-    \setbeamercolor{footnote}{fg=mDarkTeal!90}%
-    \setbeamercolor{footnote mark}{fg=.}%
-    \setbeamercolor{standout}{%
-      use=normal text,
-      fg=normal text.bg,
-      bg=normal text.fg
-    }
+    \definecolor{mNormaltextFg}{HTML}{23373b}
+    \colorlet{mNormaltextBg}{black!2}
+    \definecolor{mAlertFg}{HTML}{EB811B}
+    \definecolor{mExampleFg}{RGB}{0,128,128}
+    \colorlet{mFrametitleFg}{mNormaltextBg}
+    \colorlet{mFrametitleBg}{mNormaltextFg}
+    \colorlet{mProgressbarFg}{mAlertFg}
+    \colorlet{mProgressbarBg}{mProgressbarFg!50!black!30}
+    \colorlet{mTitleseparatorFg}{mProgressbarFg}
+    \colorlet{mStandoutFg}{mNormaltextBg}
+    \colorlet{mStandoutBg}{mNormaltextFg}
+    \colorlet{mFootnoteFg}{mNormaltextFg!90}
+
+    \moloch@apply@semantic@colors
   }%
 
   % Register dark variant - use brighter colors for better contrast
   \moloch@register@dark@colors{%
-    \setbeamercolor{normal text}{fg=black!2, bg=mDarkTeal}%
-    \setbeamercolor{frametitle}{fg=mDarkTeal, bg=black!2}%
-    \setbeamercolor{palette primary}{fg=mDarkTeal, bg=black!2}%
-    \setbeamercolor{alerted text}{fg=orange!60!white}%
-    \setbeamercolor{example text}{fg=mLightGreen!70!white,bg=}%
-    \setbeamercolor{progress bar}{fg=orange!90!white, bg=orange!50!black!30}%
-    \setbeamercolor{title separator}{fg=orange!90!white, bg=orange!50!black!30}%
-    \setbeamercolor{footnote}{fg=black!2!90}%
-    \setbeamercolor{footnote mark}{fg=.}%
-    \setbeamercolor{standout}{%
-      use=normal text,
-      fg=normal text.bg,
-      bg=normal text.fg
-    }
+    \colorlet{mNormaltextFg}{black!2}
+    \definecolor{mNormaltextBg}{HTML}{23373b}
+    \definecolor{mAlertFg}{HTML}{EF9F76}
+    \definecolor{mExampleFg}{HTML}{5ABFB5}
+    \colorlet{mFrametitleFg}{mNormaltextBg}
+    \colorlet{mFrametitleBg}{black!15}
+    \colorlet{mProgressbarFg}{mAlertFg}
+    \colorlet{mProgressbarBg}{mProgressbarFg!50!black!30}
+    \colorlet{mTitleseparatorFg}{mProgressbarFg}
+    \colorlet{mStandoutFg}{mNormaltextBg}
+    \colorlet{mStandoutBg}{black!15}
+    \colorlet{mFootnoteFg}{mNormaltextFg!90}
+
+    \moloch@apply@semantic@colors
   }%
 
   % Apply current variant after registering both
@@ -438,48 +475,38 @@
 %    The Tomorrow color scheme by Chris Kempson.
 %    \begin{macrocode}
 \newcommand{\moloch@colortheme@tomorrow}{%
-  % Define tomorrow colors
-  \definecolor{tomorrowForeground}{HTML}{1d1f21}%
-  \definecolor{tomorrowBackground}{RGB}{255,255,255}%
-  \definecolor{tomorrowHeader}{HTML}{1d1f21}%
-  \definecolor{tomorrowAlert}{HTML}{cc6666}%
-  \definecolor{tomorrowExample}{HTML}{4271ae}%
-  \definecolor{tomorrowProgress}{HTML}{8959a8}%
-
-  % Register light variant
   \moloch@register@light@colors{%
-    \setbeamercolor{normal text}{fg=tomorrowForeground, bg=tomorrowBackground}%
-    \setbeamercolor{frametitle}{fg=tomorrowBackground, bg=tomorrowHeader}%
-    \setbeamercolor{palette primary}{fg=tomorrowBackground, bg=tomorrowForeground}%
-    \setbeamercolor{alerted text}{fg=tomorrowAlert}%
-    \setbeamercolor{example text}{fg=tomorrowExample}%
-    \setbeamercolor{progress bar}{fg=tomorrowProgress, bg=tomorrowProgress!50!black!30}%
-    \setbeamercolor{title separator}{fg=tomorrowProgress, bg=tomorrowProgress!50!black!30}%
-    \setbeamercolor{footnote}{fg=tomorrowForeground!90}%
-    \setbeamercolor{footnote mark}{fg=.}%
-    \setbeamercolor{standout}{%
-      use=normal text,
-      fg=normal text.bg,
-      bg=normal text.fg
-    }
-  }%
+    \definecolor{mNormaltextFg}{HTML}{1d1f21}
+    \colorlet{mNormaltextBg}{white}
+    \definecolor{mAlertFg}{HTML}{cc6666}
+    \definecolor{mExampleFg}{HTML}{4271ae}
+    \colorlet{mFrametitleFg}{white}
+    \definecolor{mFrametitleBg}{HTML}{1d1f21}
+    \definecolor{mProgressbarFg}{HTML}{8959a8}
+    \colorlet{mProgressbarBg}{mProgressbarFg!50!black!30}
+    \definecolor{mTitleseparatorFg}{HTML}{8959a8}
+    \colorlet{mStandoutFg}{white}
+    \definecolor{mStandoutBg}{HTML}{1d1f21}
+    \definecolor{mFootnoteFg}{HTML}{1d1f21}
 
-  % Register dark variant
+    \moloch@apply@semantic@colors
+  }
+
   \moloch@register@dark@colors{%
-    \setbeamercolor{normal text}{fg=tomorrowBackground, bg=tomorrowForeground}%
-    \setbeamercolor{frametitle}{fg=tomorrowForeground, bg=tomorrowBackground}%
-    \setbeamercolor{palette primary}{fg=tomorrowForeground, bg=tomorrowBackground}%
-    \setbeamercolor{alerted text}{fg=tomorrowAlert}%
-    \setbeamercolor{example text}{fg=tomorrowExample}%
-    \setbeamercolor{progress bar}{fg=tomorrowProgress, bg=tomorrowProgress!50!black!30}%
-    \setbeamercolor{title separator}{fg=tomorrowProgress, bg=tomorrowProgress!50!black!30}%
-    \setbeamercolor{footnote}{fg=tomorrowBackground!90}%
-    \setbeamercolor{footnote mark}{fg=.}%
-    \setbeamercolor{standout}{%
-      use=normal text,
-      fg=normal text.bg,
-      bg=normal text.fg
-    }
+    \colorlet{mNormaltextFg}{white}
+    \definecolor{mNormaltextBg}{HTML}{282a2e}
+    \definecolor{mAlertFg}{HTML}{de935f}
+    \definecolor{mExampleFg}{HTML}{7aa6da}
+    \colorlet{mFrametitleFg}{white}
+    \definecolor{mFrametitleBg}{HTML}{1d1f21}
+    \definecolor{mProgressbarFg}{HTML}{b294bb}
+    \colorlet{mProgressbarBg}{mProgressbarFg!50!black!30}
+    \definecolor{mTitleseparatorFg}{HTML}{b294bb}
+    \colorlet{mStandoutFg}{white}
+    \definecolor{mStandoutBg}{HTML}{1d1f21}
+    \definecolor{mFootnoteFg}{HTML}{1d1f21}
+
+    \moloch@apply@semantic@colors
   }%
 
   % Apply current variant after registering both
@@ -494,42 +521,38 @@
 %
 %    \begin{macrocode}
 \newcommand{\moloch@colortheme@paper}{%
-  \definecolor{mAlertLight}{HTML}{E5276F}%
-  \definecolor{mExampleLight}{HTML}{265DAB}%
-  \definecolor{mProgressbarLight}{HTML}{60BD68}
-  \definecolor{mTitleseparatorLight}{HTML}{F15854}
-
   \moloch@register@light@colors{%
-    \setbeamercolor{normal text}{fg=black, bg=white}%
-    \setbeamercolor{frametitle}{fg=black, bg=white}%
-    \setbeamercolor{palette primary}{fg=white, bg=black}%
-    \setbeamercolor{alerted text}{fg=mAlertLight}%
-    \setbeamercolor{example text}{fg=mExampleLight}%
-    \setbeamercolor{progress bar}{fg=mProgressbarLight, bg=black!20}%
-    \setbeamercolor{title separator}{fg=mTitleseparatorLight}%
-    \setbeamercolor{footnote}{fg=black!90}%
-    \setbeamercolor{footnote mark}{fg=.}%
-    \setbeamercolor{standout}{fg=white, bg=black!60}
+    \colorlet{mNormaltextFg}{black}
+    \colorlet{mNormaltextBg}{white}
+    \definecolor{mAlertFg}{HTML}{E5276F}
+    \definecolor{mExampleFg}{HTML}{265DAB}
+    \colorlet{mFrametitleFg}{black}
+    \colorlet{mFrametitleBg}{white}
+    \definecolor{mProgressbarFg}{HTML}{60BD68}
+    \colorlet{mProgressbarBg}{black!20}
+    \definecolor{mTitleseparatorFg}{HTML}{F15854}
+    \colorlet{mStandoutFg}{white}
+    \colorlet{mStandoutBg}{black!60}
+    \colorlet{mFootnoteFg}{black!90}
+
+    \moloch@apply@semantic@colors
   }%
 
-  \definecolor{mNormaltextBg}{HTML}{3f3f3f}%
-  \definecolor{mAlertDark}{HTML}{F17CB0}%
-  \definecolor{mExampleDark}{HTML}{88BDE6}%
-  \definecolor{mProgressbarDark}{HTML}{90CD97}
-  \definecolor{mTitleseparatorDark}{HTML}{F07E6E}
-  \definecolor{mStandoutBgDark}{HTML}{212121}
-
   \moloch@register@dark@colors{%
-    \setbeamercolor{normal text}{fg=white, bg=mNormaltextBg}%
-    \setbeamercolor{frametitle}{fg=white, bg=mNormaltextBg}%
-    \setbeamercolor{palette primary}{fg=black, bg=white}%
-    \setbeamercolor{alerted text}{fg=mAlertDark}%
-    \setbeamercolor{example text}{fg=mExampleDark}%
-    \setbeamercolor{progress bar}{fg=mProgressbarDark, bg=black!70}%
-    \setbeamercolor{title separator}{fg=mTitleseparatorDark}%
-    \setbeamercolor{footnote}{fg=white!90}%
-    \setbeamercolor{footnote mark}{fg=.}%
-    \setbeamercolor{standout}{fg=white, bg=mStandoutBgDark}
+    \colorlet{mNormaltextFg}{white}
+    \colorlet{mNormaltextBg}{black!80}
+    \definecolor{mAlertFg}{HTML}{F17CB0}
+    \definecolor{mExampleFg}{HTML}{88BDE6}
+    \colorlet{mFrametitleFg}{white}
+    \colorlet{mFrametitleBg}{black!80}
+    \definecolor{mProgressbarFg}{HTML}{90CD97}
+    \colorlet{mProgressbarBg}{black!70}
+    \definecolor{mTitleseparatorFg}{HTML}{F15854}
+    \colorlet{mStandoutFg}{white}
+    \colorlet{mStandoutBg}{black!60}
+    \colorlet{mFootnoteFg}{black!90}
+
+    \moloch@apply@semantic@colors
   }%
 
   % Apply current variant after registering both
@@ -548,40 +571,40 @@
 
   % Register light variant
   \moloch@register@light@colors{%
-    \setbeamercolor{normal text}{fg=black, bg=white}%
-    \setbeamercolor{frametitle}{fg=white, bg=black}%
-    \setbeamercolor{palette primary}{fg=white, bg=black}%
-    \setbeamercolor{alerted text}{fg=mAlert}%
-    \setbeamercolor{example text}{fg=mExample}%
-    \setbeamercolor{progress bar}{fg=mAlert, bg=mAlert!50!black!30}%
-    \setbeamercolor{title separator}{fg=mAlert, bg=mAlert!50!black!30}%
-    \setbeamercolor{footnote}{fg=black!90}%
-    \setbeamercolor{footnote mark}{fg=.}%
-    \setbeamercolor{standout}{%
-      use=normal text,
-      fg=normal text.bg,
-      bg=normal text.fg
-    }
+    \colorlet{mNormaltextFg}{black}
+    \colorlet{mNormaltextBg}{white}
+    \definecolor{mAlertFg}{HTML}{C66526}
+    \definecolor{mExampleFg}{HTML}{3070AD}
+    \colorlet{mFrametitleFg}{white}
+    \colorlet{mFrametitleBg}{black}
+    \colorlet{mProgressbarFg}{mAlertFg}
+    \colorlet{mProgressbarBg}{mProgressbarFg!50!black!30}
+    \colorlet{mTitleseparatorFg}{mAlertFg}
+    \colorlet{mStandoutFg}{black}
+    \colorlet{mStandoutBg}{white}
+    \colorlet{mFootnoteFg}{mNormaltextFg!90}
+
+    \moloch@apply@semantic@colors
   }%
   \definecolor{mAlertDark}{HTML}{F7768E}%
   \definecolor{mExampleDark}{HTML}{7AA2F7}%
 
   % Register dark variant
   \moloch@register@dark@colors{%
-    \setbeamercolor{normal text}{fg=white, bg=black}%
-    \setbeamercolor{frametitle}{fg=white, bg=black}%
-    \setbeamercolor{palette primary}{fg=black, bg=white}%
-    \setbeamercolor{alerted text}{fg=mAlertDark}%
-    \setbeamercolor{example text}{fg=mExampleDark}%
-    \setbeamercolor{progress bar}{fg=mAlert, bg=mAlert!50!black!30}%
-    \setbeamercolor{title separator}{fg=mAlert, bg=mAlert!50!black!30}%
-    \setbeamercolor{footnote}{fg=white!90}%
-    \setbeamercolor{footnote mark}{fg=.}%
-    \setbeamercolor{standout}{%
-      use=normal text,
-      fg=normal text.bg,
-      bg=normal text.fg
-    }
+    \colorlet{mNormaltextFg}{white}
+    \colorlet{mNormaltextBg}{black}
+    \definecolor{mAlertFg}{HTML}{DCA237}
+    \definecolor{mExampleFg}{HTML}{6FB2E4}
+    \colorlet{mFrametitleFg}{black}
+    \colorlet{mFrametitleBg}{white}
+    \colorlet{mProgressbarFg}{mAlertFg}
+    \colorlet{mProgressbarBg}{mProgressbarFg!50!black!70}
+    \colorlet{mTitleseparatorFg}{mAlertFg}
+    \colorlet{mStandoutFg}{white}
+    \colorlet{mStandoutBg}{black}
+    \colorlet{mFootnoteFg}{mNormaltextFg!90}
+
+    \moloch@apply@semantic@colors
   }%
 
   % Apply current variant after registering both
@@ -597,53 +620,38 @@
 %
 %    \begin{macrocode}
 \newcommand{\moloch@colortheme@catppuccin}{%
-
-  \definecolor{mNormaltextFgLight}{HTML}{4C4F69}
-  \definecolor{mNormaltextBgLight}{HTML}{EFF1F5}
-  \definecolor{mFrametitleFgLight}{HTML}{CAD3F5}
-  \definecolor{mFrametitleBgLight}{HTML}{303446}
-  \definecolor{mAlertLight}{HTML}{D20F39}%
-  \definecolor{mExampleLight}{HTML}{1E66F5}%
-  \definecolor{mProgressbarFgLight}{HTML}{DC8A78}
-  \definecolor{mTitleseparatorLight}{HTML}{40A02B}
-  \definecolor{mStandoutFgLight}{HTML}{CAD3F5}
-  \definecolor{mStandoutBgLight}{HTML}{303446}
-
   \moloch@register@light@colors{%
-    \setbeamercolor{normal text}{fg=mNormaltextFgLight, bg=mNormaltextBgLight}%
-    \setbeamercolor{frametitle}{fg=mFrametitleFgLight, bg=mFrametitleBgLight}%
-    \setbeamercolor{palette primary}{fg=mFrametitleFgLight, bg=mFrametitleBgLight}%
-    \setbeamercolor{alerted text}{fg=mAlertLight}%
-    \setbeamercolor{example text}{fg=mExampleLight}%
-    \setbeamercolor{progress bar}{fg=mProgressbarFgLight, bg=black!20}%
-    \setbeamercolor{title separator}{fg=mTitleseparatorLight}%
-    \setbeamercolor{footnote}{fg=black!90}%
-    \setbeamercolor{footnote mark}{fg=.}%
-    \setbeamercolor{standout}{fg=mStandoutFgLight, bg=mStandoutBgLight}
+    \definecolor{mNormaltextFg}{HTML}{4C4F69}
+    \definecolor{mNormaltextBg}{HTML}{EFF1F5}
+    \definecolor{mAlertFg}{HTML}{D20F39}
+    \definecolor{mExampleFg}{HTML}{1E66F5}
+    \definecolor{mFrametitleFg}{HTML}{CAD3F5}
+    \definecolor{mFrametitleBg}{HTML}{303446}
+    \definecolor{mProgressbarFg}{HTML}{DC8A78}
+    \colorlet{mProgressbarBg}{mProgressbarFg!50!black!30}
+    \definecolor{mTitleseparatorFg}{HTML}{40A02B}
+    \definecolor{mStandoutFg}{HTML}{CAD3F5}
+    \definecolor{mStandoutBg}{HTML}{303446}
+    \colorlet{mFootnoteFg}{mNormaltextFg!90}
+
+    \moloch@apply@semantic@colors
   }%
 
-  \definecolor{mNormaltextFgDark}{HTML}{CAD3F5}
-  \definecolor{mNormaltextBgDark}{HTML}{24273A}
-  \definecolor{mFrametitleFgDark}{HTML}{CAD3F5}
-  \definecolor{mFrametitleBgDark}{HTML}{24273A}
-  \definecolor{mAlertDark}{HTML}{ED8796}%
-  \definecolor{mExampleDark}{HTML}{8AADF4}%
-  \definecolor{mProgressbarFgDark}{HTML}{EED49F}
-  \definecolor{mTitleseparatorDark}{HTML}{A6DA95}
-  \definecolor{mStandoutFgDark}{HTML}{4C4F69}
-  \definecolor{mStandoutBgDark}{HTML}{EFF1F5}
-
   \moloch@register@dark@colors{%
-    \setbeamercolor{normal text}{fg=mNormaltextFgDark, bg=mNormaltextBgDark}%
-    \setbeamercolor{frametitle}{fg=mFrametitleFgDark, bg=mFrametitleBgDark}%
-    \setbeamercolor{palette primary}{fg=mFrametitleFgDark, bg=mFrametitleBgDark}%
-    \setbeamercolor{alerted text}{fg=mAlertDark}%
-    \setbeamercolor{example text}{fg=mExampleDark}%
-    \setbeamercolor{progress bar}{fg=mProgressbarFgDark, bg=black!20}%
-    \setbeamercolor{title separator}{fg=mTitleseparatorDark}%
-    \setbeamercolor{footnote}{fg=black!10}%
-    \setbeamercolor{footnote mark}{fg=.}%
-    \setbeamercolor{standout}{fg=mStandoutFgDark, bg=mStandoutBgDark}
+    \definecolor{mNormaltextFg}{HTML}{CAD3F5}
+    \definecolor{mNormaltextBg}{HTML}{24273A}
+    \definecolor{mAlertFg}{HTML}{ED8796}
+    \definecolor{mExampleFg}{HTML}{8AADF4}
+    \definecolor{mFrametitleFg}{HTML}{CAD3F5}
+    \definecolor{mFrametitleBg}{HTML}{24273A}
+    \definecolor{mProgressbarFg}{HTML}{EED49F}
+    \colorlet{mProgressbarBg}{mProgressbarFg!20!black!90}
+    \definecolor{mTitleseparatorFg}{HTML}{A6DA95}
+    \definecolor{mStandoutFg}{HTML}{4C4F69}
+    \definecolor{mStandoutBg}{HTML}{CCD0DA}
+    \colorlet{mFootnoteFg}{mNormaltextFg!90}
+
+    \moloch@apply@semantic@colors
   }%
 
   % Apply current variant after registering both

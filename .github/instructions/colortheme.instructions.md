@@ -4,19 +4,99 @@ applyTo: "src/beamercolorthememoloch.dtx"
 
 # Moloch Color Theme Architecture
 
-This document explains how the color system in `beamercolorthememoloch.dtx` works, making it easy to add new color customization options.
+This document explains how the color system in `beamercolorthememoloch.dtx` works, making it easy to create new color themes and add user customization options.
 
 ## Overview
 
 The color system has three main components:
 
-1. **Color Theme Presets** - Define complete color schemes (default, tomorrow, highcontrast)
-2. **Variant System** - Support light/dark variants with automatic switching
-3. **Granular Color Options** - Allow users to override individual colors per variant
+1. **Semantic Color System** - Convention-based color naming for themes
+2. **Color Theme Presets** - Define complete color schemes (default, tomorrow, paper)
+3. **Variant System** - Support light/dark variants with automatic switching
+4. **Granular Color Options** - Allow users to override individual colors per variant
 
 ## Key Architecture Concepts
 
-### 1. Variant Tracking
+### 1. Semantic Color System
+
+Color themes define colors using a convention-based naming system. All themes must define these **12 semantic colors**:
+
+| Semantic Color Name | Purpose | User-Accessible |
+|---------------------|---------|-----------------|
+| `mNormaltextFg` | Normal text foreground | ✅ Yes |
+| `mNormaltextBg` | Normal text background | ✅ Yes |
+| `mFrametitleFg` | Frame title foreground | ✅ Yes |
+| `mFrametitleBg` | Frame title background | ✅ Yes |
+| `mAlertFg` | Alerted text foreground | ✅ Yes |
+| `mExampleFg` | Example text foreground | ✅ Yes |
+| `mProgressbarFg` | Progress bar foreground | ✅ Yes |
+| `mProgressbarBg` | Progress bar background | ✅ Yes |
+| `mTitleseparatorFg` | Title separator foreground | ✅ Yes |
+| `mStandoutFg` | Standout frame foreground | ✅ Yes |
+| `mStandoutBg` | Standout frame background | ✅ Yes |
+| `mFootnoteFg` | Footnote foreground | ✅ Yes |
+
+**Why semantic colors?**
+- Themes define complete, self-contained color schemes
+- No state leakage between themes
+- Users can reference these colors in their documents (TikZ, custom text colors, etc.)
+- Standard LaTeX color commands (`\definecolor`, `\colorlet`)
+
+### 2. Color Theme Structure
+
+Each theme command follows this pattern:
+
+```tex
+\newcommand{\moloch@colortheme@<name>}{%
+  % Register light variant
+  \moloch@register@light@colors{%
+    % Define all 12 semantic colors
+    \definecolor{mNormaltextFg}{HTML}{23373b}%
+    \colorlet{mNormaltextBg}{black!2}%
+    \definecolor{mAlertFg}{HTML}{EB811B}%
+    % ... define all 12 colors
+    
+    % Apply semantic colors to Beamer
+    \moloch@apply@semantic@colors
+  }%
+  
+  % Register dark variant
+  \moloch@register@dark@colors{%
+    % Redefine all 12 semantic colors (with dark values)
+    \colorlet{mNormaltextFg}{black!2}%
+    \definecolor{mNormaltextBg}{HTML}{23373b}%
+    \definecolor{mAlertFg}{HTML}{EF9F76}%
+    % ... redefine all 12 colors
+    
+    % Apply semantic colors to Beamer
+    \moloch@apply@semantic@colors
+  }%
+  
+  % Apply current variant after registering both
+  \moloch@apply@current@variant
+}
+```
+
+**Key points:**
+- Both variants must define **all 12 semantic colors**
+- Use `\definecolor` for HTML/RGB values or `\colorlet` for color expressions/references
+- Call `\moloch@apply@semantic@colors` after defining colors
+- Semantic color names are overwritten when switching variants
+
+### 3. The Semantic Color Helper
+
+The `\moloch@apply@semantic@colors` macro:
+1. **Validates** all 12 semantic colors are defined (throws clear errors if missing)
+2. **Maps** semantic colors to appropriate Beamer color elements
+3. **Sets up relationships** (e.g., `palette primary` derives from `frametitle`)
+
+**Validation:** If a theme forgets to define a semantic color, users get a helpful error:
+```
+! Package beamercolorthememoloch Error: Semantic color 'mAlertFg' not defined.
+  Color themes must define all required semantic colors
+```
+
+### 4. Variant Tracking
 
 A boolean flag tracks the current variant:
 
@@ -25,47 +105,29 @@ A boolean flag tracks the current variant:
 \moloch@variant@darkfalse  % Default to light variant
 ```
 
-### 2. Color Registration System
+### 5. Variant Registration and Switching
 
-Each color theme preset registers both light and dark variants:
-
-```tex
-\moloch@register@light@colors{%
-  \setbeamercolor{normal text}{fg=mDarkTeal, bg=black!2}%
-  \setbeamercolor{frametitle}{fg=black!2, bg=mDarkTeal}%
-  % ... more colors
-}
-
-\moloch@register@dark@colors{%
-  \setbeamercolor{normal text}{fg=black!2, bg=mDarkTeal}%
-  \setbeamercolor{frametitle}{fg=mDarkTeal, bg=black!2}%
-  % ... more colors
-}
-```
-
-### 3. Variant Switching
-
-Two commands apply the registered colors:
+Two commands switch between registered variants:
 
 ```tex
 \newcommand{\moloch@colors@light}{%
-  \moloch@define@light@colors
-  \moloch@setup@text@colors
-  \moloch@setup@block@colors
-  \moloch@apply@store@light@colors
+  \moloch@define@light@colors         % Execute registered light colors
+  \moloch@setup@text@colors           % Update derived colors
+  \moloch@setup@block@colors          % Update block colors
+  \moloch@apply@store@light@colors    % Apply user customizations
 }
 
 \newcommand{\moloch@colors@dark}{%
-  \moloch@define@dark@colors
-  \moloch@setup@text@colors
-  \moloch@setup@block@colors
-  \moloch@apply@store@dark@colors
+  \moloch@define@dark@colors          % Execute registered dark colors
+  \moloch@setup@text@colors           % Update derived colors
+  \moloch@setup@block@colors          % Update block colors
+  \moloch@apply@store@dark@colors     % Apply user customizations
 }
 ```
 
-### 4. Storage System for User Customizations
+### 6. User Customization Storage System
 
-User color customizations are stored in macros so they persist across variant switches. For each customizable color, there are storage macros for both variants:
+User color customizations (via `\molochcolors{}`) are stored separately from theme defaults, allowing them to persist across variant switches:
 
 ```tex
 \moloch@store@light@<color>@<property>
@@ -74,18 +136,171 @@ User color customizations are stored in macros so they persist across variant sw
 
 Example: `\moloch@store@light@alerted@text`, `\moloch@store@dark@normal@text@fg`
 
-### 5. Application Functions
+### 7. Application Functions
 
-Two functions apply stored customizations after switching variants:
+Two functions apply stored user customizations after switching variants:
 
-- `\moloch@apply@store@light@colors` - Apply light variant customizations
-- `\moloch@apply@store@dark@colors` - Apply dark variant customizations
+- `\moloch@apply@store@light@colors` - Apply light variant user customizations
+- `\moloch@apply@store@dark@colors` - Apply dark variant user customizations
 
 These check if each storage macro is non-empty and apply it if set.
 
-## How to Add a New Color Option
+---
 
-Follow these steps to add a new customizable color option. We'll use `normal text fg` as an example.
+## How to Create a New Color Theme
+
+Follow these steps to add a new color theme preset (e.g., `\moloch@colortheme@mycustomtheme`):
+
+### Step 1: Create the theme command
+
+Add a new macro in the "Color Theme Presets" section:
+
+```tex
+\newcommand{\moloch@colortheme@mycustomtheme}{%
+  % Will define light and dark variants
+}
+```
+
+### Step 2: Define the light variant
+
+Register the light variant with all 12 semantic colors:
+
+```tex
+\moloch@register@light@colors{%
+  % Define semantic colors using \definecolor or \colorlet
+  \definecolor{mNormaltextFg}{HTML}{333333}%
+  \colorlet{mNormaltextBg}{white}%
+  \definecolor{mFrametitleFg}{HTML}{ffffff}%
+  \definecolor{mFrametitleBg}{HTML}{0066cc}%
+  \definecolor{mAlertFg}{HTML}{cc0000}%
+  \definecolor{mExampleFg}{HTML}{00aa00}%
+  \colorlet{mProgressbarFg}{mAlertFg}%
+  \colorlet{mProgressbarBg}{mProgressbarFg!30}%
+  \colorlet{mTitleseparatorFg}{mProgressbarFg}%
+  \colorlet{mStandoutFg}{mNormaltextBg}%
+  \colorlet{mStandoutBg}{mNormaltextFg}%
+  \colorlet{mFootnoteFg}{mNormaltextFg!80}%
+  
+  % Apply to Beamer colors
+  \moloch@apply@semantic@colors
+}%
+```
+
+**Tips for defining colors:**
+- Use `\definecolor{name}{HTML}{hexcode}` for absolute colors
+- Use `\definecolor{name}{RGB}{r,g,b}` for RGB values
+- Use `\colorlet{name}{expression}` for derived colors (e.g., `black!2`, `mAlertFg!30`)
+- Common pattern: define base colors first, then derive others using `\colorlet`
+
+### Step 3: Define the dark variant
+
+Register the dark variant (redefine the same 12 colors with dark-appropriate values):
+
+```tex
+\moloch@register@dark@colors{%
+  % Redefine all 12 semantic colors
+  \colorlet{mNormaltextFg}{white}%
+  \definecolor{mNormaltextBg}{HTML}{1a1a1a}%
+  \colorlet{mFrametitleFg}{mNormaltextFg}%
+  \definecolor{mFrametitleBg}{HTML}{003d7a}%
+  \definecolor{mAlertFg}{HTML}{ff6666}%
+  \definecolor{mExampleFg}{HTML}{66ff66}%
+  \colorlet{mProgressbarFg}{mAlertFg}%
+  \colorlet{mProgressbarBg}{mProgressbarFg!30}%
+  \colorlet{mTitleseparatorFg}{mProgressbarFg}%
+  \colorlet{mStandoutFg}{mNormaltextBg}%
+  \colorlet{mStandoutBg}{mFrametitleBg}%
+  \colorlet{mFootnoteFg}{mNormaltextFg!80}%
+  
+  % Apply to Beamer colors
+  \moloch@apply@semantic@colors
+}%
+```
+
+### Step 4: Apply the current variant
+
+After registering both variants, apply whichever is active:
+
+```tex
+  % Apply current variant after registering both
+  \moloch@apply@current@variant
+}
+```
+
+### Step 5: Complete example
+
+```tex
+\newcommand{\moloch@colortheme@mycustomtheme}{%
+  \moloch@register@light@colors{%
+    \definecolor{mNormaltextFg}{HTML}{333333}%
+    \colorlet{mNormaltextBg}{white}%
+    \definecolor{mFrametitleFg}{HTML}{ffffff}%
+    \definecolor{mFrametitleBg}{HTML}{0066cc}%
+    \definecolor{mAlertFg}{HTML}{cc0000}%
+    \definecolor{mExampleFg}{HTML}{00aa00}%
+    \colorlet{mProgressbarFg}{mAlertFg}%
+    \colorlet{mProgressbarBg}{mProgressbarFg!30}%
+    \colorlet{mTitleseparatorFg}{mProgressbarFg}%
+    \colorlet{mStandoutFg}{mNormaltextBg}%
+    \colorlet{mStandoutBg}{mNormaltextFg}%
+    \colorlet{mFootnoteFg}{mNormaltextFg!80}%
+    
+    \moloch@apply@semantic@colors
+  }%
+  
+  \moloch@register@dark@colors{%
+    \colorlet{mNormaltextFg}{white}%
+    \definecolor{mNormaltextBg}{HTML}{1a1a1a}%
+    \colorlet{mFrametitleFg}{mNormaltextFg}%
+    \definecolor{mFrametitleBg}{HTML}{003d7a}%
+    \definecolor{mAlertFg}{HTML}{ff6666}%
+    \definecolor{mExampleFg}{HTML}{66ff66}%
+    \colorlet{mProgressbarFg}{mAlertFg}%
+    \colorlet{mProgressbarBg}{mProgressbarFg!30}%
+    \colorlet{mTitleseparatorFg}{mProgressbarFg}%
+    \colorlet{mStandoutFg}{mNormaltextBg}%
+    \colorlet{mStandoutBg}{mFrametitleBg}%
+    \colorlet{mFootnoteFg}{mNormaltextFg!80}%
+    
+    \moloch@apply@semantic@colors
+  }%
+  
+  \moloch@apply@current@variant
+}
+```
+
+### Step 6: Enable the theme via pgfkeys option
+
+Add a pgfkeys option to make the theme selectable:
+
+```tex
+\pgfkeys{
+  /moloch/colortheme/.cd,
+  .is choice,
+  default/.code=\moloch@colortheme@default,
+  tomorrow/.code=\moloch@colortheme@tomorrow,
+  paper/.code=\moloch@colortheme@paper,
+  mycustomtheme/.code=\moloch@colortheme@mycustomtheme,  % Add this
+}
+```
+
+### Step 7: Test the theme
+
+```bash
+l3build unpack                 # Generate .sty files
+l3build-wrapped check          # Run tests
+```
+
+Users can now load it with:
+```latex
+\usetheme[colortheme=mycustomtheme, variant=light]{moloch}
+```
+
+---
+
+## How to Add a New User Customization Option
+
+User customization options (used via `\molochcolors{option=value}`) allow fine-grained control beyond theme presets. Follow these steps to add a new customizable color option. We'll use `normal text fg` as an example.
 
 ### Step 1: Add Storage Macro Definitions
 
@@ -313,16 +528,45 @@ Examples: `normal text fg/bg`, `frametitle fg/bg`, `standout fg/bg`, `progressba
 
 ## Testing Your Changes
 
+### For new color themes:
+
+1. Build the theme: `l3build unpack`
+2. Run tests: `l3build-wrapped check`
+3. If tests fail, update expectations: `l3build-wrapped save <testname>`
+4. Create a test presentation and verify both light and dark variants
+5. Check that semantic colors are accessible: `\textcolor{mAlertFg}{test}`
+
+### For new customization options:
+
 1. Build the theme: `l3build unpack`
 2. Run tests: `l3build-wrapped check`
 3. If tests fail due to intentional changes: `l3build-wrapped save <testname>`
-4. Create a test presentation using `\molochcolors{<new option>={<color>}}`
-5. Test variant switching: Switch between light/dark and verify colors persist
+4. Test the option: `\molochcolors{<new option>=<color>}`
+5. Test variant switching: Switch between light/dark and verify customizations persist
 
 ## Tips
+
+### For color theme development:
+
+- **Define all 12 semantic colors** - validation will catch missing colors
+- **Use `\colorlet` for flexibility** - works with color names, expressions, and derived colors
+- **Common pattern**: Define a few base colors, derive the rest using `\colorlet`
+- **Test both variants** - ensure contrast and readability in both light and dark modes
+- **Make semantic colors user-accessible** - users can reference them in TikZ, text colors, etc.
+- **No state leakage** - each theme is self-contained and overwrites all semantic colors
+
+### For user customization options:
 
 - **Always use full Beamer color names** in option names (not abbreviations)
 - **Storage macro names use `@` instead of spaces** (`normal@text@fg` not `normal text fg`)
 - **Check if setup functions are needed** by examining what the Beamer color affects
 - **Test both variants** - many bugs only appear when switching variants
 - **Update all test expectations** after changes to avoid CI failures
+
+## Summary
+
+**Creating themes:** Define 12 semantic colors per variant → Call `\moloch@apply@semantic@colors` → Done!
+
+**Adding customization:** Define storage macros → Create pgfkeys options → Update application functions → Test!
+
+The semantic color system ensures themes are self-contained, predictable, and user-friendly.
