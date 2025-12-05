@@ -311,7 +311,10 @@ have modified the green color for the example blocks to be a bit less saturated.
 #### The High Contrast Theme
 
 For low-light situations it might be helpful to use the `moloch-highcontrast`
-color theme:
+color theme. It uses high-contrast colors adapted from the Okabe-Ito color
+palette, which is designed to be easily distinguishable by individuals with
+various types of color blindness. Otherwise, the colors used are mostly black
+and white.
 
 ```latex
 \usetheme[colortheme=highcontrast]{moloch}
