@@ -5,7 +5,8 @@ format:
 ---
 
 ![](images/og.jpg){fig.alt="The Maschinenmensch is projecting the Moloch logo
-onto a Metropolis-like skyscraper using a vintage movie projector."}
+onto a Metropolis-like skyscraper using a vintage movie projector."
+fig-align="center" style="padding-top: 1em;"}
 
 # Introduction {-}
 
