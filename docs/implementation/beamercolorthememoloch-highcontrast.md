@@ -9,7 +9,8 @@ title: "Color Theme: High Contrast"
 :::
 
 **DEPRECATED:** This color theme is deprecated and will be removed in a
-future version. Please use \|\| with \|\| instead.
+future version. Please use `\usecolortheme{moloch}` with
+`\molochset{colortheme=highcontrast}` instead.
 
 This is a high-contrast variant of the Moloch color theme. It provides
 better readability for users with visual impairments by using stark

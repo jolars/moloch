@@ -11,7 +11,7 @@ title: "Color Theme: Tomorrow"
 ## Moloch Tomorrow Color Theme
 
 **DEPRECATED:** This color theme is deprecated and will be removed in a
-future version. Please use \|\| with \|\| instead.
+future version. Please use \|verb\| with \|verb\| instead.
 
 The Moloch Tomorrow color theme provides a color scheme based on the
 "Tomorrow" color scheme created by Chris Kempson.
