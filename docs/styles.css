@@ -1,9 +1,6 @@
 /* Custom styles for Moloch documentation */
 
 .describe-option {
-  margin: 1em 0;
-  border-left: 3px solid #2a7f62;
-  padding-left: 1em;
 }
 
 .describe-option .option-name {
@@ -24,9 +21,6 @@
 }
 
 .describe-key {
-  margin: 1em 0;
-  border-left: 3px solid #2a7f62;
-  padding-left: 1em;
 }
 
 .describe-key .key-name {
