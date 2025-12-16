@@ -4,22 +4,22 @@
 [![Build-and-Test](https://github.com/jolars/moloch/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/jolars/moloch/actions/workflows/build-and-test.yml)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17203438.svg)](https://doi.org/10.5281/zenodo.17203438)
 
-Moloch is a minimalistic and functional Beamer theme.
-It is a fork of the [Metropolis Theme](https://github.com/matze/mtheme),
-that was created for the following reasons:
+Moloch is a minimalist, feature-rich Beamer theme. It combines a clean, modern
+design with extensive customization options to tailor your slides to your needs.
+
+Moloch is a fork of the [Metropolis Theme](https://github.com/matze/mtheme) and
+was created for the following reasons:
 
 - To fix some outstanding issues that had not been addressed for a long time.
 - To remove some of the more opinionated design choices, such as special
   handling of the Fira family of fonts.
 - To strip away some features that added complexity to the code base without
-  achieving valuable functionality for the majority of users, such as special
-  code block designs and the pgfplots theme.
+  achieving valuable functionality for the majority of users.
 
-Please check out [the documentatioon](https://moloch.ink) for
-more information on how to use the theme. If you're interested, there 
-is also [a blog post](https://jolars.co/blog/2024-05-30-moloch/) in which I
-introduce the theme and write in more detail about the changes with respect to
-Metropolis. 
+Please check out [the documentatioon](https://moloch.ink) for more information
+on how to use the theme. If you're interested, there is also
+[a blog post](https://jolars.co/blog/2024-05-30-moloch/) in which I introduce
+the theme and write in more detail about the changes with respect to Metropolis.
 
 Do not expect this theme to be backwards compatible with the Metropolis theme.
 
@@ -71,19 +71,19 @@ Moloch.
 
 ## License
 
-The theme itself is licensed under a [Creative Commons Attribution-ShareAlike
-4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+The theme itself is licensed under a
+[Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 This means that if you change the theme and re-distribute it, you _must_ retain
-the copyright notice header and license it under the same CC-BY-SA license.
-This does not affect the presentation that you create with the theme.
+the copyright notice header and license it under the same CC-BY-SA license. This
+does not affect the presentation that you create with the theme.
 
 ## Contributing
 
 Contributions are welcome, but we are generally not interested in changes that
 can be easily added through the standard Beamer interface.
 
-Also, when writing commit messages, please use the [conventional commits
-format](https://www.conventionalcommits.org/en/v1.0.0/).
+Also, when writing commit messages, please use the
+[conventional commits format](https://www.conventionalcommits.org/en/v1.0.0/).
 
 ## Versioning
 
@@ -91,8 +91,8 @@ The project uses [semantic versioning](https://semver.org).
 
 ## Acknowledgments
 
-Much of **Moloch** is the result of [Mathias
-Vogelgesang's](https://github.com/matze) hard work on the **Metropolis theme**
-(of which **Moloch** is a fork).
+Much of **Moloch** is the result of
+[Mathias Vogelgesang's](https://github.com/matze) hard work on the **Metropolis
+theme** (of which **Moloch** is a fork).
 
 Thanks to [samcarter](https://github.com/samcarter) for the logo!
