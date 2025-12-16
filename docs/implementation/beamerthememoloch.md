@@ -30,7 +30,6 @@ Most options are passed off to the component sub-packages.
       /moloch/inner,
       /moloch/outer,
       /moloch/color,
-      /moloch/colors,
       /moloch/font,
     }
 }
