@@ -41,6 +41,7 @@ Route color theme options to the new color system.
 \pgfkeys{/moloch/.cd,
   colortheme/.code=\pgfkeysalso{/moloch/colors/theme=#1},
   colorthemevariant/.code=\pgfkeysalso{/moloch/colors/variant=#1},
+  colortheme variant/.code=\pgfkeysalso{/moloch/colors/variant=#1},
 }
 ```
 
