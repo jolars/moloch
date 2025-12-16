@@ -123,11 +123,18 @@ the frame numbering and progress bar.
 ::: {.describe-option option-name="numbering" values="none, counter, fraction"
 default="(none specified)"}
 
-_This option is deprecated and will be removed in a future version. Please use
-Beamer's `page number in head/foot` template instead._ Controls whether the
-frame number at the bottom right of each slide is omitted (`none`), shown
-(`counter`) or displayed as a fraction of the total number of frames
-(`fraction`).
+::: {.callout-warning}
+
+## Deprecated
+
+This option is deprecated and will be removed in a future version. Please use
+Beamer's `page number in head/foot` template instead.
+
+:::
+
+Controls whether the frame number at the bottom right of each slide is omitted
+(`none`), shown (`counter`) or displayed as a fraction of the total number of
+frames (`fraction`).
 
 :::
 
@@ -263,11 +270,16 @@ the second block.](./images/example-blocks.png){.lightbox}
 ::: {.describe-option option-name="background" values="dark, light"
 default="light"}
 
-Provides the option to have a dark background and light foreground instead of
-the reverse. **Note:** This option is deprecated in favor of the new
-`\molochcolors{variant=dark}` syntax (see below).
+::: {.callout-warning}
+
+## Deprecated
+
+This option is deprecated. Use `\molochcolors{variant=dark}` instead.
 
 :::
+
+Provides the option to have a dark background and light foreground instead of
+the reverse.
 
 ```latex
 \documentclass{beamer}
@@ -287,6 +299,8 @@ the reverse. **Note:** This option is deprecated in favor of the new
 
 ![Example of the "background" option set to "dark", swapping the foreground and
 background colors.](./images/example-background.png){.lightbox}
+
+:::
 
 ### Color Themes
 
