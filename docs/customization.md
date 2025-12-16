@@ -9,9 +9,9 @@ of option-value pairs when loading Moloch in the preamble:
 
 ```latex
 \usetheme[
-    option1=value1,
-    option2=value2,
-    ...
+  option1=value1,
+  option2=value2,
+  ...
 ]{moloch}
 ```
 
@@ -20,9 +20,9 @@ Options can be changed at any time---even mid-presentation---with the
 
 ```latex
 \molochset{
-    option1=newvalue1,
-    option2=newvalue2,
-    ...
+  option1=newvalue1,
+  option2=newvalue2,
+  ...
 }
 ```
 
@@ -425,9 +425,9 @@ The basic syntax is:
 
 ```latex
 \molochcolors{
-    option1=color1,
-    option2=color2,
-    ...
+  option1=color1,
+  option2=color2,
+  ...
 }
 ```
 
@@ -580,10 +580,10 @@ You can set different colors for light and dark variants:
 
 % Customize colors for both variants
 \molochcolors{
-    light/alerted text=red!80!black,
-    dark/alerted text=orange,
-    light/progressbar fg=blue,
-    dark/progressbar fg=cyan
+  light/alerted text=red!80!black,
+  dark/alerted text=orange,
+  light/progressbar fg=blue,
+  dark/progressbar fg=cyan
 }
 
 % Start in light mode
@@ -611,8 +611,8 @@ For simple adjustments to the current variant:
 
 ```latex
 \molochcolors{
-    alerted text=purple,
-    progressbar fg=teal
+  alerted text=purple,
+  progressbar fg=teal
 }
 ```
 
