@@ -11,6 +11,13 @@ tasks:
     cmds:
       - texlua scripts/extract-dtx-docs.lua
 
+  test:
+    desc: Run the test suite, checking package functionality
+    deps:
+      - generate-example-images
+    cmds:
+      - l3build-wrapped check
+
   docs:
     desc: Build the documentation site (Quarto)
     dir: docs
