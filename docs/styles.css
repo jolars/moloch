@@ -5,6 +5,7 @@
 
 .describe-option .option-name {
   font-weight: bold;
+  font-size: 1.1em;
 }
 
 .describe-option .option-values {
@@ -25,6 +26,7 @@
 
 .describe-key .key-name {
   font-weight: bold;
+  font-size: 1.1em;
 }
 
 .describe-key .key-type {
