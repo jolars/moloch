@@ -175,17 +175,19 @@ default and ensure the title frame number doesn't count.
 ### `\maketitle`
 
 Inserts the title frame, or causes the current frame to use the
-`title page` template.
+`title page` template. Since we want to remove the footnote rule from
+the title page, we have to store and restore it around the call to
+`\frame`.
 
 ``` latex
 \def\maketitle{%
   \ifbeamer@inframe
     \titlepage
   \else
-    \begingroup
+    \let\beamer@saved@footnoterule\footnoterule%
     \renewcommand\footnoterule{}%
-    \frame[plain,noframenumbering]{\titlepage}
-    \endgroup
+    \frame[plain,noframenumbering]{\titlepage}%
+    \let\footnoterule\beamer@saved@footnoterule%
   \fi
 }
 ```
