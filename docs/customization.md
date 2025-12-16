@@ -28,8 +28,8 @@ Options can be changed at any time---even mid-presentation---with the
 
 The list of options is structured as shown in the following example.
 
-::: {.describe-option option-name="<option-name>" values="<list>, <of>,
-<values>" default="<default>"}
+::: {.describe-option option-name="some option" values="default value, another
+value, yet another value" default="default value"}
 
 A short description of the option.
 
