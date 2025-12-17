@@ -58,7 +58,60 @@ Changes the format of "standout" frames (see `titleformat`, above).
 ## Inner Theme
 
 These options control the inner theme, which is responsible for elements like
-section and subsection pages.
+section and subsection pages, as well as the title page layout.
+
+::: {.describe-option option-name="titlepage" values="moloch, plain, split"
+default="moloch"}
+
+Controls the layout of the title page:
+
+- `moloch`: Moloch's custom layout with golden ratio vertical spacing and a
+  title separator line
+- `plain`: Beamer-like layout with standard vertical spacing and titlegraphic at
+  the bottom
+- `split`: Two-column asymmetric layout with title/subtitle on the left and
+  author/institute/date on the right
+
+:::
+
+```latex
+\documentclass{beamer}
+\usetheme{moloch}
+
+\title{Moloch Theme}
+\subtitle{A Minimalist Beamer Theme}
+\author{John Doe}
+\institute{University of Example}
+\date{\today}
+\titlegraphic{\includegraphics[width=2cm]{assets/logo.pdf}}
+
+\begin{document}
+
+\maketitle
+
+\end{document}
+```
+
+![Moloch titlepage layout (default).](./images/example-titlepage-moloch.png){.lightbox
+group="titlepage"}
+
+Plain Beamer-like layout:
+
+```latex
+\usetheme[titlepage=plain]{moloch}
+```
+
+![Plain titlepage layout.](./images/example-titlepage-plain.png){.lightbox
+group="titlepage"}
+
+Split two-column layout:
+
+```latex
+\usetheme[titlepage=split]{moloch}
+```
+
+![Split two-column titlepage layout.](./images/example-titlepage-split.png){.lightbox
+group="titlepage"}
 
 ::: {.describe-option option-name="sectionpage" values="none, simple,
 progressbar" default="progressbar"}
