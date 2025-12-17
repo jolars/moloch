@@ -125,6 +125,45 @@ Allows `titleseparator linewidth` to be used in `\usetheme`.
 }
 ```
 
+### `titlepage`
+
+Select which title page template to use.
+
+``` latex
+\pgfkeys{
+  /moloch/inner/titlepage/.cd,
+  .is choice,
+  moloch/.code={%
+      \setbeamertemplate{title page}[moloch]%
+      \setbeamertemplate{title}[moloch]%
+      \setbeamertemplate{subtitle}[moloch]%
+      \setbeamertemplate{author}[moloch]%
+      \setbeamertemplate{institute}[moloch]%
+      \setbeamertemplate{date}[moloch]%
+      \setbeamertemplate{title graphic}[moloch]%
+    },
+  plain/.code={%
+      \setbeamertemplate{title page}[plain]%
+      \setbeamertemplate{title}[plain]%
+      \setbeamertemplate{subtitle}[plain]%
+      \setbeamertemplate{author}[plain]%
+      \setbeamertemplate{institute}[plain]%
+      \setbeamertemplate{date}[plain]%
+      \setbeamertemplate{title graphic}[plain]%
+    },
+  split/.code={%
+      \setbeamerfont{date}{size=\footnotesize}
+      \setbeamertemplate{title page}[split]%
+      \setbeamertemplate{title}[split]%
+      \setbeamertemplate{subtitle}[split]%
+      \setbeamertemplate{author}[split]%
+      \setbeamertemplate{institute}[split]%
+      \setbeamertemplate{date}[split]%
+      \setbeamertemplate{title graphic}[split]%
+    },
+}
+```
+
 ### `\moloch@inner@setdefaults`
 
 Set default values for inner theme options.
@@ -136,6 +175,7 @@ Set default values for inner theme options.
     subsectionpage=none,
     standoutnumbering=none,
     titleseparator linewidth=0.5pt,
+    titlepage=moloch,
   }
 }
 ```
@@ -144,12 +184,14 @@ Set default values for inner theme options.
 
 ### `title page`
 
-Template for the title page. Each element is only typset if it is
-defined by the user. If `\subtitle` is empty, for example, it won't
-leave a blank space on the title slide.
+Template for the title page. The moloch variant uses Moloch's custom
+layout with golden ratio spacing and a title separator. The plain
+variant mimics Beamer's default title page layout.
+
+### Moloch Variant
 
 ``` latex
-\setbeamertemplate{title page}{
+\defbeamertemplate*{title page}{moloch}{
   \null%
   \vspace{0pt plus 1.618fil}%
   \vfil%
@@ -164,6 +206,67 @@ leave a blank space on the title slide.
   \ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi
   \vspace{0pt plus 1fil}%
   \null
+}
+```
+
+### Plain (Beamer-like) Variant
+
+``` latex
+\defbeamertemplate{title page}{plain}{
+  \null%
+  \vspace{0pt plus 1fil}%
+  \vfil%
+  \begingroup
+  \centering
+  \usebeamertemplate*{title}
+  \expandafter\ifblank\expandafter{\beamer@andstripped}{}{%
+    \usebeamertemplate*{author}%
+  }
+  \ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi
+  \ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi
+  \ifx\inserttitlegraphic\@empty\else\usebeamertemplate*{title graphic}\fi
+  \endgroup
+  \vspace{0pt plus 1fil}%
+  \null
+}
+```
+
+### Split (Two-column) Variant
+
+``` latex
+\defbeamertemplate{title page}{split}{
+  \null%
+  \vspace{0pt plus 3fil}%
+  \vfil%
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}[t]{0.45\textwidth}
+      \raggedright
+      \ifx\inserttitle\@empty\else\usebeamertemplate*{title}\fi
+      \ifx\insertsubtitle\@empty\else
+        \usebeamertemplate*{subtitle}
+      \fi%
+    \end{column}%
+    \hfill%
+    \usebeamertemplate*{title separator vertical}%
+    \hfill%
+    \begin{column}[t]{0.45\textwidth}
+      \expandafter\ifblank\expandafter{\beamer@andstripped}{}{%
+        \usebeamertemplate*{author}%
+      }
+      \ifx\insertinstitute\@empty\else
+        \usebeamertemplate*{institute}
+      \fi
+      \ifx\insertdate\@empty\else
+        \usebeamertemplate*{date}
+      \fi
+      \ifx\inserttitlegraphic\@empty\else
+        \usebeamertemplate*{title graphic}%
+      \fi%
+    \end{column}
+  \end{columns}
+  \vfil%
+  \vspace{0pt plus 1fil}%
+  \null%
 }
 ```
 
@@ -213,45 +316,79 @@ Inserts the title page using the `title page` beamer template.
 
 ### `title graphic`
 
-Set the title graphic in a zero-height box, so it doesn't change the
-position of other elements.
+Set the title graphic. Default variant for moloch titlepage.
 
 ``` latex
-\setbeamertemplate{title graphic}{
+\defbeamertemplate{title graphic}{moloch}{
   \inserttitlegraphic%
   \par%
   \vspace*{1em}
 }
+\defbeamertemplate{title graphic}{plain}{
+\vskip0.5em%
+{\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+}
+\defbeamertemplate{title graphic}{split}{
+  \vskip2em%
+  \inserttitlegraphic%
+  \par%
+}
+\setbeamertemplate{title graphic}[moloch]
 ```
 
 ### `title`
 
-Set the title on the title page.
+Set the title on the title page. Default variant for moloch titlepage.
 
 ``` latex
-\setbeamertemplate{title}{
+\defbeamertemplate{title}{moloch}{
   \raggedright%
   \moloch@titleformat{\inserttitle}%
   \par%
 }
+\defbeamertemplate{title}{plain}{
+  \begin{beamercolorbox}[sep=8pt,center]{title}
+    \usebeamerfont{title}\inserttitle\par%
+    \ifx\insertsubtitle\@empty\else\usebeamertemplate*{subtitle}\fi%
+  \end{beamercolorbox}%
+  \vskip0.5em%
+}
+\defbeamertemplate{title}{split}{
+  \raggedright%
+  \moloch@titleformat{\inserttitle}%
+  \par%
+}
+\setbeamertemplate{title}[moloch]
 ```
 
 ### `subtitle`
 
-Set the subtitle on the title page.
+Set the subtitle on the title page. Default variant for moloch
+titlepage.
 
 ``` latex
-\setbeamertemplate{subtitle}{
+\defbeamertemplate{subtitle}{moloch}{
   \vspace*{0.3em}
   \raggedright%
   \moloch@subtitleformat{\insertsubtitle}%
   \par%
 }
+\defbeamertemplate{subtitle}{split}{
+  \vspace*{0.5em}
+  \raggedright%
+  \moloch@subtitleformat{\insertsubtitle}%
+  \par%
+}
+\defbeamertemplate{subtitle}{plain}{%
+\vskip0.25em%
+{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+}
+\setbeamertemplate{subtitle}[moloch]
 ```
 
 ### `title separator`
 
-Template to set the title separator.
+Template to set the title separator (horizontal).
 
 ``` latex
 \setbeamertemplate{title separator}{
@@ -267,40 +404,87 @@ Template to set the title separator.
 }
 ```
 
-### `author`
+### `title separator vertical`
 
-Set the author on the title page.
+Template for a vertical title separator.
 
 ``` latex
-\setbeamertemplate{author}{
+\setbeamertemplate{title separator vertical}{%
+  {\usebeamercolor[fg]{title separator}%
+      \vrule width \moloch@titleseparator@linewidth}%
+}
+```
+
+### `author`
+
+Set the author on the title page. Default variant for moloch titlepage.
+
+``` latex
+\defbeamertemplate{author}{moloch}{
   \raggedright%
   \insertauthor%
   \par%
   \vspace*{0.5em}
 }
+\defbeamertemplate{author}{plain}{
+  \begin{beamercolorbox}[sep=8pt,center]{author}
+    \usebeamerfont{author}\insertauthor
+  \end{beamercolorbox}
+}
+\defbeamertemplate{author}{split}{
+  \raggedright%
+  \insertauthor%
+  \par%
+}
+\setbeamertemplate{author}[moloch]
 ```
 
 ### `institute`
 
-Set the institute on the title page.
+Set the institute on the title page. Default variant for moloch
+titlepage.
 
 ``` latex
-\setbeamertemplate{institute}{
+\defbeamertemplate{institute}{moloch}{
   \insertinstitute%
   \par%
   \vspace*{1em}
 }
+\defbeamertemplate{institute}{plain}{
+  \begin{beamercolorbox}[sep=8pt,center]{institute}
+    \usebeamerfont{institute}\insertinstitute
+  \end{beamercolorbox}
+}
+\defbeamertemplate{institute}{split}{
+  \vskip0.5em%
+  \raggedright%
+  \insertinstitute%
+  \par%
+}
+\setbeamertemplate{institute}[moloch]
 ```
 
 ### `date`
 
-Set the date on the title page.
+Set the date on the title page. Default variant for moloch titlepage.
 
 ``` latex
-\setbeamertemplate{date}{
+\defbeamertemplate{date}{moloch}{
   \insertdate%
   \par%
 }
+\defbeamertemplate{date}{plain}{
+  \begin{beamercolorbox}[sep=8pt,center]{date}
+    \usebeamerfont{date}\insertdate
+  \end{beamercolorbox}
+}
+\defbeamertemplate{date}{split}{
+  \vskip0.5em%
+  \raggedright%
+  \insertdate%
+  \par%
+}
+\setbeamertemplate{date}[moloch]
 ```
 
 ## Section Pages
