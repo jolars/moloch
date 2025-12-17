@@ -124,10 +124,17 @@ Allows the user to change options midway through a presentation.
 \newcommand{\molochset}[1]{\pgfkeys{/moloch/.cd,#1}}
 ```
 
+**DEPRECATED:** The following command is deprecated and will be removed
+in a future version.
+
 ### `\mreducelistspacing`
 
 ``` latex
-\newcommand{\mreducelistspacing}{\vspace{-\topsep}}
+\newcommand{\mreducelistspacing}{%
+  \PackageWarning{beamerthememoloch}{%
+    \string\mreducelistspacing\space is deprecated and will be removed in a future version}%
+  \vspace{-\topsep}%
+}
 ```
 
 ## Process Package Options

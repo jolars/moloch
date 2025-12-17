@@ -138,10 +138,16 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \textbf{DEPRECATED: } The following command is deprecated and will be
+% removed in a future version.
 %
 % \begin{macro}{\mreducelistspacing}
 %    \begin{macrocode}
-\newcommand{\mreducelistspacing}{\vspace{-\topsep}}
+\newcommand{\mreducelistspacing}{%
+  \PackageWarning{beamerthememoloch}{%
+    \string\mreducelistspacing\space is deprecated and will be removed in a future version}%
+  \vspace{-\topsep}%
+}
 %    \end{macrocode}
 % \end{macro}
 %
