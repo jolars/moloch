@@ -115,6 +115,19 @@ number count is shown in the same fashion as for regular frames.
 
 :::
 
+::: {.describe-key key-name="titleseparator linewidth" type="<dimension>"
+default="0.5pt"}
+
+Controls the width of the horizontal line that separates the title from the
+author information on the title page (when using `titlepage=moloch`). Set to
+`0pt` to hide the separator line entirely.
+
+:::
+
+```latex
+\usetheme[titleseparator linewidth=2pt]{moloch}
+```
+
 ## Outer Theme
 
 These options control the outer theme, which is responsible for elements like
