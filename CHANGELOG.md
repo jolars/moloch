@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.0](https://github.com/jolars/moloch/compare/v2.0.0...v2.1.0) (2025-12-18)
+
+### Features
+
+* add `titlepage` option with moloch, plain, slit styles ([505426d](https://github.com/jolars/moloch/commit/505426d67719f29fafba3a2c9a7a7a0ea743308f))
+
+### Bug Fixes
+
+* alias `colortheme variant` to `colorthemevariant` ([70a2bf2](https://github.com/jolars/moloch/commit/70a2bf23d3afd90d612f82048b38f37dfe85fa79))
+* don't expose all colortheme settings as package options ([4827f60](https://github.com/jolars/moloch/commit/4827f603f91574c7a7855d74a51d90c8de13abaf))
+* don't wrap titlepage frame in group ([b6be996](https://github.com/jolars/moloch/commit/b6be99698abf39d513388615a9508c3b78568b29))
+
 ## [2.0.0](https://github.com/jolars/moloch/compare/v1.1.0...v2.0.0) (2025-12-05)
 
 ### ⚠ BREAKING CHANGES
