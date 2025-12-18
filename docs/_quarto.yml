@@ -85,22 +85,26 @@ format:
         \usepackage{makeidx}
         \makeindex
         \definecolor{JungleGreen}{RGB}{42,127,98}
-        \newcommand{\DescribeOption}[4]{
+        \newenvironment{DescribeOption}[3]{
           \begin{minipage}[t]{\textwidth}
             \texttt{#1}
             \textit{\textbf{\textcolor{JungleGreen}{#2}}}\dotfill\,#3\par
             \begingroup
-            \vspace{0.5em}#4\par
+            \vspace{0.5em}
+        }{
+            \par
             \endgroup
           \end{minipage}
         }
-        \newcommand{\DescribeKey}[4]{
+        \newenvironment{DescribeKey}[3]{
           \begin{minipage}[t]{\textwidth}
             \texttt{#1}
             \textit{\textbf{\textcolor{JungleGreen}{#2}}}%
             \ifx&#3&\else\dotfill\,default: #3\fi\par
             \begingroup
-            \vspace{0.5em}#4\par
+            \vspace{0.5em}
+        }{
+            \par
             \endgroup
           \end{minipage}
         }

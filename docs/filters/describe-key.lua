@@ -16,14 +16,16 @@ function Div(el)
 
 		-- For LaTeX output
 		if FORMAT:match("latex") then
-			-- Extract the description text
-			local description = pandoc.write(pandoc.Pandoc(el.content), "latex")
+			-- Build the LaTeX environment with content
+			local result = {}
+			table.insert(result, pandoc.RawBlock("latex", 
+				string.format("\\begin{DescribeKey}{%s}{%s}{%s}", key_name, type_val, default or "")))
+			for _, block in ipairs(el.content) do
+				table.insert(result, block)
+			end
+			table.insert(result, pandoc.RawBlock("latex", "\\end{DescribeKey}"))
 
-			-- Build the LaTeX command
-			local latex =
-				string.format("\\DescribeKey{%s}{%s}{%s}{%s}", key_name, type_val, default or "", description)
-
-			return pandoc.RawBlock("latex", latex)
+			return result
 		end
 
 		-- For HTML output
