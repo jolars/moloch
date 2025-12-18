@@ -66,6 +66,7 @@ format:
     theme:
       light: flatly
       dark: darkly
+    highlight-style: gruvbox
     css: styles.css
     html-math-method: katex
     include-in-header:
