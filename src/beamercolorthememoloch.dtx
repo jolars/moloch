@@ -327,6 +327,9 @@
   \ifx\moloch@store@light@normal@text@bg\empty\else
     \setbeamercolor{normal text}{bg=\moloch@store@light@normal@text@bg}%
   \fi
+  \ifx\moloch@store@light@title@separator\empty\else
+    \setbeamercolor{title separator}{fg=\moloch@store@light@title@separator}%
+  \fi
 }
 %    \end{macrocode}
 % \end{macro}
@@ -373,6 +376,9 @@
   \fi
   \ifx\moloch@store@dark@normal@text@bg\empty\else
     \setbeamercolor{normal text}{bg=\moloch@store@dark@normal@text@bg}%
+  \fi
+  \ifx\moloch@store@dark@title@separator\empty\else
+    \setbeamercolor{title separator}{fg=\moloch@store@dark@title@separator}%
   \fi
 }
 %    \end{macrocode}
@@ -728,6 +734,8 @@
   store/dark/normal text fg/.store in=\moloch@store@dark@normal@text@fg,
   store/light/normal text bg/.store in=\moloch@store@light@normal@text@bg,
   store/dark/normal text bg/.store in=\moloch@store@dark@normal@text@bg,
+  store/light/title separator/.store in=\moloch@store@light@title@separator,
+  store/dark/title separator/.store in=\moloch@store@dark@title@separator,
   % Initialize storage macros as empty
   % This prevents errors when checking if macros are set
   store/light/alerted text=,
@@ -750,6 +758,8 @@
   store/dark/normal text fg=,
   store/light/normal text bg=,
   store/dark/normal text bg=,
+  store/light/title separator=,
+  store/dark/title separator=,
   % Color setting commands
   % Each color has three variants:
   % 1. Variant-agnostic: sets current variant + stores for current
@@ -961,6 +971,26 @@
       \pgfkeys{/moloch/colors/store/dark/standout bg=#1}%
       \ifmoloch@variant@dark
         \setbeamercolor{standout}{bg=#1}%
+      \fi
+    },
+  title separator/.code={%
+      \setbeamercolor{title separator}{fg=#1}%
+      \ifmoloch@variant@dark
+        \pgfkeys{/moloch/colors/store/dark/title separator=#1}%
+      \else
+        \pgfkeys{/moloch/colors/store/light/title separator=#1}%
+      \fi
+    },
+  light/title separator/.code={%
+      \pgfkeys{/moloch/colors/store/light/title separator=#1}%
+      \ifmoloch@variant@dark\else
+        \setbeamercolor{title separator}{fg=#1}%
+      \fi
+    },
+  dark/title separator/.code={%
+      \pgfkeys{/moloch/colors/store/dark/title separator=#1}%
+      \ifmoloch@variant@dark
+        \setbeamercolor{title separator}{fg=#1}%
       \fi
     },
 }

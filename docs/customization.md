@@ -618,6 +618,14 @@ Sets the background color for progress bars.
 
 :::
 
+::: {.describe-key key-name="title separator" type="<color>"
+default="theme-dependent"}
+
+Sets the foreground color for the title separator (horizontal rule on the title
+page).
+
+:::
+
 ::: {.describe-key key-name="standout fg" type="<color>"
 default="theme-dependent"}
 
