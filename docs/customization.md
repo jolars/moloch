@@ -607,8 +607,7 @@ Sets the background color for frame titles.
 default="theme-dependent"}
 
 Sets the foreground color for progress bars. This affects progress bars in all
-locations (head, foot, frame title, section pages) and the title separator on
-the title page.
+locations (head, foot, frame title, section pages).
 
 :::
 
