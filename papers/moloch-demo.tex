@@ -1,0 +1,51 @@
+\documentclass{beamer}
+
+\usepackage[T1]{fontenc}
+
+\usetheme{moloch}
+
+\usepackage{booktabs}
+\usepackage{lmodern}
+
+\title{Moloch}
+\subtitle{A Minimalist Beamer Theme}
+\date{\today}
+\author{Johan Larsson}
+\institute{
+  Department of Mathematical Sciences,
+  University of Copenhagen
+}
+\titlegraphic{\hfill\includegraphics{logo.pdf}}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+  \frametitle{A Sample Frame}
+
+  Hello, World!
+\end{frame}
+
+\molochset{colortheme=catppuccin, colortheme variant=dark}
+
+\begin{frame}
+  \frametitle{The Catppuccin Color Theme}
+
+  \begin{exampleblock}{This Frame}
+    This frame uses the \alert{catppuccin} color theme in dark mode.
+  \end{exampleblock}
+
+  Colors rely on standard color definitions, like
+  \begin{itemize}
+    \item \textcolor{mAlertFg}{\texttt{mAlertFg}}
+    \item \textcolor{mExampleFg}{\texttt{mExampleFg}}
+  \end{itemize}
+  which allows users to tap into the current color themes
+  colors.
+
+  \medskip
+
+\end{frame}
+
+\end{document}

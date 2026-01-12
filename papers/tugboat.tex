@@ -1,0 +1,214 @@
+% TUGboat class documentation is at:
+%   texdoc tugboat
+% or
+%   https://texdoc.org/serve/tugboat/0
+% or
+%   https://mirrors.ctan.org/macros/latex/contrib/tugboat/ltubguid.pdf
+
+\documentclass{ltugboat}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{minted}
+
+\setminted{
+  % style=algol_nu,
+  style=bw,
+  linenos,
+  numbersep=4pt,
+  % frame=lines,
+  framesep=6pt,
+  fontsize=\small,
+}
+
+\title{Moloch: Minimalist, Feature-Rich Beamer Presentations}
+\shortTitle{Moloch}
+
+\author{Johan Larsson}
+\address{Department of Mathematical Sciences, University of Copenhagen\\Universitetsparken 5\\2100 Copenhagen\\Denmark}
+\netaddress{jola@math.ku.dk}
+\personalURL{https://jolars.co}
+\ORCID{0000-0002-4029-5945}
+
+\author{samcarter}
+
+% If possible, I would like to receive a physical copy of this TUGboat issue.
+% Please use the address given in the \address field above.
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+  \titleref{Moloch} is a fork of the popular \LaTeX\ Beamer~\cite{wright2025} theme
+  \titleref{Metropolis}, which is no longer actively maintained. Moloch
+  aims to fix outstanding issues with Metropolis while keeping the
+  original design mostly intact. This article summarizes the changes
+  made in Moloch as well as some general \TUB\ style guidelines for
+  authors.
+\end{abstract}
+
+\section{Introduction}
+
+I have long been an admirer and user of the excellent Metropolis theme, which
+provides a clean, professional look for \LaTeX\ Beamer presentations in
+addition to enabling useful features such as progress bars and (what I think
+are) sane defaults for presentations.
+
+The problem is that \titleref{Metropolis} is no longer actively
+maintained\Dash{}its latest updates date six years back and over time an
+increasing number of issues have cropped up. Most of them are minor and
+corrigible through workarounds, but my preamble has grown increasingly
+cluttered with such patches. Moreover, a number of users have requested
+features, while others have offered contributions to help improve the theme.
+Metropolis being unmaintained, however, these contributions have not been
+incorporated.
+
+This has led me to fork \titleref{Metropolis} into a new theme, which I call
+\titleref{Moloch}\footnote{Likely familiar to your if you know your
+  Metropolis.}. The goal is to keep the original design philosophy and look of
+Metropolis while fixing outstanding issues and incorporating useful features
+and contributions from the community. I have made some design changes, but
+these have largely been made to make the design more accessible and to bring
+the behavior of the theme closer to standard Beamer behavior. Finally, I have
+also made a number of internal code improvements to make the theme more robust
+and maintainable going forward. Users of \titleref{Metropolis} should find it
+easy to switch to \titleref{Moloch}, whilst at the same time benefit from the
+bug fixes, new features, and improved stability.
+
+Since neither \titleref{Metropolis} nor \titleref{Moloch} have been introduced
+in \TUB\ before, I will begin to do just that by introducing \titleref{Moloch}.
+Users of \titleref{Metropolis} may wish to skip ahead to
+Section~\ref{sec:metro-vs-moloch}, which summarizes the changes made in
+\titleref{Moloch}.
+
+\section{Getting Started with Moloch}
+
+Moloch is a standard Beamer theme and is enabled as any other theme. Here is a
+minimal example presentation using Moloch:
+
+\begin{minted}[]{latex}
+\documentclass{beamer}
+
+\usetheme{moloch}
+
+\title{Moloch Theme}
+\subtitle{A Minimalist Beamer Theme}
+\author{Johan Larsson}
+\institute{
+  Department of Mathematical Sciences,
+  University of Copenhagen
+}
+\date{\today}
+\titlegraphic{\hfill\includegraphics{logo.pdf}}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+  \frametitle{A Sample Frame}
+
+  Hello, World!
+\end{frame}
+
+\end{document}
+\end{minted}
+
+This will produce a presentation with the title slide shown in
+Figure~\ref{fig:title-slide}. As you can see, Moloch provides a distinctive
+title slide with somewhat different formatting than the standard Beamer title
+slide\footnote{But if you prefer the default Beamer one, then Moloch has the
+  option to use that instead}.
+
+\begin{figure}[htb]
+  \centering
+  \frame{\includegraphics[page=1,width=\columnwidth]{moloch-demo}}
+
+  \vspace{1ex}
+
+  \frame{\includegraphics[page=2,width=\columnwidth]{moloch-demo}}
+  \caption{%
+    The title slide and first frame of a presentation made with Moloch.
+  }
+  \label{fig:title-slide}
+\end{figure}
+
+Unlike most themes, Moloch comes with a number of options that can be set
+either when loading the theme or via the macro \cs{molochset}. The benefit of
+using the latter is that you can change options midway through your
+presentations and limit them to the current scope. The following two calls are
+therefore two equivalent ways to modify the title page style.
+
+\begin{minted}{latex}
+\usetheme[titlepage=plain]{moloch}
+\molochset{titlepage=plain}
+\end{minted}
+
+Like other Beamer themes, Moloch is split into a color theme, font theme, and
+inner and outer themes. Here, we assume that the full Moloch theme is loaded
+via \verb|\usetheme{moloch}|.
+
+\subsection{Color Themes}
+
+A major new feature of Moloch is a full-fledged color theme system that allows
+users to customize the colors used in the theme in an intuitive way. It also
+supports the notion of light and dark modes, which can be switched between at
+any time in the presentation. In addition, we also support a number of
+pre-defined color themes.
+
+To set the overall color theme, use the option \texttt{colortheme} and
+\texttt{colortheme variant} for selecting light or dark mode. For example,
+
+\begin{minted}{latex}
+\molochset{
+  colortheme=catppuccin,
+  colortheme variant=dark
+}
+
+\begin{frame}
+  \frametitle{The Catppuccin Color Theme}
+
+  \begin{exampleblock}{This Frame}
+    This frame uses the \alert{catppuccin}
+    color theme in dark mode.
+  \end{exampleblock}
+
+  Colors rely on standard color definitions,
+  like
+  \begin{itemize}
+    \item \textcolor{mAlertFg}{
+      \texttt{mAlertFg}}
+    \item \textcolor{mExampleFg}{
+      \texttt{mExampleFg}}
+  \end{itemize}
+  which allows users to tap into the current
+  color theme's colors.
+
+  \medskip
+
+\end{frame}
+\end{minted}
+
+\begin{figure}[htpb]
+  \centering
+  \frame{\includegraphics[page=3,width=\columnwidth]{moloch-demo}}
+  \caption{%
+    A frame using the \texttt{catppuccin} color theme in dark mode.
+  }
+  \label{fig:colortheme-catppuccin}
+\end{figure}
+
+\section{Changes in Moloch compared to Metropolis}
+
+\section{Documentation}
+
+\label{sec:metro-vs-moloch}
+
+\bibliographystyle{tugboat}
+\bibliography{bibliography}
+
+\makesignature
+\end{document}
