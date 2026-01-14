@@ -203,6 +203,38 @@ mode.
   \label{fig:colortheme-catppuccin}
 \end{figure}
 
+\subsection{Progress Bars}
+
+A popular feature of \titleref{Metropolis} (that \titleref{Moloch} retains) is
+ability to track progress through the slides via a progress bar on either the
+frames or on section and/or subsection pages. To setup progress bars for the
+frames, use the option \texttt{progressbar} with one \texttt{head},
+\texttt{foot}, or \texttt{frametitle} to place the progress bar in the header,
+footer, or below the frame title, respectively. The following code snippet
+places a thick progress bar in the footer of each frame.
+
+\begin{minted}{latex}
+\molochset{
+  progressbar=foot,
+  progressbar linewidth=4pt
+}
+\end{minted}
+
+The results are shown in Figure~\ref{fig:progress-bars}.
+
+\begin{figure*}[htpb]
+  \centering
+  \frame{\includegraphics[page=4,width=0.32\textwidth]{moloch-demo}}\hfill
+  \frame{\includegraphics[page=5,width=0.32\textwidth]{moloch-demo}}\hfill
+  \frame{\includegraphics[page=6,width=0.32\textwidth]{moloch-demo}}
+  \caption{%
+    Progress bars in the footer, header, and below the frame title.
+    Note that we have increased the line width of the bars to make them
+    more visible. In the default setting, the bars are less obtrusive.
+  }
+  \label{fig:progress-bars}
+\end{figure*}
+
 \section{Changes in Moloch compared to Metropolis}
 
 \section{Documentation}
