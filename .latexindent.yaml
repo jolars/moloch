@@ -8,3 +8,16 @@ verbatimEnvironments:
 modifyLineBreaks:
   textWrapOptions:
     columns: 80
+    blocksBeginWith:
+      other: |-
+        \\titleref
+    blocksFollow:
+      other: |-
+        (?x)
+          \\\]
+          |
+          \\item(?:\h|\[)
+          |
+          \\begin\{abstract\}
+          |
+          \\end\{abstract\}
