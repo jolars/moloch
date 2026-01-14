@@ -44,12 +44,11 @@
 \maketitle
 
 \begin{abstract}
-  \titleref{Moloch} is a fork of the popular \LaTeX\ Beamer~\cite{wright:2025} theme
-  \titleref{Metropolis}, which is no longer actively maintained. Moloch
-  aims to fix outstanding issues with Metropolis while keeping the
-  original design mostly intact. This article summarizes the changes
-  made in Moloch as well as some general \TUB\ style guidelines for
-  authors.
+  \titleref{Moloch} is a fork of the popular \LaTeX\ Beamer~\cite{wright:2025}
+  theme \titleref{Metropolis}, which is no longer actively maintained. Moloch
+  aims to fix outstanding issues with \titleref{Metropolis} while keeping the
+  original design mostly intact. This article summarizes the changes made in
+  \titleref{Moloch} as well as some general \TUB\ style guidelines for authors.
 \end{abstract}
 
 \section{Introduction}
@@ -120,10 +119,11 @@ minimal example presentation using Moloch:
 \end{minted}
 
 This will produce a presentation with the title slide shown in
-Figure~\ref{fig:title-slide}. As you can see, Moloch provides a distinctive
-title slide with somewhat different formatting than the standard Beamer title
-slide\footnote{But if you prefer the default Beamer one, then Moloch has the
-  option to use that instead}.
+Figure~\ref{fig:title-slide}. As you can see, \titleref{Moloch} provides a
+distinctive title slide with somewhat different formatting than the standard
+\titleref{beamer} title slide\footnote{But if you prefer the default
+  \titleref{beamer} one, then \titleref{Molochf} has the option to use that
+  instead}.
 
 \begin{figure}[htb]
   \centering
@@ -138,9 +138,9 @@ slide\footnote{But if you prefer the default Beamer one, then Moloch has the
   \label{fig:title-slide}
 \end{figure}
 
-Unlike most themes, Moloch comes with a number of options that can be set
-either when loading the theme or via the macro \cs{molochset}. The benefit of
-using the latter is that you can change options midway through your
+Unlike most themes, \titleref{Moloch} comes with a number of options that can
+be set either when loading the theme or via the macro \cs{molochset}. The
+benefit of using the latter is that you can change options midway through your
 presentations and limit them to the current scope. The following two calls are
 therefore two equivalent ways to modify the title page style.
 
@@ -149,17 +149,17 @@ therefore two equivalent ways to modify the title page style.
 \molochset{titlepage=plain}
 \end{minted}
 
-Like other Beamer themes, Moloch is split into a color theme, font theme, and
-inner and outer themes. Here, we assume that the full Moloch theme is loaded
-via \verb|\usetheme{moloch}|.
+Like other \titleref{beamer} themes, Moloch is split into a color theme, font
+theme, and inner and outer themes. Here, we assume that the full Moloch theme
+is loaded via \verb|\usetheme{moloch}|.
 
 \subsection{Color Themes}
 
-A major new feature of Moloch is a full-fledged color theme system that allows
-users to customize the colors used in the theme in an intuitive way. It also
-supports the notion of light and dark modes, which can be switched between at
-any time in the presentation. In addition, we also support a number of
-pre-defined color themes.
+A major new feature of \titleref{Moloch} is a full-fledged color theme system
+that allows users to customize the colors used in the theme in an intuitive
+way. It also supports the notion of light and dark modes, which can be switched
+between at any time in the presentation. In addition, we also support a number
+of pre-defined color themes.
 
 To set the overall color theme, use the option \texttt{colortheme} and
 \texttt{colortheme variant} for selecting light or dark mode. For example,
