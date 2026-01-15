@@ -155,7 +155,7 @@ Like other \texttt{beamer} themes, Moloch is split into a color theme, font
 theme, and inner and outer themes. Here, we assume that the full Moloch theme
 is loaded via \verb|\usetheme{moloch}|.
 
-\subsection{Color Themes}
+\subsection{Color Theming}
 
 A major new feature of \texttt{Moloch} is a full-fledged color theme system
 that allows users to customize the colors used in the theme in an intuitive
@@ -166,7 +166,7 @@ of pre-defined color themes.
 To set the overall color theme, use the option \texttt{colortheme} and
 \texttt{colortheme variant} for selecting light or dark mode. For example, the
 following code snippet sets the color theme to \texttt{catppuccin} in dark
-mode.
+mode~(Figure~\ref{fig:colortheme-catppuccin}).
 
 \begin{minted}{latex}
 \molochset{
@@ -203,6 +203,59 @@ mode.
   }
   \label{fig:colortheme-catppuccin}
 \end{figure}
+
+For more granular color customization, \texttt{Moloch} features a new macro,
+\cs{molochcolors}, which sets individual color elements of the theme. Users
+already familiar with \texttt{beamer}'s existing options for color
+customization (e.g. \cs{setbeamercolor}) might wonder what this macro brings to
+the table. The answer is that it allows users to separately specify colors for
+light and dark modes of the theme. The general syntax for this is
+\latexinline{\molochcolors{|\meta{mode}|/|\meta{element}|=|\meta{color}|}},
+where \meta{mode} is either \tbcode{light} or \tbcode{dark}, \meta{element} is
+the name of the color element to set, and \meta{color} is the color
+specification.
+
+For instance, the following code snippet customizes the frame title foreground
+and background colors, the progress bar color, and the alerted and example text
+colors in light mode~(Figure~\ref{fig:}).
+
+\begin{minted}[]{latex}
+\molochcolors{
+  light/frametitle fg=black,
+  light/frametitle bg=yellow!20,
+  light/progressbar fg=magenta!90,
+  light/alerted text=red!80!black,
+  light/example text=blue!60,
+}
+\end{minted}
+
+\begin{figure}[htpb]
+  \centering
+  \frame{\includegraphics[page=10,width=\columnwidth]{moloch-demo}}
+  \caption{%
+    A frame demonstrating customized colors in light mode.
+  }
+  \label{fig:}
+\end{figure}
+
+In addition, omitting the \meta{mode} part will set the color for the current
+mode. For example, the following code snippet sets the color of example blocks
+to green in the current mode.
+
+\begin{minted}{latex}
+\molochcolors{
+  example fg=green!70!black
+}
+\end{minted}
+
+The end result is that \texttt{Moloch} provides a flexible and (we hope)
+intuitive color theming system that allows users to easily customize the look
+of their presentations and effortlessly switch between light and dark modes at
+their convenience.
+
+To enable this color system functionality, \texttt{Moloch} makes heavy use of
+the facilities of \texttt{pgfkeys}~\cite{tantau:2007} from
+\acro{PGF}/\texttt{TikZ}~\cite{feuersanger:2025}.
 
 \subsection{Progress Bars}
 
