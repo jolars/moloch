@@ -25,6 +25,8 @@
   fontsize=\small,
 }
 
+\newmintinline{latex}{fontsize=\normalsize}
+
 \title{Moloch: Minimalist, Feature-Rich Beamer Presentations}
 \shortTitle{Moloch}
 
@@ -225,6 +227,7 @@ frame~(Figure~\ref{fig:progress-bars}).
   \frame{\includegraphics[page=4,width=0.32\textwidth]{moloch-demo}}\hfill
   \frame{\includegraphics[page=5,width=0.32\textwidth]{moloch-demo}}\hfill
   \frame{\includegraphics[page=6,width=0.32\textwidth]{moloch-demo}}
+
   \caption{%
     Progress bars in the footer, header, and below the frame title.
     Note that we have increased the line width of the bars to make them
@@ -236,17 +239,21 @@ frame~(Figure~\ref{fig:progress-bars}).
 Unlike \texttt{beamer}, \texttt{Moloch} comes with section (but not subsection)
 pages enabled by default, which means that sections (using \cs{section}) will
 result in dedicated frames. By default, they use the same progress bar style as
-frames~(Figure~\ref{fig:section-page-default}), but this can be modified via
-\mintinline{latex}{\molochset{sectionpage=|\meta{option}|}}, with \tbcode{none}
-and \tbcode{simple} for no section page and a simple section page without a
+frames~(Figure~\ref{fig:section-page-default}), but this can be set via
+\latexinline{\molochset{sectionpage=|\meta{option}|}}, with \tbcode{none} and
+\tbcode{simple} for no section page and a simple section page without a
 progress bar, respectively.
 
 \begin{figure}[htb]
   \centering
-  \frame{\includegraphics[page=7,width=\columnwidth]{moloch-demo}}
+  \frame{\includegraphics[page=7,width=0.49\columnwidth]{moloch-demo}}
+  \hfill
+  \frame{\includegraphics[page=8,width=0.49\columnwidth]{moloch-demo}}
+
   \caption{%
-    A section page with a progress bar in the header.
-    Here we use the default progress bar line width.
+    The default (left) and simple (right) section pages styles.
+    The section page can also be disabled entirely via
+    \latexinline{\molochset{sectionpage=none}}.
   }
   \label{fig:section-page-default}
 \end{figure}
