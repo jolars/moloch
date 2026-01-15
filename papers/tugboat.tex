@@ -229,7 +229,7 @@ colors in light mode~(Figure~\ref{fig:}).
 }
 \end{minted}
 
-\begin{figure}[htpb]
+\begin{figure}[htb]
   \centering
   \frame{\includegraphics[page=10,width=\columnwidth]{moloch-demo}}
   \caption{%
@@ -337,6 +337,28 @@ creates the standout frame seen in Figure~\ref{fig:standout-frame}.
 
 As with most elements of \texttt{Moloch}, the colors of standout frames can be
 customized via the color theme system.
+
+\subsection{Title Page Styles}
+
+As we have already seen, \texttt{Moloch} provides a distinctive title page
+style by default. As usual, however, preferences differ and for that reason,
+\texttt{Moloch} comes with three different title page styles that can be
+selected via the \tbcode{titlepage} option. The available styles are
+\tbcode{moloch} (the default), \tbcode{plain} (a centered, \texttt{beamer}-like
+style), and \tbcode{split} which splits the information by a vertical
+line~(Figure~\ref{fig:title-page-styles}).
+
+\begin{figure*}[htpb]
+  \centering
+  \frame{\includegraphics[page=1,width=0.32\textwidth]{moloch-demo}}\hfill
+  \frame{\includegraphics[page=11,width=0.32\textwidth]{moloch-demo}}\hfill
+  \frame{\includegraphics[page=12,width=0.32\textwidth]{moloch-demo}}
+  \caption{%
+    The three title page styles: \texttt{moloch} (left), \texttt{plain} (center),
+    and \texttt{split} (right).
+  }
+  \label{fig:title-page-styles}
+\end{figure*}
 
 \section{Changes in Moloch compared to Metropolis}
 
