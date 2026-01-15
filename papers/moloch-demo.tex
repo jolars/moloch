@@ -98,4 +98,51 @@
   Thank you!
 \end{frame}
 
+\molochcolors{
+  light/frametitle fg=black,
+  light/frametitle bg=yellow!20,
+  light/progressbar fg=magenta!90,
+  light/alerted text=red!80!black,
+  light/example text=blue!60,
+}
+
+\begin{frame}
+  \frametitle{Color Theme Showcase}
+
+  This example demonstrates the color theme with different block styles.
+
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      {
+        \molochset{block=fill}
+
+        \begin{block}{Default}
+          Block content.
+        \end{block}
+
+        \begin{alertblock}{Alert}
+          Block content.
+        \end{alertblock}
+
+        \begin{exampleblock}{Example}
+          Block content.
+        \end{exampleblock}
+      }
+    \end{column}
+  \end{columns}
+\end{frame}
+
 \end{document}
