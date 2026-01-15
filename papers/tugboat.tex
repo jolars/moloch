@@ -44,22 +44,22 @@
 \maketitle
 
 \begin{abstract}
-  \titleref{Moloch} is a fork of the popular \LaTeX\ \titleref{beamer} theme
-  \titleref{Metropolis}, which is no longer actively maintained. Moloch aims to
-  fix outstanding issues with \titleref{Metropolis} while keeping the original
-  design mostly intact. This article introduces \titleref{Moloch} and summarizes
-  the changes made compared to \titleref{Metropolis}.
+  \texttt{Moloch} is a fork of the popular \LaTeX\ \texttt{beamer} theme
+  \texttt{Metropolis}, which is no longer actively maintained. Moloch aims to
+  fix outstanding issues with \texttt{Metropolis} while keeping the original
+  design mostly intact. This article introduces \texttt{Moloch} and summarizes
+  the changes made compared to \texttt{Metropolis}.
 \end{abstract}
 
 \section{Introduction}
 
-I have long been an admirer and user of the excellent \titleref{Metropolis}
+I have long been an admirer and user of the excellent \texttt{Metropolis}
 theme~\cite{vogelgesang:2017}, which provides a clean, professional look for
-\LaTeX\ \titleref{beamer}~\cite{wright:2025} presentations in addition to
+\LaTeX\ \texttt{beamer}~\cite{wright:2025} presentations in addition to
 enabling useful features such as progress bars and (what I think are) sane
 defaults for presentations.
 
-The problem is that \titleref{Metropolis} is no longer actively
+The problem is that \texttt{Metropolis} is no longer actively
 maintained\Dash{}its latest updates date six years back and over time an number
 of issues have cropped up. Most of them are minor and corrigible through
 workarounds, but my preamble has grown increasingly cluttered with such
@@ -67,29 +67,28 @@ patches. Moreover, a number of users have requested features, while others have
 offered contributions to help improve the theme. Metropolis being unmaintained,
 however, these contributions have not been incorporated.
 
-This has led me to fork \titleref{Metropolis} into a new theme, which I call
-\titleref{Moloch}\footnote{Likely familiar to your if you know your
-  Metropolis.}. The goal is to keep the original design philosophy and look of
-Metropolis while fixing outstanding issues and incorporating useful features
-and contributions from the community. I have made some design changes, but
-these have largely been made to make the design more accessible and to bring
-the behavior of the theme closer to standard \titleref{beamer} behavior.
-Finally, I have also made a number of internal code improvements to make the
-theme more robust and maintainable going forward. Users of
-\titleref{Metropolis} should find it easy to switch to \titleref{Moloch},
-whilst at the same time benefit from the bug fixes, new features, and improved
-stability.
+This has led me to fork \texttt{Metropolis} into a new theme, which I call
+\texttt{Moloch}\footnote{Likely familiar to your if you know your Metropolis.}.
+The goal is to keep the original design philosophy and look of Metropolis while
+fixing outstanding issues and incorporating useful features and contributions
+from the community. I have made some design changes, but these have largely
+been made to make the design more accessible and to bring the behavior of the
+theme closer to standard \texttt{beamer} behavior. Finally, I have also made a
+number of internal code improvements to make the theme more robust and
+maintainable going forward. Users of \texttt{Metropolis} should find it easy to
+switch to \texttt{Moloch}, whilst at the same time benefit from the bug fixes,
+new features, and improved stability.
 
-Since neither \titleref{Metropolis} nor \titleref{Moloch} have been introduced
-in \TUB\ before, I will begin to do just that by introducing \titleref{Moloch}.
-Users of \titleref{Metropolis} may wish to skip ahead to
+Since neither \texttt{Metropolis} nor \texttt{Moloch} have been introduced in
+\TUB\ before, I will begin to do just that by introducing \texttt{Moloch}.
+Users of \texttt{Metropolis} may wish to skip ahead to
 Section~\ref{sec:metro-vs-moloch}, which summarizes the changes made in
-\titleref{Moloch}.
+\texttt{Moloch}.
 
 \section{Getting Started with Moloch}
 
-Moloch is a standard \titleref{beamer} theme and is enabled as any other theme.
-Here is a minimal example presentation using \titleref{Moloch}:
+Moloch is a standard \texttt{beamer} theme and is enabled as any other theme.
+Here is a minimal example presentation using \texttt{Moloch}:
 
 \begin{minted}[]{latex}
 \documentclass{beamer}
@@ -120,11 +119,10 @@ Here is a minimal example presentation using \titleref{Moloch}:
 \end{minted}
 
 This will produce a presentation with the title slide shown in
-Figure~\ref{fig:title-slide}. As you can see, \titleref{Moloch} provides a
+Figure~\ref{fig:title-slide}. As you can see, \texttt{Moloch} provides a
 distinctive title slide with somewhat different formatting than the standard
-\titleref{beamer} title slide\footnote{But if you prefer the default
-  \titleref{beamer} one, then \titleref{Molochf} has the option to use that
-  instead}.
+\texttt{beamer} title slide\footnote{But if you prefer the default
+  \texttt{beamer} one, then \texttt{Molochf} has the option to use that instead}.
 
 \begin{figure}[htb]
   \centering
@@ -139,9 +137,9 @@ distinctive title slide with somewhat different formatting than the standard
   \label{fig:title-slide}
 \end{figure}
 
-Unlike most themes, \titleref{Moloch} comes with a number of options that can
-be set either when loading the theme or via the macro \cs{molochset}. The
-benefit of using the latter is that you can change options midway through your
+Unlike most themes, \texttt{Moloch} comes with a number of options that can be
+set either when loading the theme or via the macro \cs{molochset}. The benefit
+of using the latter is that you can change options midway through your
 presentations and limit them to the current scope. The following two calls are
 therefore two equivalent ways to modify the title page style.
 
@@ -150,13 +148,13 @@ therefore two equivalent ways to modify the title page style.
 \molochset{titlepage=plain}
 \end{minted}
 
-Like other \titleref{beamer} themes, Moloch is split into a color theme, font
+Like other \texttt{beamer} themes, Moloch is split into a color theme, font
 theme, and inner and outer themes. Here, we assume that the full Moloch theme
 is loaded via \verb|\usetheme{moloch}|.
 
 \subsection{Color Themes}
 
-A major new feature of \titleref{Moloch} is a full-fledged color theme system
+A major new feature of \texttt{Moloch} is a full-fledged color theme system
 that allows users to customize the colors used in the theme in an intuitive
 way. It also supports the notion of light and dark modes, which can be switched
 between at any time in the presentation. In addition, we also support a number
@@ -205,7 +203,7 @@ mode.
 
 \subsection{Progress Bars}
 
-A popular feature of \titleref{Metropolis} (that \titleref{Moloch} retains) is
+A popular feature of \texttt{Metropolis} (that \texttt{Moloch} retains) is
 ability to track progress through the slides via a progress bar on either the
 frames or on section and/or subsection pages. To setup progress bars for the
 frames, use the option \texttt{progressbar} with one \texttt{head},
