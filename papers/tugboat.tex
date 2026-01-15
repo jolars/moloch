@@ -11,7 +11,6 @@
 \usepackage{microtype}
 \usepackage[hyphens]{url}
 \usepackage[hidelinks,pdfa]{hyperref}
-
 \usepackage{minted}
 
 \def\url{\tburl}
@@ -363,6 +362,28 @@ line~(Figure~\ref{fig:title-page-styles}).
 \label{sec:metro-vs-moloch}
 
 \section{Documentation}
+
+Is it natural for \LaTeX\ packages to come with \acro{PDF} documentation, and
+\texttt{Moloch} is no exception. The package features a full user manual along
+with implementation documentation generated via
+\texttt{docstrip}~\cite{mittelbach:2025}.
+
+Unlike most other packages, however, \texttt{Moloch} also comes with a HTML
+documentation site, available at \url{https://moloch.ink}. The site features
+web-friendly versions of both the manual and implementation documentation in
+the same vein as the unofficial HTML documentation for
+\texttt{PGF}/\texttt{TikZ} at \url{https://tikz.dev}.
+
+Whereas that site is generated via \texttt{lwarp}~\cite{dunn:2025},
+\texttt{Moloch} takes a somewhat different approach. We think this approach may
+be of interest to other package authors, so we will briefly outline it here.
+
+\subsection{Pipeline}
+
+The manual for the package is in fact written in Markdown, specifically the
+flavor supported by \texttt{pandoc}~\cite{macfarlane:2025}. This allows us to
+provide a single source of truth for both the \acro{PDF} and HTML
+documentation.
 
 \section{Conclusion}
 
