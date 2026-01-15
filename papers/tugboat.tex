@@ -258,6 +258,33 @@ progress bar, respectively.
   \label{fig:section-page-default}
 \end{figure}
 
+\subsection{Standout Frames}
+
+\texttt{Moloch} (as well as \texttt{Metropolis}) supports special \emph{standout}
+frames, which are intended as a mean through which to highlight important frames in
+the presentation. They are created by specifying a \tbcode{standout} key to
+the \tbcode{frame} environment. For example, the following code snippet
+creates the standout frame seen in Figure~\ref{fig:standout-frame}.
+
+\begin{minted}{latex}
+\begin{frame}[standout]
+  Thank you!
+\end{frame}
+\end{minted}
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[page=9,width=\columnwidth]{moloch-demo}
+  \caption{%
+    A standout frame created via
+    \latexinline{\begin{frame}[standout] ... \end{frame}}.
+  }
+  \label{fig:standout-frame}
+\end{figure}
+
+As with most elements of \texttt{Moloch}, the colors of standout frames can be
+customized via the color theme system.
+
 \section{Changes in Moloch compared to Metropolis}
 
 \section{Documentation}
