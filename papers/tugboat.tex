@@ -63,16 +63,16 @@ enabling useful features such as progress bars and (what I think are) sane
 defaults for presentations.
 
 The problem is that \texttt{Metropolis} is no longer actively
-maintained\Dash{}its latest updates date six years back and over time an number
+maintained\Dash{}its latest updates date six years back and over time a number
 of issues have cropped up. Most of them are minor and corrigible through
 workarounds, but my preamble has grown increasingly cluttered with such
 patches. Moreover, a number of users have requested features, while others have
-offered contributions to help improve the theme. Metropolis being unmaintained,
+offered contributions to help improve the theme. \texttt{Metropolis} being unmaintained,
 however, these contributions have not been incorporated.
 
 This has led me to fork \texttt{Metropolis} into a new theme, which I call
-\texttt{Moloch}\footnote{Likely familiar to your if you know your Metropolis.}.
-The goal is to keep the original design philosophy and look of Metropolis while
+\texttt{Moloch}\footnote{Likely familiar to you if you know your Metropolis.}.
+The goal is to keep the original design philosophy and look of \texttt{Metropolis} while
 fixing outstanding issues and incorporating useful features and contributions
 from the community. I have made some design changes, but these have largely
 been made to make the design more accessible and to bring the behavior of the
@@ -82,7 +82,7 @@ maintainable going forward. Users of \texttt{Metropolis} should find it easy to
 switch to \texttt{Moloch}, whilst at the same time benefit from the bug fixes,
 new features, and improved stability.
 
-Since neither \texttt{Metropolis} nor \texttt{Moloch} have been introduced in
+Since neither \texttt{Metropolis} nor \texttt{Moloch} have been introduced in the
 \TUB\ before, I will begin to do just that by introducing \texttt{Moloch}.
 Users of \texttt{Metropolis} may wish to skip ahead to
 Section~\ref{sec:metro-vs-moloch}, which summarizes the changes made in
@@ -90,7 +90,7 @@ Section~\ref{sec:metro-vs-moloch}, which summarizes the changes made in
 
 \section{Getting Started with Moloch}
 
-Moloch is a standard \texttt{beamer} theme and is enabled as any other theme.
+Moloch is a standard \texttt{beamer} theme and is enabled like any other theme.
 Here is a minimal example presentation using \texttt{Moloch}:
 
 \begin{minted}[]{latex}
@@ -105,7 +105,7 @@ Here is a minimal example presentation using \texttt{Moloch}:
   University of Copenhagen
 }
 \date{\today}
-\titlegraphic{\includegraphics{logo.pdf}}
+\titlegraphic{\includegraphics{logo}}
 
 \begin{document}
 
@@ -123,7 +123,7 @@ This will produce a presentation with the title slide shown in
 Figure~\ref{fig:title-slide}. As you can see, \texttt{Moloch} provides a
 distinctive title slide with somewhat different formatting than the standard
 \texttt{beamer} title slide\footnote{But if you prefer the default
-  \texttt{beamer} one, then \texttt{Molochf} has the option to use that instead}.
+  \texttt{beamer} one, then \texttt{Moloch} has the option to use that instead}.
 
 \begin{figure}[htb]
   \centering
@@ -149,7 +149,7 @@ therefore two equivalent ways to modify the title page style.
 \molochset{titlepage=plain}
 \end{minted}
 
-Like other \texttt{beamer} themes, Moloch is split into a color theme, font
+Like many other \texttt{beamer} themes, Moloch is split into a color theme, font
 theme, and inner and outer themes. Here, we assume that the full Moloch theme
 is loaded via \verb|\usetheme{moloch}|.
 
@@ -259,8 +259,8 @@ the facilities of \texttt{pgfkeys}~\cite{tantau:2007} from
 
 A popular feature of \texttt{Metropolis} (that \texttt{Moloch} retains) is
 ability to track progress through the slides via a progress bar on either the
-frames or on section and/or subsection pages. To setup progress bars for the
-frames, use the option \texttt{progressbar} with one \texttt{head},
+frames or on section and/or subsection pages. To setup progress bars for
+frames, use the option \texttt{progressbar} with either \texttt{head},
 \texttt{foot}, or \texttt{frametitle} to place the progress bar in the header,
 footer, or below the frame title, respectively. The following code snippet
 places a thick progress bar in the footer of each
@@ -290,7 +290,7 @@ frame~(Figure~\ref{fig:progress-bars}).
 Unlike \texttt{beamer}, \texttt{Moloch} comes with section (but not subsection)
 pages enabled by default, which means that sections (using \cs{section}) will
 result in dedicated frames. By default, they use the same progress bar style as
-frames~(Figure~\ref{fig:section-page-default}), but this can be set via
+frames~(Figure~\ref{fig:section-page-default}), but this can be changed via
 \latexinline{\molochset{sectionpage=|\meta{option}|}}, with \tbcode{none} and
 \tbcode{simple} for no section page and a simple section page without a
 progress bar, respectively.
@@ -312,7 +312,7 @@ progress bar, respectively.
 \subsection{Standout Frames}
 
 \texttt{Moloch} (as well as \texttt{Metropolis}) supports special \emph{standout}
-frames, which are intended as a mean through which to highlight important frames in
+frames, which are intended as a mean for highlighting important frames in
 the presentation. They are created by specifying a \tbcode{standout} key to
 the \tbcode{frame} environment. For example, the following code snippet
 creates the standout frame seen in Figure~\ref{fig:standout-frame}.
@@ -368,10 +368,10 @@ Is it natural for \LaTeX\ packages to come with \acro{PDF} documentation, and
 with implementation documentation generated via
 \texttt{docstrip}~\cite{mittelbach:2025}.
 
-Unlike most other packages, however, \texttt{Moloch} also comes with a HTML
+Unlike most other packages, however, \texttt{Moloch} also comes with a \acro{HTML}
 documentation site, available at \url{https://moloch.ink}. The site features
 web-friendly versions of both the manual and implementation documentation in
-the same vein as the unofficial HTML documentation for
+the same vein as the unofficial \acro{HTML} documentation for
 \texttt{PGF}/\texttt{TikZ} at \url{https://tikz.dev}.
 
 Whereas that site is generated via \texttt{lwarp}~\cite{dunn:2025},
@@ -382,7 +382,7 @@ be of interest to other package authors, so we will briefly outline it here.
 
 The manual for the package is in fact written in Markdown, specifically the
 flavor supported by \texttt{pandoc}~\cite{macfarlane:2025}. This allows us to
-provide a single source of truth for both the \acro{PDF} and HTML
+provide a single source of truth for both the \acro{PDF} and \acro{HTML}
 documentation.
 
 \section{Conclusion}
