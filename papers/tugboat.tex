@@ -519,12 +519,20 @@ Figure~\ref{fig:block-comparison} for a comparison.
 
 \begin{figure}[htb]
   \centering
-  \frame{\includegraphics[width=0.49\columnwidth]{moloch-blocks}}\hfill
-  \frame{\includegraphics[width=0.49\columnwidth]{metropolis-blocks}}
+  \frame{\includegraphics[
+      width=0.48\columnwidth,
+      trim=0 0 170 0,
+      clip=true
+    ]{moloch-blocks}}\hfill
+  \frame{\includegraphics[
+      width=0.48\columnwidth,
+      trim=0 0 170 0,
+      clip=true
+    ]{metropolis-blocks}}
 
   \caption{%
-    A comparison of block environments in Moloch (left) and Metropolis }
-  \label{fig:block-comparison}
+    A comparison of alignment of block environments in Moloch (left) and Metropolis
+  } \label{fig:block-comparison}
 \end{figure}
 
 \subsection{Other Miscellaneous Changes}
