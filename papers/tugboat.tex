@@ -535,6 +535,42 @@ Figure~\ref{fig:block-comparison} for a comparison.
   } \label{fig:block-comparison}
 \end{figure}
 
+\subsection{Itemize Lists}
+
+\texttt{Metropolis} uses \cs{textbullet} as the symbol for all levels of the
+itemize environment. The problem with \cs{textbullet} is that it does not work
+with every font. Notably, for instance, it does not work with \titleref{Latin
+  Modern}~(\tbcode{lmodern}), and instead is replaced by squares in that font.
+
+The appearance of itemize symbols is a frequent source of issues because they
+typically depend on the font. Another common setting is to use a math symbol,
+like \latexinline{$\bullet$}, but then the problem is only shifted to depend on
+the math font instead.
+
+For these reasons, \texttt{Moloch} uses \acro{PGF} primitives to draw all of
+its itemize symbols, which means that they work regardless of the font used.
+Also, to improve the visual hierarchy, \texttt{Moloch} uses different symbols
+for different levels of the itemize
+environment~(Figure~\ref{fig:itemize-comparison}).
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[
+    width=0.48\columnwidth,
+    trim=0 180 200 0,
+    clip=true
+  ]{lists-moloch}
+  \includegraphics[
+    width=0.48\columnwidth,
+    trim=0 180 200 0,
+    clip=true
+  ]{lists-metropolis}
+
+  \caption{%
+    The design of itemize lists in Moloch (left) and Metropolis
+    (right).}\label{fig:itemize-comparison}
+\end{figure}
+
 \subsection{Other Miscellaneous Changes}
 
 \texttt{Moloch} includes a slew of other changes. For lack of space, we will
