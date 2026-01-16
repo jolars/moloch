@@ -10,7 +10,10 @@ modifyLineBreaks:
     columns: 80
     blocksBeginWith:
       other: |-
-        \\titleref
+        (?x)
+          \\titleref
+          |
+          \\texttt
     blocksFollow:
       other: |-
         (?x)
