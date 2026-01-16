@@ -511,11 +511,13 @@ similar.
 
 \subsection{Block Environments}
 
-Metropolis introduced a bit of custom logic to handle block environments. In
-particular, filled blocks environments were modified such that the main body
-text (for the frame) aligns with the boundaries of the box and not the text
-inside the box (which is the default behavior in beamer). See
-Figure~\ref{fig:block-comparison} for a comparison.
+\texttt{Metropolis} supports an alternative, filled, block type, which uses a
+such that the main body text (for the frame) aligns with the left edge of the
+box and not the text inside the box. Several users reported issues with this
+custom handling in some context. and because we prefer the approach in
+\texttt{beamer} for typographical reasons
+
+In \texttt{Moloch} See Figure~\ref{fig:block-comparison} for a comparison.
 
 \begin{figure}[htb]
   \centering
@@ -537,21 +539,28 @@ Figure~\ref{fig:block-comparison} for a comparison.
 
 \subsection{Itemize Lists}
 
-\texttt{Metropolis} uses \cs{textbullet} as the symbol for all levels of the
-itemize environment. The problem with \cs{textbullet} is that it does not work
-with every font. Notably, for instance, it does not work with \titleref{Latin
-  Modern}~(\tbcode{lmodern}), and instead is replaced by squares in that font.
+\texttt{Metropolis} uses \cs{textbullet}~(\textbullet) as the symbol for all
+levels of the itemize environment. The problem with \cs{textbullet} is that it
+does not work with every font. It does not, for instance, work with the popular
+\titleref{Latin Modern}~\cite{latinmodern}, which instead generates a filled
+square.
 
 The appearance of itemize symbols is a frequent source of issues because they
 typically depend on the font. Another common setting is to use a math symbol,
-like \latexinline{$\bullet$}, but then the problem is only shifted to depend on
-the math font instead.
+like \latexinline{$\bullet$}~($\bullet$), but then the problem is only shifted
+to depend on the math font instead.
 
 For these reasons, \texttt{Moloch} uses \acro{PGF} primitives to draw all of
 its itemize symbols, which means that they work regardless of the font used.
 Also, to improve the visual hierarchy, \texttt{Moloch} uses different symbols
 for different levels of the itemize
-environment~(Figure~\ref{fig:itemize-comparison}).
+environment~(Figure~\ref{fig:itemize-comparison}). Users who nevertheless which
+to switch to the \texttt{Metropolis} symbol can simply invoke the following
+one-liner.
+
+\begin{minted}[]{latex}
+\setbeamertemplate{itemize items}{\textbullet}
+\end{minted}
 
 \begin{figure}[htb]
   \centering
