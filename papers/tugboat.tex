@@ -12,6 +12,7 @@
 \usepackage[hyphens]{url}
 \usepackage[hidelinks,pdfa]{hyperref}
 \usepackage{minted}
+\usepackage{subcaption}
 
 \def\url{\tburl}
 
@@ -419,6 +420,45 @@ Optionally adds a light grey background to block
 environments like `theorem` and `example`.
 :::
 \end{minted}
+
+The output of this block is shown in Figure~\ref{fig:describe-option} both as
+rendered in \LaTeX\ and \HTML.
+
+\begin{figure}[htpb]
+  \centering
+
+  \LaTeX
+
+  \smallskip
+
+  \frame{
+    \begin{minipage}{\columnwidth}%
+      \vspace{3pt}\hspace{3pt}%
+      \includegraphics[width=\dimexpr\columnwidth-6pt\relax]{describe-option-pdf}%
+      \vspace{3pt}%
+    \end{minipage}%
+  }
+
+  \medskip
+
+  \HTML
+
+  \smallskip
+
+  \frame{
+    \begin{minipage}{\columnwidth}%
+      \vspace{3pt}\hspace{3pt}%
+      \includegraphics[width=\dimexpr\columnwidth-6pt\relax]{describe-option-html}%
+      \vspace{3pt}
+    \end{minipage}%
+  }
+
+  \caption{%
+    The same documentation block rendered in \LaTeX\ (top) and \HTML\
+    (bottom) via a custom \texttt{Quarto} filter.
+  }
+  \label{fig:describe-option}
+\end{figure}
 
 \subsection{Reusability}
 
