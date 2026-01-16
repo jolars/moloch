@@ -12,7 +12,10 @@
 \usepackage[hyphens]{url}
 \usepackage[hidelinks,pdfa]{hyperref}
 \usepackage{minted}
-\usepackage{subcaption}
+\usepackage{xcolor}
+
+\definecolor{metropolisGreen}{HTML}{14B03D}
+\definecolor{molochGreen}{RGB}{0,128,128}
 
 \def\url{\tburl}
 
@@ -49,10 +52,10 @@
 
 \begin{abstract}
   \texttt{Moloch} is a fork of the popular \LaTeX\ \texttt{beamer} theme
-  \texttt{Metropolis}, which is no longer actively maintained. Moloch aims to
-  fix outstanding issues with \texttt{Metropolis} while keeping the original
-  design mostly intact. This article introduces \texttt{Moloch} and summarizes
-  the changes made compared to \texttt{Metropolis}.
+  \texttt{Metropolis}, which is no longer actively maintained. Moloch aims to fix
+  outstanding issues with \texttt{Metropolis} while keeping the original design
+  mostly intact. This article introduces \texttt{Moloch} and summarizes the
+  changes made compared to \texttt{Metropolis}.
 \end{abstract}
 
 \section{Introduction}
@@ -75,7 +78,7 @@ features, while others have offered contributions to help improve the theme.
 been incorporated.
 
 This has led me to fork \texttt{Metropolis} into a new theme, which I call
-\texttt{Moloch}\footnote{Likely familiar to you if you know your Metropolis.}.
+\texttt{Moloch}\footnote{Perhaps familiar to you if you know your Metropolis.}.
 The goal is to keep the original design philosophy and look of
 \texttt{Metropolis} while fixing outstanding issues and incorporating useful
 features and contributions from the community. I have made some design changes,
@@ -136,10 +139,10 @@ distinctive title slide with somewhat different formatting than the standard
   \vspace{1ex}
 
   \frame{\includegraphics[page=2,width=\columnwidth]{moloch-demo}}
+
   \caption{%
-    The title slide and first frame of a presentation made with Moloch.
-  }
-  \label{fig:title-slide}
+    The title slide and first frame of a presentation made with
+    Moloch.}\label{fig:title-slide}
 \end{figure}
 
 Unlike most themes, \texttt{Moloch} comes with a number of options that can be
@@ -200,9 +203,9 @@ mode~(Figure~\ref{fig:colortheme-catppuccin}).
 \begin{figure}[htb]
   \centering
   \frame{\includegraphics[page=3,width=\columnwidth]{moloch-demo}}
+
   \caption{%
-    A frame using the \texttt{catppuccin} color theme in dark mode.
-  }
+    A frame using the \texttt{catppuccin} color theme in dark mode.}
   \label{fig:colortheme-catppuccin}
 \end{figure}
 
@@ -219,7 +222,7 @@ specification.
 
 For instance, the following code snippet customizes the frame title foreground
 and background colors, the progress bar color, and the alerted and example text
-colors in light mode~(Figure~\ref{fig:}).
+colors in light mode~(Figure~\ref{fig:custom-colors}).
 
 \begin{minted}[]{latex}
 \molochcolors{
@@ -232,12 +235,11 @@ colors in light mode~(Figure~\ref{fig:}).
 \end{minted}
 
 \begin{figure}[htb]
-  \centering
   \frame{\includegraphics[page=10,width=\columnwidth]{moloch-demo}}
+
   \caption{%
-    A frame demonstrating customized colors in light mode.
-  }
-  \label{fig:}
+    A frame demonstrating customized colors in light
+    mode.}\label{fig:custom-colors}
 \end{figure}
 
 In addition, omitting the \meta{mode} part will set the color for the current
@@ -284,11 +286,9 @@ frame~(Figure~\ref{fig:progress-bars}).
   \frame{\includegraphics[page=6,width=0.32\textwidth]{moloch-demo}}
 
   \caption{%
-    Progress bars in the footer, header, and below the frame title.
-    Note that we have increased the line width of the bars to make them
-    more visible. In the default setting, the bars are less obtrusive.
-  }
-  \label{fig:progress-bars}
+    Progress bars in the footer, header, and below the frame title. Note that we
+    have increased the line width of the bars to make them more visible. In the
+    default setting, the bars are less obtrusive.}\label{fig:progress-bars}
 \end{figure*}
 
 Unlike \texttt{beamer}, \texttt{Moloch} comes with section (but not subsection)
@@ -306,19 +306,17 @@ progress bar, respectively.
   \frame{\includegraphics[page=8,width=0.49\columnwidth]{moloch-demo}}
 
   \caption{%
-    The default (left) and simple (right) section pages styles.
-    The section page can also be disabled entirely via
-    \latexinline{\molochset{sectionpage=none}}.
-  }
-  \label{fig:section-page-default}
+    The default (left) and simple (right) section pages styles. The section page
+    can also be disabled entirely via
+    \latexinline{\molochset{sectionpage=none}}.}\label{fig:section-page-default}
 \end{figure}
 
 \subsection{Standout Frames}
 
-\texttt{Moloch} (as well as \texttt{Metropolis}) supports special \emph{standout}
-frames, which are intended as a mean for highlighting important frames in
-the presentation. They are created by specifying a \tbcode{standout} key to
-the \tbcode{frame} environment. For example, the following code snippet
+\texttt{Moloch} (as well as \texttt{Metropolis}) supports special
+\emph{standout} frames, which are intended as a mean for highlighting important
+frames in the presentation. They are created by specifying a \tbcode{standout}
+key to the \tbcode{frame} environment. For example, the following code snippet
 creates the standout frame seen in Figure~\ref{fig:standout-frame}.
 
 \begin{minted}{latex}
@@ -327,14 +325,12 @@ creates the standout frame seen in Figure~\ref{fig:standout-frame}.
 \end{frame}
 \end{minted}
 
-\begin{figure}[htpb]
+\begin{figure}[tpb]
   \centering
   \includegraphics[page=9,width=\columnwidth]{moloch-demo}
+
   \caption{%
-    A standout frame created via
-    \latexinline{\begin{frame}[standout] ... \end{frame}}.
-  }
-  \label{fig:standout-frame}
+    A standout frame created via \latexinline{\begin{frame}[standout] ... \end{frame}}.}\label{fig:standout-frame}
 \end{figure}
 
 As with most elements of \texttt{Moloch}, the colors of standout frames can be
@@ -355,15 +351,191 @@ line~(Figure~\ref{fig:title-page-styles}).
   \frame{\includegraphics[page=1,width=0.32\textwidth]{moloch-demo}}\hfill
   \frame{\includegraphics[page=11,width=0.32\textwidth]{moloch-demo}}\hfill
   \frame{\includegraphics[page=12,width=0.32\textwidth]{moloch-demo}}
+
   \caption{%
     The three title page styles: \texttt{moloch} (left), \texttt{plain} (center),
-    and \texttt{split} (right).
-  }
-  \label{fig:title-page-styles}
+    and \texttt{split} (right).}\label{fig:title-page-styles}
 \end{figure*}
 
-\section{Changes in Moloch compared to Metropolis}
+\section{How to Transition from Metropolis to Moloch}
 \label{sec:metro-vs-moloch}
+
+As mentioned in the introduction, \texttt{Moloch} is a fork of
+\texttt{Metropolis} with the goal of fixing outstanding issues while keeping
+the original design mostly intact. In this section, we summarize the main
+changes made in \texttt{Moloch} compared to \texttt{Metropolis}, explain the
+motivation behind them, and offer guidance for users of \texttt{Metropolis} who
+wish to transition to \texttt{Moloch}.
+
+Many of the changes in \texttt{Moloch} are internal code improvements and
+mitigations of bugs and we will not focus on these here, but rather on
+user-visible changes.
+
+One important difference is that we have tried to make \texttt{Moloch} more
+consistent with standard \texttt{beamer} behavior where possible. The leading
+principle has been to not re-invent the wheel when \texttt{beamer} already
+provides the desired functionality. This has led to some changes in behavior
+compared to \texttt{Metropolis}. Another related change is to avoid redefining
+internal \texttt{beamer} macros. This was a source of brittleness in
+\texttt{Metropolis} that led to upstream workarounds in \texttt{beamer} to
+avoid breaking changes. By relying on standard \texttt{beamer} mechanisms
+instead, we hope to make \texttt{Moloch} more robust going forward.
+
+\subsection{New Example Color}
+
+While we generally find \texttt{Metropolis} well-designed, we felt that the
+default color for example blocks (green) could be difficult to read for some
+users, especially those with color vision deficiencies. Therefore, we have
+changes from the lighter and vivid
+\textcolor{metropolisGreen}{green}~(\textcolor{metropolisGreen}{\rule{1.2ex}{1.2ex}})
+used for example blocks in \texttt{Metropolis} to a darker, but less saturated
+\textcolor{molochGreen}{teal}~(\textcolor{molochGreen}{\rule{1.2ex}{1.2ex}}) in
+\texttt{Moloch}. Users who prefer the original green color can easily revert to
+it by adding the following lines.
+
+\begin{minted}{latex}
+\definecolor{metropolisGreen}{HTML}{14B03D}
+\molochcolors{example fg=metropolisGreen}
+\end{minted}
+
+\subsection{Typography}
+
+\texttt{Metropolis} features a preference for \texttt{Fira Sans} (designed by
+Erik Spiekermann). And on Linux systems on \LuaLaTeX\ and \XeLaTeX, the package
+automatically attempts to find, configure, and use this font. While we
+appreciate the design of \texttt{Fira Sans}, we also feel that the font choice
+should be left to the user, particularly since the behavior in
+\texttt{Metropolis} leads different users to see different fonts depending on
+their system setup.
+
+In \texttt{Moloch}, we have therefore removed the automatic font selection and
+instead leave the choice of font to the user. For users who still wish to use
+\texttt{Fira Sans}, the following lines will help set this up.
+
+\begin{minted}[]{latex}
+\usepackage[medium,light]{FiraSans}
+\usepackage{FiraMono}
+\usepackage{firamath-otf}
+\end{minted}
+
+To better mimic the original \texttt{Metropolis} setup, options
+\tbcode{weight=Light} and \tbcode{usefilenames} can be passed to
+\texttt{firamath-otf}, but note that this requires manual installation of the
+appropriate weights of the \texttt{Fira Math} font.
+
+Users of \LuaLaTeX\ and \XeLaTeX\ may instead wish to use
+\texttt{fontspec}~\cite{latexproject:2025} to set up \texttt{Fira Sans} as the
+main font. Here is an example configuration that closely mimics the original
+\texttt{Metropolis} setup.
+
+\begin{minted}[]{latex}
+\usepackage{fontspec}
+
+\setsansfont[
+  ItalicFont={Fira Sans Light Italic},
+  BoldFont={Fira Sans},
+  BoldItalicFont={Fira Sans Italic}
+]{Fira Sans Light}
+
+\setmonofont[
+  BoldFont={Fira Mono Medium}
+]{Fira Mono}
+
+\setmathfont[
+  Scale=MatchLowercase,
+  ItalicFont={Fira Math Italic},
+  BoldFont={Fira Math Bold}
+]{Fira Math}
+
+\AtBeginEnvironment{tabular}{%
+  \addfontfeature{Numbers={Monospaced}}
+}
+\end{minted}
+
+\subsection{Paragraph Spacing and Line Spacing}
+
+Unlike standard \texttt{beamer}, in which \cs{parskip} is set to zero,
+\texttt{Metropolis} instead sets it to 0.5~em units. This means that in
+\texttt{Metropolis}, you do not need to sprinkle \cs{medskip} (or whatever you
+use for paragraph spacing) in your slides to have them neatly separated.
+
+But this had some undesired side-effects, such as introducing additional
+spacing inside block environments, around captions, and list environments. It
+also meant that users could not easily switch from \texttt{Metropolis} to
+standard \texttt{beamer} without having to adjust their content to accommodate
+the different paragraph spacing.
+
+For those reasons, we have removed this setting in \texttt{Moloch}. Users who
+wish to reinstate it can do so by adding the following lines to their preamble.
+
+\begin{minted}[]{latex}
+\setlength{\parskip}{0.5em}
+\linespread{1.15}
+\end{minted}
+
+Note that it may also be necessary to adjust the spacing of other elements to
+accommodate this change, for instance frame titles.
+
+\subsection{PGFPlots Theme}
+
+\texttt{Metropolis} comes with a custom \texttt{pgfplots}~\cite{pgfplots} theme
+that uses colors from Paul Tol's 21-color theme~\cite{carl2013}. We removed
+this theme from \texttt{Moloch} because we felt that it was outside the scope
+of a \texttt{beamer} theme to provide a plotting theme. The theme is still
+provided through \texttt{metropolis}, however, so users who wish to use it can
+do so by adding the following line to their preamble.
+
+\begin{minted}[]{latex}
+\usepackage{pgfplots,pgfplotsthemetol}
+\end{minted}
+
+\subsection{Frame Subtitles}
+
+\texttt{Moloch}, unlike \texttt{Metropolis}, supports subtitles. The reasoning
+for this omission was that the author felt they were unnecessary clutter. We
+generally agree that subtitles should be used sparingly (if at all), but we
+also do not want to force this preference upon our users.
+
+\subsection{Frame Numbering}
+
+Metropolis sported its own frame numbering system. There was nothing wrong with
+this system except it necessitated a separate package
+(\texttt{appendixnumberbeamer}~\cite{lelong:2018}) to get frame or page numbers
+to restart (and not count towards the total number) for appendix slides.
+\texttt{beamer} has, however, improved its own system in recent years and there
+is no longer any need for a custom solution (or separate package) to support
+this functionality. As a result, \texttt{Moloch} just relies on beamer
+templates for the frame numbering. The design is \emph{slightly} different,
+with smaller font size and somewhat different margins, but the overall look is
+similar.
+
+\subsection{Block Environments}
+
+Metropolis introduced a bit of custom logic to handle block environments. In
+particular, filled blocks environments were modified such that the main body
+text (for the frame) aligns with the boundaries of the box and not the text
+inside the box (which is the default behavior in beamer). See
+Figure~\ref{fig:block-comparison} for a comparison.
+
+\begin{figure}[htb]
+  \centering
+  \frame{\includegraphics[width=0.49\columnwidth]{moloch-blocks}}\hfill
+  \frame{\includegraphics[width=0.49\columnwidth]{metropolis-blocks}}
+
+  \caption{%
+    A comparison of block environments in Moloch (left) and Metropolis }
+  \label{fig:block-comparison}
+\end{figure}
+
+\subsection{Other Miscellaneous Changes}
+
+We will not go into further details here, but other changes include
+\begin{itemize}
+  \item Redesigned default title page style
+  \item The build system has been modernized to use
+        \texttt{l3build}~\cite{mittelbach:2014} and now includes unit tests
+  \item Bibliography style is no longer hardcoded
+\end{itemize}
 
 \section{Documentation}
 
@@ -379,11 +551,11 @@ accessible than web documentation.
 \texttt{Moloch} therefore, unlike most packages, also comes with web
 documentation available at \url{https://moloch.ink}. The site features
 \HTML-based versions of both the user guide and implementation documentation,
-in similar fashion as the unofficial documentation for \texttt{PGF}/\texttt{TikZ}
-at \url{https://tikz.dev}. Yet, whereas that site is generated via
-\texttt{lwarp}~\cite{dunn:2025}, \texttt{Moloch} takes a somewhat different
-approach. Since we think this approach might be of interest to other package
-authors, we will briefly summarize it here.
+in similar fashion as the unofficial documentation for
+\texttt{PGF}/\texttt{TikZ} at \url{https://tikz.dev}. Yet, whereas that site is
+generated via \texttt{lwarp}~\cite{dunn:2025}, \texttt{Moloch} takes a somewhat
+different approach. Since we think this approach might be of interest to other
+package authors, we will briefly summarize it here.
 
 \subsection{Architecture}
 
@@ -454,10 +626,8 @@ rendered in \LaTeX\ and \HTML.
   }
 
   \caption{%
-    The same documentation block rendered in \LaTeX\ (top) and \HTML\
-    (bottom) via a custom \texttt{Quarto} filter.
-  }
-  \label{fig:describe-option}
+    The same documentation block rendered in \LaTeX\ (top) and \HTML\ (bottom) via
+    a custom \texttt{Quarto} filter.}\label{fig:describe-option}
 \end{figure}
 
 \subsection{Reusability}
@@ -471,9 +641,9 @@ for their packages.
 
 \section{Conclusion}
 
-\texttt{Moloch} is developed openly on GitHub
-at \url{https://github.com/jolars/moloch} and its
-documentation is available at \url{https://moloch.ink}.
+\texttt{Moloch} is developed openly on GitHub at
+\url{https://github.com/jolars/moloch} and its documentation is available at
+\url{https://moloch.ink}.
 
 We welcome contributions and feedback from the community to help improve
 \texttt{Moloch} going forward.
