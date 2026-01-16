@@ -366,26 +366,68 @@ line~(Figure~\ref{fig:title-page-styles}).
 
 \section{Documentation}
 
-Is it natural for \LaTeX\ packages to come with \PDF\ documentation, and
-\texttt{Moloch} is no exception. The package features a full user manual along
-with implementation documentation generated via
-\texttt{docstrip}~\cite{mittelbach:2025}.
+\LaTeX\ packages typically come with \PDF\ documentation and
+\texttt{Moloch} is no exception, featuring both a comprehensive user
+guide and implementation documentation. Yet, although it is standard
+to supply documentation as a \PDF\ manual, this format has some downsides.
+Notably, it is not responsive and works poorly on small screens. It also
+lacks good search functionality, is difficult to cross-reference outside
+of the document itself, and, perhaps most importantly, is less
+accessible than web documentation.
 
-Unlike most other packages, however, \texttt{Moloch} also comes with a
-\acro{HTML} documentation site, available at \url{https://moloch.ink}. The site
-features web-friendly versions of both the manual and implementation
-documentation in the same vein as the unofficial \acro{HTML} documentation for
-\texttt{PGF}/\texttt{TikZ} at \url{https://tikz.dev}.
+\texttt{Moloch} therefore, unlike most packages, also comes with web
+documentation available at \url{https://moloch.ink}. The site features
+\HTML-based versions of both the user guide and implementation documentation,
+in similar fashion as the unofficial documentation for \texttt{PGF}/\texttt{TikZ}
+at \url{https://tikz.dev}. Yet, whereas that site is generated via
+\texttt{lwarp}~\cite{dunn:2025}, \texttt{Moloch} takes a somewhat different
+approach. Since we think this approach might be of interest to other package
+authors, we will briefly summarize it here.
 
-Whereas that site is generated via \texttt{lwarp}~\cite{dunn:2025},
-\texttt{Moloch} takes a somewhat different approach. We think this approach may
-be of interest to other package authors, so we will briefly outline it here.
+\subsection{Architecture}
 
-\subsection{Pipeline}
+The manual for the package is in fact written in \texttt{Markdown},
+specifically the flavor supported by \texttt{Quarto}~\cite{allaire:2025}, which
+is built on \texttt{Pandoc}~\cite{macfarlane:2025}. \texttt{Quarto} has
+powerful features for turning Markdown source into both \PDF\ books and \HTML\
+web sites. This allows us to provide a single source of truth for both the
+\PDF\ and \HTML\ documentation.
 
-The manual for the package is in fact written in Markdown, specifically the
-flavor supported by \texttt{Pandoc}~\cite{macfarlane:2025}. This allows us to
-provide a single source of truth for both the \PDF\ and \HTML\ documentation.
+One challenge is that we prefer the literate programming style of
+\texttt{docstrip}~\cite{mittelbach:2025} and therefore document the
+implementation using standard \LaTeX, which means we maintain documentation in
+both \texttt{Markdown} and \LaTeX. Fortunately, \texttt{Pandoc} supports
+conversion both to \emph{and} from \LaTeX, which allows us to convert the
+documentation from the \texttt{.dtx} format to Markdown after stripping it
+through a custom script.
+
+This then gives us a complete \texttt{Markdown} source file for the entire
+documentation, which we then convert to both a \PDF\ manual~(through \LaTeX)
+and a \HTML\ website via \texttt{Quarto}. In order to provide proper styling
+for documentation of macros and package options, we use \tbcode{Lua} filters,
+which is a built-in feature of \texttt{Quarto}, to keep a unified syntax for
+the documentation. Here is, for instance, an example of a documentation block
+for the \tbcode{block} option in \texttt{Moloch}.
+
+\begin{minted}[]{markdown}
+::: {.describe-option 
+     option-name="block" 
+     values="transparent, fill" 
+     default="transparent"
+}
+Optionally adds a light grey background to block
+environments like `theorem` and `example`.
+:::
+\end{minted}
+
+\subsection{Reusability}
+
+Our documentation system is part of the internal machinery of \texttt{Moloch}
+and would currently require some effort to adapt to another package. But we
+hope that this section may have piqued some interest and would be happy to
+collaborate to turn this into a more reusable feature\Dash{}perhaps as a
+separate package\Dash{}in order to help other authors provide web documentation
+for their packages.
 
 \section{Conclusion}
 
