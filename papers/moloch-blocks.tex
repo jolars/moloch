@@ -1,0 +1,28 @@
+\documentclass{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{tikz}
+
+\usepackage{lipsum}
+
+\usetheme[numbering=none]{moloch}
+\molochset{block=fill}
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{Moloch}
+
+  \lipsum[66]
+
+  \begin{block}{Metropolis}
+    \lipsum[66]
+  \end{block}
+
+  \begin{tikzpicture}[overlay, remember picture]
+    \draw[line width=1pt, color=orange] (0,0.2) -- (0,6.7);
+  \end{tikzpicture}
+\end{frame}
+
+\end{document}
