@@ -51,6 +51,7 @@
       {
         devShells.default = pkgs.mkShell {
           buildInputs = [
+            pkgs.bashInteractive
             texlive
             l3build-wrapped
             pkgs.quartoMinimal
