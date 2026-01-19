@@ -387,15 +387,15 @@ more robust and future-proof.
 
 \subsection{New Example Color}
 
-While we generally find \texttt{Metropolis} well-designed, we felt that the
-default color for example blocks (green) could be difficult to read for some
-users, especially those with color vision deficiencies. Therefore, we have
-changed from the lighter and vivid
+While we generally find \texttt{Metropolis} well-designed, we believe that the
+color used in example blocks can be difficult to read for some users,
+especially those with color vision deficiencies. Therefore, we have changed
+from the lighter and vivid
 \textcolor{metropolisGreen}{green}~(\textcolor{metropolisGreen}{\rule{1.2ex}{1.2ex}})
-used for example blocks in \texttt{Metropolis} to a darker, but less saturated
+in \texttt{Metropolis} to a darker, but less saturated
 \textcolor{molochGreen}{teal}~(\textcolor{molochGreen}{\rule{1.2ex}{1.2ex}}) in
-\texttt{Moloch}. Users who prefer the original green color can easily revert to
-it by adding the following lines.
+\texttt{Moloch}. Users who prefer the original color can revert via the
+following snippet.
 
 \begin{minted}{latex}
 \definecolor{metropolisGreen}{HTML}{14B03D}
@@ -405,16 +405,16 @@ it by adding the following lines.
 \subsection{Typography}
 
 \texttt{Metropolis} features a preference for \texttt{Fira Sans} (designed by
-Erik Spiekermann). And on Linux systems on \LuaLaTeX\ and \XeLaTeX, the package
-automatically attempts to find, configure, and use this font. While we
-appreciate the design of \texttt{Fira Sans}, we also feel that the font choice
+Erik Spiekermann). For Linux users compiling with \LuaLaTeX\ and \XeLaTeX, the
+package automatically tries to find, configure, and use this font. We
+appreciate the design of \texttt{Fira Sans}, but also feel that the font choice
 should be left to the user, particularly since the behavior in
 \texttt{Metropolis} leads different users to see different fonts depending on
 their system setup.
 
 In \texttt{Moloch}, we have therefore removed the automatic font selection and
-instead leave the choice of font to the user. For users who still wish to use
-\texttt{Fira Sans}, the following lines will help set this up.
+instead leave the choice of font to the user. Those who still wish to use
+\texttt{Fira Sans} can do so by adding the following lines to their preamble.
 
 \begin{minted}[]{latex}
 \usepackage[medium,light]{FiraSans}
@@ -429,7 +429,7 @@ appropriate weights of the \texttt{Fira Math} font.
 
 Users of \LuaLaTeX\ and \XeLaTeX\ may instead wish to use
 \texttt{fontspec}~\cite{latexproject:2025} to set up \texttt{Fira Sans} as the
-main font. Here is an example configuration that closely mimics the original
+main font. Here is an example configuration that matches the original
 \texttt{Metropolis} setup.
 
 \begin{minted}[]{latex}
@@ -460,25 +460,26 @@ main font. Here is an example configuration that closely mimics the original
 
 Unlike standard \texttt{beamer}, in which \cs{parskip} is set to zero,
 \texttt{Metropolis} instead sets it to 0.5~em units. This means that in
-\texttt{Metropolis}, you do not need to sprinkle \cs{medskip} (or whatever you
-use for paragraph spacing) in your slides to have them neatly separated.
+\texttt{Metropolis}, you do not need to use manual paragraph spacing commands
+like \cs{medskip} to separate paragraphs.
 
 But this had some undesired side-effects, such as introducing additional
 spacing inside block environments, around captions, and list environments. It
 also meant that users could not easily switch from \texttt{Metropolis} to
 standard \texttt{beamer} without having to adjust their content to accommodate
-the different paragraph spacing.
+the different paragraph spacing. For those reasons, we have removed this
+setting in \texttt{Moloch}. That means that users transitioning will need to
+either separate paragraphs manually (e.g. via \cs{medskip}) or use
+\latexinline{\setlength{\parskip}{0.5em}} to reinstate the original behavior.
 
-For those reasons, we have removed this setting in \texttt{Moloch}. Users who
-wish to reinstate it can do so by adding the following lines to their preamble.
+\texttt{Metropolis} also increases line spacing compared to standard
+\texttt{beamer}, which we have also removed in \texttt{Moloch} for similar
+reasons and to improve consistency with standard \texttt{beamer}. Users who
+wish to reinstate this behavior can do so via \latexinline{\linespread{1.15}}.
 
-\begin{minted}[]{latex}
-\setlength{\parskip}{0.5em}
-\linespread{1.15}
-\end{minted}
-
-Note that it may also be necessary to adjust the spacing of other elements to
-accommodate this change, for instance frame titles.
+Note, however, that changing the paragraph or line spacing may affect the
+overall layout of the slides and you may need to adjust other elements
+accordingly.
 
 \subsection{PGFPlots Theme}
 
