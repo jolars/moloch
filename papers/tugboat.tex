@@ -56,8 +56,8 @@
   preserving the original minimalist design. In this article we introduce
   \texttt{Moloch}'s features and options, provide guidance for
   \texttt{Metropolis} users transitioning to \texttt{Moloch}, and describe the
-  Quarto-based documentation system that we use to generate both \PDF\ and \HTML\
-  documentation.
+  \texttt{Quarto}-based documentation system that we use to generate both \PDF\
+  and \HTML\ documentation.
 \end{abstract}
 
 \section{Introduction}
@@ -70,29 +70,31 @@ we think are) sane defaults for styling. The problem is that
 date six years back. Internally, it patches or redefines many internal macros
 and, with the evolution of \texttt{beamer} and the \LaTeX\ kernel, these
 modifications have become brittle. Over time a number of issues have cropped
-up. Most of these are minor and corrigible through workarounds, but our
-preambles have grown increasingly cluttered with such patches. Moreover, a
-number of users have requested features, while others have offered
-contributions to help improve the theme. \texttt{Metropolis} being
-unmaintained, however, these contributions have not been incorporated.
+up. Most of these are minor and corrigible through workarounds, but were
+causing users' preambles to grow increasingly cluttered with such patches. Some
+users have also requested features, while others have offered contributions to
+help improve the theme. \texttt{Metropolis} being unmaintained, however, these
+requests and contributions have gone unaddressed.
 
 This has led us to fork \texttt{Metropolis} into a new theme, which we call
 \texttt{Moloch}\footnote{Perhaps familiar to you if you know your Metropolis.}.
 The goal is to keep the original design philosophy and look of
 \texttt{Metropolis} while fixing outstanding issues and incorporating useful
-features and contributions from the community. We have made some design
-changes, but these have largely been made to make the design more accessible
-and to bring the behavior of the theme closer to standard \texttt{beamer}
-behavior. Finally, we have also made a number of internal code improvements to
-make the theme more robust and maintainable going forward. Users of
+features and contributions from the community. We have modified the design
+slightly, but mostly with the intent of improving accessibility or to bring the
+theme closer to standard \texttt{beamer} behavior. We have also improved the
+internal code to make the theme robust and maintainable going forward. Users of
 \texttt{Metropolis} should find it easy to switch to \texttt{Moloch}, whilst at
 the same time benefit from the bug fixes, new features, and improved stability.
 
 Since neither \texttt{Metropolis} nor \texttt{Moloch} have been introduced in
-the \TUB\ before, we will begin by introducing \texttt{Moloch}. Users of
-\texttt{Metropolis} may wish to skip ahead to
+the \TUB\ before, we will begin by introducing \texttt{Moloch} in the next
+section. Users of \texttt{Metropolis} may want to skip ahead to
 Section~\ref{sec:metro-vs-moloch}, which summarizes the changes made in
-\texttt{Moloch}.
+\texttt{Moloch} and offers guidance for transitioning from \texttt{Metropolis}
+to \texttt{Moloch}. Finally, in Section~\ref{sec:documentation}, we describe
+the documentation system used for \texttt{Moloch}, which generates both \PDF\
+and \HTML\ documentation from a single source.
 
 \section{Getting Started with Moloch}
 
@@ -169,7 +171,8 @@ of pre-defined color themes.
 
 To set the overall color theme, use the option \texttt{colortheme} and
 \texttt{colortheme variant} for selecting light or dark mode. For example, the
-following code snippet sets the color theme to \texttt{catppuccin} in dark
+following code snippet sets the color theme to
+\texttt{catppuccin}~\cite{catppuccin2026} in dark
 mode~(Figure~\ref{fig:colortheme-catppuccin}).
 
 \begin{minted}{latex}
@@ -595,6 +598,7 @@ not go into all the details here. But briefly, we have
 \end{itemize}
 
 \section{Documentation}
+\label{sec:documentation}
 
 \LaTeX\ packages typically come with \PDF\ documentation and
 \texttt{Moloch} is no exception, featuring both a comprehensive user
