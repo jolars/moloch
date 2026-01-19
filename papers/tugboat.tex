@@ -511,13 +511,17 @@ similar.
 
 \subsection{Block Environments}
 
-\texttt{Metropolis} supports an alternative, filled, block type, which uses a
-such that the main body text (for the frame) aligns with the left edge of the
-box and not the text inside the box. Several users reported issues with this
-custom handling in some context. and because we prefer the approach in
-\texttt{beamer} for typographical reasons
-
-In \texttt{Moloch} See Figure~\ref{fig:block-comparison} for a comparison.
+\texttt{Metropolis} supports an alternative filled block style, which uses a
+different background color for block environments. Many other \texttt{beamer}
+themes support this style as well. Unlike most of these, however,
+\texttt{Metropolis} alters the alignment of the text in these filled block
+environments such that the main body text (for the frame) aligns with the left
+edge of the box and not the text inside the box. Users have, however, reported
+problems with this approach. And because we prefer the default behavior in
+\texttt{beamer} for typographical reasons and consistency, since changing the
+block style in \texttt{Metropolis} also risks modifying the layout of the
+slide, we have reverted to the standard \texttt{beamer} behavior in
+\texttt{Moloch}. See Figure~\ref{fig:block-comparison} for a comparison.
 
 \begin{figure}[htb]
   \centering
