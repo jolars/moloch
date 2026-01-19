@@ -311,7 +311,7 @@ are \tbcode{progressbar} (the default), \tbcode{none} (no section page) and
   \caption{%
     The default (left) and simple (right) section pages styles. The section page
     can also be disabled entirely via
-    \latexinline{\molochset{sectionpage=none}}.}\label{fig:section-page-default}
+    \latexinline[fontsize=\small]{\molochset{sectionpage=none}}.}\label{fig:section-page-default}
 \end{figure}
 
 \subsection{Standout Frames}
@@ -333,7 +333,7 @@ creates the standout frame seen in Figure~\ref{fig:standout-frame}.
   \includegraphics[page=9,width=\columnwidth]{moloch-demo}
 
   \caption{%
-    A standout frame created via \latexinline{\begin{frame}[standout] ... \end{frame}}.}\label{fig:standout-frame}
+    A standout frame created via \latexinline[fontsize=\small]{\begin{frame}[standout] ... \end{frame}}.}\label{fig:standout-frame}
 \end{figure}
 
 As with most elements of \texttt{Moloch}, the colors of standout frames can be
@@ -401,6 +401,12 @@ following snippet.
 \definecolor{metropolisGreen}{HTML}{14B03D}
 \molochcolors{example fg=metropolisGreen}
 \end{minted}
+
+\subsection{Setting Options}
+
+\texttt{Metropolis} introduces \cs{metroset} for setting theme options.
+\texttt{Moloch} instead uses \cs{molochset}, which is otherwise used exactly in
+the same way.
 
 \subsection{Typography}
 
@@ -485,9 +491,9 @@ accordingly.
 
 \texttt{Metropolis} comes with a custom \texttt{pgfplots}~\cite{pgfplots} theme
 that uses colors from Paul Tol's 21-color theme~\cite{carl2013}. We removed
-this theme from \texttt{Moloch} because we felt that it was outside the scope
-of a \texttt{beamer} theme to provide a plotting theme. The theme is still
-provided through \texttt{metropolis}, however, so users who wish to use it can
+this theme from \texttt{Moloch} since we felt that it was outside the scope of
+a \texttt{beamer} theme to provide a plotting theme. The theme is still
+provided through \texttt{Metropolis}, however, so users who wish to use it can
 do so by adding the following line to their preamble.
 
 \begin{minted}[]{latex}
@@ -496,36 +502,33 @@ do so by adding the following line to their preamble.
 
 \subsection{Frame Subtitles}
 
-\texttt{Moloch}, unlike \texttt{Metropolis}, supports subtitles. The reasoning
-for this omission was that the author felt they were unnecessary clutter. We
-generally agree that subtitles should be used sparingly (if at all), but we
-also do not want to force this preference upon our users.
+\texttt{Moloch}, unlike \texttt{Metropolis}, supports frame subtitles. The
+reasoning for this omission was that the author felt they were unnecessary
+clutter. We generally agree that subtitles should be used sparingly (if at
+all), but we also do not want to force this preference upon our users.
 
 \subsection{Frame Numbering}
 
-Metropolis sported its own frame numbering system. There was nothing wrong with
-this system except it necessitated a separate package
-(\texttt{appendixnumberbeamer}~\cite{lelong:2018}) to get frame or page numbers
-to restart (and not count towards the total number) for appendix slides.
-\texttt{beamer} has, however, improved its own system in recent years and there
-is no longer any need for a custom solution (or separate package) to support
-this functionality. As a result, \texttt{Moloch} just relies on beamer
-templates for the frame numbering. The design is \emph{slightly} different,
-with smaller font size and somewhat different margins, but the overall look is
-similar.
+Metropolis sported its own frame numbering system, which worked fine except it
+required a separate package (\texttt{appendixnumberbeamer}~\cite{lelong:2018})
+to have frame numbering restart (and not count towards the total number) for
+appendix slides. \texttt{beamer} now supports this natively, however, and so
+\texttt{Moloch} simply uses this built-in functionality. The design is
+\emph{slightly} different, with smaller font size and somewhat different
+margins.
 
 \subsection{Block Environments}
 
 \texttt{Metropolis} supports an alternative filled block style, which uses a
 different background color for block environments. Many other \texttt{beamer}
-themes support this style as well. Unlike most of these, however,
+themes support filled blocks too. Unlike most of these, however,
 \texttt{Metropolis} alters the alignment of the text in these filled block
 environments such that the main body text (for the frame) aligns with the left
 edge of the box and not the text inside the box. Users have, however, reported
 problems with this approach. And because we prefer the default behavior in
-\texttt{beamer} for typographical reasons and consistency, since changing the
-block style in \texttt{Metropolis} also risks modifying the layout of the
-slide, we have reverted to the standard \texttt{beamer} behavior in
+\texttt{beamer} also for typographical reasons and consistency\footnote{Since
+  changing the block style in \texttt{Metropolis} also risks modifying the layout
+  of the slide.}, we have reverted to the standard \texttt{beamer} behavior in
 \texttt{Moloch}. See Figure~\ref{fig:block-comparison} for a comparison.
 
 \begin{figure}[htb]
@@ -550,9 +553,9 @@ slide, we have reverted to the standard \texttt{beamer} behavior in
 
 \texttt{Metropolis} uses \cs{textbullet}~(\textbullet) as the symbol for all
 levels of the itemize environment. The problem with \cs{textbullet} is that it
-does not work with every font. It does not, for instance, work with the popular
-\titleref{Latin Modern}~\cite{latinmodern}, which instead generates a filled
-square.
+is defined differently in different fonts. Notably, for instance, it does not
+\titleref{Latin Modern}~\cite{latinmodern} has it defined as a filled square,
+which looks quite different from the round bullet used in most other fonts.
 
 The appearance of itemize symbols is a frequent source of issues because they
 typically depend on the font. Another common setting is to use a math symbol,
@@ -564,8 +567,8 @@ its itemize symbols, which means that they work regardless of the font used.
 Also, to improve the visual hierarchy, \texttt{Moloch} uses different symbols
 for different levels of the itemize
 environment~(Figure~\ref{fig:itemize-comparison}). Users who nevertheless wish
-to switch to the \texttt{Metropolis} symbol can simply invoke the following
-one-liner.
+to switch to the \texttt{Metropolis} symbol can simply specify the following in
+their preamble.
 
 \begin{minted}[]{latex}
 \setbeamertemplate{itemize items}{\textbullet}
@@ -585,14 +588,14 @@ one-liner.
   ]{lists-metropolis}
 
   \caption{%
-    The design of itemize lists in Moloch (left) and Metropolis
+    The design of itemize lists in \texttt{Moloch} (left) and \texttt{Metropolis}
     (right).}\label{fig:itemize-comparison}
 \end{figure}
 
 \subsection{Other Miscellaneous Changes}
 
-\texttt{Moloch} includes a slew of other changes. For lack of space, we will
-not go into all the details here. But briefly, we have
+\texttt{Moloch} includes many other changes. We will not go into all the
+details here; but briefly, we have
 \begin{itemize}
   \item redesigned the default title page style,
   \item modernized the build system to use \texttt{l3build}~\cite{mittelbach:2014} and
@@ -603,23 +606,24 @@ not go into all the details here. But briefly, we have
 \section{Documentation}
 \label{sec:documentation}
 
-\LaTeX\ packages typically come with \PDF\ documentation and
-\texttt{Moloch} is no exception, featuring both a comprehensive user
-guide and implementation documentation. Yet, although it is standard
-to supply documentation as a \PDF\ manual, this format has some downsides.
-Notably, it is not responsive and works poorly on small screens. It also
-lacks good search functionality, is difficult to cross-reference outside
-of the document itself, and, perhaps most importantly, is less
-accessible than web documentation.
+\LaTeX\ packages typically come with \PDF\ documentation and \texttt{Moloch} is
+no exception, featuring both a user guide and implementation documentation.
+Yet, although it is standard to supply documentation as a \PDF\ manual, this
+format has some downsides. Notably, it is not responsive to screen
+size\Dash{}being hard to read and navigate on small screen and making
+suboptimal use of the screen size on large, widescreen displays. It also lacks
+good search functionality, is difficult to cross-reference outside of the
+document itself, and, perhaps most importantly, is less accessible than web
+documentation.
 
-\texttt{Moloch} therefore, unlike most packages, also comes with web
-documentation available at \url{https://moloch.ink}. The site features
-\HTML-based versions of both the user guide and implementation documentation,
-in similar fashion as the unofficial documentation for
-\texttt{PGF}/\texttt{TikZ} at \url{https://tikz.dev}. Yet, whereas that site is
-generated via \texttt{lwarp}~\cite{dunn:2025}, \texttt{Moloch} takes a somewhat
-different approach. Since we think this approach might be of interest to other
-package authors, we will briefly summarize it here.
+\texttt{Moloch} therefore also comes with web documentation available at
+\url{https://moloch.ink}. The site features \HTML-based versions of both the
+user guide and implementation documentation, in similar fashion as the
+unofficial documentation for \texttt{PGF}/\texttt{TikZ} at
+\url{https://tikz.dev}. Yet, whereas that site is generated via
+\texttt{lwarp}~\cite{dunn:2025}, \texttt{Moloch} takes a somewhat different
+approach. Since we think this approach might be of interest to other package
+authors, we will briefly summarize it here.
 
 \subsection{Architecture}
 
