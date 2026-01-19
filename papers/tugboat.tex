@@ -363,26 +363,27 @@ line~(Figure~\ref{fig:title-page-styles}).
 \section{Transitioning from Metropolis to Moloch}
 \label{sec:metro-vs-moloch}
 
-As mentioned in the introduction, \texttt{Moloch} is a fork of
-\texttt{Metropolis} with the goal of fixing outstanding issues while keeping
-the original design mostly intact. In this section, we summarize the main
-changes made in \texttt{Moloch} compared to \texttt{Metropolis}, explain the
-motivation behind them, and offer guidance for users of \texttt{Metropolis} who
-wish to transition to \texttt{Moloch}.
-
-Many of the changes in \texttt{Moloch} are internal code improvements and
-mitigations of bugs and we will not focus on these here, but rather on
-user-visible changes.
+\texttt{Moloch} retains much of the original design and behavior of
+\texttt{Metropolis}, but there \emph{are} differences. In this section we
+summarize these, explain their motivation, and help users transition from
+\texttt{Metropolis} to \texttt{Moloch}. Although many of the changes in
+\texttt{Moloch} are internal code improvements and mitigations of bugs, we will
+not focus on these here and instead highlight changes that will be visible to
+users.
 
 One important difference is that we have tried to make \texttt{Moloch} more
-consistent with standard \texttt{beamer} behavior where possible. The leading
-principle has been to not re-invent the wheel when \texttt{beamer} already
-provides the desired functionality. This has led to some changes in behavior
-compared to \texttt{Metropolis}. Another related change is to avoid redefining
-internal \texttt{beamer} macros. This was a source of brittleness in
-\texttt{Metropolis} that led to upstream workarounds in \texttt{beamer} to
-avoid breaking changes. By relying on standard \texttt{beamer} mechanisms
-instead, we hope to make \texttt{Moloch} more robust going forward.
+consistent with standard \texttt{beamer} behavior, which makes it easier for
+\texttt{beamer} users to adopt \texttt{Moloch}\Dash{}at the cost of requiring
+\texttt{Metropolis} users to adapt. A guiding principle has been to not
+re-invent the wheel when \texttt{beamer} already provides the desired
+functionality. This has led to some changes in behavior compared to
+\texttt{Metropolis}, as we now, for instance, prefer to rely on
+\texttt{beamer}'s built-in mechanisms for frame numbering and definitions of
+block environments. Another related change is to avoid redefining internal
+\texttt{beamer} macros. This was a source of brittleness in \texttt{Metropolis}
+that forced upstream workarounds in \texttt{beamer} to avoid breaking changes.
+By relying on standard \texttt{beamer} mechanisms instead, \texttt{Moloch} is
+more robust and future-proof.
 
 \subsection{New Example Color}
 
