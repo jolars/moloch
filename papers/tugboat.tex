@@ -64,17 +64,17 @@
 
 The excellent \texttt{Metropolis} theme~\cite{vogelgesang:2017} provides a
 clean, professional look for \LaTeX\ \texttt{beamer}~\cite{samcarter:2025}
-presentations and also provides useful features such as progress bars and (what
-we think are) sane defaults for styling. The problem is that
-\texttt{Metropolis} is no longer actively maintained\Dash{}its latest updates
-date six years back. Internally, it patches or redefines many internal macros
-and, with the evolution of \texttt{beamer} and the \LaTeX\ kernel, these
-modifications have become brittle. Over time a number of issues have cropped
-up. Most of these are minor and corrigible through workarounds, but were
-causing users' preambles to grow increasingly cluttered with such patches. Some
-users have also requested features, while others have offered contributions to
-help improve the theme. \texttt{Metropolis} being unmaintained, however, these
-requests and contributions have gone unaddressed.
+presentations as well as useful features such as progress bars and (what we
+think are) sane defaults for styling. The problem is that \texttt{Metropolis}
+is no longer actively maintained\Dash{}its latest updates date six years back.
+Internally, it patches or redefines many internal macros and, with the
+evolution of \texttt{beamer} and the \LaTeX\ kernel, these modifications have
+become brittle. Over time a number of issues have cropped up. Most of these are
+minor and corrigible through workarounds, but have caused users' preambles to
+grow increasingly cluttered with such patches. Some users have also requested
+features, while others have offered contributions to help improve the theme.
+\texttt{Metropolis} being unmaintained, however, these requests and
+contributions have gone unaddressed.
 
 This has led us to fork \texttt{Metropolis} into a new theme, which we call
 \texttt{Moloch}\footnote{Perhaps familiar to you if you know your Metropolis.}.
@@ -266,7 +266,7 @@ the facilities of \texttt{pgfkeys}~\cite{tantau:2007} from
 
 \subsection{Progress Bars}
 
-A popular feature of \texttt{Metropolis} (that \texttt{Moloch} retains) is
+A popular feature of \texttt{Metropolis} (that \texttt{Moloch} retains) is the
 ability to track progress through the slides via a progress bar on either the
 frames or on section and/or subsection pages. To setup progress bars for
 frames, use the option \texttt{progressbar} with either \texttt{head},
@@ -317,10 +317,11 @@ are \tbcode{progressbar} (the default), \tbcode{none} (no section page) and
 \subsection{Standout Frames}
 
 \texttt{Moloch} (as well as \texttt{Metropolis}) supports special
-\emph{standout} frames, which are intended as a mean for highlighting important
-frames in the presentation. They are created by specifying a \tbcode{standout}
-key to the \tbcode{frame} environment. For example, the following code snippet
-creates the standout frame seen in Figure~\ref{fig:standout-frame}.
+\emph{standout} frames, which are intended as a means for highlighting
+important frames in the presentation. They are created by specifying a
+\tbcode{standout} key to the \tbcode{frame} environment. For example, the
+following code snippet creates the standout frame seen in
+Figure~\ref{fig:standout-frame}.
 
 \begin{minted}{latex}
 \begin{frame}[standout]
@@ -553,8 +554,8 @@ problems with this approach. And because we prefer the default behavior in
 
 \texttt{Metropolis} uses \cs{textbullet}~(\textbullet) as the symbol for all
 levels of the itemize environment. The problem with \cs{textbullet} is that it
-is defined differently in different fonts. Notably, for instance, it does not
-\titleref{Latin Modern}~\cite{latinmodern} has it defined as a filled square,
+is defined differently in different fonts. Notably, for instance, in
+\titleref{Latin Modern}~\cite{latinmodern} it is defined as a filled square,
 which looks quite different from the round bullet used in most other fonts.
 
 The appearance of itemize symbols is a frequent source of issues because they
