@@ -644,7 +644,7 @@ through a custom script.
 
 This then gives us a complete \texttt{Markdown} source file for the entire
 documentation, which we then convert to both a \PDF\ manual~(through \LaTeX)
-and a \HTML\ website via \texttt{Quarto}. In order to provide proper styling
+and an \HTML\ website via \texttt{Quarto}. In order to provide proper styling
 for documentation of macros and package options, we use \tbcode{Lua} filters,
 which is a built-in feature of \texttt{Quarto}, to keep a unified syntax for
 the documentation. Here is, for instance, an example of a documentation block
@@ -703,18 +703,24 @@ rendered in \LaTeX\ and \HTML.
 Our documentation system is part of the internal machinery of \texttt{Moloch}
 and would currently require some effort to adapt to another package. But we
 hope that this section may have piqued some interest and would be happy to
-collaborate to turn this into a more reusable feature\Dash{}perhaps as a
-separate package\Dash{}in order to help other authors provide web documentation
-for their packages.
+collaborate to turn this into a reusable feature\Dash{}perhaps as a separate
+package\Dash{}in order to help other authors provide web documentation for
+their packages.
 
 \section{Conclusion}
 
-\texttt{Moloch} is developed openly on GitHub at
-\url{https://github.com/jolars/moloch} and its documentation is available at
-\url{https://moloch.ink}.
+We have presented \texttt{Moloch}, a fork of the popular \texttt{beamer} theme
+\texttt{Metropolis}. \texttt{Moloch} retains the minimalist design philosophy
+of \texttt{Metropolis} while fixing outstanding issues and incorporating new
+features. Our hope is that \texttt{Moloch} will serve as a robust and
+maintainable alternative to \texttt{Metropolis} going forward and that users of
+both ``regular'' \texttt{beamer} themes and \texttt{Metropolis} will find it
+easy to adopt.
 
-We welcome contributions and feedback from the community to help improve
-\texttt{Moloch} going forward.
+\texttt{Moloch} is developed openly at \url{https://github.com/jolars/moloch}
+and its documentation is available at \url{https://moloch.ink}. We welcome
+contributions and feedback from the community to help improve \texttt{Moloch}
+going forward.
 
 \section{Acknowledgments}
 
