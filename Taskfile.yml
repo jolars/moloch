@@ -48,6 +48,15 @@ tasks:
     cmds:
       - l3build-wrapped ctan
 
+  save-tests:
+    desc: Save test expectations (fixtures) for all test files
+    cmds:
+      - l3build-wrapped save backgroundcolors
+      - l3build-wrapped save sectionpages
+      - l3build-wrapped save separation
+      - l3build-wrapped save standoutnumbering
+      - l3build-wrapped save test
+
   generate-example-images:
     desc: Compile examples and generate grid images
     cmds:
