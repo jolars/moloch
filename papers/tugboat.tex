@@ -90,8 +90,8 @@ should find it easy to switch to \texttt{Moloch}, whilst at the same time
 benefit from the bug fixes, new features, and improved stability.
 
 Since neither \texttt{Metropolis} nor \texttt{Moloch} have been introduced in
-the \TUB\ before, I will begin to do just that by introducing \texttt{Moloch}.
-Users of \texttt{Metropolis} may wish to skip ahead to
+the \TUB\ before, we will begin by introducing \texttt{Moloch}. Users of
+\texttt{Metropolis} may wish to skip ahead to
 Section~\ref{sec:metro-vs-moloch}, which summarizes the changes made in
 \texttt{Moloch}.
 
@@ -386,7 +386,7 @@ instead, we hope to make \texttt{Moloch} more robust going forward.
 While we generally find \texttt{Metropolis} well-designed, we felt that the
 default color for example blocks (green) could be difficult to read for some
 users, especially those with color vision deficiencies. Therefore, we have
-changes from the lighter and vivid
+changed from the lighter and vivid
 \textcolor{metropolisGreen}{green}~(\textcolor{metropolisGreen}{\rule{1.2ex}{1.2ex}})
 used for example blocks in \texttt{Metropolis} to a darker, but less saturated
 \textcolor{molochGreen}{teal}~(\textcolor{molochGreen}{\rule{1.2ex}{1.2ex}}) in
@@ -534,7 +534,7 @@ In \texttt{Moloch} See Figure~\ref{fig:block-comparison} for a comparison.
 
   \caption{%
     A comparison of alignment of block environments in Moloch (left) and Metropolis
-  } \label{fig:block-comparison}
+    (right). } \label{fig:block-comparison}
 \end{figure}
 
 \subsection{Itemize Lists}
@@ -554,7 +554,7 @@ For these reasons, \texttt{Moloch} uses \acro{PGF} primitives to draw all of
 its itemize symbols, which means that they work regardless of the font used.
 Also, to improve the visual hierarchy, \texttt{Moloch} uses different symbols
 for different levels of the itemize
-environment~(Figure~\ref{fig:itemize-comparison}). Users who nevertheless which
+environment~(Figure~\ref{fig:itemize-comparison}). Users who nevertheless wish
 to switch to the \texttt{Metropolis} symbol can simply invoke the following
 one-liner.
 
