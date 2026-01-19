@@ -14,6 +14,12 @@ modifyLineBreaks:
           \\titleref
           |
           \\texttt
+          |
+          \\LaTeX
+          |
+          \\PDF
+          |
+          \\HTML
     blocksFollow:
       other: |-
         (?x)
