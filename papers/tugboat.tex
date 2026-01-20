@@ -429,7 +429,9 @@ instead leave the choice of font to the user. Those who still wish to use
 \begin{minted}[]{latex}
 \usepackage[medium,light]{FiraSans}
 \usepackage{FiraMono}
-\usepackage{firamath-otf}
+\ifTUTeX
+  \usepackage{firamath-otf}
+\fi
 \end{minted}
 
 To better mimic the original \texttt{Metropolis} setup, options
