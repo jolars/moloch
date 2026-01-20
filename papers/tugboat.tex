@@ -13,6 +13,7 @@
 \usepackage[hidelinks,pdfa]{hyperref}
 \usepackage{minted}
 \usepackage{xcolor}
+\usepackage{siunitx}
 
 \definecolor{metropolisGreen}{HTML}{14B03D}
 \definecolor{molochGreen}{RGB}{0,128,128}
@@ -469,7 +470,7 @@ main font. Here is an example configuration that matches the original
 \subsection{Paragraph Spacing and Line Spacing}
 
 Unlike standard \texttt{beamer}, in which \cs{parskip} is set to zero,
-\texttt{Metropolis} instead sets it to 0.5~em units. This means that in
+\texttt{Metropolis} instead sets it to \qty{0.5}{em} units. This means that in
 \texttt{Metropolis}, you do not need to use manual paragraph spacing commands
 like \cs{medskip} to separate paragraphs.
 
