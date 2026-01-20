@@ -108,6 +108,8 @@ Moloch is a standard \texttt{beamer} theme and is enabled in the usual way via
 \documentclass{beamer}
 \usetheme{moloch}
 
+\molochcolors{normal text bg=white}
+
 \title{Moloch Theme}
 \subtitle{A Minimalist Beamer Theme}
 \author{Johan Larsson}
@@ -134,7 +136,10 @@ This produces the presentation shown in Figure~\ref{fig:title-slide}. As you
 can see, \texttt{Moloch} provides a distinctive title slide with somewhat
 different formatting than the standard \texttt{beamer} title slide\footnote{But
   if you prefer the default \texttt{beamer} one, then \texttt{Moloch} has the
-  option to use that instead.}.
+  option to use that instead.}. Note that the default background color is a light
+gray (as in \texttt{Metropolis}); we have changed it to white here, using
+\cs{molochcolors}~(see Section~\ref{sec:color-theming}) to improve printability
+for \TUB.
 
 \begin{figure}[htb]
   \centering
@@ -165,6 +170,7 @@ theme, font theme, and inner and outer themes. Here, we assume that the full
 \texttt{Moloch} theme is loaded via \verb|\usetheme{moloch}|.
 
 \subsection{Color Theming}
+\label{sec:color-theming}
 
 A major new feature of \texttt{Moloch} is a full-fledged color theme system
 that allows users to customize the colors used in the theme in an intuitive
@@ -579,16 +585,16 @@ their preamble.
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[
-    width=0.48\columnwidth,
-    trim=0 180 200 0,
-    clip=true
-  ]{lists-moloch}
-  \includegraphics[
-    width=0.48\columnwidth,
-    trim=0 180 200 0,
-    clip=true
-  ]{lists-metropolis}
+  \frame{\includegraphics[
+      width=0.48\columnwidth,
+      trim=0 180 200 0,
+      clip=true
+    ]{lists-moloch}}\hfill
+  \frame{\includegraphics[
+      width=0.48\columnwidth,
+      trim=0 180 200 0,
+      clip=true
+    ]{lists-metropolis}}
 
   \caption{%
     The design of itemize lists in \texttt{Moloch} (left) and \texttt{Metropolis}
