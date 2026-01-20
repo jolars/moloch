@@ -389,29 +389,6 @@ that forced upstream workarounds in \texttt{beamer} to avoid breaking changes.
 By relying on standard \texttt{beamer} mechanisms instead, \texttt{Moloch} is
 more robust and future-proof.
 
-\subsection{New Example Color}
-
-While we generally find \texttt{Metropolis} well-designed, we believe that the
-color used in example blocks can be difficult to read for some users,
-especially those with color vision deficiencies. Therefore, we have changed
-from the lighter and vivid
-\textcolor{metropolisGreen}{green}~(\textcolor{metropolisGreen}{\rule{1.2ex}{1.2ex}})
-in \texttt{Metropolis} to a darker, but less saturated
-\textcolor{molochGreen}{teal}~(\textcolor{molochGreen}{\rule{1.2ex}{1.2ex}}) in
-\texttt{Moloch}. Users who prefer the original color can revert via the
-following snippet.
-
-\begin{minted}{latex}
-\definecolor{metropolisGreen}{HTML}{14B03D}
-\molochcolors{example fg=metropolisGreen}
-\end{minted}
-
-\subsection{Setting Options}
-
-\texttt{Metropolis} introduces \cs{metroset} for setting theme options.
-\texttt{Moloch} instead uses \cs{molochset}, which is otherwise used exactly in
-the same way.
-
 \subsection{Typography}
 
 \texttt{Metropolis} features a preference for \texttt{Fira Sans} (designed by
@@ -468,6 +445,12 @@ main font. Here is an example configuration that matches the original
 }
 \end{minted}
 
+\subsection{Setting Options}
+
+\texttt{Metropolis} introduces \cs{metroset} for setting theme options.
+\texttt{Moloch} instead uses \cs{molochset}, which is otherwise used exactly in
+the same way.
+
 \subsection{Paragraph Spacing and Line Spacing}
 
 Unlike standard \texttt{beamer}, in which \cs{parskip} is set to zero,
@@ -493,17 +476,21 @@ Note, however, that changing the paragraph or line spacing may affect the
 overall layout of the slides and you may need to adjust other elements
 accordingly.
 
-\subsection{PGFPlots Theme}
+\subsection{New Example Color}
 
-\texttt{Metropolis} comes with a custom \texttt{pgfplots}~\cite{pgfplots} theme
-that uses colors from Paul Tol's 21-color theme~\cite{carl2013}. We removed
-this theme from \texttt{Moloch} since we felt that it was outside the scope of
-a \texttt{beamer} theme to provide a plotting theme. The theme is still
-provided through \texttt{Metropolis}, however, so users who wish to use it can
-do so by adding the following line to their preamble.
+While we generally find \texttt{Metropolis} well-designed, we believe that the
+color used in example blocks can be difficult to read for some users,
+especially those with color vision deficiencies. Therefore, we have changed
+from the lighter and vivid
+\textcolor{metropolisGreen}{green}~(\textcolor{metropolisGreen}{\rule{1.2ex}{1.2ex}})
+in \texttt{Metropolis} to a darker, but less saturated
+\textcolor{molochGreen}{teal}~(\textcolor{molochGreen}{\rule{1.2ex}{1.2ex}}) in
+\texttt{Moloch}. Users who prefer the original color can revert via the
+following snippet.
 
-\begin{minted}[]{latex}
-\usepackage{pgfplots,pgfplotsthemetol}
+\begin{minted}{latex}
+\definecolor{metropolisGreen}{HTML}{14B03D}
+\molochcolors{example fg=metropolisGreen}
 \end{minted}
 
 \subsection{Frame Subtitles}
@@ -606,6 +593,19 @@ details here; but briefly, we have
         include unit tests, and
   \item removed hard-coding of the bibliography style.
 \end{itemize}
+
+\subsection{PGFPlots Theme}
+
+\texttt{Metropolis} comes with a custom \texttt{pgfplots}~\cite{pgfplots} theme
+that uses colors from Paul Tol's 21-color theme~\cite{carl2013}. We removed
+this theme from \texttt{Moloch} since we felt that it was outside the scope of
+a \texttt{beamer} theme to provide a plotting theme. The theme is still
+provided through \texttt{Metropolis}, however, so users who wish to use it can
+do so by adding the following line to their preamble.
+
+\begin{minted}[]{latex}
+\usepackage{pgfplots,pgfplotsthemetol}
+\end{minted}
 
 \section{Documentation}
 \label{sec:documentation}
