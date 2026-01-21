@@ -20,6 +20,9 @@ Please check out [the documentatioon](https://moloch.ink) for more information
 on how to use the theme. If you're interested, there is also
 [a blog post](https://jolars.co/blog/2024-05-30-moloch/) in which I introduce
 the theme and write in more detail about the changes with respect to Metropolis.
+Finally, please join us on
+[Matrix](https://matrix.to/#/#texlive-pkg-moloch:matrix.org) if you have any
+questions or want to discuss the theme.
 
 Do not expect this theme to be backwards compatible with the Metropolis theme.
 
