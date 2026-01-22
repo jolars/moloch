@@ -99,7 +99,7 @@ to \texttt{Moloch}. Finally, in Section~\ref{sec:documentation}, we describe
 the documentation system used for \texttt{Moloch}, which generates both \PDF\
 and \HTML\ documentation from a single source.
 
-\section{Getting Started with Moloch}
+\section{Getting started with Moloch}
 
 Moloch is a standard \texttt{beamer} theme and is enabled in the usual way via
 \latexinline{\usetheme{moloch}}. Here is a minimal example presentation using
@@ -167,7 +167,7 @@ Like many other \texttt{beamer} themes, \texttt{Moloch} is split into a color
 theme, font theme, and inner and outer themes. Here, we assume that the full
 \texttt{Moloch} theme is loaded via \verb|\usetheme{moloch}|.
 
-\subsection{Color Theming}
+\subsection{Color theming}
 \label{sec:color-theming}
 
 A major new feature of \texttt{Moloch} is a full-fledged color theme system
@@ -269,7 +269,7 @@ their convenience. To enable this color system functionality, \texttt{Moloch}
 makes heavy use of the facilities of \texttt{pgfkeys}~\cite{tantau:2007} from
 \acro{PGF}/\texttt{TikZ}~\cite{feuersanger:2025}.
 
-\subsection{Progress Bars}
+\subsection{Progress bars}
 
 A popular feature of \texttt{Metropolis} (that \texttt{Moloch} retains) is the
 ability to track progress through the slides via a progress bar on either the
@@ -319,7 +319,7 @@ are \tbcode{progressbar} (the default), \tbcode{none} (no section page) and
     \latexinline[fontsize=\small]{\molochset{sectionpage=none}}.}\label{fig:section-page-default}
 \end{figure}
 
-\subsection{Standout Frames}
+\subsection{Standout frames}
 
 \texttt{Moloch} (as well as \texttt{Metropolis}) supports special
 \emph{standout} frames, which are intended as a means for highlighting
@@ -344,7 +344,7 @@ Figure~\ref{fig:standout-frame}.
 As with most elements of \texttt{Moloch}, the colors of standout frames can be
 customized via the color theme system.
 
-\subsection{Title Page Styles}
+\subsection{Title page styles}
 
 As we have already seen, \texttt{Moloch} provides a distinctive title page
 style by default. As usual, however, preferences differ and for that reason,
@@ -449,13 +449,13 @@ main font. Here is an example configuration that matches the original
 }
 \end{minted}
 
-\subsection{Setting Options}
+\subsection{Setting options}
 
 \texttt{Metropolis} introduces \cs{metroset} for setting theme options.
 \texttt{Moloch} instead uses \cs{molochset}, which is otherwise used exactly in
 the same way.
 
-\subsection{Paragraph Spacing and Line Spacing}
+\subsection{Paragraph spacing and line spacing}
 
 Unlike standard \texttt{beamer}, in which \cs{parskip} is set to zero,
 \texttt{Metropolis} instead sets it to \qty{0.5}{em} units. This means that in
@@ -480,7 +480,7 @@ Note, however, that changing the paragraph or line spacing may affect the
 overall layout of the slides and you may need to adjust other elements
 accordingly.
 
-\subsection{New Example Color}
+\subsection{New example color}
 
 While we generally find \texttt{Metropolis} well-designed, we believe that the
 color used in example blocks can be difficult to read for some users,
@@ -497,14 +497,14 @@ following snippet.
 \molochcolors{example fg=metropolisGreen}
 \end{minted}
 
-\subsection{Frame Subtitles}
+\subsection{Frame subtitles}
 
 \texttt{Moloch}, unlike \texttt{Metropolis}, supports frame subtitles. The
 reasoning for this omission was that the author felt they were unnecessary
 clutter. We generally agree that subtitles should be used sparingly (if at
 all), but we also do not want to force this preference upon our users.
 
-\subsection{Frame Numbering}
+\subsection{Frame numbering}
 
 Metropolis sports its own frame-numbering system, which requires a separate
 package\footnote{\texttt{appendixnumberbeamer}~\cite{lelong:2018}} to have
@@ -513,7 +513,7 @@ slides. \texttt{beamer} now supports this natively, so \texttt{Moloch} simply
 uses this built-in functionality. The design is \emph{slightly} different, with
 smaller font size and adjusted margins.
 
-\subsection{Block Environments}
+\subsection{Block environments}
 
 \texttt{Metropolis} supports an alternative filled block style, which uses a
 different background color for block environments. Many other \texttt{beamer}
@@ -544,7 +544,7 @@ problems with this approach. And because we prefer the default behavior in
     (right). } \label{fig:block-comparison}
 \end{figure}
 
-\subsection{Itemize Lists}
+\subsection{Itemize lists}
 
 \texttt{Metropolis} uses \cs{textbullet}~(\textbullet) as the symbol for all
 levels of the itemize environment. The problem with \cs{textbullet} is that it
@@ -586,7 +586,7 @@ their preamble.
     (right).}\label{fig:itemize-comparison}
 \end{figure}
 
-\subsection{PGFPlots Theme}
+\subsection{PGFPlots theme}
 
 \texttt{Metropolis} includes a custom \texttt{pgfplots}~\cite{pgfplots} theme
 that uses colors from Paul Tol's 21-color theme~\cite{carl2013}. We removed
@@ -599,7 +599,7 @@ do so by adding the following line to their preamble.
 \usepackage{pgfplots,pgfplotsthemetol}
 \end{minted}
 
-\subsection{Other Miscellaneous Changes}
+\subsection{Other miscellaneous changes}
 
 \texttt{Moloch} includes many other changes. We will not go into all the
 details here; but briefly, we have
