@@ -277,13 +277,13 @@ frames or on section and/or subsection pages. To setup progress bars for
 frames, use the option \texttt{progressbar} with either \texttt{head},
 \texttt{foot}, or \texttt{frametitle} to place the progress bar in the header,
 footer, or below the frame title, respectively. The following code snippet
-places a thick progress bar in the footer of each
+places a thick progress bar in the header of each
 frame~(Figure~\ref{fig:progress-bars}).
 
 \begin{minted}{latex}
 \molochset{
-  progressbar=foot,
-  progressbar linewidth=4pt
+  progressbar=head,
+  progressbar linewidth=3pt
 }
 \end{minted}
 
