@@ -225,7 +225,9 @@ already familiar with \texttt{beamer}'s existing options for color
 customization (e.g.\ \cs{setbeamercolor}) might wonder what this macro brings
 to the table. The answer is that it allows users to separately specify colors
 for light and dark modes of the theme. The general syntax for this is
-\latexinline{\molochcolors{|\meta{mode}|/|\meta{element}|=|\meta{color}|}},
+\begin{minted}[]{latex}
+\molochcolors{|\meta{mode}|/|\meta{element}|=|\meta{color}|}
+\end{minted}
 where \meta{mode} is either \tbcode{light} or \tbcode{dark}, \meta{element} is
 the name of the color element to set, and \meta{color} is the color
 specification.
