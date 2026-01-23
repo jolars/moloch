@@ -86,3 +86,57 @@ tasks:
           basename="${basename%.pdf}"
           ./scripts/pdf-to-grid.sh "$pdf" "docs/images/example-${basename}.png" 2 150
         done
+
+  tugboat-submission:
+    desc: Generate TUGboat article submission package
+    dir: papers
+    cmds:
+      # Clean any previous build artifacts first
+      - |
+        echo "Cleaning previous build artifacts..."
+        latexmk -C tugboat.tex
+        cd images && latexmk -C && cd ..
+        rm -f tugboat.aux tugboat.bbl tugboat.blg
+      
+      # Compile image .tex files to PDFs
+      - |
+        echo "Compiling image files..."
+        cd images
+        for tex_file in *.tex; do
+          if [ -f "$tex_file" ]; then
+            echo "  Processing $tex_file..."
+            latexmk -pdf -interaction=nonstopmode "$tex_file"
+          fi
+        done
+        cd ..
+      
+      # Compile the main tugboat article (multiple passes for references)
+      - |
+        echo "Compiling tugboat.tex..."
+        latexmk -pdf -interaction=nonstopmode tugboat.tex
+      
+      # Create build directory and submission tar
+      - |
+        echo "Creating submission package..."
+        mkdir -p ../build/tugboat-submission
+        
+        # Copy source files
+        cp tugboat.tex ../build/tugboat-submission/
+        cp bibliography.bib ../build/tugboat-submission/
+        cp tugboat.pdf ../build/tugboat-submission/
+        
+        # Copy images (PDFs only, not .tex sources)
+        mkdir -p ../build/tugboat-submission/images
+        cp images/*.pdf ../build/tugboat-submission/images/
+        
+        # Create tar archive
+        cd ../build
+        tar czf tugboat-submission.tar.gz tugboat-submission/
+        cd ..
+        
+        echo "Submission package created: build/tugboat-submission.tar.gz"
+      
+      # Clean auxiliary files
+      - |
+        latexmk -c tugboat.tex
+        cd images && latexmk -c && cd ..
