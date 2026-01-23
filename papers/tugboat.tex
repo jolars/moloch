@@ -339,7 +339,8 @@ with a dark background and a centered, larger text.
   \includegraphics[page=9,width=\columnwidth]{moloch-demo}
 
   \caption{%
-    A standout frame created via \latexinline[fontsize=\small]{\begin{frame}[standout] ... \end{frame}}.}\label{fig:standout-frame}
+    A standout frame created via \latexinline[fontsize=\small]{
+      \begin{frame}[standout] |\meta{content}| \end{frame}}.}\label{fig:standout-frame}
 \end{figure}
 
 As with most elements of \texttt{Moloch}, the colors of standout frames can be
