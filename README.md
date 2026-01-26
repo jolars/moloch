@@ -1,4 +1,4 @@
-# Moloch <a href="https://ctan.org/pkg/moloch"><img src="https://github.com/jolars/moloch/raw/main/assets/moloch-logo.svg" align="right" width="140" /></a>
+# Moloch <a href="https://moloch.ink"><img src="https://github.com/jolars/moloch/raw/main/assets/moloch-logo.svg" align="right" width="140" /></a>
 
 [![CTAN](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fctan.org%2Fjson%2F2.0%2Fpkg%2Fmoloch&query=%24.version.number&logo=latex&label=CTAN)](https://ctan.org/pkg/moloch)
 [![Build-and-Test](https://github.com/jolars/moloch/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/jolars/moloch/actions/workflows/build-and-test.yml)
