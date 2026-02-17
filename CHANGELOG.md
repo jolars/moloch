@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.2.0](https://github.com/jolars/moloch/compare/v2.1.0...v2.2.0) (2026-02-17)
+
+### Features
+
+* increase margin between frame title and subtitle ([f8e8725](https://github.com/jolars/moloch/commit/f8e8725c7ed7e82af7fcaff36bb5cbffa72e5767))
+* increase top-bottom margins for frametitle, use strut ([f537931](https://github.com/jolars/moloch/commit/f537931efd0afedae8612183c53e9686200c34bf))
+
+### Bug Fixes
+
+* add missing color option for title separator ([1221aed](https://github.com/jolars/moloch/commit/1221aed83073d8f4b39c8ec2d3449cd5718079d4)), closes [#70](https://github.com/jolars/moloch/issues/70)
+
 ## [2.1.0](https://github.com/jolars/moloch/compare/v2.0.0...v2.1.0) (2025-12-18)
 
 ### Features
