@@ -1,26 +1,14 @@
-This release of Moloch is a major update, with a refactored color system,
-revamped itemize environment, and bug fixes.
+This release of Moloch primarily modifies the frametitle
+styling, making it conform closer to the original design
+from Metropolis.
 
-See below for detailed changes.
-
-BREAKING CHANGES
-
-- refactor color theme
+See the changelog below for details.
 
 Features
 
-- add frametitle margin options (bc02e8a)
-- add catppuccin theme (3452624)
-- add new “Paper” color theme (05de59a)
-- change default progressbar linewidth to 1pt (3b71fc9)
-- draw all itemize symbols manually (a82527c)
-- refactor color theme (37d3a37)
-- tune color themes (a11710f)
-- use brighter alert and example colors in dark hcontr (8babd1e)
+- increase margin between frame title and subtitle (f8e8725)
+- increase top-bottom margins for frametitle, use strut (f537931)
 
 Bug Fixes
 
-- enable background macro for alternative color themes (59b4d79)
-- remove and fix examples (35523ee)
-- remove example text bg in highcontrast theme (528ea8d)
-- work-around division by zero in progress bar arithmetic (28fc1a2)
+- add missing color option for title separator (1221aed), closes #70
