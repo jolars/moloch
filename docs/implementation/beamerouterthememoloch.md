@@ -233,10 +233,10 @@ progress bar.
   \rule[-\moloch@frametitle@margin@bottom]{0pt}{\moloch@frametitle@margin@bottom}%
 }
 
-\newcommand{\moloch@frametitle@margin@left}{1.6ex}
-\newcommand{\moloch@frametitle@margin@right}{1.6ex}
-\newcommand{\moloch@frametitle@margin@top}{1.4ex}
-\newcommand{\moloch@frametitle@margin@bottom}{1.4ex}
+\newcommand{\moloch@frametitle@margin@left}{\dimexpr0.85\ht\strutbox\relax}
+\newcommand{\moloch@frametitle@margin@right}{\dimexpr0.85\ht\strutbox\relax}
+\newcommand{\moloch@frametitle@margin@top}{\dimexpr\ht\strutbox\relax}
+\newcommand{\moloch@frametitle@margin@bottom}{\dimexpr\ht\strutbox\relax}
 
 \defbeamertemplate{frametitle}{plain}{%
   \nointerlineskip%
@@ -254,7 +254,6 @@ progress bar.
         {%
           \par%
           \usebeamerfont{framesubtitle}%
-          \vspace{-0.8ex}%
           \usebeamercolor[fg]{framesubtitle}%
           \insertframesubtitle%
         }%
