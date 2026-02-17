@@ -1,0 +1,163 @@
+\documentclass{beamer}
+
+\usepackage[T1]{fontenc}
+
+\usetheme{moloch}
+
+\molochcolors{normal text bg=white}
+
+\usepackage{booktabs}
+\usepackage{lmodern}
+
+\title{Moloch}
+\subtitle{A Minimalist Beamer Theme}
+\date{\today}
+\author{Johan Larsson\inst{1} \and samcarter}
+\institute{
+  \inst{1} Department of Mathematical Sciences,
+  University of Copenhagen
+}
+\titlegraphic{\includegraphics{logo.pdf}}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+  \frametitle{A Sample Frame}
+
+  Hello, World!
+\end{frame}
+
+\molochset{
+  colortheme=catppuccin,
+  colortheme variant=dark
+}
+
+\begin{frame}
+  \frametitle{The Catppuccin Color Theme}
+
+  \begin{exampleblock}{This Frame}
+    This frame uses the \alert{catppuccin}
+    color theme in dark mode.
+  \end{exampleblock}
+
+  Colors rely on standard color definitions, like
+  \begin{itemize}
+    \item \textcolor{mAlertFg}{
+            \texttt{mAlertFg}}
+    \item \textcolor{mExampleFg}{
+            \texttt{mExampleFg}}
+  \end{itemize}
+  which allows users to tap into the current
+  color theme's colors.
+\end{frame}
+
+\molochset{
+  colortheme=default,
+  colortheme variant=light,
+}
+
+\molochset{
+  progressbar=head,
+  progressbar linewidth=3pt
+}
+
+\molochset{progressbar=head}
+
+\begin{frame}[fragile]
+  \frametitle{Progress Bar in Header}
+
+  \Large
+
+  \verb|progressbar=head|
+\end{frame}
+
+\molochset{progressbar=foot}
+
+\begin{frame}[fragile]
+  \frametitle{Progress Bar in Footer}
+
+  \Large
+
+  \verb|progressbar=foot|
+\end{frame}
+
+\molochset{progressbar=frametitle}
+
+\begin{frame}[fragile]
+  \frametitle{Progress Bar in Frame Title}
+
+  \Large
+
+  \verb|progressbar=frametitle|
+\end{frame}
+
+\molochset{progressbar linewidth=1pt}
+
+\section{A Section}
+
+\molochset{sectionpage=simple}
+
+\section{Another Section}
+
+\begin{frame}[standout]
+  Thank you!
+\end{frame}
+
+\molochcolors{
+  light/frametitle fg=black,
+  light/frametitle bg=yellow!20,
+  light/progressbar fg=magenta!90,
+  light/alerted text=red!80!black,
+  light/example text=blue!60,
+}
+
+\begin{frame}
+  \frametitle{Color Theme Showcase}
+
+  This example demonstrates the color theme with different block styles.
+
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      {
+        \molochset{block=fill}
+
+        \begin{block}{Default}
+          Block content.
+        \end{block}
+
+        \begin{alertblock}{Alert}
+          Block content.
+        \end{alertblock}
+
+        \begin{exampleblock}{Example}
+          Block content.
+        \end{exampleblock}
+      }
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\molochset{titlepage=plain}
+
+\maketitle
+
+\molochset{titlepage=split}
+
+\maketitle
+
+\end{document}
