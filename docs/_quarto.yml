@@ -47,6 +47,7 @@ book:
         - commands.md
         - known-issues.md
         - license.md
+        - changelog/index.md
   appendices:
     - part: Implementation
       chapters:
