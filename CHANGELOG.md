@@ -251,7 +251,7 @@
   ([0042dcb](https://github.com/jolars/moloch/commit/0042dcb8b7caa4b4b277aaa779fd2fe62f8f2ec4))
 - modify example color to teal instead of light green
   ([1a2f157](https://github.com/jolars/moloch/commit/1a2f1573dc588c8e93ba6572c109620edde2d3c8))
-- remove \plain macro
+- remove `\plain` macro
   ([95f24ae](https://github.com/jolars/moloch/commit/95f24ae73ac72d9501de0760e48bbc0cacce797f))
 - remove appendix redefinition
   ([17edfad](https://github.com/jolars/moloch/commit/17edfad5975192df7561e6404bff14ba40726d2b))
