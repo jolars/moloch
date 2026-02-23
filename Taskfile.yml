@@ -94,10 +94,10 @@ tasks:
       # Clean any previous build artifacts first
       - |
         echo "Cleaning previous build artifacts..."
-        latexmk -C tugboat.tex
+        latexmk -C moloch-tugboat.tex
         cd images && latexmk -C && cd ..
-        rm -f tugboat.aux tugboat.bbl tugboat.blg
-      
+        rm -f moloch-tugboat.aux moloch-tugboat.bbl moloch-tugboat.blg
+
       # Compile image .tex files to PDFs
       - |
         echo "Compiling image files..."
@@ -109,34 +109,34 @@ tasks:
           fi
         done
         cd ..
-      
+
       # Compile the main tugboat article (multiple passes for references)
       - |
-        echo "Compiling tugboat.tex..."
-        latexmk -pdf -interaction=nonstopmode tugboat.tex
-      
+        echo "Compiling moloch-tugboat.tex..."
+        latexmk -pdf -interaction=nonstopmode moloch-tugboat.tex
+
       # Create build directory and submission tar
       - |
         echo "Creating submission package..."
-        mkdir -p ../build/tugboat-submission
-        
+        mkdir -p ../build/moloch-tugboat
+
         # Copy source files
-        cp tugboat.tex ../build/tugboat-submission/
-        cp bibliography.bib ../build/tugboat-submission/
-        cp tugboat.pdf ../build/tugboat-submission/
-        
+        cp moloch-tugboat.tex ../build/moloch-tugboat/
+        cp bibliography.bib ../build/moloch-tugboat/
+        cp moloch-tugboat.pdf ../build/moloch-tugboat/
+
         # Copy images (PDFs only, not .tex sources)
-        mkdir -p ../build/tugboat-submission/images
-        cp images/*.pdf ../build/tugboat-submission/images/
-        
+        mkdir -p ../build/moloch-tugboat/images
+        cp images/*.pdf ../build/moloch-tugboat/images/
+
         # Create tar archive
         cd ../build
-        tar czf tugboat-submission.tar.gz tugboat-submission/
+        tar czf moloch-tugboat.tar.gz moloch-tugboat/*
         cd ..
-        
-        echo "Submission package created: build/tugboat-submission.tar.gz"
-      
+
+        echo "Submission package created: build/moloch-tugboat.tar.gz"
+
       # Clean auxiliary files
       - |
-        latexmk -c tugboat.tex
+        latexmk -c moloch-tugboat.tex
         cd images && latexmk -c && cd ..
