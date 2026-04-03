@@ -69,3 +69,10 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Submit sitemap to IndexNow
+        uses: bojieyang/indexnow-action@v2
+        with:
+          sitemap-location: https://moloch.ink/sitemap.xml
+          key: b6676524932b4f4a941b4a5a00d96549
+          failure-strategy: error
