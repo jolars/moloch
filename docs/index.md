@@ -9,7 +9,7 @@ description-meta: >-
 title-prefix: ""
 image: images/og.jpg
 image-alt: "Moloch logo"
-canonical-url: "https://moloch.ink"
+canonical-url: "https://moloch.ink/"
 open-graph:
   title: "Moloch: A Minimalist, Feature-Rich Beamer Theme"
 twitter-card:
