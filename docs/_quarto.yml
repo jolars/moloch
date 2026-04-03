@@ -16,7 +16,6 @@ book:
     image: images/og.jpg
   twitter-card:
     image: images/og.jpg
-  favicon: images/favicon.svg
   image: images/og.jpg
   author:
     - name: "Johan Larsson"
@@ -121,13 +120,13 @@ toc: true
 date-format: "D MMMM YYYY"
 
 resources:
-  # - "apple-touch-icon.png"
-  # - "favicon-96x96.png"
-  # - "favicon.ico"
-  # - "favicon.svg"
-  # - "site.webmanifest"
-  # - "web-app-manifest-192x192.png"
-  # - "web-app-manifest-512x512.png"
+  - "apple-touch-icon.png"
+  - "favicon-96x96.png"
+  - "favicon.ico"
+  - "favicon.svg"
+  - "site.webmanifest"
+  - "web-app-manifest-192x192.png"
+  - "web-app-manifest-512x512.png"
   - "b6676524932b4f4a941b4a5a00d96549.txt" # IndexNow verification file
 
 filters:
