@@ -92,6 +92,17 @@ Also, when writing commit messages, please use the
 
 The project uses [semantic versioning](https://semver.org).
 
+Documentation is published as versioned channels on GitHub Pages:
+
+- `https://moloch.ink/` for the canonical latest tagged release
+- `https://moloch.ink/latest/` as an alias to the same release content
+- `https://moloch.ink/dev/` for the `main` branch
+- `https://moloch.ink/texlive/<year>/` for `tl/<year>` maintenance branches
+
+The docs workflow listens to pushes on `main`, `tl/*`, and `v*` tags, and
+publishes into corresponding subdirectories in the `gh-pages` branch.
+Development and TeX Live channels are emitted with `robots: noindex,follow`.
+
 ## Acknowledgments
 
 Much of **Moloch** is the result of

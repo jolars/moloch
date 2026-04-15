@@ -31,6 +31,9 @@ book:
 
   search: true
 
+  sidebar:
+    footer: '<div id="moloch-version-footer">Docs Version</div>'
+
   page-footer:
     left: "Moloch v{{< meta version >}} | Copyright 2024-2025, Johan Larsson"
     right:
@@ -128,6 +131,7 @@ resources:
   - "web-app-manifest-192x192.png"
   - "web-app-manifest-512x512.png"
   - "b6676524932b4f4a941b4a5a00d96549.txt" # IndexNow verification file
+  - "versions.json"
 
 filters:
   - filters/pre-render.lua

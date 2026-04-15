@@ -1,1 +1,70 @@
 <!-- Custom header for Moloch documentation -->
+<meta name="robots" content="{{< meta robots >}}">
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const channel = "{{< meta doc_channel >}}";
+    const currentPath = window.location.pathname;
+    const mount = document.getElementById("moloch-version-footer");
+
+    if (!mount) return;
+
+    function selectForChannel(entry) {
+      return (
+        (channel === "latest" && entry.id === "latest") ||
+        (channel === "dev" && entry.id === "dev") ||
+        (channel.startsWith("texlive-") && (entry.id === channel || entry.id === "texlive-latest"))
+      );
+    }
+
+    function fallbackEntries() {
+      return [
+        { id: "latest", label: "Latest release", href: "/" },
+        { id: "dev", label: "Development (main)", href: "/dev/" },
+        { id: "texlive-latest", label: "TeX Live (latest branch)", href: "/texlive/latest/" }
+      ];
+    }
+
+    const label = document.createElement("div");
+    label.className = "moloch-sidebar-version-label";
+    label.textContent = "Docs version";
+
+    const select = document.createElement("select");
+    select.className = "moloch-sidebar-version-select";
+    select.setAttribute("aria-label", "Switch documentation version");
+
+    select.addEventListener("change", function () {
+      const base = select.value.replace(/\/$/, "");
+      const relative = currentPath
+        .replace(/^\/(latest|dev|texlive\/[^/]+|releases\/[^/]+)/, "")
+        .replace(/^\//, "");
+      const target = relative ? base + "/" + relative : base + "/";
+      window.location.href = target;
+    });
+
+    function render(entries) {
+      entries.forEach(function (entry) {
+        const option = document.createElement("option");
+        option.value = entry.href;
+        option.textContent = entry.label;
+        if (selectForChannel(entry)) option.selected = true;
+        select.appendChild(option);
+      });
+    }
+
+    mount.replaceChildren();
+    mount.appendChild(label);
+    mount.appendChild(select);
+
+    fetch("/versions.json")
+      .then(function (response) {
+        if (!response.ok) throw new Error("versions manifest not available");
+        return response.json();
+      })
+      .then(function (data) {
+        render((data && data.entries) || fallbackEntries());
+      })
+      .catch(function () {
+        render(fallbackEntries());
+      });
+  });
+</script>

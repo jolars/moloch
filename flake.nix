@@ -54,10 +54,13 @@
             pkgs.bashInteractive
             texlive
             l3build-wrapped
-            pkgs.quartoMinimal
+            pkgs.quarto
             pkgs.go-task
             pkgs.poppler_utils
           ];
+          shellHook = ''
+            unset QUARTO_PANDOC
+          '';
         };
       }
     );

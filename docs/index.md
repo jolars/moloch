@@ -19,6 +19,12 @@ format:
     toc: false
 ---
 
+::: {.callout-note}
+You are reading the **{{< meta doc_channel >}}** documentation channel. Use the
+version switcher in the top banner to jump between `latest`, `dev`, and TeX
+Live-compatible snapshots.
+:::
+
 ![](images/og.jpg){fig.alt="The Maschinenmensch is projecting the Moloch logo
 onto a Metropolis-like skyscraper using a vintage movie projector."
 fig-align="center" style="padding-top: 1em;"}
