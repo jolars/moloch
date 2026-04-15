@@ -1,8 +1,9 @@
 <!-- Custom header for Moloch documentation -->
+<meta id="moloch-doc-channel" content="{{< meta doc_channel >}}">
 <meta name="robots" content="{{< meta robots >}}">
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const channel = "{{< meta doc_channel >}}";
+    const channel = (document.getElementById("moloch-doc-channel")?.getAttribute("content") || "local").trim();
     const currentPath = window.location.pathname;
     const mount = document.getElementById("moloch-version-footer");
 
