@@ -102,6 +102,8 @@ Documentation is published as versioned channels on GitHub Pages:
 The docs workflow listens to pushes on `main`, `tl/*`, and `v*` tags, and
 publishes into corresponding subdirectories in the `gh-pages` branch.
 Development and TeX Live channels are emitted with `robots: noindex,follow`.
+You can also run the Docs workflow manually with `workflow_dispatch` and choose
+`publish_as=latest|dev|texlive`.
 
 ## Acknowledgments
 
