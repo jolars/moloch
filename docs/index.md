@@ -46,7 +46,7 @@ codebase to make it easier to maintain and less fragile to changes in the
 underlying Beamer code. Since then, Moloch has grown to include several new
 features, such as new color themes, as well as additional customization options.
 
-## A First Example
+## A First Example {-}
 
 Here's a small demo of what Moloch looks like:
 
