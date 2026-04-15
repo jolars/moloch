@@ -1,0 +1,817 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Moloch",
+    "section": "",
+    "text": "Introduction\nBeamer is a great way to make presentations with LaTeX, but its theme selection is surprisingly sparse. The stock themes share an aesthetic that can be a little cluttered, while the few distinctive custom themes available are often specialized for a particular corporate or institutional brand.\nThe goal of Moloch is to provide a simple, modern Beamer theme suitable for anyone to use. It tries to minimize noise and maximize space for content; the only visual flourish it offers is an (optional) progress bar added to each slide or to the section slides.\nMoloch is maintained at https://github.com/jolars/moloch. If you have any issues, find mistakes in the manual or want to help make the theme even better, please get in touch there.\nMoloch is a fork of the excellent Metropolis theme by Matthias Vogelgesang. The motivation for the fork was to fix some longstanding bugs in Metropolis and simplify the codebase to make it easier to maintain and less fragile to changes in the underlying Beamer code. Since then, Moloch has grown to include several new features, such as new color themes, as well as additional customization options.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Moloch</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#a-first-example",
+    "href": "index.html#a-first-example",
+    "title": "Moloch",
+    "section": "A First Example",
+    "text": "A First Example\nHere’s a small demo of what Moloch looks like:\n\n\n\nAn example of the Moloch theme.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Moloch</span>"
+    ]
+  },
+  {
+    "objectID": "getting-started.html",
+    "href": "getting-started.html",
+    "title": "2  Getting Started",
+    "section": "",
+    "text": "2.1 Installing from CTAN\nFor most users, we recommend installing Moloch from CTAN. If you keep your TeX distribution up-to-date, chances are good that Moloch is already installed. If it is not, you need to update your packages. If your distribution is TeX Live (or MacTeX on OS X), the following command updates all packages.\nIf this results in an error, you may need to run it with administrative privileges:\nMacTeX on OS X also provides a graphical interface for tlmgr called TeX Live Utility.\nFor other distributions, please refer to its documentation on how to update your packages.",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting Started</span>"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#installing-from-ctan",
+    "href": "getting-started.html#installing-from-ctan",
+    "title": "2  Getting Started",
+    "section": "",
+    "text": "tlmgr update --all\n\nsudo tlmgr update --all",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting Started</span>"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#installing-from-source",
+    "href": "getting-started.html#installing-from-source",
+    "title": "2  Getting Started",
+    "section": "2.2 Installing from Source",
+    "text": "2.2 Installing from Source\nIf you want to use the development version of Moloch, you can install it manually. You need a recent LaTeX distribution which includes l3build. Then simply follow the steps below.\nDownload the source with a git clone of https://github.com/jolars/moloch:\ngit clone https://github.com/jolars/moloch.git\nThen navigate into the downloaded directory and install the package by running:\ncd moloch\nl3build install",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting Started</span>"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#a-minimal-example",
+    "href": "getting-started.html#a-minimal-example",
+    "title": "2  Getting Started",
+    "section": "2.3 A Minimal Example",
+    "text": "2.3 A Minimal Example\nThe following code shows a minimal example of a Beamer presentation using Moloch.\n\\documentclass{beamer}\n\\usetheme{moloch}\n\n\\title{A Minimal Example}\n\n\\date{\\today}\n\\author{Johan Larsson}\n\\institute{Some University}\n\n\\begin{document}\n\\maketitle\n\n\\section{First Section}\n\n\\begin{frame}\n  \\frametitle{First Frame}\n\n  Hello, world!\n\n\\end{frame}\n\\end{document}\n\n\n\nA minimal example of a Beamer presentation using Moloch.",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting Started</span>"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#dependencies",
+    "href": "getting-started.html#dependencies",
+    "title": "2  Getting Started",
+    "section": "2.4 Dependencies",
+    "text": "2.4 Dependencies\nMoloch depends on the beamer class and the following standard packages:\n\ntikz\npgfopts\netoolbox\ncalc",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting Started</span>"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#pandoc",
+    "href": "getting-started.html#pandoc",
+    "title": "2  Getting Started",
+    "section": "2.5 Pandoc",
+    "text": "2.5 Pandoc\nTo use this theme with Pandoc-based presentations, you can run the following command in your terminal:\npandoc -t beamer -V theme:moloch -o output.pdf input.md",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting Started</span>"
+    ]
+  },
+  {
+    "objectID": "customization.html",
+    "href": "customization.html",
+    "title": "3  Customization",
+    "section": "",
+    "text": "3.1 Main Theme\nThe theme provides a number of options, which can be set using a key=value interface. The primary way to set options is to provide a comma-separated list of option-value pairs when loading Moloch in the preamble:\nOptions can be changed at any time—even mid-presentation—with the molochset() macro.\nThe list of options is structured as shown in the following example.",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Customization</span>"
+    ]
+  },
+  {
+    "objectID": "customization.html#main-theme",
+    "href": "customization.html#main-theme",
+    "title": "3  Customization",
+    "section": "",
+    "text": "titleformat [regular, smallcaps, allsmallcaps, allcaps]\nChanges the format of titles, subtitles, section titles, frame titles, and the text on “standout” frames. The available options produce Regular, SmallCaps, allsmallcaps, or ALLCAPS titles. Note that these commands do not affect math and numbers, so may not work as you expect if your titles contain these.\n\n\nstandoutnumberformat [regular, smallcaps, allsmallcaps, allcaps]\nChanges the format of “standout” frames (see titleformat, above).",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Customization</span>"
+    ]
+  },
+  {
+    "objectID": "customization.html#inner-theme",
+    "href": "customization.html#inner-theme",
+    "title": "3  Customization",
+    "section": "3.2 Inner Theme",
+    "text": "3.2 Inner Theme\nThese options control the inner theme, which is responsible for elements like section and subsection pages, as well as the title page layout.\n\ntitlepage [moloch, plain, split]\nControls the layout of the title page:\n\nmoloch: Moloch’s custom layout with golden ratio vertical spacing and a title separator line\nplain: Beamer-like layout with standard vertical spacing and titlegraphic at the bottom\nsplit: Two-column asymmetric layout with title/subtitle on the left and author/institute/date on the right\n\n\n\\documentclass{beamer}\n\\usetheme{moloch}\n\n\\title{Moloch Theme}\n\\subtitle{A Minimalist Beamer Theme}\n\\author{John Doe}\n\\institute{University of Example}\n\\date{\\today}\n\\titlegraphic{\\includegraphics[width=2cm]{assets/logo.pdf}}\n\n\\begin{document}\n\n\\maketitle\n\n\\end{document}\n\n\n\nMoloch titlepage layout (default).\n\n\nPlain Beamer-like layout:\n\\usetheme[titlepage=plain]{moloch}\n\n\n\nPlain titlepage layout.\n\n\nSplit two-column layout:\n\\usetheme[titlepage=split]{moloch}\n\n\n\nSplit two-column titlepage layout.\n\n\n\nsectionpage [none, simple, progressbar]\nAdds a slide at the start of each section (simple) with an optional thin progress bar below the section title (progressbar). The none option disables the section page.\n\n\\documentclass{beamer}\n\\usetheme{moloch}\n\n\\begin{document}\n\n\\molochset{sectionpage=progressbar} % the default\n\n\\section{Section One}\n\n\\molochset{sectionpage=simple}\n\n\\section{Section Two}\n\n\\molochset{sectionpage=none}\n\n\\section{Section Three} % Will not have a section page\n\n\\end{document}\n\n\n\nExample of the sectionpage options.\n\n\n\nsubsectionpage [none, simple, progressbar]\nOptionally adds a slide at the start of each subsection. If enabled with the simple or progressbar options, the style of the section page will be updated to match the style of the subsection page. Note that section slides and subsection slides can appear consecutively if both are enabled; you may want to use this option together with sectionpage=none depending on the section structure of your presentation.\n\n\nstandoutnumbering [none, hide, show]\nThis option decides whether or not to count standout pages as frames if frame counting. Option none (the default) means that the standout frames are not counted. hide means that they are counted but that there won’t be any footer showing a frame number. show means that they are counted and that the frame number count is shown in the same fashion as for regular frames.\n\n\ntitleseparator linewidth [&lt;dimension&gt;] — default: 0.5pt\nControls the width of the horizontal line that separates the title from the author information on the title page (when using titlepage=moloch). Set to 0pt to hide the separator line entirely.\n\n\\usetheme[titleseparator linewidth=2pt]{moloch}",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Customization</span>"
+    ]
+  },
+  {
+    "objectID": "customization.html#outer-theme",
+    "href": "customization.html#outer-theme",
+    "title": "3  Customization",
+    "section": "3.3 Outer Theme",
+    "text": "3.3 Outer Theme\nThese options control the outer theme, which is responsible for elements like the frame numbering and progress bar.\n\nnumbering [none, counter, fraction]\n\n\n\n\n\n\nWarningDeprecated\n\n\n\nThis option is deprecated and will be removed in a future version. Please use Beamer’s page number in head/foot template instead.\n\n\nControls whether the frame number at the bottom right of each slide is omitted (none), shown (counter) or displayed as a fraction of the total number of frames (fraction).\n\n\nprogressbar [none, head, frametitle, foot]\nOptionally adds a progress bar to the top of each frame (head), the bottom of each frame (foot), or directly below each frame title (frametitle).\n\n\\documentclass{beamer}\n\n\\usetheme{moloch}\n\n\\begin{document}\n\n\\molochset{progressbar=none} % the default\n\n\\begin{frame}\n  \\frametitle{Progress Bar Example}\n\n  The default is to have no progress bar.\n\\end{frame}\n\n\\molochset{progressbar=head}\n\n\\begin{frame}\n  \\frametitle{Progress Bar Example}\n\n  The progress bar is now displayed at the top of the frame.\n\\end{frame}\n\n\\molochset{progressbar=foot}\n\n\\begin{frame}\n  \\frametitle{Progress Bar Example}\n\n  The progress bar is now displayed at the bottom of the frame.\n\\end{frame}\n\n\\molochset{progressbar=frametitle}\n\n\\begin{frame}\n  \\frametitle{Progress Bar Example}\n\n  The progress bar is now displayed in the frametitle area.\n\\end{frame}\n\n\\end{document}\n\n\n\nExample of the progressbar options.\n\n\n\nframetitle margin top/bottom/left/right [numeric]\nControls the margins around the frame title. The default is 1.4ex for the top and bottom margins, and 1.6ex for the left and right margins.\n\n\\documentclass{beamer}\n\\usetheme{moloch}\n\n\\begin{document}\n\n\\begin{frame}\n  \\frametitle{This is a frame title with default margins}\n\n\\end{frame}\n\n\\molochset{frametitle margin top=1cm}\n\n\\begin{frame}\n  \\frametitle{This is a frame title with increased top margin}\n\\end{frame}\n\n\\molochset{frametitle margin left=0pt}\n\n\\begin{frame}\n  \\frametitle{And now the left margin is removed}\n\\end{frame}\n\n\\end{document}\n\n\n\nExample of the frametitle margin options.",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Customization</span>"
+    ]
+  },
+  {
+    "objectID": "customization.html#color-theme",
+    "href": "customization.html#color-theme",
+    "title": "3  Customization",
+    "section": "3.4 Color Theme",
+    "text": "3.4 Color Theme\nMoloch provides extensive color customization options, from choosing preset color themes to fine-tuning individual colors for light and dark variants.\n\n3.4.1 Color Options\nThese basic color options control visual aspects of the theme:\n\nblock [transparent, fill]\nOptionally adds a light grey background to block environments like theorem and example.\n\n\\documentclass{beamer}\n\\usetheme{moloch}\n\n\\begin{document}\n\n\\begin{frame}\n  \\begin{block}{Default Block}\n    This is a standard block.\n  \\end{block}\n\n  \\molochset{block=fill}\n\n  \\begin{block}{Filled Block}\n    This is a filled block.\n  \\end{block}\n\n\\end{frame}\n\\end{document}\n\n\n\nExample of the “block” option set to “fill”, adding a light grey background to the second block.\n\n\n\nbackground [dark, light]\n\n\n\n\n\n\nWarningDeprecated\n\n\n\nThis option is deprecated. Use \\molochcolors{variant=dark} instead.\n\n\nProvides the option to have a dark background and light foreground instead of the reverse.\n\\documentclass{beamer}\n\n\\usetheme[background=dark]{moloch}\n\n\\begin{document}\n\n\\begin{frame}\n  \\frametitle{Background Color}\n\n  This slide uses the \\texttt{background=dark} option, swaps the\n  foreground and background colors defined by the moloch theme.\n\\end{frame}\n\\end{document}\n\n\n\nExample of the “background” option set to “dark”, swapping the foreground and background colors.\n\n\n\n\n\n3.4.2 Color Themes\nMoloch includes several preset color themes. You can select a theme using the \\usecolortheme command or the newer \\molochcolors{theme=...} syntax.\n\n3.4.2.1 Default Theme\nThe default color theme is based on the original Metropolis theme, except we have modified the green color for the example blocks to be a bit less saturated.\n\\usetheme[colortheme=default]{moloch}\n% Or equivalently:\n% \\molochcolors{theme=default}\n\n\n\nExample of the default Moloch color theme.\n\n\n\n\n\nExample of the dark version of the default Moloch color theme.\n\n\n\n\n3.4.2.2 The High Contrast Theme\nFor low-light situations it might be helpful to use the moloch-highcontrast color theme. It uses high-contrast colors adapted from the Okabe-Ito color palette, which is designed to be easily distinguishable by individuals with various types of color blindness. Otherwise, the colors used are mostly black and white.\n\\usetheme[colortheme=highcontrast]{moloch}\n% Or equivalently:\n% \\molochcolors{theme=highcontrast}\n\n\n\nExample of the light version of the high contrast color theme.\n\n\nThe dark version of the High Contrast theme uses white text on a black.\n\n\n\nExample of the dark version of the high contrast color theme.\n\n\n\n\n3.4.2.3 The Tomorrow Theme\nThere is also a theme based on the Tomorrow color theme:\n\\usetheme[colortheme=tomorrow]{moloch}\n% Or equivalently:\n% \\molochcolors{theme=tomorrow}\n\n\n\nExample of the light version of the Tomorrow color theme.\n\n\n\n\n\nExample of the dark version of the Tomorrow color theme.\n\n\n\n\n3.4.2.4 The Paper Theme\nA minimalistic theme with black text on white background, no frame title background. The colors uses are based on Stephen Few’s Show Me the Numbers book.\n\n\n\nExample of the Paper color theme.\n\n\n\n\n\nExample of the Paper color theme.\n\n\n\n\n3.4.2.5 The Catppuccin Theme\nA theme based on the popular Catppuccin color palette. The themes are based on the Latte (light) and Macchiato (dark) variants. The Cattpuccin theme provides a soft color theme with pastel colors and not a lot of contrast, and might therefore work best for online presentations unless you have a good projector and favorable conditions.\n\\usetheme[colortheme=catppuccin]{moloch}\n% Or equivalently:\n% \\molochcolors{theme=catppuccin}\n\n\n\nExample of the light version of the Catppuccin color theme.\n\n\n\n\n\nExample of the dark version of the Catppuccin color theme.\n\n\n\n\n\n3.4.3 Color Customization\nThe included Moloch color theme is used by default, but its colors can be easily changed to suit your tastes. Moloch provides two ways to customize colors:\n\nUsing \\molochcolors (recommended): A convenient key-value interface for customizing individual colors, especially useful for setting up different colors for light and dark variants. See the detailed documentation below.\nUsing \\setbeamercolor (advanced): For low-level customization or when you need to set colors not exposed through \\molochcolors, you can use Beamer’s standard color setting command:\n\n\\setbeamercolor{&lt;beamer color name&gt;}{fg=..., bg=...}\nFor example, to customize Moloch-specific colors:\n\\setbeamercolor{progress bar}{fg=orange, bg=orange!50!black!30}\n\\setbeamercolor{title separator}{fg=teal}\n\\setbeamercolor{progress bar in head/foot}{parent=progress bar}\n\\setbeamercolor{progress bar in section page}{parent=progress bar}\n\n\n3.4.4 Granular Color Customization with \\molochcolors\nFor more convenient color customization, Moloch provides the \\molochcolors command, which allows you to customize individual colors using a key-value interface. This is especially useful when you want to customize specific colors for both light and dark variants of a theme.\nThe basic syntax is:\n\\molochcolors{\n  option1=color1,\n  option2=color2,\n  ...\n}\n\n3.4.4.1 Theme and Variant Selection\nBefore customizing individual colors, you can select a theme preset and variant:\n\ntheme [default, tomorrow, highcontrast]\nSelects a color theme preset. Each preset defines complete color schemes for both light and dark variants.\n\n\nvariant [light, dark]\nSwitches between light and dark variants of the current theme. Color customizations are preserved when switching variants, so you can set up colors once and freely toggle between light and dark modes.\n\n\\documentclass{beamer}\n\\usetheme{moloch}\n\n\\begin{document}\n\n% Start with tomorrow theme in dark mode\n\\molochcolors{theme=tomorrow, variant=dark}\n\n\\begin{frame}\n  \\frametitle{Dark Tomorrow Theme}\n  This uses the Tomorrow theme in dark mode.\n\\end{frame}\n\n% Switch to light variant\n\\molochcolors{variant=light}\n\n\\begin{frame}\n  \\frametitle{Light Tomorrow Theme}\n  Same theme, but now in light mode.\n\\end{frame}\n\n\\end{document}\n\n\n3.4.4.2 Customizable Colors\nYou can customize individual colors using the following keys. Each key has three variants:\n\nVariant-agnostic (e.g., normal text fg): Sets the color for the current variant and stores it for that variant\nLight-specific (e.g., light/normal text fg): Sets the color for the light variant (applies immediately if in light mode, otherwise stored for when you switch to light)\nDark-specific (e.g., dark/normal text fg): Sets the color for the dark variant (applies immediately if in dark mode, otherwise stored for when you switch to dark)\n\n\nalerted text [&lt;color&gt;] — default: theme-dependent\nSets the foreground color for alerted text (e.g., \\alert{text}) and alerted block titles. This affects both inline alerted text and alertblock titles.\n\n\nexample text [&lt;color&gt;] — default: theme-dependent\nSets the foreground color for example text and example block titles. This affects both inline example text and exampleblock titles.\n\n\nnormal text fg [&lt;color&gt;] — default: theme-dependent\nSets the foreground color for normal text. Changing this automatically updates title elements, author, date, and other text colors that derive from normal text.\n\n\nnormal text bg [&lt;color&gt;] — default: theme-dependent\nSets the background color for normal text.\n\n\nframetitle fg [&lt;color&gt;] — default: theme-dependent\nSets the foreground color for frame titles.\n\n\nframetitle bg [&lt;color&gt;] — default: theme-dependent\nSets the background color for frame titles.\n\n\nprogressbar fg [&lt;color&gt;] — default: theme-dependent\nSets the foreground color for progress bars. This affects progress bars in all locations (head, foot, frame title, section pages).\n\n\nprogressbar bg [&lt;color&gt;] — default: theme-dependent\nSets the background color for progress bars.\n\n\ntitle separator [&lt;color&gt;] — default: theme-dependent\nSets the foreground color for the title separator (horizontal rule on the title page).\n\n\nstandout fg [&lt;color&gt;] — default: theme-dependent\nSets the foreground color for standout frames (created with \\begin{frame}[standout]).\n\n\nstandout bg [&lt;color&gt;] — default: theme-dependent\nSets the background color for standout frames.\n\n\n\n3.4.4.3 Example: Customizing Colors Per Variant\nYou can set different colors for light and dark variants:\n\\documentclass{beamer}\n\\usetheme{moloch}\n\n\\begin{document}\n\n% Customize colors for both variants\n\\molochcolors{\n  light/alerted text=red!80!black,\n  dark/alerted text=orange,\n  light/progressbar fg=blue,\n  dark/progressbar fg=cyan\n}\n\n% Start in light mode\n\\molochcolors{variant=light}\n\n\\begin{frame}\n  \\frametitle{Light Mode}\n  \\alert{Alerted text} is red-ish, progress bar is blue.\n\\end{frame}\n\n% Switch to dark mode - your customizations are preserved!\n\\molochcolors{variant=dark}\n\n\\begin{frame}\n  \\frametitle{Dark Mode}\n  \\alert{Alerted text} is orange, progress bar is cyan.\n\\end{frame}\n\n\\end{document}\n\n\n3.4.4.4 Example: Quick Color Tweaks\nFor simple adjustments to the current variant:\n\\molochcolors{\n  alerted text=purple,\n  progressbar fg=teal\n}\nThis sets the colors for whichever variant is currently active (light or dark).",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Customization</span>"
+    ]
+  },
+  {
+    "objectID": "customization.html#font-theme",
+    "href": "customization.html#font-theme",
+    "title": "3  Customization",
+    "section": "3.5 Font Theme",
+    "text": "3.5 Font Theme\n\ntitleformat plain, titleformat frametitle, titleformat section [regular, smallcaps, allsmallcaps, allcaps]\nIndividually controls the format of titles, subtitles, section titles, and frame titles (see titleformat, above).",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Customization</span>"
+    ]
+  },
+  {
+    "objectID": "commands.html",
+    "href": "commands.html",
+    "title": "4  Commands",
+    "section": "",
+    "text": "4.1 Standout Frames\nThe Moloch inner theme offers a custom frame format with large, centered text and an inverted background—perfect for focusing attention on single sentence or image. To use it, add the key standout to the frame:",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Commands</span>"
+    ]
+  },
+  {
+    "objectID": "commands.html#standout-frames",
+    "href": "commands.html#standout-frames",
+    "title": "4  Commands",
+    "section": "",
+    "text": "\\documentclass{beamer}\n\\usetheme{moloch}\n\n\\begin{document}\n\n\\begin{frame}[standout]\n  Thank you!\n\\end{frame}\n\n\\end{document}\n\n\n\nExample of a standout frame with large, centered text and an inverted background.",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Commands</span>"
+    ]
+  },
+  {
+    "objectID": "known-issues.html",
+    "href": "known-issues.html",
+    "title": "5  Known Issues",
+    "section": "",
+    "text": "5.1 Title Formats\nBe aware that not every font supports small caps, so the smallcaps or allsmallcaps options may not work for all fonts. In particular, the Computer Modern sans-serif typeface, which is used by default when Moloch is compiled with pdfLaTeX, does not have a small-caps variant.\nNote that title format options allsmallcaps and allcaps do not affect the sizes of numerals, punctuation, and math symbol, and are probably best avoided if your titles contain these characters.",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Known Issues</span>"
+    ]
+  },
+  {
+    "objectID": "known-issues.html#interactions-with-other-color-themes",
+    "href": "known-issues.html#interactions-with-other-color-themes",
+    "title": "5  Known Issues",
+    "section": "5.2 Interactions with Other Color Themes",
+    "text": "5.2 Interactions with Other Color Themes\nMoloch can be used along with any other Beamer color theme, such as crane or seahorse. If you wish to do this, it is usually best to include the Moloch subpackages individually so the Moloch color theme is never loaded. This will prevent conflicts between the Moloch color theme and your preferred theme.\nFor example, overriding the color theme as follows may not work as expected because `loads the Moloch color theme, which defines a relationship between the frametitle background and the primary palette of the theme. Sinceseahorse` assumes a different relationship between its palettes, the result is a grey, rather than periwinkle, frametitle background.\n\\usetheme{moloch}\n\\usecolortheme{seahorse}\nThe correct colors are chosen if the Moloch outer, inner, and font themes are loaded seperately:\n\\useoutertheme{moloch}\n\\useinnertheme{moloch}\n\\usefonttheme{moloch}\n\\usecolortheme{seahorse}   % or your preferred color theme\nPlease note that Moloch may not use all the colors defined in your favourite Beamer color theme. In particular, Moloch does not set a background color for the title; this will cause issues when using color themes like whale which set a white foreground for the title.",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Known Issues</span>"
+    ]
+  },
+  {
+    "objectID": "known-issues.html#notes-on-second-screen",
+    "href": "known-issues.html#notes-on-second-screen",
+    "title": "5  Known Issues",
+    "section": "5.3 Notes on Second Screen",
+    "text": "5.3 Notes on Second Screen\nIf you use the [show notes on second screen] option built in to Beamer and compile with XeLaTeX, text on slides following the first section slide may be rendered in white instead of the regular colour. This is due to a bug in Beamer or  itself. You can work around it either by compiling with  or by adding the following code to your preamble to reset the text color on each slide.\n\\makeatletter\n\\def\\beamer@framenotesbegin{% at beginning of slide\n  \\usebeamercolor[fg]{normal text}\n  \\gdef\\beamer@noteitems{}%\n  \\gdef\\beamer@notes{}%\n}\n\\makeatother",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Known Issues</span>"
+    ]
+  },
+  {
+    "objectID": "known-issues.html#standout-frames-with-labels",
+    "href": "known-issues.html#standout-frames-with-labels",
+    "title": "5  Known Issues",
+    "section": "5.4 Standout Frames with Labels",
+    "text": "5.4 Standout Frames with Labels\nBecause the standout frame option creates a group to restrict the colour change to a single slide, labels defined after calling standout will stay local to the group. In other words, the following may result in a “label undefined” error.\n\\begin{frame}[standout, label=conclusion]{Conclusion}\n  Awesome slide\n\\end{frame}\nTo fix this problem, change the order of the keys in the frame.\n\\begin{frame}[label=conclusion, standout]{Conclusion}\n  Awesome slide\n\\end{frame}\nThis error can be unwittingly triggered if you export your slides from Emacs Org mode, which automatically adds labels after frame options. Alex Branham offers the following solution for Org mode users, using org-set-property.\n* Start of a frame\n    :PROPERTIES:\n    :BEAMER_opt: label=conclusion,standout\n    :END:",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Known Issues</span>"
+    ]
+  },
+  {
+    "objectID": "known-issues.html#standout-frames-with-pandoc",
+    "href": "known-issues.html#standout-frames-with-pandoc",
+    "title": "5  Known Issues",
+    "section": "5.5 Standout Frames with Pandoc",
+    "text": "5.5 Standout Frames with Pandoc\nWith Pandoc versions prior to 1.17.2 it was not possible to create standout frames because Pandoc only supported a specific list of frame attributes thus ignoring additional attributes such as .standout.",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Known Issues</span>"
+    ]
+  },
+  {
+    "objectID": "license.html",
+    "href": "license.html",
+    "title": "6  License",
+    "section": "",
+    "text": "Moloch is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License. This means that if you change the theme and re-distribute it, you must retain the copyright notice header and license it under the same CC-BY-SA license. This does not affect any presentations that you create with the theme.\nYou can read the full license text above or in the license file at https://github.com/jolars/moloch/blob/main/LICENSE.",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>License</span>"
+    ]
+  },
+  {
+    "objectID": "changelog/index.html",
+    "href": "changelog/index.html",
+    "title": "Changelog",
+    "section": "",
+    "text": "2.2.0 (2026-02-17)",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Changelog</span>"
+    ]
+  },
+  {
+    "objectID": "changelog/index.html#section",
+    "href": "changelog/index.html#section",
+    "title": "Changelog",
+    "section": "",
+    "text": "Features\n\nincrease margin between frame title and subtitle (f8e8725)\nincrease top-bottom margins for frametitle, use strut (f537931)\n\n\n\nBug Fixes\n\nadd missing color option for title separator (1221aed), closes #70",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Changelog</span>"
+    ]
+  },
+  {
+    "objectID": "changelog/index.html#section-1",
+    "href": "changelog/index.html#section-1",
+    "title": "Changelog",
+    "section": "2.1.0 (2025-12-18)",
+    "text": "2.1.0 (2025-12-18)\n\nFeatures\n\nadd titlepage option with moloch, plain, slit styles (505426d)\n\n\n\nBug Fixes\n\nalias colortheme variant to colorthemevariant (70a2bf2)\ndon’t expose all colortheme settings as package options (4827f60)\ndon’t wrap titlepage frame in group (b6be996)",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Changelog</span>"
+    ]
+  },
+  {
+    "objectID": "changelog/index.html#section-2",
+    "href": "changelog/index.html#section-2",
+    "title": "Changelog",
+    "section": "2.0.0 (2025-12-05)",
+    "text": "2.0.0 (2025-12-05)\n\n⚠ BREAKING CHANGES\n\nrefactor color theme\n\n\n\nFeatures\n\nadd frametitle margin options (bc02e8a)\nadd catppuccin theme (3452624)\nadd new “Paper” color theme (05de59a)\nchange default progressbar linewidth to 1pt (3b71fc9)\ndraw all itemize symbols manually (a82527c)\nrefactor color theme (37d3a37)\ntune color themes (a11710f)\nuse brighter aler and example colors in dark hcontr (8babd1e)\n\n\n\nBug Fixes\n\nenable background macro for alternative color themes (59b4d79)\nremove and fix examples (35523ee)\nremove example text bg in highcontrast theme (528ea8d)\nwork-around division by zero in progress bar arithmetic (28fc1a2)",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Changelog</span>"
+    ]
+  },
+  {
+    "objectID": "changelog/index.html#section-3",
+    "href": "changelog/index.html#section-3",
+    "title": "Changelog",
+    "section": "1.1.0 (2025-09-25)",
+    "text": "1.1.0 (2025-09-25)\n\nFeatures\n\nredesign itemize environment (#50) (8594369)\nuse beamer-like itemize item and subitem templates (81037c6), closes #49\n\n\n\nBug Fixes\n\nmove command substitutions into inner and outer themes (fd86a30), closes #47\nuse \\ht\\strutbox instead of X height in title padding (93792f2), closes #54",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Changelog</span>"
+    ]
+  },
+  {
+    "objectID": "changelog/index.html#section-4",
+    "href": "changelog/index.html#section-4",
+    "title": "Changelog",
+    "section": "1.0.1 (2025-04-01)",
+    "text": "1.0.1 (2025-04-01)\n\nBug Fixes\n\nadd missing files for updating version tags (ba01d33)\nuse proper package names (0c4d38e)",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Changelog</span>"
+    ]
+  },
+  {
+    "objectID": "changelog/index.html#section-5",
+    "href": "changelog/index.html#section-5",
+    "title": "Changelog",
+    "section": "1.0.0 (2025-04-01)",
+    "text": "1.0.0 (2025-04-01)\n\nFeatures\n\nadd customization of bar line width (#42) (be0d8f2)\nsupport \\thanks in title page (#45) (de3db5e)",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Changelog</span>"
+    ]
+  },
+  {
+    "objectID": "changelog/index.html#section-6",
+    "href": "changelog/index.html#section-6",
+    "title": "Changelog",
+    "section": "0.6.0 (2025-01-17)",
+    "text": "0.6.0 (2025-01-17)\n\nFeatures\n\nadd back highcontrast theme from metropolis (3039994)\nadd new color theme based on the tomorrow color theme (13e7300)\nadd option to customize frame numbering of standout pages (d6d0e3c), closes #33\ndeprecate \\mreducelistspacing (3d87ec2)\nredesign section and subsection pages (#30) (5a98c69)\nuse golden rule in top-bottom spacing of title page (85eabc7)\n\n\n\nReverts\n\n“feat: deprecate \\mreducelistspacing” (eb4bf54)\n“test: remove standoutnumbering test” (ce7540d)",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Changelog</span>"
+    ]
+  },
+  {
+    "objectID": "changelog/index.html#section-7",
+    "href": "changelog/index.html#section-7",
+    "title": "Changelog",
+    "section": "0.5.0 (2024-10-30)",
+    "text": "0.5.0 (2024-10-30)\n\nFeatures\n\nreplace \\vfill with \\vfil in title frame (8f2a59e)\nswitch from fill to fil (#21) (873ae15)\n\n\n\nBug Fixes\n\nremove duplicated footnote color specifications (#26) (1306af5)\nremove extra space below progressbar section pages (#27) (e5be480)\nset use=block title in block body for fill (e8921a6), closes #28\ntag files with date (28003e7)",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Changelog</span>"
+    ]
+  },
+  {
+    "objectID": "changelog/index.html#section-8",
+    "href": "changelog/index.html#section-8",
+    "title": "Changelog",
+    "section": "0.4.0 (2024-07-09)",
+    "text": "0.4.0 (2024-07-09)\n\nFeatures\n\nadd a small amount of vertical space before subtitle (b224a9b)\nsupport memoize package (closes #16) (1ca26e8)\nsupport title format modifications (#18) (46a4f49)\n\n\n\nBug Fixes\n\nadd % at the end of some commands (33b9833)\nconvert raw command in manual to text (ac305e9)",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Changelog</span>"
+    ]
+  },
+  {
+    "objectID": "changelog/index.html#section-9",
+    "href": "changelog/index.html#section-9",
+    "title": "Changelog",
+    "section": "0.3.0 (2024-03-06)",
+    "text": "0.3.0 (2024-03-06)\n\nFeatures\n\nbring back the numbering option and deprecate it (9a013e4)\nmake framenumber slide numbering the default (54e0fce)\nredesign title page (9e6506e)\nreinstate support for block option (bf63dcd)\nremove custom linespread setting (6a85ef4), closes #8\nremove parskip setting (5477051), closes #9\nsupport subtitles (1c49957)\n\n\n\nBug Fixes\n\napply upstream beamer fix for empty shortauthor (b8b2d10)\nimprove vertical centering of title slide (6a14981)\nremove extraneous line space after minipage (c0b9826)\nremove extraneous space in frametitle continuation template (66f7d83)\nremove font configuration for bibliography; closes #5 (ccd19fe)",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Changelog</span>"
+    ]
+  },
+  {
+    "objectID": "changelog/index.html#section-10",
+    "href": "changelog/index.html#section-10",
+    "title": "Changelog",
+    "section": "0.2.0 (2024-01-23)",
+    "text": "0.2.0 (2024-01-23)\n\n⚠ BREAKING CHANGES\n\nremove titleformat configuration\nuse beamer’s own frame numbering template\n\n\n\nFeatures\n\nremove titleformat configuration (e19f93c)\nuse beamer’s own frame numbering template (01b698c)",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Changelog</span>"
+    ]
+  },
+  {
+    "objectID": "changelog/index.html#section-11",
+    "href": "changelog/index.html#section-11",
+    "title": "Changelog",
+    "section": "0.1.0 (2024-01-15)",
+    "text": "0.1.0 (2024-01-15)\n\n⚠ BREAKING CHANGES\n\nremove \\plain macro\ndrop deprecated options\nremove appendix redefinition\nremove pgfplots theme\nremove high-contrast theme\nuncouple fira fonts from theme\nsimplify blocks and remove blocks with background\n\n\n\nFeatures\n\ndisable hyphenation in frame titles (253234e)\ndrop deprecated options (548ede8)\ngroup institute with author and subdue color (0f3f6da)\nincrease minipage width for section pages (160fe58)\nmodify bullet symbols for itemize lists (0042dcb)\nmodify example color to teal instead of light green (1a2f157)\nremove \\plain macro (95f24ae)\nremove appendix redefinition (17edfad)\nremove high-contrast theme (9932e55)\nremove pgfplots theme (c2f1bef)\nsimplify blocks and remove blocks with background (d5317d4)\nuncouple fira fonts from theme (f960aba)\n\n\n\nBug Fixes\n\navoid overflow warnings from titlepage definition (c1c5b85)\nfix frametitle patchmd (a302893)\nfix progress bar in inner theme too (47dcf8d)\nfix reference to Knuth in demo (fbfcc0b)\ninsert missing parenthesis (e72eaa9)\nmetropolis -&gt; moloch (24cbc04)\nset maxium progressbar to 1 (b401410)\n\n\n\nReverts\n\n“build: use alternative texlive action” (5d32f73)\n“fix: avoid overflow warnings from titlepage definition” (24c5409)\n\n\n\nMiscellaneous Chores\n\nremove newline (cd97b2d)",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Changelog</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerthememoloch.html",
+    "href": "implementation/beamerthememoloch.html",
+    "title": "Appendix A — Main Theme",
+    "section": "",
+    "text": "A.1 Moloch Parent Theme\nThe primary job of this package is to load the component sub-packages of the Moloch theme and route the theme options accordingly. It also provides some custom commands and environments for the user.",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Main Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerthememoloch.html#package-dependencies",
+    "href": "implementation/beamerthememoloch.html#package-dependencies",
+    "title": "Appendix A — Main Theme",
+    "section": "A.2 Package Dependencies",
+    "text": "A.2 Package Dependencies\n\\RequirePackage{pgfopts}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Main Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerthememoloch.html#options",
+    "href": "implementation/beamerthememoloch.html#options",
+    "title": "Appendix A — Main Theme",
+    "section": "A.3 Options",
+    "text": "A.3 Options\nMost options are passed off to the component sub-packages.\n\\pgfkeys{/moloch/.cd,\n  .search also={\n      /moloch/inner,\n      /moloch/outer,\n      /moloch/color,\n      /moloch/font,\n    }\n}\nRoute color theme options to the new color system.\n\\pgfkeys{/moloch/.cd,\n  colortheme/.code=\\pgfkeysalso{/moloch/colors/theme=#1},\n  colorthemevariant/.code=\\pgfkeysalso{/moloch/colors/variant=#1},\n  colortheme variant/.code=\\pgfkeysalso{/moloch/colors/variant=#1},\n}\n\nA.3.1 titleformat plain\nControls the formatting of the text on standout “plain” frames.\n\\pgfkeys{\n  /moloch/titleformat plain/.cd,\n  .is choice,\n  regular/.code={%\n      \\let\\moloch@plaintitleformat\\@empty%\n      \\setbeamerfont{standout}{shape=\\normalfont}%\n    },\n  smallcaps/.code={%\n      \\let\\moloch@plaintitleformat\\@empty%\n      \\setbeamerfont{standout}{shape=\\scshape}%\n    },\n  allsmallcaps/.code={%\n      \\let\\moloch@plaintitleformat\\MakeLowercase%\n      \\setbeamerfont{standout}{shape=\\scshape}%\n    },\n  allcaps/.code={%\n      \\let\\moloch@plaintitleformat\\MakeUppercase%\n      \\setbeamerfont{standout}{shape=\\normalfont}%\n    },\n}\n\n\nA.3.2 titleformat\nSets a standard format for titles, subtitles, section titles, frame titles, and the text on standout “plain” frames.\n\\pgfkeys{\n  /moloch/titleformat/.code=\\pgfkeysalso{\n    font/titleformat title=#1,\n    font/titleformat subtitle=#1,\n    font/titleformat section=#1,\n    font/titleformat frame=#1,\n    titleformat plain=#1,\n  }\n}\nSet default values for options.\n\\newcommand{\\moloch@setdefaults}{\n  \\pgfkeys{/moloch/.cd,\n    titleformat plain=regular,\n  }\n}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Main Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerthememoloch.html#component-sub-packages",
+    "href": "implementation/beamerthememoloch.html#component-sub-packages",
+    "title": "Appendix A — Main Theme",
+    "section": "A.4 Component Sub-Packages",
+    "text": "A.4 Component Sub-Packages\nHaving processed the options, we can now load the component sub-packages of the theme.\n\\useinnertheme{moloch}\n\\useoutertheme{moloch}\n\\usecolortheme{moloch}\n\\usefonttheme{moloch}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Main Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerthememoloch.html#custom-commands",
+    "href": "implementation/beamerthememoloch.html#custom-commands",
+    "title": "Appendix A — Main Theme",
+    "section": "A.5 Custom Commands",
+    "text": "A.5 Custom Commands\nThe parent theme defines custom commands as their proper usage may depend on multiple sub-packages.\n\nA.5.1 \\molochset\nAllows the user to change options midway through a presentation.\n\\newcommand{\\molochset}[1]{\\pgfkeys{/moloch/.cd,#1}}\nDEPRECATED: The following command is deprecated and will be removed in a future version.\n\n\nA.5.2 \\mreducelistspacing\n\\newcommand{\\mreducelistspacing}{%\n  \\PackageWarning{beamerthememoloch}{%\n    \\string\\mreducelistspacing\\space is deprecated and will be removed in a future version}%\n  \\vspace{-\\topsep}%\n}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Main Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerthememoloch.html#process-package-options",
+    "href": "implementation/beamerthememoloch.html#process-package-options",
+    "title": "Appendix A — Main Theme",
+    "section": "A.6 Process Package Options",
+    "text": "A.6 Process Package Options\n\\moloch@setdefaults\n\\ProcessPgfOptions{/moloch}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Main Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerinnerthememoloch.html",
+    "href": "implementation/beamerinnerthememoloch.html",
+    "title": "Appendix B — Inner Theme",
+    "section": "",
+    "text": "B.1 Package Dependencies\nThe beamer inner theme dictates the style of the frame elements traditionally set in the “body” of each slide.",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Inner Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerinnerthememoloch.html#package-dependencies",
+    "href": "implementation/beamerinnerthememoloch.html#package-dependencies",
+    "title": "Appendix B — Inner Theme",
+    "section": "",
+    "text": "\\RequirePackage{keyval}\n\\RequirePackage{calc}\n\\RequirePackage{pgfopts}\n\\RequirePackage{tikz}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Inner Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerinnerthememoloch.html#memoization-and-tikz-externalization",
+    "href": "implementation/beamerinnerthememoloch.html#memoization-and-tikz-externalization",
+    "title": "Appendix B — Inner Theme",
+    "section": "B.2 Memoization and Tikz Externalization",
+    "text": "B.2 Memoization and Tikz Externalization\nSee the documentation for the correspondign section under the outer theme for more information on the following lines.\n\\providecommand{\\tikzexternalenable}{}\n\\providecommand{\\tikzexternaldisable}{}\n\\providecommand{\\mmzUnmemoizable}{}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Inner Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerinnerthememoloch.html#options",
+    "href": "implementation/beamerinnerthememoloch.html#options",
+    "title": "Appendix B — Inner Theme",
+    "section": "B.3 Options",
+    "text": "B.3 Options\n\nB.3.1 sectionpage\nOptionally add a slide marking the beginning of each section.\n\\pgfkeys{\n  /moloch/inner/sectionpage/.cd,\n  .is choice,\n  none/.code=\\moloch@disablesectionpage,\n  simple/.code={%\n      \\moloch@enablesectionpage%\n      \\setbeamertemplate{section page}[simple]%\n    },\n  progressbar/.code={%\n      \\moloch@enablesectionpage%\n      \\setbeamertemplate{section page}[progressbar]%\n    },\n}\n\n\nB.3.2 subsectionpage\nOptionally add a slide marking the beginning of each subsection.\n\\pgfkeys{\n  /moloch/inner/subsectionpage/.cd,\n  .is choice,\n  none/.code=\\moloch@disablesubsectionpage,\n  simple/.code={%\n      \\moloch@enablesubsectionpage%\n      \\setbeamertemplate{section page}[simple]%\n    },\n  progressbar/.code={%\n      \\moloch@enablesubsectionpage%\n      \\setbeamertemplate{section page}[progressbar]%\n    },\n}\n\n\nB.3.3 standoutnumbering\nWhether or not to number standout pages. Option none means that standout pages are not numbered (do not count as frames). hide means that they do count as frames, but that the footer with the number is not shown. Option show means that they both count as frames and that the footer with a frame count is shown.\n\\providebool{moloch@enableStandoutFooter}\n\\providebool{moloch@enableStandoutNumbering}\n\\pgfkeys{\n  /moloch/inner/standoutnumbering/.cd,\n  .is choice,\n  none/.code={\n      \\boolfalse{moloch@enableStandoutNumbering}\n      \\boolfalse{moloch@enableStandoutFooter}\n    },\n  show/.code={\n      \\booltrue{moloch@enableStandoutNumbering}\n      \\booltrue{moloch@enableStandoutFooter}\n    },\n  hide/.code={\n      \\booltrue{moloch@enableStandoutNumbering}\n      \\boolfalse{moloch@enableStandoutFooter}\n    }\n}\n\n\nB.3.4 titleseparator linewidth\nSet the width of the line separating the title from the author.\n\\newlength{\\moloch@titleseparator@linewidth}\n\\pgfkeys{\n  /moloch/inner/.cd,\n  titleseparatorlinewidth/.code={\\setlength{\\moloch@titleseparator@linewidth}{#1}},\n}\n\n\nB.3.5 titleseparator aliases\nAllows titleseparator linewidth to be used in \\usetheme.\n\\pgfkeys{\n  /moloch/inner/.cd,\n  titleseparator linewidth/.code=\\pgfkeysalso{titleseparatorlinewidth=#1},\n}\n\n\nB.3.6 titlepage\nSelect which title page template to use.\n\\pgfkeys{\n  /moloch/inner/titlepage/.cd,\n  .is choice,\n  moloch/.code={%\n      \\setbeamertemplate{title page}[moloch]%\n      \\setbeamertemplate{title}[moloch]%\n      \\setbeamertemplate{subtitle}[moloch]%\n      \\setbeamertemplate{author}[moloch]%\n      \\setbeamertemplate{institute}[moloch]%\n      \\setbeamertemplate{date}[moloch]%\n      \\setbeamertemplate{title graphic}[moloch]%\n    },\n  plain/.code={%\n      \\setbeamertemplate{title page}[plain]%\n      \\setbeamertemplate{title}[plain]%\n      \\setbeamertemplate{subtitle}[plain]%\n      \\setbeamertemplate{author}[plain]%\n      \\setbeamertemplate{institute}[plain]%\n      \\setbeamertemplate{date}[plain]%\n      \\setbeamertemplate{title graphic}[plain]%\n    },\n  split/.code={%\n      \\setbeamerfont{date}{size=\\footnotesize}\n      \\setbeamertemplate{title page}[split]%\n      \\setbeamertemplate{title}[split]%\n      \\setbeamertemplate{subtitle}[split]%\n      \\setbeamertemplate{author}[split]%\n      \\setbeamertemplate{institute}[split]%\n      \\setbeamertemplate{date}[split]%\n      \\setbeamertemplate{title graphic}[split]%\n    },\n}\n\n\nB.3.7 \\moloch@inner@setdefaults\nSet default values for inner theme options.\n\\newcommand{\\moloch@inner@setdefaults}{\n  \\pgfkeys{/moloch/inner/.cd,\n    sectionpage=progressbar,\n    subsectionpage=none,\n    standoutnumbering=none,\n    titleseparator linewidth=0.5pt,\n    titlepage=moloch,\n  }\n}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Inner Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerinnerthememoloch.html#title-page",
+    "href": "implementation/beamerinnerthememoloch.html#title-page",
+    "title": "Appendix B — Inner Theme",
+    "section": "B.4 Title Page",
+    "text": "B.4 Title Page\n\nB.4.1 title page\nTemplate for the title page. The moloch variant uses Moloch’s custom layout with golden ratio spacing and a title separator. The plain variant mimics Beamer’s default title page layout.\n\n\nB.4.2 Moloch Variant\n\\defbeamertemplate*{title page}{moloch}{\n  \\null%\n  \\vspace{0pt plus 1.618fil}%\n  \\vfil%\n  \\ifx\\inserttitlegraphic\\@empty\\else\\usebeamertemplate*{title graphic}\\fi\n  \\ifx\\inserttitle\\@empty\\else\\usebeamertemplate*{title}\\fi\n  \\ifx\\insertsubtitle\\@empty\\else\\usebeamertemplate*{subtitle}\\fi\n  \\usebeamertemplate*{title separator}\n  \\expandafter\\ifblank\\expandafter{\\beamer@andstripped}{}{%\n    \\usebeamertemplate*{author}%\n  }\n  \\ifx\\insertinstitute\\@empty\\else\\usebeamertemplate*{institute}\\fi\n  \\ifx\\insertdate\\@empty\\else\\usebeamertemplate*{date}\\fi\n  \\vspace{0pt plus 1fil}%\n  \\null\n}\n\n\nB.4.3 Plain (Beamer-like) Variant\n\\defbeamertemplate{title page}{plain}{\n  \\null%\n  \\vspace{0pt plus 1fil}%\n  \\vfil%\n  \\begingroup\n  \\centering\n  \\usebeamertemplate*{title}\n  \\expandafter\\ifblank\\expandafter{\\beamer@andstripped}{}{%\n    \\usebeamertemplate*{author}%\n  }\n  \\ifx\\insertinstitute\\@empty\\else\\usebeamertemplate*{institute}\\fi\n  \\ifx\\insertdate\\@empty\\else\\usebeamertemplate*{date}\\fi\n  \\ifx\\inserttitlegraphic\\@empty\\else\\usebeamertemplate*{title graphic}\\fi\n  \\endgroup\n  \\vspace{0pt plus 1fil}%\n  \\null\n}\n\n\nB.4.4 Split (Two-column) Variant\n\\defbeamertemplate{title page}{split}{\n  \\null%\n  \\vspace{0pt plus 3fil}%\n  \\vfil%\n  \\begin{columns}[c,onlytextwidth]\n    \\begin{column}[t]{0.45\\textwidth}\n      \\raggedright\n      \\ifx\\inserttitle\\@empty\\else\\usebeamertemplate*{title}\\fi\n      \\ifx\\insertsubtitle\\@empty\\else\n        \\usebeamertemplate*{subtitle}\n      \\fi%\n    \\end{column}%\n    \\hfill%\n    \\usebeamertemplate*{title separator vertical}%\n    \\hfill%\n    \\begin{column}[t]{0.45\\textwidth}\n      \\expandafter\\ifblank\\expandafter{\\beamer@andstripped}{}{%\n        \\usebeamertemplate*{author}%\n      }\n      \\ifx\\insertinstitute\\@empty\\else\n        \\usebeamertemplate*{institute}\n      \\fi\n      \\ifx\\insertdate\\@empty\\else\n        \\usebeamertemplate*{date}\n      \\fi\n      \\ifx\\inserttitlegraphic\\@empty\\else\n        \\usebeamertemplate*{title graphic}%\n      \\fi%\n    \\end{column}\n  \\end{columns}\n  \\vfil%\n  \\vspace{0pt plus 1fil}%\n  \\null%\n}\nNormal people should use \\maketitle or \\titlepage instead of using the title page beamer template directly. Beamer already defines these macros, but we patch them here to make the title page [plain] by default and ensure the title frame number doesn’t count.\n\n\nB.4.5 \\maketitle\nInserts the title frame, or causes the current frame to use the title page template. Since we want to remove the footnote rule from the title page, we have to store and restore it around the call to \\frame.\n\\def\\maketitle{%\n  \\ifbeamer@inframe\n    \\titlepage\n  \\else\n    \\let\\beamer@saved@footnoterule\\footnoterule%\n    \\renewcommand\\footnoterule{}%\n    \\frame[plain,noframenumbering]{\\titlepage}%\n    \\let\\footnoterule\\beamer@saved@footnoterule%\n  \\fi\n}\nAlso patch \\titlepage to ensure that footnotes on the title page are formatted correctly.\n\n\nB.4.6 \\titlepage\nInserts the title page using the title page beamer template.\n\\def\\titlepage{%\n  % Apply title-page specific footnote settings\n  \\renewcommand{\\@makefntext}[1]{%\n    {\\par\\usebeamercolor[fg]{thanks}\\usebeamerfont{thanks}$^{\\@thefnmark}$##1\\medskip}%\n  }\n\n  % Process the title page\n  \\usebeamertemplate{title page}\\@thanks\n}\n\n\nB.4.7 title graphic\nSet the title graphic. Default variant for moloch titlepage.\n\\defbeamertemplate{title graphic}{moloch}{\n  \\inserttitlegraphic%\n  \\par%\n  \\vspace*{1em}\n}\n\\defbeamertemplate{title graphic}{plain}{\n\\vskip0.5em%\n{\\usebeamercolor[fg]{titlegraphic}\\inserttitlegraphic\\par}\n}\n\\defbeamertemplate{title graphic}{split}{\n  \\vskip2em%\n  \\inserttitlegraphic%\n  \\par%\n}\n\\setbeamertemplate{title graphic}[moloch]\n\n\nB.4.8 title\nSet the title on the title page. Default variant for moloch titlepage.\n\\defbeamertemplate{title}{moloch}{\n  \\raggedright%\n  \\moloch@titleformat{\\inserttitle}%\n  \\par%\n}\n\\defbeamertemplate{title}{plain}{\n  \\begin{beamercolorbox}[sep=8pt,center]{title}\n    \\usebeamerfont{title}\\inserttitle\\par%\n    \\ifx\\insertsubtitle\\@empty\\else\\usebeamertemplate*{subtitle}\\fi%\n  \\end{beamercolorbox}%\n  \\vskip0.5em%\n}\n\\defbeamertemplate{title}{split}{\n  \\raggedright%\n  \\moloch@titleformat{\\inserttitle}%\n  \\par%\n}\n\\setbeamertemplate{title}[moloch]\n\n\nB.4.9 subtitle\nSet the subtitle on the title page. Default variant for moloch titlepage.\n\\defbeamertemplate{subtitle}{moloch}{\n  \\vspace*{0.3em}\n  \\raggedright%\n  \\moloch@subtitleformat{\\insertsubtitle}%\n  \\par%\n}\n\\defbeamertemplate{subtitle}{split}{\n  \\vspace*{0.5em}\n  \\raggedright%\n  \\moloch@subtitleformat{\\insertsubtitle}%\n  \\par%\n}\n\\defbeamertemplate{subtitle}{plain}{%\n\\vskip0.25em%\n{\\usebeamerfont{subtitle}\\usebeamercolor[fg]{subtitle}\\insertsubtitle\\par}%\n}\n\\setbeamertemplate{subtitle}[moloch]\n\n\nB.4.10 title separator\nTemplate to set the title separator (horizontal).\n\\setbeamertemplate{title separator}{\n  \\tikzexternaldisable%\n  \\begin{tikzpicture}[baseline=(current bounding box.north)]\n    \\mmzUnmemoizable%\n    \\fill[fg] (0,0) rectangle (\\textwidth, \\moloch@titleseparator@linewidth);\n    \\useasboundingbox (0,0) rectangle (\\textwidth,-\\moloch@titleseparator@linewidth);\n  \\end{tikzpicture}%\n  \\tikzexternalenable%\n  \\par%\n  \\vspace*{0.8em}\n}\n\n\nB.4.11 title separator vertical\nTemplate for a vertical title separator.\n\\setbeamertemplate{title separator vertical}{%\n  {\\usebeamercolor[fg]{title separator}%\n      \\vrule width \\moloch@titleseparator@linewidth}%\n}\n\n\nB.4.12 author\nSet the author on the title page. Default variant for moloch titlepage.\n\\defbeamertemplate{author}{moloch}{\n  \\raggedright%\n  \\insertauthor%\n  \\par%\n  \\vspace*{0.5em}\n}\n\\defbeamertemplate{author}{plain}{\n  \\begin{beamercolorbox}[sep=8pt,center]{author}\n    \\usebeamerfont{author}\\insertauthor\n  \\end{beamercolorbox}\n}\n\\defbeamertemplate{author}{split}{\n  \\raggedright%\n  \\insertauthor%\n  \\par%\n}\n\\setbeamertemplate{author}[moloch]\n\n\nB.4.13 institute\nSet the institute on the title page. Default variant for moloch titlepage.\n\\defbeamertemplate{institute}{moloch}{\n  \\insertinstitute%\n  \\par%\n  \\vspace*{1em}\n}\n\\defbeamertemplate{institute}{plain}{\n  \\begin{beamercolorbox}[sep=8pt,center]{institute}\n    \\usebeamerfont{institute}\\insertinstitute\n  \\end{beamercolorbox}\n}\n\\defbeamertemplate{institute}{split}{\n  \\vskip0.5em%\n  \\raggedright%\n  \\insertinstitute%\n  \\par%\n}\n\\setbeamertemplate{institute}[moloch]\n\n\nB.4.14 date\nSet the date on the title page. Default variant for moloch titlepage.\n\\defbeamertemplate{date}{moloch}{\n  \\insertdate%\n  \\par%\n}\n\\defbeamertemplate{date}{plain}{\n  \\begin{beamercolorbox}[sep=8pt,center]{date}\n    \\usebeamerfont{date}\\insertdate\n  \\end{beamercolorbox}\n}\n\\defbeamertemplate{date}{split}{\n  \\vskip0.5em%\n  \\raggedright%\n  \\insertdate%\n  \\par%\n}\n\\setbeamertemplate{date}[moloch]",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Inner Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerinnerthememoloch.html#section-pages",
+    "href": "implementation/beamerinnerthememoloch.html#section-pages",
+    "title": "Appendix B — Inner Theme",
+    "section": "B.5 Section Pages",
+    "text": "B.5 Section Pages\n\nB.5.1 section Page\nTemplate for the section title slide at the beginning of each section.\n\\defbeamertemplate{section page}{simple}{\n  \\begin{center}\n    \\usebeamercolor[fg]{section title}\n    \\usebeamerfont{section title}\n    \\moloch@sectiontitleformat{\\insertsectionhead}\\par\n    \\usebeamercolor[fg]{subsection title}%\n    \\usebeamerfont{subsection title}%\n    \\strut%\n    \\ifx\\insertsubsectionhead\\@empty\\else%\n      \\insertsubsectionhead%\n    \\fi\n  \\end{center}\n  \\vspace{\\baselineskip - 1ex + \\moloch@titleseparator@linewidth}\n}\n\\defbeamertemplate{section page}{progressbar}{\n  \\centering\n  \\begin{minipage}{0.7875\\linewidth}\n    \\raggedright\n    \\usebeamercolor[fg]{section title}\n    \\usebeamerfont{section title}\n    \\moloch@sectiontitleformat{\\insertsectionhead}\\\\[-0.5\\baselineskip]\n    \\usebeamertemplate*{progress bar in section page}\n    \\par\n    \\usebeamercolor[fg]{subsection title}%\n    \\usebeamerfont{subsection title}%\n    \\strut%\n    \\ifx\\insertsubsectionhead\\@empty\\else%\n      \\insertsubsectionhead%\n    \\fi\n  \\end{minipage}\n  \\par\n}\n\\newcommand{\\moloch@disablesectionpage}{\n  \\AtBeginSection{\n    % intentionally empty\n  }\n}\n\\newcommand{\\moloch@enablesectionpage}{\n  \\AtBeginSection{\n    \\ifbeamer@inframe\n      \\sectionpage\n    \\else\n      \\frame[plain,c,noframenumbering]{\\sectionpage}\n    \\fi\n  }\n}\n\n\nB.5.2 subsection page\nTemplate for the subsection title slide that can optionally be added to at the beginning of each subsection.\n\\setbeamertemplate{subsection page}{%\n  \\usebeamertemplate*{section page}\n}\n\\newcommand{\\moloch@disablesubsectionpage}{\n  \\AtBeginSubsection{\n    % intentionally empty\n  }\n}\n\\newcommand{\\moloch@enablesubsectionpage}{\n  \\AtBeginSubsection{\n    \\ifbeamer@inframe\n      \\subsectionpage\n    \\else\n      \\frame[plain,c,noframenumbering]{\\subsectionpage}\n    \\fi\n  }\n}\n\n\nB.5.3 progress bar in section page\nTemplate for the progress bar displayed by default on the section page. This code is duplicated in large part in the outer theme’s template progress bar in head/foot.\n\\setbeamertemplate{progress bar in section page}{\n  \\pgfmathsetlength{\\moloch@progressonsectionpage}{\n    \\textwidth * min(1,\\insertframenumber/max(1,\\inserttotalframenumber))\n  }%\n  \\tikzexternaldisable%\n  \\begin{tikzpicture}[baseline=(current bounding box.north)]\n    \\mmzUnmemoizable%\n    \\fill[bg]\n    (0,0)\n    rectangle\n    (\\textwidth, \\moloch@progressonsectionpage@linewidth);\n    \\fill[fg]\n    (0,0)\n    rectangle\n    (\\moloch@progressonsectionpage,\n    \\moloch@progressonsectionpage@linewidth);\n    \\useasboundingbox (0,0) rectangle (\\textwidth,-\\moloch@progressonsectionpage@linewidth);\n  \\end{tikzpicture}%\n  \\tikzexternalenable%\n}\nThe code above assumes that \\insertframenumber is less than or equal to \\inserttotalframenumber. However, this is not true on the first compile; in the absence of an .aux file, \\inserttotalframenumber defaults to 1. This behaviour could cause fatal errors for long presentations, as \\moloch@progressonsectionpage would exceed TeX’s maximum length (16383.99999pt, roughly 5.75 metres or 18.9 feet). To avoid this, we increase the default value for \\inserttotalframenumber; presentations with over 4000 slides will still break on first compile, but users in that situation likely have deeper problems to solve.\n\\def\\inserttotalframenumber{100}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Inner Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerinnerthememoloch.html#lists-and-floats",
+    "href": "implementation/beamerinnerthememoloch.html#lists-and-floats",
+    "title": "Appendix B — Inner Theme",
+    "section": "B.6 Lists and Floats",
+    "text": "B.6 Lists and Floats\nMoloch uses custom symbols for the itemize environment. The symbols are defined as below, using pgf commands to draw the shapes. This is slightly different than what beamer does by default, which is to use font glyphs from the math font. But we want to avoid this reliance on the math font, which may have somewhat surprising side effects.\nBy default, we use a filled circle for the first-level itemize items, a filled square for the second level, and a filled triangle for the third level. Since the triangle tapers to a point, we add a slight overhang to it so that it visually aligns better with the other symbols. We do the same for the circle, but to a lower extent.\n\\newcommand{\\mitemover}[2]{\\makebox[0pt][r]{#1}\\kern-#2}\n\\newcommand{\\mitem}[1]{\\mitemover{#1}{0pt}}\n\n\\newcommand{\\overhangSquare}{0pt}\n\\newcommand{\\overhangCircle}{0.05ex}\n\\newcommand{\\overhangTriangle}{0.25ex}\n\n\\newcommand{\\moloch@circle}{\n  \\begin{pgfpicture}\n    \\pgfsetbaseline{-0.7ex}\n    \\pgfpathcircle{\\pgfpoint{0}{0}}{0.16em}\n    \\pgfusepath{fill}\n  \\end{pgfpicture}%\n}\n%\n\\newcommand{\\moloch@square}{\n  \\begin{pgfpicture}\n    \\pgfsetbaseline{-0.7ex}\n    \\pgfpathrectangle{\\pgfpoint{-0.165em}{-0.165em}}{\\pgfpoint{0.31em}{0.31em}}\n    \\pgfusepath{fill}\n  \\end{pgfpicture}%\n}\n%\n\\newcommand{\\moloch@triangle}{\n  \\begin{pgfpicture}\n    \\pgfsetbaseline{-0.7ex}\n    \\pgfpathmoveto{\\pgfpoint{0.21em}{0}}       % right vertex (tip)\n    \\pgfpathlineto{\\pgfpoint{-0.21em}{0.21em}}  % top left\n    \\pgfpathlineto{\\pgfpoint{-0.21em}{-0.21em}} % bottom left\n    \\pgfpathclose\n    \\pgfusepath{fill}\n  \\end{pgfpicture}%\n}\nNext, we set the itemize templates to use these symbols.\n% \\setbeamertemplate{itemize item}[circle]\n\\setbeamertemplate{itemize item}{\\mitemover{\\moloch@circle}{\\overhangCircle}}\n\\setbeamertemplate{itemize subitem}{\\mitemover{\\moloch@square}{\\overhangSquare}}\n\\setbeamertemplate{itemize subsubitem}{\\mitemover{\\moloch@triangle}{\\overhangTriangle}}\n\\setbeamertemplate{caption label separator}{: }\n\\setbeamertemplate{caption}[numbered]",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Inner Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerinnerthememoloch.html#footnotes",
+    "href": "implementation/beamerinnerthememoloch.html#footnotes",
+    "title": "Appendix B — Inner Theme",
+    "section": "B.7 Footnotes",
+    "text": "B.7 Footnotes\n\\setbeamertemplate{footnote}{%\n  \\parindent 0em\\noindent\\raggedright \\usebeamercolor{footnote}\\hbox to\n  0.8em{\\hfil\\insertfootnotemark}\\insertfootnotetext%%%\n  \\par%\n}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Inner Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerinnerthememoloch.html#text-and-spacing-settings",
+    "href": "implementation/beamerinnerthememoloch.html#text-and-spacing-settings",
+    "title": "Appendix B — Inner Theme",
+    "section": "B.8 Text and Spacing Settings",
+    "text": "B.8 Text and Spacing Settings\nBy default, Beamer frames offer the c option to almost vertically center the text, but the placement is a little too high. To fix this, we redefine the c option to equalize \\beamer@frametopskip and \\beamer@framebottomskip. This solution was suggested by Enrico Gregorio in an answer to this Stack Exchange question.\n\\define@key{beamerframe}{c}[true]{% centered\n  \\beamer@frametopskip=0pt plus 1fil\\relax%\n  \\beamer@framebottomskip=0pt plus 1fil\\relax%\n  \\beamer@frametopskipautobreak=0pt plus .4\\paperheight\\relax%\n  \\beamer@framebottomskipautobreak=0pt plus .6\\paperheight\\relax%\n  \\def\\beamer@initfirstlineunskip{}%\n}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Inner Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerinnerthememoloch.html#standout-frames",
+    "href": "implementation/beamerinnerthememoloch.html#standout-frames",
+    "title": "Appendix B — Inner Theme",
+    "section": "B.9 Standout Frames",
+    "text": "B.9 Standout Frames\nMoloch offers a custom frame format with large, centered text and an inverted background. To use it, add the key standout to the frame:\n\\begin{frame}[standout] ... \\end{frame}.\n\nB.9.1 standout\nOptional arguments to Beamer’s frames are implemented using \\define@key from the keyval package, which will execute code when the defined option is called. For the standout option, we begin a group, change the colors and set frame options.\n\\providebool{moloch@standout}\n\\define@key{beamerframe}{standout}[true]{%\n  \\booltrue{moloch@standout}\n  \\begingroup\n  \\setkeys{beamerframe}{c}\n  \\ifbool{moloch@enableStandoutNumbering}{}{%\n    \\setkeys{beamerframe}{noframenumbering}}\n  \\ifbeamercolorempty[bg]{standout}{\n    \\setbeamercolor{background canvas}{\n      use=standout,\n      bg=-standout.fg\n    }\n  }{\n    \\setbeamercolor{background canvas}{\n      use=standout,\n      bg=standout.bg\n    }\n  }\n  \\setbeamercolor{local structure}{\n    fg=standout.fg\n  }\n  \\usebeamercolor[fg]{standout}\n  \\setbeamercolor{page number in head/foot}{\n    use=standout,\n    fg=standout.fg\n  }\n  \\ifbool{moloch@enableStandoutFooter}{}{\\setbeamertemplate{footline}{}}\n}\nThen we just have to close the group after the standout slide is finished in order to restore the colours and fonts for the rest of the presentation. Unfortunately, we cannot use \\AfterEndEnvironment{frame} for this (see http://tex.stackexchange.com/questions/226319/). Instead, we prepend the \\endgroup to \\beamer@reseteecodes, which is run exactly once at the end of each slide.\n\\pretocmd{\\beamer@reseteecodes}{%\n  \\ifbool{moloch@standout}{\n    \\endgroup\n    \\boolfalse{moloch@standout}\n  }{}\n}{}{}\nWe set the fonts and the \\centering alignment on the inner content, in such a way that the speaker’s note layout isn’t affected by the custom formatting.\n\\AtBeginEnvironment{beamer@frameslide}{\n  \\ifbool{moloch@standout}{\n    \\centering\n    \\usebeamerfont{standout}\n  }{}\n}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Inner Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerinnerthememoloch.html#process-package-options",
+    "href": "implementation/beamerinnerthememoloch.html#process-package-options",
+    "title": "Appendix B — Inner Theme",
+    "section": "B.10 Process Package Options",
+    "text": "B.10 Process Package Options\n\\moloch@inner@setdefaults\n\\ProcessPgfPackageOptions{/moloch/inner}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Inner Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerouterthememoloch.html",
+    "href": "implementation/beamerouterthememoloch.html",
+    "title": "Appendix C — Outer Theme",
+    "section": "",
+    "text": "C.1 Moloch Outer Theme\nA beamer outer theme dictates the style of the frame elements traditionally set outside the body of each slide: the head, footline, and frame title.",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Outer Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerouterthememoloch.html#package-dependencies",
+    "href": "implementation/beamerouterthememoloch.html#package-dependencies",
+    "title": "Appendix C — Outer Theme",
+    "section": "C.2 Package Dependencies",
+    "text": "C.2 Package Dependencies\n\\RequirePackage{calc}\n\\RequirePackage{pgfopts}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Outer Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerouterthememoloch.html#memoization-and-tikz-externalization",
+    "href": "implementation/beamerouterthememoloch.html#memoization-and-tikz-externalization",
+    "title": "Appendix C — Outer Theme",
+    "section": "C.3 Memoization and Tikz Externalization",
+    "text": "C.3 Memoization and Tikz Externalization\nTo avoid generating externalized figures of the progressbar we have to disable them with “tikzexternalenable” and “tikzexternaldisable”. However, if the “external” library is not loaded we would get undefined control sequence problems, hence we define them as no-ops if they are not defined yet. We do the same for the “mmzUnmemoizable” command from the memoize package, in order to avoid memoization of the progress bars.\n\\providecommand{\\tikzexternalenable}{}\n\\providecommand{\\tikzexternaldisable}{}\n\\providecommand{\\mmzUnmemoizable}{}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Outer Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerouterthememoloch.html#options",
+    "href": "implementation/beamerouterthememoloch.html#options",
+    "title": "Appendix C — Outer Theme",
+    "section": "C.4 Options",
+    "text": "C.4 Options\n\nC.4.1 progressbar\nAdds a progress bar to the top, bottom, or frametitle of each slide.\n\\pgfkeys{\n  /moloch/outer/progressbar/.cd,\n  .is choice,\n  none/.code={%\n      \\setbeamertemplate{headline}[plain]\n      \\setbeamertemplate{frametitle}[plain]\n      \\setbeamertemplate{footline}[plain]\n    },\n  head/.code={\\pgfkeys{/moloch/outer/progressbar=none}\n      \\addtobeamertemplate{headline}{}{%\n        \\usebeamertemplate*{progress bar in head/foot}\n      }\n    },\n  frametitle/.code={\\pgfkeys{/moloch/outer/progressbar=none}\n      \\addtobeamertemplate{frametitle}{}{%\n        \\usebeamertemplate*{progress bar in head/foot}\n      }\n    },\n  foot/.code={\\pgfkeys{/moloch/outer/progressbar=none}\n      \\addtobeamertemplate{footline}{}{%\n        \\usebeamertemplate*{progress bar in head/foot}%\n      }\n    },\n}\n\n\nC.4.2 progressbar linewidth\nSets the linewidth of the progress bar for sectionpages and frames.\n\\newlength{\\moloch@progressonsectionpage}\n\\newlength{\\moloch@progressonsectionpage@linewidth}\n\\newlength{\\moloch@progressinheadfoot}\n\\newlength{\\moloch@progressinheadfoot@linewidth}\n\\pgfkeys{\n  /moloch/outer/.cd,\n  progressbarlinewidth/.code={\n      \\setlength{\\moloch@progressonsectionpage@linewidth}{#1}\n      \\setlength{\\moloch@progressinheadfoot@linewidth}{#1}\n    },\n}\n\n\nC.4.3 progressbar aliases\nAllows progressbar linewidth to be used in \\molochset.\n\\pgfkeys{\n  /moloch/outer/.cd,\n  progressbar linewidth/.code=\\pgfkeysalso{progressbarlinewidth=#1},\n}\n\n\nC.4.4 frametitle margin\nSets the margins of the frame title.\n\\pgfkeys{\n  /moloch/outer/.cd,\n  frametitlemarginleft/.code=\\renewcommand{\\moloch@frametitle@margin@left}{#1},\n  frametitlemarginright/.code=\\renewcommand{\\moloch@frametitle@margin@right}{#1},\n  frametitlemargintop/.code=\\renewcommand{\\moloch@frametitle@margin@top}{#1},\n  frametitlemarginbottom/.code=\\renewcommand{\\moloch@frametitle@margin@bottom}{#1},\n}\n\n\nC.4.5 frametitle margin aliases\nAllows frametitle margin x to be used in \\molochset.\n\\pgfkeys{\n  /moloch/outer/.cd,\n  frametitle margin left/.code=\\pgfkeysalso{frametitlemarginleft=#1},\n  frametitle margin right/.code=\\pgfkeysalso{frametitlemarginright=#1},\n  frametitle margin top/.code=\\pgfkeysalso{frametitlemargintop=#1},\n  frametitle margin bottom/.code=\\pgfkeysalso{frametitlemarginbottom=#1},\n}\n\n\nC.4.6 \\moloch@outer@setdefaults\nSets default values for outer theme options.\n\\newcommand{\\moloch@outer@setdefaults}{\n  \\pgfkeys{/moloch/outer/.cd,\n    progressbar=none,\n    progressbar linewidth=1pt,\n  }\n}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Outer Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerouterthememoloch.html#deprecated-options",
+    "href": "implementation/beamerouterthememoloch.html#deprecated-options",
+    "title": "Appendix C — Outer Theme",
+    "section": "C.5 Deprecated Options",
+    "text": "C.5 Deprecated Options\nThese options are deprecated and will be removed in a future version.\n\nC.5.1 numbering\nAdds slide numbers to the bottom right of each slide.\n\\pgfkeys{\n  /moloch/outer/numbering/.cd,\n  .is choice,\n  none/.code={%\n      \\PackageWarning{moloch}{The ``numbering'' option is deprecated.\n        Use beamer's ``page number in head/foot'' template instead}%\n      \\setbeamertemplate{page number in head/foot}[default]\n    },\n  counter/.code={%\n      \\PackageWarning{moloch}{The ``numbering'' option is deprecated.\n        Use beamer's ``page number in head/foot'' template instead}%\n      \\setbeamertemplate{page number in head/foot}[framenumber]\n    },\n  fraction/.code={%\n      \\PackageWarning{moloch}{The ``numbering'' option is deprecated.\n        Use beamer's ``page number in head/foot'' template instead}%\n      \\setbeamertemplate{page number in head/foot}[totalframenumber]\n    },\n}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Outer Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerouterthememoloch.html#slide-numbering",
+    "href": "implementation/beamerouterthememoloch.html#slide-numbering",
+    "title": "Appendix C — Outer Theme",
+    "section": "C.6 Slide Numbering",
+    "text": "C.6 Slide Numbering\nMoloch defaults to numbering frames. To modify this, simply copy this line to your preamble and replace framenumber.\n\\setbeamertemplate{page number in head/foot}[framenumber]",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Outer Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerouterthememoloch.html#head-and-footline",
+    "href": "implementation/beamerouterthememoloch.html#head-and-footline",
+    "title": "Appendix C — Outer Theme",
+    "section": "C.7 Head and Footline",
+    "text": "C.7 Head and Footline\nAll good beamer presentations should already remove the navigation symbols, but Moloch removes them automatically (just in case).\n\\setbeamertemplate{navigation symbols}{}\n\nC.7.1 headline\nTemplate for the headline at the top of each frame, which is empty by default.\n\\defbeamertemplate{headline}{plain}{}\n\n\nC.7.2 footline\nTemplate for the footline at the bottom of each frame, which includes the slide number on the right.\n\\defbeamertemplate{footline}{plain}{%\n  \\begin{beamercolorbox}[\n      leftskip=4pt,%\n      rightskip=5pt,%\n      wd=\\textwidth,%\n    ]{footline}%\n    \\usebeamercolor[fg]{page number in head/foot}%\n    \\usebeamerfont{page number in head/foot}%\n    \\usebeamertemplate*{frame footer}%\n    \\hfill%\n    \\usebeamertemplate*{page number in head/foot}\\vskip4pt%\n  \\end{beamercolorbox}%\n}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Outer Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerouterthememoloch.html#frametitle",
+    "href": "implementation/beamerouterthememoloch.html#frametitle",
+    "title": "Appendix C — Outer Theme",
+    "section": "C.8 Frametitle",
+    "text": "C.8 Frametitle\n\nC.8.1 frametitle\nTemplates for the frame title, which is optionally underlined with a progress bar.\n\\newcommand{\\moloch@frametitlestrut@start}{%\n  \\rule{0pt}{\\moloch@frametitle@margin@top + \\ht\\strutbox}%\n}%\n\n\\newcommand{\\moloch@frametitlestrut@end}{%\n  \\rule[-\\moloch@frametitle@margin@bottom]{0pt}{\\moloch@frametitle@margin@bottom}%\n}\n\n\\newcommand{\\moloch@frametitle@margin@left}{\\dimexpr0.85\\ht\\strutbox\\relax}\n\\newcommand{\\moloch@frametitle@margin@right}{\\dimexpr0.85\\ht\\strutbox\\relax}\n\\newcommand{\\moloch@frametitle@margin@top}{\\dimexpr\\ht\\strutbox\\relax}\n\\newcommand{\\moloch@frametitle@margin@bottom}{\\dimexpr\\ht\\strutbox\\relax}\n\n\\defbeamertemplate{frametitle}{plain}{%\n  \\nointerlineskip%\n  \\begin{beamercolorbox}[%\n      wd=\\paperwidth,%\n      leftskip=\\moloch@frametitle@margin@left,%\n      rightskip=\\the\\glueexpr \\moloch@frametitle@margin@right plus 1fil\\relax,%\n    ]{frametitle}%\n    \\usebeamerfont{frametitle}%\n    \\moloch@frametitlestrut@start%\n    \\moloch@frametitleformat{\\insertframetitle}%\n    {%\n      \\ifx\\insertframesubtitle\\@empty%\n        \\else%\n        {%\n          \\par%\n          \\usebeamerfont{framesubtitle}%\n          \\usebeamercolor[fg]{framesubtitle}%\n          \\insertframesubtitle%\n        }%\n      \\fi\n    }%\n    \\moloch@frametitlestrut@end%\n  \\end{beamercolorbox}%\n}\n\\setbeamertemplate{frametitle continuation}{%\n  \\romannumeral\\insertcontinuationcount}\n\n\nC.8.2 progress bar in head/foot\nTemplate for the progress bar optionally displayed below the frame title on each page. Much of this code is duplicated in the inner theme’s template progress bar in section page.\n\\setbeamertemplate{progress bar in head/foot}{\n  \\nointerlineskip%\n  \\pgfmathsetlength{\\moloch@progressinheadfoot}{%\n    \\paperwidth * min(1,\\insertframenumber/\\inserttotalframenumber)%\n  }%\n  \\begin{beamercolorbox}[wd=\\paperwidth]{progress bar in head/foot}\n    \\tikzexternaldisable%\n    \\begin{tikzpicture}\n      \\mmzUnmemoizable%\n      \\fill[bg]\n      (0,0)\n      rectangle\n      (\\paperwidth, \\moloch@progressinheadfoot@linewidth);\n      \\fill[fg]\n      (0,0)\n      rectangle\n      (\\moloch@progressinheadfoot, \\moloch@progressinheadfoot@linewidth);\n    \\end{tikzpicture}\n    \\tikzexternalenable%\n  \\end{beamercolorbox}\n}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Outer Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerouterthememoloch.html#process-package-options",
+    "href": "implementation/beamerouterthememoloch.html#process-package-options",
+    "title": "Appendix C — Outer Theme",
+    "section": "C.9 Process Package Options",
+    "text": "C.9 Process Package Options\n\\moloch@outer@setdefaults\n\\ProcessPgfPackageOptions{/moloch/outer}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Outer Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerfontthememoloch.html",
+    "href": "implementation/beamerfontthememoloch.html",
+    "title": "Appendix D — Font Theme",
+    "section": "",
+    "text": "D.1 Moloch Font Theme\nThe Moloch font theme defines the fonts used throughout the presentation.",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>D</span>  <span class='chapter-title'>Font Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerfontthememoloch.html#package-dependencies",
+    "href": "implementation/beamerfontthememoloch.html#package-dependencies",
+    "title": "Appendix D — Font Theme",
+    "section": "D.2 Package Dependencies",
+    "text": "D.2 Package Dependencies\n\\RequirePackage{etoolbox}\n\\RequirePackage{pgfopts}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>D</span>  <span class='chapter-title'>Font Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerfontthememoloch.html#general-font-definitions",
+    "href": "implementation/beamerfontthememoloch.html#general-font-definitions",
+    "title": "Appendix D — Font Theme",
+    "section": "D.3 General Font Definitions",
+    "text": "D.3 General Font Definitions\n\\setbeamerfont{title}{size=\\Large, series=\\bfseries}\n\\setbeamerfont{author}{size=\\small}\n\\setbeamerfont{date}{size=\\small}\n\\setbeamerfont{section title}{size=\\Large, series=\\bfseries}\n\\setbeamerfont{block title}{size=\\normalsize, series=\\bfseries}\n\\setbeamerfont{block title alerted}{size=\\normalsize, series=\\bfseries}\n\\setbeamerfont*{subtitle}{size=\\large}\n\\setbeamerfont{frametitle}{size=\\large, series=\\bfseries}\n\\setbeamerfont{framesubtitle}{size=\\small}\n\\setbeamerfont{caption}{size=\\small}\n\\setbeamerfont{caption name}{series=\\bfseries}\n\\setbeamerfont{description item}{series=\\bfseries}\n\\setbeamerfont{standout}{size=\\Large, series=\\bfseries}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>D</span>  <span class='chapter-title'>Font Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerfontthememoloch.html#title-format-options",
+    "href": "implementation/beamerfontthememoloch.html#title-format-options",
+    "title": "Appendix D — Font Theme",
+    "section": "D.4 Title Format Options",
+    "text": "D.4 Title Format Options\n\nD.4.1 titleformat title\nControls the format of the title.\n\\pgfkeys{\n  /moloch/font/titleformat title/.cd,\n  .is choice,\n  regular/.code={%\n      \\let\\moloch@titleformat\\@empty%\n      \\setbeamerfont{title}{shape=\\normalfont}%\n    },\n  smallcaps/.code={%\n      \\let\\moloch@titleformat\\@empty%\n      \\setbeamerfont{title}{shape=\\scshape}%\n    },\n  allsmallcaps/.code={%\n      \\let\\moloch@titleformat\\lowercase%\n      \\setbeamerfont{title}{shape=\\scshape}%\n      \\PackageNote{beamerthememoloch}{%\n        Be aware that titleformat title=allsmallcaps can\n        lead to problems}\n    },\n  allcaps/.code={%\n      \\let\\moloch@titleformat\\uppercase%\n      \\setbeamerfont{title}{shape=\\normalfont}\n      \\PackageNote{beamerthememoloch}{%\n        Be aware that titleformat title=allcaps can lead to problems%\n      }\n    },\n}\n\n\nD.4.2 titleformat subtitle\nControl the format of the subtitle.\n\\pgfkeys{\n  /moloch/font/titleformat subtitle/.cd,\n  .is choice,\n  regular/.code={%\n      \\let\\moloch@subtitleformat\\@empty%\n      \\setbeamerfont{subtitle}{shape=\\normalfont}%\n    },\n  smallcaps/.code={%\n      \\let\\moloch@subtitleformat\\@empty%\n      \\setbeamerfont{subtitle}{shape=\\scshape}%\n    },\n  allsmallcaps/.code={%\n      \\let\\moloch@subtitleformat\\MakeLowercase%\n      \\setbeamerfont{subtitle}{shape=\\scshape}%\n      \\PackageNote{beamerthememoloch}{%\n        Be aware that titleformat subtitle=allsmallcaps\n        can lead to problems}\n    },\n  allcaps/.code={%\n      \\let\\moloch@subtitleformat\\MakeUppercase%\n      \\setbeamerfont{subtitle}{shape=\\normalfont}%\n      \\PackageNote{beamerthememoloch}{%\n        Be aware that titleformat subtitle=allcaps can\n        lead to problems}\n    },\n}\n\n\nD.4.3 titleformat section\nControls the format of the section title.\n\\pgfkeys{\n  /moloch/font/titleformat section/.cd,\n  .is choice,\n  regular/.code={%\n      \\let\\moloch@sectiontitleformat\\@empty%\n      \\setbeamerfont{section title}{shape=\\normalfont}%\n    },\n  smallcaps/.code={%\n      \\let\\moloch@sectiontitleformat\\@empty%\n      \\setbeamerfont{section title}{shape=\\scshape}%\n    },\n  allsmallcaps/.code={%\n      \\let\\moloch@sectiontitleformat\\MakeLowercase%\n      \\setbeamerfont{section title}{shape=\\scshape}%\n      \\PackageNote{beamerthememoloch}{%\n        Be aware that titleformat section=allsmallcaps\n        can lead to problems}\n    },\n  allcaps/.code={%\n      \\let\\moloch@sectiontitleformat\\MakeUppercase%\n      \\setbeamerfont{section title}{shape=\\normalfont}%\n      \\PackageNote{beamerthememoloch}{%\n        Be aware that titleformat section=allcaps\n        can lead to problems}\n    },\n}\n\n\nD.4.4 frametitleformat\nControl the format of the frame title.\n\\pgfkeys{\n  /moloch/font/titleformat frame/.cd,\n  .is choice,\n  regular/.code={%\n      \\let\\moloch@frametitleformat\\@empty%\n      \\setbeamerfont{frametitle}{shape=\\normalfont}%\n    },\n  smallcaps/.code={%\n      \\let\\moloch@frametitleformat\\@empty%\n      \\setbeamerfont{frametitle}{shape=\\scshape}%\n    },\n  allsmallcaps/.code={%\n      \\let\\moloch@frametitleformat\\MakeLowercase%\n      \\setbeamerfont{frametitle}{shape=\\scshape}%\n      \\PackageNote{beamerthememoloch}{%\n        Be aware that titleformat frame=allsmallcaps\n        can lead to problems}\n    },\n  allcaps/.code={%\n      \\let\\moloch@frametitleformat\\MakeUppercase%\n      \\setbeamerfont{frametitle}{shape=\\normalfont}\n      \\PackageNote{beamerthememoloch}{%\n        Be aware that titleformat frame=allcaps can lead to problems%\n      }\n    },\n}\n\n\nD.4.5 titleformat aliases\nAllows titleformat title et al. to be used in the \\usetheme declaration, where LaTeX automatically removes all spaces.\n\\pgfkeys{\n  /moloch/font/.cd,\n  titleformattitle/.code=\\pgfkeysalso{titleformat title=#1},\n  titleformatsubtitle/.code=\\pgfkeysalso{titleformat subtitle=#1},\n  titleformatsection/.code=\\pgfkeysalso{titleformat section=#1},\n  titleformatframe/.code=\\pgfkeysalso{titleformat frame=#1},\n}\n\n\nD.4.6 \\moloch@font@setdefaults\nSets default values for font theme options.\n\\newcommand{\\moloch@font@setdefaults}{\n  \\pgfkeys{/moloch/font/.cd,\n    titleformat title=regular,\n    titleformat subtitle=regular,\n    titleformat section=regular,\n    titleformat frame=regular,\n  }\n}\nWe first define hooks to change the case format of the titles.\n\\def\\moloch@titleformat#1{#1}\n\\def\\moloch@subtitleformat#1{#1}\n\\def\\moloch@sectiontitleformat#1{#1}\n\\def\\moloch@frametitleformat#1{#1}\nTo make the uppercase and lowercase macros work in the title, subtitle, etc., we have to patch the appropriate beamer commands that set their values. This solution was suggested by Enrico Gregorio in an answer to this StackExchange question.",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>D</span>  <span class='chapter-title'>Font Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamerfontthememoloch.html#process-package-options",
+    "href": "implementation/beamerfontthememoloch.html#process-package-options",
+    "title": "Appendix D — Font Theme",
+    "section": "D.5 Process Package Options",
+    "text": "D.5 Process Package Options\n\\moloch@font@setdefaults\n\\ProcessPgfPackageOptions{/moloch/font}",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>D</span>  <span class='chapter-title'>Font Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamercolorthememoloch.html",
+    "href": "implementation/beamercolorthememoloch.html",
+    "title": "Appendix E — Color Theme",
+    "section": "",
+    "text": "E.1 Moloch Color Theme",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Color Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamercolorthememoloch.html#moloch-color-theme",
+    "href": "implementation/beamercolorthememoloch.html#moloch-color-theme",
+    "title": "Appendix E — Color Theme",
+    "section": "",
+    "text": "E.1.1 Package Dependencies\n\\RequirePackage{pgfopts}\n\n\nE.1.2 Options\n\n\nE.1.3 block\nOptionally adds a light grey background to block environments like theorem and example.\n\\pgfkeys{\n  /moloch/color/block/.cd,\n  .is choice,\n  transparent/.code=\\moloch@block@transparent,\n  fill/.code=\\moloch@block@fill,\n}\n\n\nE.1.4 Variant tracking\nBoolean to track whether we’re in dark or light variant.\n\\newif\\ifmoloch@variant@dark\n\\moloch@variant@darkfalse  % Default to light variant\n\n\nE.1.5 colors\nProvides the option to have a dark background and light foreground instead of the reverse.\n\\pgfkeys{\n  /moloch/color/background/.cd,\n  .is choice,\n  dark/.code={%\n      \\PackageWarning{beamercolorthememoloch}{%\n        Option 'background' is deprecated.\\MessageBreak\n        Use 'colortheme variant=light/dark' instead\n      }%\n      \\moloch@colors@dark\n    },\n  light/.code={%\n      \\moloch@colors@light\n    },\n}\n\n\nE.1.6 \\moloch@color@setdefaults\nSets default values for color theme options.\n\\newcommand{\\moloch@color@setdefaults}{\n  \\pgfkeys{/moloch/color/.cd,\n    background=light,\n  }\n}\n\n\nE.1.7 Base Colors\nThese are the base colors used in the default Moloch color theme. They are kept here mostly for backwards compatibility, and colors for the themes are now defined in the preset commands below.\n\\definecolor{mDarkBrown}{HTML}{604c38}\n\\definecolor{mDarkTeal}{HTML}{23373b}\n\\definecolor{mLightBrown}{HTML}{EB811B}\n\\definecolor{mLightGreen}{RGB}{0,128,128}\n\n\nE.1.8 Hooks for Color Themes\nMoloch color themes can register light and dark color schemes using the commands below. The registered colors will be stored in the macros \\moloch@define@light@colors and \\moloch@define@dark@colors respectively. These macros are invoked when the variant=light or variant=dark options are selected, allowing theme presets to define complete color schemes for both variants.\n\n\nE.1.9 \\moloch@define@light@colors\n\n\nE.1.10 \\moloch@define@dark@colors\nStorage macros for the light and dark color definitions. Initialized empty and filled by color theme presets via the registration commands.\n\\newcommand{\\moloch@define@light@colors}{}\n\\newcommand{\\moloch@define@dark@colors}{}\n\n\nE.1.11 \\moloch@register@light@colors\nAllows color theme presets to register their light variant color scheme. The argument should contain \\setbeamercolor commands that define all necessary colors for the light variant.\n\\newcommand{\\moloch@register@light@colors}[1]{%\n  \\renewcommand{\\moloch@define@light@colors}{#1}%\n}\n\n\nE.1.12 \\moloch@register@dark@colors\nAllows color theme presets to register their dark variant color scheme. The argument should contain \\setbeamercolor commands that define all necessary colors for the dark variant.\n\\newcommand{\\moloch@register@dark@colors}[1]{%\n  \\renewcommand{\\moloch@define@dark@colors}{#1}%\n}\n\n\nE.1.13 \\moloch@setup@block@colors\nConfigures the colors for block environments to derive from normal text and alerted/example text colors. This is called after switching variants to ensure block colors stay consistent with the current color scheme. Block titles inherit from normal text foreground, while alerted and example block titles additionally use their respective text colors.\n\\newcommand{\\moloch@setup@block@colors}{%\n  \\setbeamercolor{block title}{%\n    use=normal text,\n    fg=normal text.fg,\n    bg=\n  }%\n  \\setbeamercolor{block title alerted}{%\n    use={block title, alerted text}\n  }%\n  \\setbeamercolor{block title example}{%\n    use={block title, example text}\n  }%\n  \\setbeamercolor{block body alerted}{use=block body, parent=block body}%\n  \\setbeamercolor{block body example}{use=block body, parent=block body}%\n}\n\n\nE.1.14 \\moloch@setup@text@colors\nConfigures title-related colors to derive from normal text. This ensures that when normal text color changes (e.g., during variant switching), all title elements automatically adapt. Institute and thanks use a slightly muted version (80% mix) for visual hierarchy.\n\\newcommand{\\moloch@setup@text@colors}{%\n  \\setbeamercolor{titlelike}{use=normal text, parent=normal text}%\n  \\setbeamercolor{author}{use=normal text, parent=normal text}%\n  \\setbeamercolor{date}{use=normal text, parent=normal text}%\n  \\setbeamercolor{institute}{%\n    use=normal text, fg=normal text.fg!80!normal text.bg}%\n  \\setbeamercolor{structure}{use=normal text, fg=normal text.fg}%\n  \\setbeamercolor{thanks}{%\n    use=normal text,fg=normal text.fg!80!normal text.bg}%\n}\n\n\nE.1.15 \\moloch@setup@progressbar@parents\nUpdates colors that derive from the progress bar color. This includes the title separator (horizontal rule on title page) and progress bars in various locations (head, foot, section pages). Called whenever the progress bar foreground or background color is customized.\n\\newcommand{\\moloch@setup@progressbar@parents}{%\n  \\setbeamercolor{progress bar in head/foot}{%\n    use=progress bar,\n    parent=progress bar\n  }%\n  \\setbeamercolor{progress bar in section page}{%\n    use=progress bar,\n    parent=progress bar\n  }%\n}\n\n\nE.1.16 Variant Switching Commands\n\n\nE.1.17 \\moloch@colors@dark\nSwitches to the dark variant color scheme. This command:\n\nSets the dark variant flag\nApplies the registered dark colors from the current theme preset\nEnsures normal text color is active\nUpdates dependent colors (blocks, text) to match\nApplies any stored user customizations for the dark variant\n\n\\newcommand{\\moloch@colors@dark}{\n  \\moloch@variant@darktrue\n  \\moloch@define@dark@colors\n  \\usebeamercolor[fg]{normal text}\n\n  \\moloch@setup@block@colors\n  \\moloch@setup@text@colors\n\n  % Apply stored dark variant colors\n  \\moloch@apply@store@dark@colors\n}\n\n\nE.1.18 \\moloch@colors@light\nSwitches to the light variant color scheme. Mirrors the dark variant command but applies light colors instead. The sequence ensures that user customizations override theme defaults.\n\\newcommand{\\moloch@colors@light}{\n  \\moloch@variant@darkfalse\n  \\moloch@define@light@colors\n  \\usebeamercolor[fg]{normal text}\n\n  \\moloch@setup@block@colors\n  \\moloch@setup@text@colors\n\n  \\setbeamercolor{title separator}{\n    use=progress bar,\n    parent=progress bar\n  }\n  \\moloch@setup@progressbar@parents\n\n  % Apply stored light variant colors AFTER block definitions\n  \\moloch@apply@store@light@colors\n}\n\n\nE.1.19 \\moloch@apply@current@variant\nHelper command that applies the appropriate variant based on the \\ifmoloch@variant@dark boolean flag. Used during initialization and when switching color theme presets to ensure the correct variant is applied.\n\\newcommand{\\moloch@apply@current@variant}{%\n  \\ifmoloch@variant@dark\n    \\moloch@colors@dark\n  \\else\n    \\moloch@colors@light\n  \\fi\n}\n\n\nE.1.20 Color Customization Storage System\nThe storage system allows users to customize individual colors while preserving those customizations across variant switches. Each color option has separate storage for light and dark variants. When a user sets a color, it’s both applied immediately and stored. When switching variants, stored customizations are reapplied on top of the theme defaults.\n\n\nE.1.21 \\moloch@apply@store@light@colors\nApplies stored user customizations for the light variant. Checks each storage macro and applies it if non-empty. This is called after applying the theme’s light colors to override with user preferences. For colors that affect multiple elements (like alerted text affecting both inline text and block titles), both are updated. Setup functions are called when needed to propagate changes to dependent colors.\n\\newcommand{\\moloch@apply@store@light@colors}{%\n  \\ifx\\moloch@store@light@alerted@text\\empty\\else\n    \\setbeamercolor{alerted text}{fg=\\moloch@store@light@alerted@text}%\n    \\setbeamercolor{block title alerted}{fg=\\moloch@store@light@alerted@text}%\n  \\fi\n  \\ifx\\moloch@store@light@example@text\\empty\\else\n    \\setbeamercolor{example text}{fg=\\moloch@store@light@example@text}%\n    \\setbeamercolor{block title example}{fg=\\moloch@store@light@example@text}%\n  \\fi\n  \\ifx\\moloch@store@light@frametitle@fg\\empty\\else\n    \\setbeamercolor{frametitle}{fg=\\moloch@store@light@frametitle@fg}%\n  \\fi\n  \\ifx\\moloch@store@light@frametitle@bg\\empty\\else\n    \\setbeamercolor{frametitle}{bg=\\moloch@store@light@frametitle@bg}%\n  \\fi\n  \\ifx\\moloch@store@light@progressbar@fg\\empty\\else\n    \\setbeamercolor{progress bar}{fg=\\moloch@store@light@progressbar@fg}%\n    \\moloch@setup@progressbar@parents\n  \\fi\n  \\ifx\\moloch@store@light@progressbar@bg\\empty\\else\n    \\setbeamercolor{progress bar}{bg=\\moloch@store@light@progressbar@bg}%\n    \\moloch@setup@progressbar@parents\n  \\fi\n  \\ifx\\moloch@store@light@standout@fg\\empty\\else\n    \\setbeamercolor{standout}{fg=\\moloch@store@light@standout@fg}%\n  \\fi\n  \\ifx\\moloch@store@light@standout@bg\\empty\\else\n    \\setbeamercolor{standout}{bg=\\moloch@store@light@standout@bg}%\n  \\fi\n  \\ifx\\moloch@store@light@normal@text@fg\\empty\\else\n    \\setbeamercolor{normal text}{fg=\\moloch@store@light@normal@text@fg}%\n    \\moloch@setup@text@colors\n    \\moloch@setup@block@colors\n  \\fi\n  \\ifx\\moloch@store@light@normal@text@bg\\empty\\else\n    \\setbeamercolor{normal text}{bg=\\moloch@store@light@normal@text@bg}%\n  \\fi\n  \\ifx\\moloch@store@light@title@separator\\empty\\else\n    \\setbeamercolor{title separator}{fg=\\moloch@store@light@title@separator}%\n  \\fi\n}\n\n\nE.1.22 \\moloch@apply@store@dark@colors\nApplies stored user customizations for the dark variant. Mirrors the light variant application but for dark colors. The logic is identical: check each storage macro, apply if non-empty, and call setup functions for colors that affect dependent elements.\n\\newcommand{\\moloch@apply@store@dark@colors}{%\n  \\ifx\\moloch@store@dark@alerted@text\\empty\\else\n    \\setbeamercolor{alerted text}{fg=\\moloch@store@dark@alerted@text}%\n    \\setbeamercolor{block title alerted}{fg=\\moloch@store@dark@alerted@text}%\n  \\fi\n  \\ifx\\moloch@store@dark@example@text\\empty\\else\n    \\setbeamercolor{example text}{fg=\\moloch@store@dark@example@text}%\n    \\setbeamercolor{block title example}{fg=\\moloch@store@dark@example@text}%\n  \\fi\n  \\ifx\\moloch@store@dark@frametitle@fg\\empty\\else\n    \\setbeamercolor{frametitle}{fg=\\moloch@store@dark@frametitle@fg}%\n  \\fi\n  \\ifx\\moloch@store@dark@frametitle@bg\\empty\\else\n    \\setbeamercolor{frametitle}{bg=\\moloch@store@dark@frametitle@bg}%\n  \\fi\n  \\ifx\\moloch@store@dark@progressbar@fg\\empty\\else\n    \\setbeamercolor{progress bar}{fg=\\moloch@store@dark@progressbar@fg}%\n    \\moloch@setup@progressbar@parents\n  \\fi\n  \\ifx\\moloch@store@dark@progressbar@bg\\empty\\else\n    \\setbeamercolor{progress bar}{bg=\\moloch@store@dark@progressbar@bg}%\n    \\moloch@setup@progressbar@parents\n  \\fi\n  \\ifx\\moloch@store@dark@standout@fg\\empty\\else\n    \\setbeamercolor{standout}{fg=\\moloch@store@dark@standout@fg}%\n  \\fi\n  \\ifx\\moloch@store@dark@standout@bg\\empty\\else\n    \\setbeamercolor{standout}{bg=\\moloch@store@dark@standout@bg}%\n  \\fi\n  \\ifx\\moloch@store@dark@normal@text@fg\\empty\\else\n    \\setbeamercolor{normal text}{fg=\\moloch@store@dark@normal@text@fg}%\n    \\moloch@setup@text@colors\n    \\moloch@setup@block@colors\n  \\fi\n  \\ifx\\moloch@store@dark@normal@text@bg\\empty\\else\n    \\setbeamercolor{normal text}{bg=\\moloch@store@dark@normal@text@bg}%\n  \\fi\n  \\ifx\\moloch@store@dark@title@separator\\empty\\else\n    \\setbeamercolor{title separator}{fg=\\moloch@store@dark@title@separator}%\n  \\fi\n}\n\n\nE.1.23 Semantic Color Helper\n\n\nE.1.24 \\moloch@apply@semantic@colors\nMaps semantic color names to Beamer color definitions. This helper expects the following colors to be defined (via \\definecolor or \\colorlet) before being called:\n\nmNormaltextFg - Normal text foreground\nmNormaltextBg - Normal text background\nmFrametitleFg - Frame title foreground\nmFrametitleBg - Frame title background\nmAlertFg - Alerted text foreground\nmExampleFg - Example text foreground\nmProgressbarFg - Progress bar foreground\nmProgressbarBg - Progress bar background\nmStandoutFg - Standout frame foreground\nmStandoutBg - Standout frame background\nmFootnoteFg - Footnote foreground\n\nColor themes should define all these colors (using any color specification method: HTML, RGB, color names, or color expressions), then call this helper to apply them to the appropriate Beamer color elements.\n\\newcommand{\\moloch@apply@semantic@colors}{%\n  % Apply semantic colors to Beamer color definitions\n  \\setbeamercolor{normal text}{fg=mNormaltextFg, bg=mNormaltextBg}%\n  \\setbeamercolor{frametitle}{fg=mFrametitleFg, bg=mFrametitleBg}%\n  \\setbeamercolor{palette primary}{use=frametitle, parent=frametitle}%\n  \\setbeamercolor{alerted text}{fg=mAlertFg}%\n  \\setbeamercolor{example text}{fg=mExampleFg}%\n  \\setbeamercolor{progress bar}{fg=mProgressbarFg, bg=mProgressbarBg}%\n  \\setbeamercolor{title separator}{fg=mTitleseparatorFg}%\n  \\setbeamercolor{footnote}{fg=mFootnoteFg}%\n  \\setbeamercolor{footnote mark}{fg=.}%\n  \\setbeamercolor{standout}{fg=mStandoutFg, bg=mStandoutBg}%\n}\n\n\nE.1.25 Color Theme Presets\nThese commands define complete color schemes that can be switched between. Each preset registers both light and dark variants.\n\n\nE.1.26 \\moloch@colortheme@default\nThe default moloch color scheme.\n\\newcommand{\\moloch@colortheme@default}{%\n  \\moloch@register@light@colors{%\n    \\definecolor{mNormaltextFg}{HTML}{23373b}\n    \\colorlet{mNormaltextBg}{black!2}\n    \\definecolor{mAlertFg}{HTML}{EB811B}\n    \\definecolor{mExampleFg}{RGB}{0,128,128}\n    \\colorlet{mFrametitleFg}{mNormaltextBg}\n    \\colorlet{mFrametitleBg}{mNormaltextFg}\n    \\colorlet{mProgressbarFg}{mAlertFg}\n    \\colorlet{mProgressbarBg}{mProgressbarFg!50!black!30}\n    \\colorlet{mTitleseparatorFg}{mProgressbarFg}\n    \\colorlet{mStandoutFg}{mNormaltextBg}\n    \\colorlet{mStandoutBg}{mNormaltextFg}\n    \\colorlet{mFootnoteFg}{mNormaltextFg!90}\n\n    \\moloch@apply@semantic@colors\n  }%\n\n  % Register dark variant - use brighter colors for better contrast\n  \\moloch@register@dark@colors{%\n    \\colorlet{mNormaltextFg}{black!2}\n    \\definecolor{mNormaltextBg}{HTML}{23373b}\n    \\definecolor{mAlertFg}{HTML}{EF9F76}\n    \\definecolor{mExampleFg}{HTML}{5ABFB5}\n    \\colorlet{mFrametitleFg}{mNormaltextBg}\n    \\colorlet{mFrametitleBg}{black!15}\n    \\colorlet{mProgressbarFg}{mAlertFg}\n    \\colorlet{mProgressbarBg}{mProgressbarFg!50!black!30}\n    \\colorlet{mTitleseparatorFg}{mProgressbarFg}\n    \\colorlet{mStandoutFg}{mNormaltextBg}\n    \\colorlet{mStandoutBg}{black!15}\n    \\colorlet{mFootnoteFg}{mNormaltextFg!90}\n\n    \\moloch@apply@semantic@colors\n  }%\n\n  % Apply current variant after registering both\n  \\moloch@apply@current@variant\n}\n\n\nE.1.27 \\moloch@colortheme@tomorrow\nThe Tomorrow color scheme by Chris Kempson.\n\\newcommand{\\moloch@colortheme@tomorrow}{%\n  \\moloch@register@light@colors{%\n    \\definecolor{mNormaltextFg}{HTML}{1d1f21}\n    \\colorlet{mNormaltextBg}{white}\n    \\definecolor{mAlertFg}{HTML}{cc6666}\n    \\definecolor{mExampleFg}{HTML}{4271ae}\n    \\colorlet{mFrametitleFg}{white}\n    \\definecolor{mFrametitleBg}{HTML}{1d1f21}\n    \\definecolor{mProgressbarFg}{HTML}{8959a8}\n    \\colorlet{mProgressbarBg}{mProgressbarFg!50!black!30}\n    \\definecolor{mTitleseparatorFg}{HTML}{8959a8}\n    \\colorlet{mStandoutFg}{white}\n    \\definecolor{mStandoutBg}{HTML}{1d1f21}\n    \\definecolor{mFootnoteFg}{HTML}{1d1f21}\n\n    \\moloch@apply@semantic@colors\n  }\n\n  \\moloch@register@dark@colors{%\n    \\colorlet{mNormaltextFg}{white}\n    \\definecolor{mNormaltextBg}{HTML}{282a2e}\n    \\definecolor{mAlertFg}{HTML}{de935f}\n    \\definecolor{mExampleFg}{HTML}{7aa6da}\n    \\colorlet{mFrametitleFg}{white}\n    \\definecolor{mFrametitleBg}{HTML}{1d1f21}\n    \\definecolor{mProgressbarFg}{HTML}{b294bb}\n    \\colorlet{mProgressbarBg}{mProgressbarFg!50!black!30}\n    \\definecolor{mTitleseparatorFg}{HTML}{b294bb}\n    \\colorlet{mStandoutFg}{white}\n    \\definecolor{mStandoutBg}{HTML}{1d1f21}\n    \\definecolor{mFootnoteFg}{HTML}{1d1f21}\n\n    \\moloch@apply@semantic@colors\n  }%\n\n  % Apply current variant after registering both\n  \\moloch@apply@current@variant\n}\n\n\nE.1.28 \\moloch@colortheme@paper\nA crisp and clean color scheme with white frametitle background and high contrast.\n\\newcommand{\\moloch@colortheme@paper}{%\n  \\moloch@register@light@colors{%\n    \\colorlet{mNormaltextFg}{black}\n    \\colorlet{mNormaltextBg}{white}\n    \\definecolor{mAlertFg}{HTML}{E5276F}\n    \\definecolor{mExampleFg}{HTML}{265DAB}\n    \\colorlet{mFrametitleFg}{black}\n    \\colorlet{mFrametitleBg}{white}\n    \\definecolor{mProgressbarFg}{HTML}{60BD68}\n    \\colorlet{mProgressbarBg}{black!20}\n    \\definecolor{mTitleseparatorFg}{HTML}{F15854}\n    \\colorlet{mStandoutFg}{white}\n    \\colorlet{mStandoutBg}{black!60}\n    \\colorlet{mFootnoteFg}{black!90}\n\n    \\moloch@apply@semantic@colors\n  }%\n\n  \\moloch@register@dark@colors{%\n    \\colorlet{mNormaltextFg}{white}\n    \\colorlet{mNormaltextBg}{black!80}\n    \\definecolor{mAlertFg}{HTML}{F17CB0}\n    \\definecolor{mExampleFg}{HTML}{88BDE6}\n    \\colorlet{mFrametitleFg}{white}\n    \\colorlet{mFrametitleBg}{black!80}\n    \\definecolor{mProgressbarFg}{HTML}{90CD97}\n    \\colorlet{mProgressbarBg}{black!70}\n    \\definecolor{mTitleseparatorFg}{HTML}{F15854}\n    \\colorlet{mStandoutFg}{white}\n    \\colorlet{mStandoutBg}{black!60}\n    \\colorlet{mFootnoteFg}{black!90}\n\n    \\moloch@apply@semantic@colors\n  }%\n\n  % Apply current variant after registering both\n  \\moloch@apply@current@variant\n}\n\n\nE.1.29 \\moloch@colortheme@highcontrast\nHigh contrast color scheme for better accessibility.\n\\newcommand{\\moloch@colortheme@highcontrast}{%\n  % Define high contrast colors\n  \\definecolor{mAlert}{HTML}{AD003D}%\n  \\definecolor{mExample}{HTML}{005580}%\n\n  % Register light variant\n  \\moloch@register@light@colors{%\n    \\colorlet{mNormaltextFg}{black}\n    \\colorlet{mNormaltextBg}{white}\n    \\definecolor{mAlertFg}{HTML}{C66526}\n    \\definecolor{mExampleFg}{HTML}{3070AD}\n    \\colorlet{mFrametitleFg}{white}\n    \\colorlet{mFrametitleBg}{black}\n    \\colorlet{mProgressbarFg}{mAlertFg}\n    \\colorlet{mProgressbarBg}{mProgressbarFg!50!black!30}\n    \\colorlet{mTitleseparatorFg}{mAlertFg}\n    \\colorlet{mStandoutFg}{black}\n    \\colorlet{mStandoutBg}{white}\n    \\colorlet{mFootnoteFg}{mNormaltextFg!90}\n\n    \\moloch@apply@semantic@colors\n  }%\n  \\definecolor{mAlertDark}{HTML}{F7768E}%\n  \\definecolor{mExampleDark}{HTML}{7AA2F7}%\n\n  % Register dark variant\n  \\moloch@register@dark@colors{%\n    \\colorlet{mNormaltextFg}{white}\n    \\colorlet{mNormaltextBg}{black}\n    \\definecolor{mAlertFg}{HTML}{DCA237}\n    \\definecolor{mExampleFg}{HTML}{6FB2E4}\n    \\colorlet{mFrametitleFg}{black}\n    \\colorlet{mFrametitleBg}{white}\n    \\colorlet{mProgressbarFg}{mAlertFg}\n    \\colorlet{mProgressbarBg}{mProgressbarFg!50!black!70}\n    \\colorlet{mTitleseparatorFg}{mAlertFg}\n    \\colorlet{mStandoutFg}{white}\n    \\colorlet{mStandoutBg}{black}\n    \\colorlet{mFootnoteFg}{mNormaltextFg!90}\n\n    \\moloch@apply@semantic@colors\n  }%\n\n  % Apply current variant after registering both\n  \\moloch@apply@current@variant\n}\n\n\nE.1.30 \\moloch@colortheme@catppuccin\nA color theme with soothing pastels and light contrasts.\n\\newcommand{\\moloch@colortheme@catppuccin}{%\n  \\moloch@register@light@colors{%\n    \\definecolor{mNormaltextFg}{HTML}{4C4F69}\n    \\definecolor{mNormaltextBg}{HTML}{EFF1F5}\n    \\definecolor{mAlertFg}{HTML}{D20F39}\n    \\definecolor{mExampleFg}{HTML}{1E66F5}\n    \\definecolor{mFrametitleFg}{HTML}{CAD3F5}\n    \\definecolor{mFrametitleBg}{HTML}{303446}\n    \\definecolor{mProgressbarFg}{HTML}{DC8A78}\n    \\colorlet{mProgressbarBg}{mProgressbarFg!50!black!30}\n    \\definecolor{mTitleseparatorFg}{HTML}{40A02B}\n    \\definecolor{mStandoutFg}{HTML}{CAD3F5}\n    \\definecolor{mStandoutBg}{HTML}{303446}\n    \\colorlet{mFootnoteFg}{mNormaltextFg!90}\n\n    \\moloch@apply@semantic@colors\n  }%\n\n  \\moloch@register@dark@colors{%\n    \\definecolor{mNormaltextFg}{HTML}{CAD3F5}\n    \\definecolor{mNormaltextBg}{HTML}{24273A}\n    \\definecolor{mAlertFg}{HTML}{ED8796}\n    \\definecolor{mExampleFg}{HTML}{8AADF4}\n    \\definecolor{mFrametitleFg}{HTML}{CAD3F5}\n    \\definecolor{mFrametitleBg}{HTML}{24273A}\n    \\definecolor{mProgressbarFg}{HTML}{EED49F}\n    \\colorlet{mProgressbarBg}{mProgressbarFg!20!black!90}\n    \\definecolor{mTitleseparatorFg}{HTML}{A6DA95}\n    \\definecolor{mStandoutFg}{HTML}{4C4F69}\n    \\definecolor{mStandoutBg}{HTML}{CCD0DA}\n    \\colorlet{mFootnoteFg}{mNormaltextFg!90}\n\n    \\moloch@apply@semantic@colors\n  }%\n\n  % Apply current variant after registering both\n  \\moloch@apply@current@variant\n}\n\n\nE.1.31 New Color System\nThe color system provides a unified interface for theme selection, variant switching, and granular color customization. It uses pgfkeys to organize options into a /moloch/colors/ namespace.\nThe system supports three layers of customization:\n\nTheme presets (default, tomorrow, highcontrast)\nVariant switching (light/dark)\nPer-variant color overrides for individual elements\n\nAll customizations are preserved when switching between variants, allowing users to set up colors once and then freely toggle between light and dark modes without losing their customizations.\n\n\nE.1.32 Color theme and variant options\nThe main pgfkeys tree defines theme selection, variant switching, and the storage system for user customizations. Storage keys are defined first to declare the macros, then initialized to empty, and finally the actual color setting commands reference these storage macros.\nThe storage system uses a convention: for each customizable color, there are separate storage macros for light and dark variants named \\moloch@store@&lt;variant&gt;@&lt;color&gt;@&lt;property&gt;. For example: \\moloch@store@light@progressbar@fg stores the light variant’s progress bar foreground color.\n\\pgfkeys{\n  /moloch/colors/.cd,\n  theme/.is choice,\n  theme/default/.code=\\moloch@colortheme@default,\n  theme/tomorrow/.code=\\moloch@colortheme@tomorrow,\n  theme/highcontrast/.code=\\moloch@colortheme@highcontrast,\n  theme/paper/.code=\\moloch@colortheme@paper,\n  theme/catppuccin/.code=\\moloch@colortheme@catppuccin,\n  variant/.is choice,\n  variant/light/.code={%\n      \\moloch@variant@darkfalse\n      \\moloch@colors@light\n    },\n  variant/dark/.code={%\n      \\moloch@variant@darktrue\n      \\moloch@colors@dark\n    },\n  % Storage keys - store in macros\n  % These define the storage macros that will hold user customizations\n  store/light/alerted text/.store in=\\moloch@store@light@alerted@text,\n  store/dark/alerted text/.store in=\\moloch@store@dark@alerted@text,\n  store/light/frametitle fg/.store in=\\moloch@store@light@frametitle@fg,\n  store/dark/frametitle fg/.store in=\\moloch@store@dark@frametitle@fg,\n  store/light/frametitle bg/.store in=\\moloch@store@light@frametitle@bg,\n  store/dark/frametitle bg/.store in=\\moloch@store@dark@frametitle@bg,\n  store/light/example text/.store in=\\moloch@store@light@example@text,\n  store/dark/example text/.store in=\\moloch@store@dark@example@text,\n  store/light/progressbar fg/.store in=\\moloch@store@light@progressbar@fg,\n  store/dark/progressbar fg/.store in=\\moloch@store@dark@progressbar@fg,\n  store/light/progressbar bg/.store in=\\moloch@store@light@progressbar@bg,\n  store/dark/progressbar bg/.store in=\\moloch@store@dark@progressbar@bg,\n  store/light/standout fg/.store in=\\moloch@store@light@standout@fg,\n  store/dark/standout fg/.store in=\\moloch@store@dark@standout@fg,\n  store/light/standout bg/.store in=\\moloch@store@light@standout@bg,\n  store/dark/standout bg/.store in=\\moloch@store@dark@standout@bg,\n  store/light/normal text fg/.store in=\\moloch@store@light@normal@text@fg,\n  store/dark/normal text fg/.store in=\\moloch@store@dark@normal@text@fg,\n  store/light/normal text bg/.store in=\\moloch@store@light@normal@text@bg,\n  store/dark/normal text bg/.store in=\\moloch@store@dark@normal@text@bg,\n  store/light/title separator/.store in=\\moloch@store@light@title@separator,\n  store/dark/title separator/.store in=\\moloch@store@dark@title@separator,\n  % Initialize storage macros as empty\n  % This prevents errors when checking if macros are set\n  store/light/alerted text=,\n  store/dark/alerted text=,\n  store/light/frametitle fg=,\n  store/dark/frametitle fg=,\n  store/light/frametitle bg=,\n  store/dark/frametitle bg=,\n  store/light/example text=,\n  store/dark/example text=,\n  store/light/progressbar fg=,\n  store/dark/progressbar fg=,\n  store/light/progressbar bg=,\n  store/dark/progressbar bg=,\n  store/light/standout fg=,\n  store/dark/standout fg=,\n  store/light/standout bg=,\n  store/dark/standout bg=,\n  store/light/normal text fg=,\n  store/dark/normal text fg=,\n  store/light/normal text bg=,\n  store/dark/normal text bg=,\n  store/light/title separator=,\n  store/dark/title separator=,\n  % Color setting commands\n  % Each color has three variants:\n  % 1. Variant-agnostic: sets current variant + stores for current\n  % 2. light/&lt;color&gt;: sets if in light mode, always stores for light\n  % 3. dark/&lt;color&gt;: sets if in dark mode, always stores for dark\n  progressbar fg/.code={%\n      \\setbeamercolor{progress bar}{fg=#1}%\n      \\moloch@setup@progressbar@parents\n      \\ifmoloch@variant@dark\n        \\pgfkeys{/moloch/colors/store/dark/progressbar fg=#1}%\n      \\else\n        \\pgfkeys{/moloch/colors/store/light/progressbar fg=#1}%\n      \\fi\n    },\n  light/progressbar fg/.code={%\n      \\pgfkeys{/moloch/colors/store/light/progressbar fg=#1}%\n      \\ifmoloch@variant@dark\\else\n        \\setbeamercolor{progress bar}{fg=#1}%\n        \\moloch@setup@progressbar@parents\n      \\fi\n    },\n  dark/progressbar fg/.code={%\n      \\pgfkeys{/moloch/colors/store/dark/progressbar fg=#1}%\n      \\ifmoloch@variant@dark\n        \\setbeamercolor{progress bar}{fg=#1}%\n        \\moloch@setup@progressbar@parents\n      \\fi\n    },\n  progressbar bg/.code={%\n      \\setbeamercolor{progress bar}{bg=#1}%\n      \\moloch@setup@progressbar@parents\n      \\ifmoloch@variant@dark\n        \\pgfkeys{/moloch/colors/store/dark/progressbar bg=#1}%\n      \\else\n        \\pgfkeys{/moloch/colors/store/light/progressbar bg=#1}%\n      \\fi\n    },\n  light/progressbar bg/.code={%\n      \\pgfkeys{/moloch/colors/store/light/progressbar bg=#1}%\n      \\ifmoloch@variant@dark\\else\n        \\setbeamercolor{progress bar}{bg=#1}%\n        \\moloch@setup@progressbar@parents\n      \\fi\n    },\n  dark/progressbar bg/.code={%\n      \\pgfkeys{/moloch/colors/store/dark/progressbar bg=#1}%\n      \\ifmoloch@variant@dark\n        \\setbeamercolor{progress bar}{bg=#1}%\n        \\moloch@setup@progressbar@parents\n      \\fi\n    },\n  normal text fg/.code={%\n      \\setbeamercolor{normal text}{fg=#1}%\n      \\moloch@setup@text@colors\n      \\moloch@setup@block@colors\n      \\ifmoloch@variant@dark\n        \\pgfkeys{/moloch/colors/store/dark/normal text fg=#1}%\n      \\else\n        \\pgfkeys{/moloch/colors/store/light/normal text fg=#1}%\n      \\fi\n    },\n  light/normal text fg/.code={%\n      \\pgfkeys{/moloch/colors/store/light/normal text fg=#1}%\n      \\ifmoloch@variant@dark\\else\n        \\setbeamercolor{normal text}{fg=#1}%\n        \\moloch@setup@text@colors\n        \\moloch@setup@block@colors\n      \\fi\n    },\n  dark/normal text fg/.code={%\n      \\pgfkeys{/moloch/colors/store/dark/normal text fg=#1}%\n      \\ifmoloch@variant@dark\n        \\setbeamercolor{normal text}{fg=#1}%\n        \\moloch@setup@text@colors\n        \\moloch@setup@block@colors\n      \\fi\n    },\n  normal text bg/.code={%\n      \\setbeamercolor{normal text}{bg=#1}%\n      \\ifmoloch@variant@dark\n        \\pgfkeys{/moloch/colors/store/dark/normal text bg=#1}%\n      \\else\n        \\pgfkeys{/moloch/colors/store/light/normal text bg=#1}%\n      \\fi\n    },\n  light/normal text bg/.code={%\n      \\pgfkeys{/moloch/colors/store/light/normal text bg=#1}%\n      \\ifmoloch@variant@dark\\else\n        \\setbeamercolor{normal text}{bg=#1}%\n      \\fi\n    },\n  dark/normal text bg/.code={%\n      \\pgfkeys{/moloch/colors/store/dark/normal text bg=#1}%\n      \\ifmoloch@variant@dark\n        \\setbeamercolor{normal text}{bg=#1}%\n      \\fi\n    },\n  alerted text/.code={%\n      \\setbeamercolor{alerted text}{fg=#1}%\n      \\setbeamercolor{block title alerted}{fg=#1}%\n      \\ifmoloch@variant@dark\n        \\pgfkeys{/moloch/colors/store/dark/alerted text=#1}%\n      \\else\n        \\pgfkeys{/moloch/colors/store/light/alerted text=#1}%\n      \\fi\n    },\n  light/alerted text/.code={%\n      \\pgfkeys{/moloch/colors/store/light/alerted text=#1}%\n      \\ifmoloch@variant@dark\\else\n        \\setbeamercolor{alerted text}{fg=#1}%\n        \\setbeamercolor{block title alerted}{fg=#1}%\n      \\fi\n    },\n  dark/alerted text/.code={%\n      \\pgfkeys{/moloch/colors/store/dark/alerted text=#1}%\n      \\ifmoloch@variant@dark\n        \\setbeamercolor{alerted text}{fg=#1}%\n        \\setbeamercolor{block title alerted}{fg=#1}%\n      \\fi\n    },\n  example text/.code={%\n      \\setbeamercolor{example text}{fg=#1}%\n      \\setbeamercolor{block title example}{fg=#1}%\n      \\ifmoloch@variant@dark\n        \\pgfkeys{/moloch/colors/store/dark/example text=#1}%\n      \\else\n        \\pgfkeys{/moloch/colors/store/light/example text=#1}%\n      \\fi\n    },\n  light/example text/.code={%\n      \\pgfkeys{/moloch/colors/store/light/example text=#1}%\n      \\ifmoloch@variant@dark\\else\n        \\setbeamercolor{example text}{fg=#1}%\n        \\setbeamercolor{block title example}{fg=#1}%\n      \\fi\n    },\n  dark/example text/.code={%\n      \\pgfkeys{/moloch/colors/store/dark/example text=#1}%\n      \\ifmoloch@variant@dark\n        \\setbeamercolor{example text}{fg=#1}%\n        \\setbeamercolor{block title example}{fg=#1}%\n      \\fi\n    },\n  frametitle fg/.code={%\n      \\setbeamercolor{frametitle}{fg=#1}%\n      \\ifmoloch@variant@dark\n        \\pgfkeys{/moloch/colors/store/dark/frametitle fg=#1}%\n      \\else\n        \\pgfkeys{/moloch/colors/store/light/frametitle fg=#1}%\n      \\fi\n    },\n  frametitle bg/.code={%\n      \\setbeamercolor{frametitle}{bg=#1}%\n      \\ifmoloch@variant@dark\n        \\pgfkeys{/moloch/colors/store/dark/frametitle bg=#1}%\n      \\else\n        \\pgfkeys{/moloch/colors/store/light/frametitle bg=#1}%\n      \\fi\n    },\n  light/frametitle fg/.code={%\n      \\pgfkeys{/moloch/colors/store/light/frametitle fg=#1}%\n      \\ifmoloch@variant@dark\\else\n        \\setbeamercolor{frametitle}{fg=#1}%\n      \\fi\n    },\n  dark/frametitle fg/.code={%\n      \\pgfkeys{/moloch/colors/store/dark/frametitle fg=#1}%\n      \\ifmoloch@variant@dark\n        \\setbeamercolor{frametitle}{fg=#1}%\n      \\fi\n    },\n  light/frametitle bg/.code={%\n      \\pgfkeys{/moloch/colors/store/light/frametitle bg=#1}%\n      \\ifmoloch@variant@dark\\else\n        \\setbeamercolor{frametitle}{bg=#1}%\n      \\fi\n    },\n  dark/frametitle bg/.code={%\n      \\pgfkeys{/moloch/colors/store/dark/frametitle bg=#1}%\n      \\ifmoloch@variant@dark\n        \\setbeamercolor{frametitle}{bg=#1}%\n      \\fi\n    },\n  standout fg/.code={%\n      \\setbeamercolor{standout}{fg=#1}%\n    },\n  light/standout fg/.code={%\n      \\pgfkeys{/moloch/colors/store/light/standout fg=#1}%\n      \\ifmoloch@variant@dark\\else\n        \\setbeamercolor{standout}{fg=#1}%\n      \\fi\n    },\n  dark/standout fg/.code={%\n      \\pgfkeys{/moloch/colors/store/dark/standout fg=#1}%\n      \\ifmoloch@variant@dark\n        \\setbeamercolor{standout}{fg=#1}%\n      \\fi\n    },\n  standout bg/.code={%\n      \\setbeamercolor{standout}{bg=#1}%\n    },\n  light/standout bg/.code={%\n      \\pgfkeys{/moloch/colors/store/light/standout bg=#1}%\n      \\ifmoloch@variant@dark\\else\n        \\setbeamercolor{standout}{bg=#1}%\n      \\fi\n    },\n  dark/standout bg/.code={%\n      \\pgfkeys{/moloch/colors/store/dark/standout bg=#1}%\n      \\ifmoloch@variant@dark\n        \\setbeamercolor{standout}{bg=#1}%\n      \\fi\n    },\n  title separator/.code={%\n      \\setbeamercolor{title separator}{fg=#1}%\n      \\ifmoloch@variant@dark\n        \\pgfkeys{/moloch/colors/store/dark/title separator=#1}%\n      \\else\n        \\pgfkeys{/moloch/colors/store/light/title separator=#1}%\n      \\fi\n    },\n  light/title separator/.code={%\n      \\pgfkeys{/moloch/colors/store/light/title separator=#1}%\n      \\ifmoloch@variant@dark\\else\n        \\setbeamercolor{title separator}{fg=#1}%\n      \\fi\n    },\n  dark/title separator/.code={%\n      \\pgfkeys{/moloch/colors/store/dark/title separator=#1}%\n      \\ifmoloch@variant@dark\n        \\setbeamercolor{title separator}{fg=#1}%\n      \\fi\n    },\n}\n\n\nE.1.33 \\molochcolors\nUser-facing command for color customization.\n\\newcommand{\\molochcolors}[1]{\\pgfkeys{/moloch/colors/.cd,#1}}\nThe Moloch inner or outer themes optionally display progress bars in various locations. Their color is set by progress bar but the two different kinds can be customized separately. The horizontal rule on the title page is also set based on the progress bar color and can be customized with title separator.\n\\setbeamercolor{progress bar}{%\n  use=alerted text,\n  fg=alerted text.fg,\n  bg=alerted text.fg!50!black!30\n}\n\\setbeamercolor{title separator}{\n  use=progress bar,\n  parent=progress bar\n}\n\\setbeamercolor{progress bar in head/foot}{%\n  use=progress bar,\n  parent=progress bar\n}\n\\setbeamercolor{progress bar in section page}{\n  use=progress bar,\n  parent=progress bar\n}\nBlock environments such as theorem and example have no background color by default. The option block=fill sets a background color based on the background and foreground of normal text. The option block=transparent reverts the block environments to an empty background, which can be useful if changing colors mid-presentation.\n\n\\begin{verbatim}\n\\setbeamercolor{bibliography entry author}{fg=, bg=}\n\\setbeamercolor{bibliography entry title}{fg=, bg=}\n\\setbeamercolor{bibliography entry location}{fg=, bg=}\n\\setbeamercolor{bibliography entry note}{fg=, bg=}\n\n\nE.1.34 Process Package Options\n\\moloch@colortheme@default\n\\moloch@color@setdefaults\n\\ProcessPgfPackageOptions{/moloch/color}\n\\mode&lt;all&gt;",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Color Theme</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamercolorthememoloch-tomorrow.html",
+    "href": "implementation/beamercolorthememoloch-tomorrow.html",
+    "title": "Appendix F — Color Theme: Tomorrow",
+    "section": "",
+    "text": "F.1 Moloch Tomorrow Color Theme\nDEPRECATED: This color theme is deprecated and will be removed in a future version. Please use |verb| with |verb| instead.\nThe Moloch Tomorrow color theme provides a color scheme based on the “Tomorrow” color scheme created by Chris Kempson.\nThis file now simply loads the base color theme and applies the tomorrow preset.",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>F</span>  <span class='chapter-title'>Color Theme: Tomorrow</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamercolorthememoloch-tomorrow.html#moloch-tomorrow-color-theme",
+    "href": "implementation/beamercolorthememoloch-tomorrow.html#moloch-tomorrow-color-theme",
+    "title": "Appendix F — Color Theme: Tomorrow",
+    "section": "",
+    "text": "\\PackageWarning{beamercolorthememoloch-tomorrow}{%\n  This color theme is deprecated and will be removed in a future version.\\MessageBreak\n  Please use \\string\\usecolortheme{moloch} with \\string\\molochset{colortheme=tomorrow} instead%\n}\n\n\\usecolortheme{moloch}\n\n% Apply tomorrow theme with light variant (default behavior)\n\\moloch@colortheme@tomorrow\n\\moloch@colors@light\n\n\\mode&lt;all&gt;",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>F</span>  <span class='chapter-title'>Color Theme: Tomorrow</span>"
+    ]
+  },
+  {
+    "objectID": "implementation/beamercolorthememoloch-highcontrast.html",
+    "href": "implementation/beamercolorthememoloch-highcontrast.html",
+    "title": "Appendix G — Color Theme: High Contrast",
+    "section": "",
+    "text": "Note\n\n\n\nSource file: src/beamercolorthememoloch-highcontrast.dtx\n\n\nDEPRECATED: This color theme is deprecated and will be removed in a future version. Please use \\usecolortheme{moloch} with \\molochset{colortheme=highcontrast} instead.\nThis is a high-contrast variant of the Moloch color theme. It provides better readability for users with visual impairments by using stark color contrasts.\nThis file now simply loads the base color theme and applies the highcontrast preset.\n\\PackageWarning{beamercolorthememoloch-highcontrast}{%\n  This color theme is deprecated and will be removed in a future version.\\MessageBreak\n  Please use \\string\\usecolortheme{moloch} with \\string\\molochset{colortheme=highcontrast} instead%\n}\n\n\\usecolortheme{moloch}\n\n% Apply highcontrast theme with light variant (default behavior)\n\\moloch@colortheme@highcontrast\n\\moloch@colors@light\n\n\\mode&lt;all&gt;",
+    "crumbs": [
+      "Appendices",
+      "Implementation",
+      "<span class='chapter-number'>G</span>  <span class='chapter-title'>Color Theme: High Contrast</span>"
+    ]
+  }
+]
