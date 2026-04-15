@@ -83,12 +83,13 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <!-- Custom header for Moloch documentation -->
+<meta id="moloch-doc-channel" content="latest
+">
 <meta name="robots" content="index,follow
 ">
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const channel = "latest
-";
+    const channel = (document.getElementById("moloch-doc-channel")?.getAttribute("content") || "local").trim();
     const currentPath = window.location.pathname;
     const mount = document.getElementById("moloch-version-footer");
 
