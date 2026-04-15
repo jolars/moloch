@@ -144,7 +144,7 @@ jobs:
 
           for target in ${TARGETS}; do
             mkdir -p "$target"
-            rsync -a --delete "${GITHUB_WORKSPACE}/docs/_site/" "$target/"
+            rsync -a --delete --exclude '.git' "${GITHUB_WORKSPACE}/docs/_site/" "$target/"
           done
 
           touch .nojekyll
