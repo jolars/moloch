@@ -1,0 +1,63 @@
+/* Custom styles for Moloch documentation */
+
+.describe-option {
+}
+
+.describe-option .option-name {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.describe-option .option-values {
+  color: #2a7f62;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.describe-option u {
+  color: #2a7f62;
+  text-decoration: underline;
+  text-decoration-color: #2a7f62;
+  text-decoration-thickness: 2px;
+}
+
+.describe-key {
+}
+
+.describe-key .key-name {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.describe-key .key-type {
+  color: #2a7f62;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.describe-key .key-default {
+  color: #666;
+  font-size: 0.9em;
+}
+
+#moloch-version-footer {
+  margin-top: 0.5rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.moloch-sidebar-version-label {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.moloch-sidebar-version-select {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  background: #fff;
+  color: #23373b;
+  padding: 0.25rem 0.4rem;
+  font-size: 0.9rem;
+}
