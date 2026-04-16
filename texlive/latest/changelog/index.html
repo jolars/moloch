@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Moloch is a minimalist, feature-rich Beamer theme for LaTeX presentations with a clean design and extensive customization options.">
+
+<title>Changelog – Moloch</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../implementation/beamerthememoloch.html" rel="next">
+<link href="../license.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-23bbe8b5e4efc1e257f6d59dce478b08.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a3a1aa98469612d56e43f2b753fbad0a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-cf35a97bc19badc5d742b44f0592b54f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-a3a1aa98469612d56e43f2b753fbad0a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<!-- Custom header for Moloch documentation -->
+<meta id="moloch-doc-channel" content="texlive-2026
+">
+<meta name="robots" content="noindex,follow
+">
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const channel = (document.getElementById("moloch-doc-channel")?.getAttribute("content") || "local").trim();
+    const currentPath = window.location.pathname;
+    const mount = document.getElementById("moloch-version-footer");
+
+    if (!mount) return;
+
+    function selectForChannel(entry) {
+      return (
+        (channel === "latest" && entry.id === "latest") ||
+        (channel === "dev" && entry.id === "dev") ||
+        (channel.startsWith("texlive-") && (entry.id === channel || entry.id === "texlive-latest"))
+      );
+    }
+
+    function fallbackEntries() {
+      return [
+        { id: "latest", label: "Latest release", href: "/" },
+        { id: "dev", label: "Development (main)", href: "/dev/" },
+        { id: "texlive-latest", label: "TeX Live (latest branch)", href: "/texlive/latest/" }
+      ];
+    }
+
+    const label = document.createElement("div");
+    label.className = "moloch-sidebar-version-label";
+    label.textContent = "Docs version";
+
+    const select = document.createElement("select");
+    select.className = "moloch-sidebar-version-select";
+    select.setAttribute("aria-label", "Switch documentation version");
+
+    select.addEventListener("change", function () {
+      const base = select.value.replace(/\/$/, "");
+      const relative = currentPath
+        .replace(/^\/(latest|dev|texlive\/[^/]+|releases\/[^/]+)/, "")
+        .replace(/^\//, "");
+      const target = relative ? base + "/" + relative : base + "/";
+      window.location.href = target;
+    });
+
+    function render(entries) {
+      entries.forEach(function (entry) {
+        const option = document.createElement("option");
+        option.value = entry.href;
+        option.textContent = entry.label;
+        if (selectForChannel(entry)) option.selected = true;
+        select.appendChild(option);
+      });
+    }
+
+    mount.replaceChildren();
+    mount.appendChild(label);
+    mount.appendChild(select);
+
+    fetch("/versions.json")
+      .then(function (response) {
+        if (!response.ok) throw new Error("versions manifest not available");
+        return response.json();
+      })
+      .then(function (data) {
+        render((data && data.entries) || fallbackEntries());
+      })
+      .catch(function () {
+        render(fallbackEntries());
+      });
+  });
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Moloch - A Minimalist, Feature-Rich Beamer Theme">
+<meta property="og:description" content="Moloch is a minimalist, feature-rich Beamer theme for LaTeX presentations with a clean design and extensive customization options.">
+<meta property="og:image" content="https://moloch.ink/changelog/images/og.jpg">
+<meta property="og:site_name" content="Moloch">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:title" content="Changelog – Moloch">
+<meta name="twitter:description" content="Moloch is a minimalist, feature-rich Beamer theme for LaTeX presentations with a clean design and extensive customization options.">
+<meta name="twitter:image" content="https://moloch.ink/changelog/images/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../getting-started.html">User Guide</a></li><li class="breadcrumb-item"><a href="../changelog/index.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Changelog</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Moloch</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/jolars/moloch" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Moloch</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">User Guide</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../getting-started.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../customization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Customization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../commands.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Commands</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../known-issues.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Known Issues</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../license.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">License</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../changelog/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Changelog</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Implementation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../implementation/beamerthememoloch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Main Theme</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../implementation/beamerinnerthememoloch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Inner Theme</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../implementation/beamerouterthememoloch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Outer Theme</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../implementation/beamerfontthememoloch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Font Theme</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../implementation/beamercolorthememoloch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Color Theme</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../implementation/beamercolorthememoloch-tomorrow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Color Theme: Tomorrow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../implementation/beamercolorthememoloch-highcontrast.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Color Theme: High Contrast</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
+<div id="moloch-version-footer">
+Docs Version
+</div>
+</div></div></nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">2.2.0 (2026-02-17)</a>
+  <ul class="collapse">
+  <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">Features</a></li>
+  <li><a href="#bug-fixes" id="toc-bug-fixes" class="nav-link" data-scroll-target="#bug-fixes">Bug Fixes</a></li>
+  </ul></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2.1.0 (2025-12-18)</a>
+  <ul class="collapse">
+  <li><a href="#features-1" id="toc-features-1" class="nav-link" data-scroll-target="#features-1">Features</a></li>
+  <li><a href="#bug-fixes-1" id="toc-bug-fixes-1" class="nav-link" data-scroll-target="#bug-fixes-1">Bug Fixes</a></li>
+  </ul></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">2.0.0 (2025-12-05)</a>
+  <ul class="collapse">
+  <li><a href="#breaking-changes" id="toc-breaking-changes" class="nav-link" data-scroll-target="#breaking-changes">⚠ BREAKING CHANGES</a></li>
+  <li><a href="#features-2" id="toc-features-2" class="nav-link" data-scroll-target="#features-2">Features</a></li>
+  <li><a href="#bug-fixes-2" id="toc-bug-fixes-2" class="nav-link" data-scroll-target="#bug-fixes-2">Bug Fixes</a></li>
+  </ul></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">1.1.0 (2025-09-25)</a>
+  <ul class="collapse">
+  <li><a href="#features-3" id="toc-features-3" class="nav-link" data-scroll-target="#features-3">Features</a></li>
+  <li><a href="#bug-fixes-3" id="toc-bug-fixes-3" class="nav-link" data-scroll-target="#bug-fixes-3">Bug Fixes</a></li>
+  </ul></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">1.0.1 (2025-04-01)</a>
+  <ul class="collapse">
+  <li><a href="#bug-fixes-4" id="toc-bug-fixes-4" class="nav-link" data-scroll-target="#bug-fixes-4">Bug Fixes</a></li>
+  </ul></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">1.0.0 (2025-04-01)</a>
+  <ul class="collapse">
+  <li><a href="#features-4" id="toc-features-4" class="nav-link" data-scroll-target="#features-4">Features</a></li>
+  </ul></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">0.6.0 (2025-01-17)</a>
+  <ul class="collapse">
+  <li><a href="#features-5" id="toc-features-5" class="nav-link" data-scroll-target="#features-5">Features</a></li>
+  <li><a href="#reverts" id="toc-reverts" class="nav-link" data-scroll-target="#reverts">Reverts</a></li>
+  </ul></li>
+  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7">0.5.0 (2024-10-30)</a>
+  <ul class="collapse">
+  <li><a href="#features-6" id="toc-features-6" class="nav-link" data-scroll-target="#features-6">Features</a></li>
+  <li><a href="#bug-fixes-5" id="toc-bug-fixes-5" class="nav-link" data-scroll-target="#bug-fixes-5">Bug Fixes</a></li>
+  </ul></li>
+  <li><a href="#section-8" id="toc-section-8" class="nav-link" data-scroll-target="#section-8">0.4.0 (2024-07-09)</a>
+  <ul class="collapse">
+  <li><a href="#features-7" id="toc-features-7" class="nav-link" data-scroll-target="#features-7">Features</a></li>
+  <li><a href="#bug-fixes-6" id="toc-bug-fixes-6" class="nav-link" data-scroll-target="#bug-fixes-6">Bug Fixes</a></li>
+  </ul></li>
+  <li><a href="#section-9" id="toc-section-9" class="nav-link" data-scroll-target="#section-9">0.3.0 (2024-03-06)</a>
+  <ul class="collapse">
+  <li><a href="#features-8" id="toc-features-8" class="nav-link" data-scroll-target="#features-8">Features</a></li>
+  <li><a href="#bug-fixes-7" id="toc-bug-fixes-7" class="nav-link" data-scroll-target="#bug-fixes-7">Bug Fixes</a></li>
+  </ul></li>
+  <li><a href="#section-10" id="toc-section-10" class="nav-link" data-scroll-target="#section-10">0.2.0 (2024-01-23)</a>
+  <ul class="collapse">
+  <li><a href="#breaking-changes-1" id="toc-breaking-changes-1" class="nav-link" data-scroll-target="#breaking-changes-1">⚠ BREAKING CHANGES</a></li>
+  <li><a href="#features-9" id="toc-features-9" class="nav-link" data-scroll-target="#features-9">Features</a></li>
+  </ul></li>
+  <li><a href="#section-11" id="toc-section-11" class="nav-link" data-scroll-target="#section-11">0.1.0 (2024-01-15)</a>
+  <ul class="collapse">
+  <li><a href="#breaking-changes-2" id="toc-breaking-changes-2" class="nav-link" data-scroll-target="#breaking-changes-2">⚠ BREAKING CHANGES</a></li>
+  <li><a href="#features-10" id="toc-features-10" class="nav-link" data-scroll-target="#features-10">Features</a></li>
+  <li><a href="#bug-fixes-8" id="toc-bug-fixes-8" class="nav-link" data-scroll-target="#bug-fixes-8">Bug Fixes</a></li>
+  <li><a href="#reverts-1" id="toc-reverts-1" class="nav-link" data-scroll-target="#reverts-1">Reverts</a></li>
+  <li><a href="#miscellaneous-chores" id="toc-miscellaneous-chores" class="nav-link" data-scroll-target="#miscellaneous-chores">Miscellaneous Chores</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../getting-started.html">User Guide</a></li><li class="breadcrumb-item"><a href="../changelog/index.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Changelog</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Changelog</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"><a href="https://github.com/jolars/moloch/compare/v2.1.0...v2.2.0">2.2.0</a> (2026-02-17)</h2>
+<section id="features" class="level3">
+<h3 class="anchored" data-anchor-id="features">Features</h3>
+<ul>
+<li>increase margin between frame title and subtitle (<a href="https://github.com/jolars/moloch/commit/f8e8725c7ed7e82af7fcaff36bb5cbffa72e5767">f8e8725</a>)</li>
+<li>increase top-bottom margins for frametitle, use strut (<a href="https://github.com/jolars/moloch/commit/f537931efd0afedae8612183c53e9686200c34bf">f537931</a>)</li>
+</ul>
+</section>
+<section id="bug-fixes" class="level3">
+<h3 class="anchored" data-anchor-id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>add missing color option for title separator (<a href="https://github.com/jolars/moloch/commit/1221aed83073d8f4b39c8ec2d3449cd5718079d4">1221aed</a>), closes <a href="https://github.com/jolars/moloch/issues/70">#70</a></li>
+</ul>
+</section>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"><a href="https://github.com/jolars/moloch/compare/v2.0.0...v2.1.0">2.1.0</a> (2025-12-18)</h2>
+<section id="features-1" class="level3">
+<h3 class="anchored" data-anchor-id="features-1">Features</h3>
+<ul>
+<li>add <code>titlepage</code> option with moloch, plain, slit styles (<a href="https://github.com/jolars/moloch/commit/505426d67719f29fafba3a2c9a7a7a0ea743308f">505426d</a>)</li>
+</ul>
+</section>
+<section id="bug-fixes-1" class="level3">
+<h3 class="anchored" data-anchor-id="bug-fixes-1">Bug Fixes</h3>
+<ul>
+<li>alias <code>colortheme variant</code> to <code>colorthemevariant</code> (<a href="https://github.com/jolars/moloch/commit/70a2bf23d3afd90d612f82048b38f37dfe85fa79">70a2bf2</a>)</li>
+<li>don’t expose all colortheme settings as package options (<a href="https://github.com/jolars/moloch/commit/4827f603f91574c7a7855d74a51d90c8de13abaf">4827f60</a>)</li>
+<li>don’t wrap titlepage frame in group (<a href="https://github.com/jolars/moloch/commit/b6be99698abf39d513388615a9508c3b78568b29">b6be996</a>)</li>
+</ul>
+</section>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2"><a href="https://github.com/jolars/moloch/compare/v1.1.0...v2.0.0">2.0.0</a> (2025-12-05)</h2>
+<section id="breaking-changes" class="level3">
+<h3 class="anchored" data-anchor-id="breaking-changes">⚠ BREAKING CHANGES</h3>
+<ul>
+<li>refactor color theme</li>
+</ul>
+</section>
+<section id="features-2" class="level3">
+<h3 class="anchored" data-anchor-id="features-2">Features</h3>
+<ul>
+<li>add <code>frametitle margin</code> options (<a href="https://github.com/jolars/moloch/commit/bc02e8a31472ef8b15ad9c043a8a9829d01d1189">bc02e8a</a>)</li>
+<li>add catppuccin theme (<a href="https://github.com/jolars/moloch/commit/3452624b6406a05a1f6e0022413dff8ad3826527">3452624</a>)</li>
+<li>add new “Paper” color theme (<a href="https://github.com/jolars/moloch/commit/05de59a0e2fe0a444abd72dc69e452695bac789e">05de59a</a>)</li>
+<li>change default progressbar linewidth to 1pt (<a href="https://github.com/jolars/moloch/commit/3b71fc99e4c1af6daaf5782eb663f702d3adc233">3b71fc9</a>)</li>
+<li>draw all itemize symbols manually (<a href="https://github.com/jolars/moloch/commit/a82527c6f46a4dce49e90f8d5a059b7f8e98ce29">a82527c</a>)</li>
+<li>refactor color theme (<a href="https://github.com/jolars/moloch/commit/37d3a373b20b3e1c2aab8447b2341c64be907549">37d3a37</a>)</li>
+<li>tune color themes (<a href="https://github.com/jolars/moloch/commit/a11710f1ca5fe7032861944e37268ac1417ba10a">a11710f</a>)</li>
+<li>use brighter aler and example colors in dark hcontr (<a href="https://github.com/jolars/moloch/commit/8babd1e421875a79e5f4fd3b0e49faabd76f68bc">8babd1e</a>)</li>
+</ul>
+</section>
+<section id="bug-fixes-2" class="level3">
+<h3 class="anchored" data-anchor-id="bug-fixes-2">Bug Fixes</h3>
+<ul>
+<li>enable background macro for alternative color themes (<a href="https://github.com/jolars/moloch/commit/59b4d79ccc088ea13249aafefa12bb88cf6cb89e">59b4d79</a>)</li>
+<li>remove and fix examples (<a href="https://github.com/jolars/moloch/commit/35523ee6a2c625c96f3f13ea68691772788efd57">35523ee</a>)</li>
+<li>remove example text bg in highcontrast theme (<a href="https://github.com/jolars/moloch/commit/528ea8d424c2ae485103240d4d4899fb194c5a7c">528ea8d</a>)</li>
+<li>work-around division by zero in progress bar arithmetic (<a href="https://github.com/jolars/moloch/commit/28fc1a28ca2b92376b4b87a33ab73e32c2dc959f">28fc1a2</a>)</li>
+</ul>
+</section>
+</section>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3"><a href="https://github.com/jolars/moloch/compare/v1.0.1...v1.1.0">1.1.0</a> (2025-09-25)</h2>
+<section id="features-3" class="level3">
+<h3 class="anchored" data-anchor-id="features-3">Features</h3>
+<ul>
+<li>redesign itemize environment (<a href="https://github.com/jolars/moloch/issues/50">#50</a>) (<a href="https://github.com/jolars/moloch/commit/859436931609930b847e5002e2ef2482d055e4de">8594369</a>)</li>
+<li>use beamer-like itemize item and subitem templates (<a href="https://github.com/jolars/moloch/commit/81037c66e1a99deb0295d40a2f205a8e757ccb6b">81037c6</a>), closes <a href="https://github.com/jolars/moloch/issues/49">#49</a></li>
+</ul>
+</section>
+<section id="bug-fixes-3" class="level3">
+<h3 class="anchored" data-anchor-id="bug-fixes-3">Bug Fixes</h3>
+<ul>
+<li>move command substitutions into inner and outer themes (<a href="https://github.com/jolars/moloch/commit/fd86a305e954e6597fa5bc0f4be4686525b34834">fd86a30</a>), closes <a href="https://github.com/jolars/moloch/issues/47">#47</a></li>
+<li>use <code>\ht\strutbox</code> instead of X height in title padding (<a href="https://github.com/jolars/moloch/commit/93792f2cf39939a5678f34ad8c12659340969517">93792f2</a>), closes <a href="https://github.com/jolars/moloch/issues/54">#54</a></li>
+</ul>
+</section>
+</section>
+<section id="section-4" class="level2">
+<h2 class="anchored" data-anchor-id="section-4"><a href="https://github.com/jolars/moloch/compare/v1.0.0...v1.0.1">1.0.1</a> (2025-04-01)</h2>
+<section id="bug-fixes-4" class="level3">
+<h3 class="anchored" data-anchor-id="bug-fixes-4">Bug Fixes</h3>
+<ul>
+<li>add missing files for updating version tags (<a href="https://github.com/jolars/moloch/commit/ba01d33b1993d4992372420f25f6390c5e4baa91">ba01d33</a>)</li>
+<li>use proper package names (<a href="https://github.com/jolars/moloch/commit/0c4d38e3c2e2b0b93bfc1b6c1abe6bf0a3a01311">0c4d38e</a>)</li>
+</ul>
+</section>
+</section>
+<section id="section-5" class="level2">
+<h2 class="anchored" data-anchor-id="section-5"><a href="https://github.com/jolars/moloch/compare/v0.6.0...v1.0.0">1.0.0</a> (2025-04-01)</h2>
+<section id="features-4" class="level3">
+<h3 class="anchored" data-anchor-id="features-4">Features</h3>
+<ul>
+<li>add customization of bar line width (<a href="https://github.com/jolars/moloch/issues/42">#42</a>) (<a href="https://github.com/jolars/moloch/commit/be0d8f23c72b9760baeb31a58d2e9988cba5d19a">be0d8f2</a>)</li>
+<li>support <code>\thanks</code> in title page (<a href="https://github.com/jolars/moloch/issues/45">#45</a>) (<a href="https://github.com/jolars/moloch/commit/de3db5e517c06d1b8793b3a1c134b9bf4ad8b189">de3db5e</a>)</li>
+</ul>
+</section>
+</section>
+<section id="section-6" class="level2">
+<h2 class="anchored" data-anchor-id="section-6"><a href="https://github.com/jolars/moloch/compare/v0.5.0...v0.6.0">0.6.0</a> (2025-01-17)</h2>
+<section id="features-5" class="level3">
+<h3 class="anchored" data-anchor-id="features-5">Features</h3>
+<ul>
+<li>add back highcontrast theme from metropolis (<a href="https://github.com/jolars/moloch/commit/3039994e27a01d54d7a3cfa696318413161f5e15">3039994</a>)</li>
+<li>add new color theme based on the tomorrow color theme (<a href="https://github.com/jolars/moloch/commit/13e73007c6d29989684aa228f7f74d3bdcce526f">13e7300</a>)</li>
+<li>add option to customize frame numbering of standout pages (<a href="https://github.com/jolars/moloch/commit/d6d0e3c61565f06d1987c275e2460c9b61ef8ae3">d6d0e3c</a>), closes <a href="https://github.com/jolars/moloch/issues/33">#33</a></li>
+<li>deprecate <code>\mreducelistspacing</code> (<a href="https://github.com/jolars/moloch/commit/3d87ec2d8d4a81c09d13083aa61af2a36ce6dd1d">3d87ec2</a>)</li>
+<li>redesign section and subsection pages (<a href="https://github.com/jolars/moloch/issues/30">#30</a>) (<a href="https://github.com/jolars/moloch/commit/5a98c69a3f07b5b36d5d2c5e5a117e25c472ad22">5a98c69</a>)</li>
+<li>use golden rule in top-bottom spacing of title page (<a href="https://github.com/jolars/moloch/commit/85eabc7beef4296dcc7a7ac53eb0f7a785fe8c35">85eabc7</a>)</li>
+</ul>
+</section>
+<section id="reverts" class="level3">
+<h3 class="anchored" data-anchor-id="reverts">Reverts</h3>
+<ul>
+<li>“feat: deprecate <code>\mreducelistspacing</code>” (<a href="https://github.com/jolars/moloch/commit/eb4bf54e734a64936903d18dbb6d1668d769fa01">eb4bf54</a>)</li>
+<li>“test: remove standoutnumbering test” (<a href="https://github.com/jolars/moloch/commit/ce7540d71caf490cbd3129345cd778b1519394d9">ce7540d</a>)</li>
+</ul>
+</section>
+</section>
+<section id="section-7" class="level2">
+<h2 class="anchored" data-anchor-id="section-7"><a href="https://github.com/jolars/moloch/compare/v0.4.0...v0.5.0">0.5.0</a> (2024-10-30)</h2>
+<section id="features-6" class="level3">
+<h3 class="anchored" data-anchor-id="features-6">Features</h3>
+<ul>
+<li>replace <code>\vfill</code> with <code>\vfil</code> in title frame (<a href="https://github.com/jolars/moloch/commit/8f2a59e239cf0ae32f1a5c8fbf6ad739fa1cd328">8f2a59e</a>)</li>
+<li>switch from fill to fil (<a href="https://github.com/jolars/moloch/issues/21">#21</a>) (<a href="https://github.com/jolars/moloch/commit/873ae154824ed10d45f05c6efe4c4cc73eca1a22">873ae15</a>)</li>
+</ul>
+</section>
+<section id="bug-fixes-5" class="level3">
+<h3 class="anchored" data-anchor-id="bug-fixes-5">Bug Fixes</h3>
+<ul>
+<li>remove duplicated footnote color specifications (<a href="https://github.com/jolars/moloch/issues/26">#26</a>) (<a href="https://github.com/jolars/moloch/commit/1306af5a73e0a030ece2ad9825496cc28507ad54">1306af5</a>)</li>
+<li>remove extra space below progressbar section pages (<a href="https://github.com/jolars/moloch/issues/27">#27</a>) (<a href="https://github.com/jolars/moloch/commit/e5be4806ab9b975be8e8f67434c80fd2155e30b2">e5be480</a>)</li>
+<li>set use=block title in block body for fill (<a href="https://github.com/jolars/moloch/commit/e8921a69642166ef22b9b27cd3633a735c22f153">e8921a6</a>), closes <a href="https://github.com/jolars/moloch/issues/28">#28</a></li>
+<li>tag files with date (<a href="https://github.com/jolars/moloch/commit/28003e7502ce420a0e24b96e27ba3d30b9b0ecbc">28003e7</a>)</li>
+</ul>
+</section>
+</section>
+<section id="section-8" class="level2">
+<h2 class="anchored" data-anchor-id="section-8"><a href="https://github.com/jolars/moloch/compare/v0.3.0...v0.4.0">0.4.0</a> (2024-07-09)</h2>
+<section id="features-7" class="level3">
+<h3 class="anchored" data-anchor-id="features-7">Features</h3>
+<ul>
+<li>add a small amount of vertical space before subtitle (<a href="https://github.com/jolars/moloch/commit/b224a9b5067187e64a7669b61aee029447535729">b224a9b</a>)</li>
+<li>support memoize package (closes <a href="https://github.com/jolars/moloch/issues/16">#16</a>) (<a href="https://github.com/jolars/moloch/commit/1ca26e857a331fcb29296c4987b69aea0db90fae">1ca26e8</a>)</li>
+<li>support title format modifications (<a href="https://github.com/jolars/moloch/issues/18">#18</a>) (<a href="https://github.com/jolars/moloch/commit/46a4f49e8bb95798c2d6f3b69a1b96128d95cb8b">46a4f49</a>)</li>
+</ul>
+</section>
+<section id="bug-fixes-6" class="level3">
+<h3 class="anchored" data-anchor-id="bug-fixes-6">Bug Fixes</h3>
+<ul>
+<li>add % at the end of some commands (<a href="https://github.com/jolars/moloch/commit/33b9833f21d3e0654fe2452d0b8ac8e8eb3a47bb">33b9833</a>)</li>
+<li>convert raw command in manual to text (<a href="https://github.com/jolars/moloch/commit/ac305e9b547ce44e0573f333adc4e6684eb88b68">ac305e9</a>)</li>
+</ul>
+</section>
+</section>
+<section id="section-9" class="level2">
+<h2 class="anchored" data-anchor-id="section-9"><a href="https://github.com/jolars/moloch/compare/v0.2.0...v0.3.0">0.3.0</a> (2024-03-06)</h2>
+<section id="features-8" class="level3">
+<h3 class="anchored" data-anchor-id="features-8">Features</h3>
+<ul>
+<li>bring back the <code>numbering</code> option and deprecate it (<a href="https://github.com/jolars/moloch/commit/9a013e4d46e1c009f058862525c4d92983c4103c">9a013e4</a>)</li>
+<li>make <code>framenumber</code> slide numbering the default (<a href="https://github.com/jolars/moloch/commit/54e0fce68b39a10aabf646c000ffa6656dede748">54e0fce</a>)</li>
+<li>redesign title page (<a href="https://github.com/jolars/moloch/commit/9e6506eccdf1a55ac88540df3bf792b88f07fc7a">9e6506e</a>)</li>
+<li>reinstate support for <code>block</code> option (<a href="https://github.com/jolars/moloch/commit/bf63dcd17922277a198465485931f414a9426636">bf63dcd</a>)</li>
+<li>remove custom linespread setting (<a href="https://github.com/jolars/moloch/commit/6a85ef4ecd170550411cd00e65fe1e1a8d88b80b">6a85ef4</a>), closes <a href="https://github.com/jolars/moloch/issues/8">#8</a></li>
+<li>remove parskip setting (<a href="https://github.com/jolars/moloch/commit/54770512988927ab3c8264c7fce592cd0a4e32f8">5477051</a>), closes <a href="https://github.com/jolars/moloch/issues/9">#9</a></li>
+<li>support subtitles (<a href="https://github.com/jolars/moloch/commit/1c499577ea8f8aadf2403bdbd4efa603cf5a64d6">1c49957</a>)</li>
+</ul>
+</section>
+<section id="bug-fixes-7" class="level3">
+<h3 class="anchored" data-anchor-id="bug-fixes-7">Bug Fixes</h3>
+<ul>
+<li>apply upstream beamer fix for empty shortauthor (<a href="https://github.com/jolars/moloch/commit/b8b2d1090da3082a8b0370ef3411f70cc6c6fc1f">b8b2d10</a>)</li>
+<li>improve vertical centering of title slide (<a href="https://github.com/jolars/moloch/commit/6a149812409ce9072b785677fe562c5c80af22d4">6a14981</a>)</li>
+<li>remove extraneous line space after minipage (<a href="https://github.com/jolars/moloch/commit/c0b98267ac70d75d69c5114e93b15722849fe712">c0b9826</a>)</li>
+<li>remove extraneous space in frametitle continuation template (<a href="https://github.com/jolars/moloch/commit/66f7d833a9e9e55626f38b2d3bc50303317a6b1c">66f7d83</a>)</li>
+<li>remove font configuration for bibliography; closes <a href="https://github.com/jolars/moloch/issues/5">#5</a> (<a href="https://github.com/jolars/moloch/commit/ccd19fe2dd20f40813e07c96a88700d5844b6e5d">ccd19fe</a>)</li>
+</ul>
+</section>
+</section>
+<section id="section-10" class="level2">
+<h2 class="anchored" data-anchor-id="section-10"><a href="https://github.com/jolars/moloch/compare/v0.1.0...v0.2.0">0.2.0</a> (2024-01-23)</h2>
+<section id="breaking-changes-1" class="level3">
+<h3 class="anchored" data-anchor-id="breaking-changes-1">⚠ BREAKING CHANGES</h3>
+<ul>
+<li>remove titleformat configuration</li>
+<li>use beamer’s own frame numbering template</li>
+</ul>
+</section>
+<section id="features-9" class="level3">
+<h3 class="anchored" data-anchor-id="features-9">Features</h3>
+<ul>
+<li>remove titleformat configuration (<a href="https://github.com/jolars/moloch/commit/e19f93c40a92ae28f5e7bf26cc48b68675501c89">e19f93c</a>)</li>
+<li>use beamer’s own frame numbering template (<a href="https://github.com/jolars/moloch/commit/01b698c7838d2e09057a240054c3acb3c75be8dc">01b698c</a>)</li>
+</ul>
+</section>
+</section>
+<section id="section-11" class="level2">
+<h2 class="anchored" data-anchor-id="section-11">0.1.0 (2024-01-15)</h2>
+<section id="breaking-changes-2" class="level3">
+<h3 class="anchored" data-anchor-id="breaking-changes-2">⚠ BREAKING CHANGES</h3>
+<ul>
+<li>remove <code>\plain</code> macro</li>
+<li>drop deprecated options</li>
+<li>remove appendix redefinition</li>
+<li>remove pgfplots theme</li>
+<li>remove high-contrast theme</li>
+<li>uncouple fira fonts from theme</li>
+<li>simplify blocks and remove blocks with background</li>
+</ul>
+</section>
+<section id="features-10" class="level3">
+<h3 class="anchored" data-anchor-id="features-10">Features</h3>
+<ul>
+<li>disable hyphenation in frame titles (<a href="https://github.com/jolars/moloch/commit/253234e7b262d98e216dfadffddf29023f7af06f">253234e</a>)</li>
+<li>drop deprecated options (<a href="https://github.com/jolars/moloch/commit/548ede8413f1f0d5d2b762de9798f44351b2f81b">548ede8</a>)</li>
+<li>group institute with author and subdue color (<a href="https://github.com/jolars/moloch/commit/0f3f6da5733f151368d181243d74055920074fc0">0f3f6da</a>)</li>
+<li>increase minipage width for section pages (<a href="https://github.com/jolars/moloch/commit/160fe5854e87151f7b74faf29daf9969a1ef8328">160fe58</a>)</li>
+<li>modify bullet symbols for itemize lists (<a href="https://github.com/jolars/moloch/commit/0042dcb8b7caa4b4b277aaa779fd2fe62f8f2ec4">0042dcb</a>)</li>
+<li>modify example color to teal instead of light green (<a href="https://github.com/jolars/moloch/commit/1a2f1573dc588c8e93ba6572c109620edde2d3c8">1a2f157</a>)</li>
+<li>remove <code>\plain</code> macro (<a href="https://github.com/jolars/moloch/commit/95f24ae73ac72d9501de0760e48bbc0cacce797f">95f24ae</a>)</li>
+<li>remove appendix redefinition (<a href="https://github.com/jolars/moloch/commit/17edfad5975192df7561e6404bff14ba40726d2b">17edfad</a>)</li>
+<li>remove high-contrast theme (<a href="https://github.com/jolars/moloch/commit/9932e55efcb3ed56e402301c8aec7a3583915dd9">9932e55</a>)</li>
+<li>remove pgfplots theme (<a href="https://github.com/jolars/moloch/commit/c2f1bef3cc7b2a4c48bf2e4f3e7c0c857a54c6fa">c2f1bef</a>)</li>
+<li>simplify blocks and remove blocks with background (<a href="https://github.com/jolars/moloch/commit/d5317d4d05c06ac85f4cbaa7e4a17f493bc6cc32">d5317d4</a>)</li>
+<li>uncouple fira fonts from theme (<a href="https://github.com/jolars/moloch/commit/f960aba4ee56aabad24ab232a71e6673e00dc0db">f960aba</a>)</li>
+</ul>
+</section>
+<section id="bug-fixes-8" class="level3">
+<h3 class="anchored" data-anchor-id="bug-fixes-8">Bug Fixes</h3>
+<ul>
+<li>avoid overflow warnings from titlepage definition (<a href="https://github.com/jolars/moloch/commit/c1c5b85c301e0cd54213e15de8d5c606d0336059">c1c5b85</a>)</li>
+<li>fix frametitle patchmd (<a href="https://github.com/jolars/moloch/commit/a30289334007b497b24a111896cc68bcc08fbd42">a302893</a>)</li>
+<li>fix progress bar in inner theme too (<a href="https://github.com/jolars/moloch/commit/47dcf8df1ab26024e63e1f60ea59fd83a2210a2c">47dcf8d</a>)</li>
+<li>fix reference to Knuth in demo (<a href="https://github.com/jolars/moloch/commit/fbfcc0b7ad78bd3628b8f98b15f32a57aaf32d38">fbfcc0b</a>)</li>
+<li>insert missing parenthesis (<a href="https://github.com/jolars/moloch/commit/e72eaa9af24cdb1646e1785247c6579321cf6ad5">e72eaa9</a>)</li>
+<li>metropolis -&gt; moloch (<a href="https://github.com/jolars/moloch/commit/24cbc0497a95e2a91f81fb996a0453dfb4bcdff0">24cbc04</a>)</li>
+<li>set maxium progressbar to 1 (<a href="https://github.com/jolars/moloch/commit/b4014101fec3c12a5f5960817f97234511ac1aa5">b401410</a>)</li>
+</ul>
+</section>
+<section id="reverts-1" class="level3">
+<h3 class="anchored" data-anchor-id="reverts-1">Reverts</h3>
+<ul>
+<li>“build: use alternative texlive action” (<a href="https://github.com/jolars/moloch/commit/5d32f73e69a178665b3bc059e8973bc394eb3a4f">5d32f73</a>)</li>
+<li>“fix: avoid overflow warnings from titlepage definition” (<a href="https://github.com/jolars/moloch/commit/24c540998b637bd80f4318d3df603329bcade81f">24c5409</a>)</li>
+</ul>
+</section>
+<section id="miscellaneous-chores" class="level3">
+<h3 class="anchored" data-anchor-id="miscellaneous-chores">Miscellaneous Chores</h3>
+<ul>
+<li>remove newline (<a href="https://github.com/jolars/moloch/commit/cd97b2dcb6758f674ce173ff4c45e080d37b5374">cd97b2d</a>)</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/moloch\.ink");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../license.html" class="pagination-link" aria-label="License">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">License</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../implementation/beamerthememoloch.html" class="pagination-link" aria-label="Main Theme">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Main Theme</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Moloch vunknown | Copyright 2024-2025, Johan Larsson</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link active" href="https://github.com/jolars/moloch" aria-current="page">
+      <i class="bi bi-github" role="img" aria-label="Source for this webpage">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
