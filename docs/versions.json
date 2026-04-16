@@ -2,17 +2,17 @@
   "entries": [
     {
       "id": "latest",
-      "label": "Latest release",
+      "label": "Latest Release",
       "href": "/"
     },
     {
       "id": "dev",
-      "label": "Development (main)",
+      "label": "Development",
       "href": "/dev/"
     },
     {
       "id": "texlive-latest",
-      "label": "TeX Live (latest branch)",
+      "label": "TeX Live (Latest)",
       "href": "/texlive/latest/"
     }
   ]
