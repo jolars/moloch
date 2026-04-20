@@ -16,7 +16,7 @@ was created for the following reasons:
 - To strip away some features that added complexity to the code base without
   achieving valuable functionality for the majority of users.
 
-Please check out [the documentatioon](https://moloch.ink) for more information
+Please check out [the documentation](https://moloch.ink) for more information
 on how to use the theme. If you're interested, there is also
 [a blog post](https://jolars.co/blog/2024-05-30-moloch/) in which I introduce
 the theme and write in more detail about the changes with respect to Metropolis.
