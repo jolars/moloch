@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "review-mode": "pr",
+  "release-type": "latex",
+  "version-file": "build.lua",
+  "changelog-file": "CHANGELOG.md",
+  "release-branch": "versionary/release"
+}
