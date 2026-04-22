@@ -319,6 +319,18 @@
   \ifx\moloch@store@light@standout@bg\empty\else
     \setbeamercolor{standout}{bg=\moloch@store@light@standout@bg}%
   \fi
+  \ifx\moloch@store@light@standout@alerted@fg\empty\else
+    \setbeamercolor{standout alerted}{fg=\moloch@store@light@standout@alerted@fg}%
+  \fi
+  \ifx\moloch@store@light@standout@alerted@bg\empty\else
+    \setbeamercolor{standout alerted}{bg=\moloch@store@light@standout@alerted@bg}%
+  \fi
+  \ifx\moloch@store@light@standout@example@fg\empty\else
+    \setbeamercolor{standout example}{fg=\moloch@store@light@standout@example@fg}%
+  \fi
+  \ifx\moloch@store@light@standout@example@bg\empty\else
+    \setbeamercolor{standout example}{bg=\moloch@store@light@standout@example@bg}%
+  \fi
   \ifx\moloch@store@light@normal@text@fg\empty\else
     \setbeamercolor{normal text}{fg=\moloch@store@light@normal@text@fg}%
     \moloch@setup@text@colors
@@ -369,6 +381,18 @@
   \ifx\moloch@store@dark@standout@bg\empty\else
     \setbeamercolor{standout}{bg=\moloch@store@dark@standout@bg}%
   \fi
+  \ifx\moloch@store@dark@standout@alerted@fg\empty\else
+    \setbeamercolor{standout alerted}{fg=\moloch@store@dark@standout@alerted@fg}%
+  \fi
+  \ifx\moloch@store@dark@standout@alerted@bg\empty\else
+    \setbeamercolor{standout alerted}{bg=\moloch@store@dark@standout@alerted@bg}%
+  \fi
+  \ifx\moloch@store@dark@standout@example@fg\empty\else
+    \setbeamercolor{standout example}{fg=\moloch@store@dark@standout@example@fg}%
+  \fi
+  \ifx\moloch@store@dark@standout@example@bg\empty\else
+    \setbeamercolor{standout example}{bg=\moloch@store@dark@standout@example@bg}%
+  \fi
   \ifx\moloch@store@dark@normal@text@fg\empty\else
     \setbeamercolor{normal text}{fg=\moloch@store@dark@normal@text@fg}%
     \moloch@setup@text@colors
@@ -404,6 +428,10 @@
 %      \item \texttt{mProgressbarBg} - Progress bar background
 %      \item \texttt{mStandoutFg} - Standout frame foreground
 %      \item \texttt{mStandoutBg} - Standout frame background
+%      \item \texttt{mStandoutAlertedFg} - Alerted standout foreground
+%      \item \texttt{mStandoutAlertedBg} - Alerted standout background
+%      \item \texttt{mStandoutExampleFg} - Example standout foreground
+%      \item \texttt{mStandoutExampleBg} - Example standout background
 %      \item \texttt{mFootnoteFg} - Footnote foreground
 %    \end{itemize}
 %
@@ -423,6 +451,8 @@
   \setbeamercolor{footnote}{fg=mFootnoteFg}%
   \setbeamercolor{footnote mark}{fg=.}%
   \setbeamercolor{standout}{fg=mStandoutFg, bg=mStandoutBg}%
+  \setbeamercolor{standout alerted}{fg=mStandoutAlertedFg, bg=mStandoutAlertedBg}%
+  \setbeamercolor{standout example}{fg=mStandoutExampleFg, bg=mStandoutExampleBg}%
 }
 %    \end{macrocode}
 % \end{macro}
@@ -448,6 +478,10 @@
     \colorlet{mTitleseparatorFg}{mProgressbarFg}
     \colorlet{mStandoutFg}{mNormaltextBg}
     \colorlet{mStandoutBg}{mNormaltextFg}
+    \colorlet{mStandoutAlertedFg}{mStandoutFg}
+    \colorlet{mStandoutAlertedBg}{mAlertFg}
+    \colorlet{mStandoutExampleFg}{mStandoutFg}
+    \colorlet{mStandoutExampleBg}{mExampleFg}
     \colorlet{mFootnoteFg}{mNormaltextFg!90}
 
     \moloch@apply@semantic@colors
@@ -466,6 +500,10 @@
     \colorlet{mTitleseparatorFg}{mProgressbarFg}
     \colorlet{mStandoutFg}{mNormaltextBg}
     \colorlet{mStandoutBg}{black!15}
+    \colorlet{mStandoutAlertedFg}{mStandoutFg}
+    \colorlet{mStandoutAlertedBg}{mAlertFg}
+    \colorlet{mStandoutExampleFg}{mStandoutFg}
+    \colorlet{mStandoutExampleBg}{mExampleFg}
     \colorlet{mFootnoteFg}{mNormaltextFg!90}
 
     \moloch@apply@semantic@colors
@@ -493,6 +531,10 @@
     \definecolor{mTitleseparatorFg}{HTML}{8959a8}
     \colorlet{mStandoutFg}{white}
     \definecolor{mStandoutBg}{HTML}{1d1f21}
+    \colorlet{mStandoutAlertedFg}{mStandoutFg}
+    \colorlet{mStandoutAlertedBg}{mAlertFg}
+    \colorlet{mStandoutExampleFg}{mStandoutFg}
+    \colorlet{mStandoutExampleBg}{mExampleFg}
     \definecolor{mFootnoteFg}{HTML}{1d1f21}
 
     \moloch@apply@semantic@colors
@@ -510,6 +552,10 @@
     \definecolor{mTitleseparatorFg}{HTML}{b294bb}
     \colorlet{mStandoutFg}{white}
     \definecolor{mStandoutBg}{HTML}{1d1f21}
+    \colorlet{mStandoutAlertedFg}{mStandoutFg}
+    \colorlet{mStandoutAlertedBg}{mAlertFg}
+    \colorlet{mStandoutExampleFg}{mStandoutFg}
+    \colorlet{mStandoutExampleBg}{mExampleFg}
     \definecolor{mFootnoteFg}{HTML}{1d1f21}
 
     \moloch@apply@semantic@colors
@@ -539,6 +585,10 @@
     \definecolor{mTitleseparatorFg}{HTML}{F15854}
     \colorlet{mStandoutFg}{white}
     \colorlet{mStandoutBg}{black!60}
+    \colorlet{mStandoutAlertedFg}{mStandoutFg}
+    \colorlet{mStandoutAlertedBg}{mAlertFg}
+    \colorlet{mStandoutExampleFg}{mStandoutFg}
+    \colorlet{mStandoutExampleBg}{mExampleFg}
     \colorlet{mFootnoteFg}{black!90}
 
     \moloch@apply@semantic@colors
@@ -556,6 +606,10 @@
     \definecolor{mTitleseparatorFg}{HTML}{F15854}
     \colorlet{mStandoutFg}{white}
     \colorlet{mStandoutBg}{black!60}
+    \colorlet{mStandoutAlertedFg}{mStandoutFg}
+    \colorlet{mStandoutAlertedBg}{mAlertFg}
+    \colorlet{mStandoutExampleFg}{mStandoutFg}
+    \colorlet{mStandoutExampleBg}{mExampleFg}
     \colorlet{mFootnoteFg}{black!90}
 
     \moloch@apply@semantic@colors
@@ -588,6 +642,10 @@
     \colorlet{mTitleseparatorFg}{mAlertFg}
     \colorlet{mStandoutFg}{black}
     \colorlet{mStandoutBg}{white}
+    \colorlet{mStandoutAlertedFg}{mStandoutFg}
+    \colorlet{mStandoutAlertedBg}{mAlertFg}
+    \colorlet{mStandoutExampleFg}{mStandoutFg}
+    \colorlet{mStandoutExampleBg}{mExampleFg}
     \colorlet{mFootnoteFg}{mNormaltextFg!90}
 
     \moloch@apply@semantic@colors
@@ -608,6 +666,10 @@
     \colorlet{mTitleseparatorFg}{mAlertFg}
     \colorlet{mStandoutFg}{white}
     \colorlet{mStandoutBg}{black}
+    \colorlet{mStandoutAlertedFg}{mStandoutFg}
+    \colorlet{mStandoutAlertedBg}{mAlertFg}
+    \colorlet{mStandoutExampleFg}{mStandoutFg}
+    \colorlet{mStandoutExampleBg}{mExampleFg}
     \colorlet{mFootnoteFg}{mNormaltextFg!90}
 
     \moloch@apply@semantic@colors
@@ -638,6 +700,10 @@
     \definecolor{mTitleseparatorFg}{HTML}{40A02B}
     \definecolor{mStandoutFg}{HTML}{CAD3F5}
     \definecolor{mStandoutBg}{HTML}{303446}
+    \colorlet{mStandoutAlertedFg}{mStandoutFg}
+    \colorlet{mStandoutAlertedBg}{mAlertFg}
+    \colorlet{mStandoutExampleFg}{mStandoutFg}
+    \colorlet{mStandoutExampleBg}{mExampleFg}
     \colorlet{mFootnoteFg}{mNormaltextFg!90}
 
     \moloch@apply@semantic@colors
@@ -655,6 +721,10 @@
     \definecolor{mTitleseparatorFg}{HTML}{A6DA95}
     \definecolor{mStandoutFg}{HTML}{4C4F69}
     \definecolor{mStandoutBg}{HTML}{CCD0DA}
+    \colorlet{mStandoutAlertedFg}{mStandoutFg}
+    \colorlet{mStandoutAlertedBg}{mAlertFg}
+    \colorlet{mStandoutExampleFg}{mStandoutFg}
+    \colorlet{mStandoutExampleBg}{mExampleFg}
     \colorlet{mFootnoteFg}{mNormaltextFg!90}
 
     \moloch@apply@semantic@colors
@@ -730,6 +800,14 @@
   store/dark/standout fg/.store in=\moloch@store@dark@standout@fg,
   store/light/standout bg/.store in=\moloch@store@light@standout@bg,
   store/dark/standout bg/.store in=\moloch@store@dark@standout@bg,
+  store/light/standout alerted fg/.store in=\moloch@store@light@standout@alerted@fg,
+  store/dark/standout alerted fg/.store in=\moloch@store@dark@standout@alerted@fg,
+  store/light/standout alerted bg/.store in=\moloch@store@light@standout@alerted@bg,
+  store/dark/standout alerted bg/.store in=\moloch@store@dark@standout@alerted@bg,
+  store/light/standout example fg/.store in=\moloch@store@light@standout@example@fg,
+  store/dark/standout example fg/.store in=\moloch@store@dark@standout@example@fg,
+  store/light/standout example bg/.store in=\moloch@store@light@standout@example@bg,
+  store/dark/standout example bg/.store in=\moloch@store@dark@standout@example@bg,
   store/light/normal text fg/.store in=\moloch@store@light@normal@text@fg,
   store/dark/normal text fg/.store in=\moloch@store@dark@normal@text@fg,
   store/light/normal text bg/.store in=\moloch@store@light@normal@text@bg,
@@ -754,6 +832,14 @@
   store/dark/standout fg=,
   store/light/standout bg=,
   store/dark/standout bg=,
+  store/light/standout alerted fg=,
+  store/dark/standout alerted fg=,
+  store/light/standout alerted bg=,
+  store/dark/standout alerted bg=,
+  store/light/standout example fg=,
+  store/dark/standout example fg=,
+  store/light/standout example bg=,
+  store/dark/standout example bg=,
   store/light/normal text fg=,
   store/dark/normal text fg=,
   store/light/normal text bg=,
@@ -971,6 +1057,86 @@
       \pgfkeys{/moloch/colors/store/dark/standout bg=#1}%
       \ifmoloch@variant@dark
         \setbeamercolor{standout}{bg=#1}%
+      \fi
+    },
+  standout alerted fg/.code={%
+      \setbeamercolor{standout alerted}{fg=#1}%
+      \ifmoloch@variant@dark
+        \pgfkeys{/moloch/colors/store/dark/standout alerted fg=#1}%
+      \else
+        \pgfkeys{/moloch/colors/store/light/standout alerted fg=#1}%
+      \fi
+    },
+  light/standout alerted fg/.code={%
+      \pgfkeys{/moloch/colors/store/light/standout alerted fg=#1}%
+      \ifmoloch@variant@dark\else
+        \setbeamercolor{standout alerted}{fg=#1}%
+      \fi
+    },
+  dark/standout alerted fg/.code={%
+      \pgfkeys{/moloch/colors/store/dark/standout alerted fg=#1}%
+      \ifmoloch@variant@dark
+        \setbeamercolor{standout alerted}{fg=#1}%
+      \fi
+    },
+  standout alerted bg/.code={%
+      \setbeamercolor{standout alerted}{bg=#1}%
+      \ifmoloch@variant@dark
+        \pgfkeys{/moloch/colors/store/dark/standout alerted bg=#1}%
+      \else
+        \pgfkeys{/moloch/colors/store/light/standout alerted bg=#1}%
+      \fi
+    },
+  light/standout alerted bg/.code={%
+      \pgfkeys{/moloch/colors/store/light/standout alerted bg=#1}%
+      \ifmoloch@variant@dark\else
+        \setbeamercolor{standout alerted}{bg=#1}%
+      \fi
+    },
+  dark/standout alerted bg/.code={%
+      \pgfkeys{/moloch/colors/store/dark/standout alerted bg=#1}%
+      \ifmoloch@variant@dark
+        \setbeamercolor{standout alerted}{bg=#1}%
+      \fi
+    },
+  standout example fg/.code={%
+      \setbeamercolor{standout example}{fg=#1}%
+      \ifmoloch@variant@dark
+        \pgfkeys{/moloch/colors/store/dark/standout example fg=#1}%
+      \else
+        \pgfkeys{/moloch/colors/store/light/standout example fg=#1}%
+      \fi
+    },
+  light/standout example fg/.code={%
+      \pgfkeys{/moloch/colors/store/light/standout example fg=#1}%
+      \ifmoloch@variant@dark\else
+        \setbeamercolor{standout example}{fg=#1}%
+      \fi
+    },
+  dark/standout example fg/.code={%
+      \pgfkeys{/moloch/colors/store/dark/standout example fg=#1}%
+      \ifmoloch@variant@dark
+        \setbeamercolor{standout example}{fg=#1}%
+      \fi
+    },
+  standout example bg/.code={%
+      \setbeamercolor{standout example}{bg=#1}%
+      \ifmoloch@variant@dark
+        \pgfkeys{/moloch/colors/store/dark/standout example bg=#1}%
+      \else
+        \pgfkeys{/moloch/colors/store/light/standout example bg=#1}%
+      \fi
+    },
+  light/standout example bg/.code={%
+      \pgfkeys{/moloch/colors/store/light/standout example bg=#1}%
+      \ifmoloch@variant@dark\else
+        \setbeamercolor{standout example}{bg=#1}%
+      \fi
+    },
+  dark/standout example bg/.code={%
+      \pgfkeys{/moloch/colors/store/dark/standout example bg=#1}%
+      \ifmoloch@variant@dark
+        \setbeamercolor{standout example}{bg=#1}%
       \fi
     },
   title separator/.code={%

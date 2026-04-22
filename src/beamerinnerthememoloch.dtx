@@ -728,30 +728,50 @@
 %
 %    \begin{macrocode}
 \providebool{moloch@standout}
+\def\moloch@standout@style@default{default}
+\def\moloch@standout@style@true{true}
+\def\moloch@standout@style@alerted{alerted}
+\def\moloch@standout@style@example{example}
+\newcommand{\moloch@set@standout@color}[1]{%
+  \def\moloch@standout@selected@style{#1}%
+  \def\moloch@standout@color{standout}%
+  \ifx\moloch@standout@selected@style\moloch@standout@style@default
+  \else\ifx\moloch@standout@selected@style\moloch@standout@style@true
+  \else\ifx\moloch@standout@selected@style\moloch@standout@style@alerted
+    \def\moloch@standout@color{standout alerted}%
+  \else\ifx\moloch@standout@selected@style\moloch@standout@style@example
+    \def\moloch@standout@color{standout example}%
+  \else
+    \PackageError{beamerinnerthememoloch}{Unknown standout style '#1'}{%
+      Use standout, standout=default, standout=alerted, or standout=example.%
+    }%
+  \fi\fi\fi\fi
+}
 \define@key{beamerframe}{standout}[true]{%
   \booltrue{moloch@standout}
   \begingroup
+  \moloch@set@standout@color{#1}%
   \setkeys{beamerframe}{c}
   \ifbool{moloch@enableStandoutNumbering}{}{%
     \setkeys{beamerframe}{noframenumbering}}
-  \ifbeamercolorempty[bg]{standout}{
+  \ifbeamercolorempty[bg]{\moloch@standout@color}{
     \setbeamercolor{background canvas}{
-      use=standout,
-      bg=-standout.fg
+      use=\moloch@standout@color,
+      bg=-\moloch@standout@color.fg
     }
   }{
     \setbeamercolor{background canvas}{
-      use=standout,
-      bg=standout.bg
+      use=\moloch@standout@color,
+      bg=\moloch@standout@color.bg
     }
   }
   \setbeamercolor{local structure}{
-    fg=standout.fg
+    fg=\moloch@standout@color.fg
   }
-  \usebeamercolor[fg]{standout}
+  \usebeamercolor[fg]{\moloch@standout@color}
   \setbeamercolor{page number in head/foot}{
-    use=standout,
-    fg=standout.fg
+    use=\moloch@standout@color,
+    fg=\moloch@standout@color.fg
   }
   \ifbool{moloch@enableStandoutFooter}{}{\setbeamertemplate{footline}{}}
 }

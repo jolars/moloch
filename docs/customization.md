@@ -641,6 +641,36 @@ Sets the background color for standout frames.
 
 :::
 
+::: {.describe-key key-name="standout alerted fg" type="<color>"
+default="theme-dependent"}
+
+Sets the foreground color for alerted standout frames (created with
+`\begin{frame}[standout=alerted]`).
+
+:::
+
+::: {.describe-key key-name="standout alerted bg" type="<color>"
+default="theme-dependent"}
+
+Sets the background color for alerted standout frames.
+
+:::
+
+::: {.describe-key key-name="standout example fg" type="<color>"
+default="theme-dependent"}
+
+Sets the foreground color for example standout frames (created with
+`\begin{frame}[standout=example]`).
+
+:::
+
+::: {.describe-key key-name="standout example bg" type="<color>"
+default="theme-dependent"}
+
+Sets the background color for example standout frames.
+
+:::
+
 #### Example: Customizing Colors Per Variant
 
 You can set different colors for light and dark variants:

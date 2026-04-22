@@ -16,6 +16,14 @@ or image. To use it, add the key `standout` to the frame:
   Thank you!
 \end{frame}
 
+\begin{frame}[standout=alerted]
+  Important warning!
+\end{frame}
+
+\begin{frame}[standout=example]
+  Positive takeaway.
+\end{frame}
+
 \end{document}
 ```
 
