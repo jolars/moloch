@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.2.1](https://github.com/jolars/moloch/compare/v2.2.0...v2.2.1) (2026-04-22)
+
+### Bug Fixes
+- **readme:** minor typo correction ([`5d59da6`](https://github.com/jolars/moloch/commit/5d59da63dc9eb8ebd5e5d6f8733e74a951ae7874))
 ## [2.2.0](https://github.com/jolars/moloch/compare/v2.1.0...v2.2.0) (2026-02-17)
 
 ### Features
