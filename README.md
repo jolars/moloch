@@ -16,13 +16,12 @@ was created for the following reasons:
 - To strip away some features that added complexity to the code base without
   achieving valuable functionality for the majority of users.
 
-Please check out [the documentation](https://moloch.ink) for more information
-on how to use the theme. If you're interested, there is also
-[a blog post](https://jolars.co/blog/2024-05-30-moloch/) in which I introduce
-the theme and write in more detail about the changes with respect to Metropolis.
-Finally, please join us on
-[Matrix](https://matrix.to/#/#texlive-pkg-moloch:matrix.org) if you have any
-questions or want to discuss the theme.
+Please check out [the documentation](https://moloch.ink) for more information on
+how to use the theme. If you're interested, there is also [a blog
+post](https://jolars.co/blog/2024-05-30-moloch/) in which I introduce the theme
+and write in more detail about the changes with respect to Metropolis. Finally,
+please join us on [Matrix](https://matrix.to/#/#texlive-pkg-moloch:matrix.org)
+if you have any questions or want to discuss the theme.
 
 Do not expect this theme to be backwards compatible with the Metropolis theme.
 
@@ -74,10 +73,10 @@ Moloch.
 
 ## License
 
-The theme itself is licensed under a
-[Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
-This means that if you change the theme and re-distribute it, you _must_ retain
-the copyright notice header and license it under the same CC-BY-SA license. This
+The theme itself is licensed under a [Creative Commons Attribution-ShareAlike
+4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/). This
+means that if you change the theme and re-distribute it, you *must* retain the
+copyright notice header and license it under the same CC-BY-SA license. This
 does not affect the presentation that you create with the theme.
 
 ## Contributing
@@ -85,30 +84,37 @@ does not affect the presentation that you create with the theme.
 Contributions are welcome, but we are generally not interested in changes that
 can be easily added through the standard Beamer interface.
 
-Also, when writing commit messages, please use the
-[conventional commits format](https://www.conventionalcommits.org/en/v1.0.0/).
+Also, when writing commit messages, please use the [conventional commits
+format](https://www.conventionalcommits.org/en/v1.0.0/).
 
 ## Versioning
 
 The project uses [semantic versioning](https://semver.org).
 
-Documentation is published as versioned channels on GitHub Pages:
+## Citation
 
-- `https://moloch.ink/` for the canonical latest tagged release
-- `https://moloch.ink/latest/` as an alias to the same release content
-- `https://moloch.ink/dev/` for the `main` branch
-- `https://moloch.ink/texlive/<year>/` for `tl/<year>` maintenance branches
+In the off chance that you want to cite Moloch in an academic publication,
+please use the following BibTeX entry:
 
-The docs workflow listens to pushes on `main`, `tl/*`, and `v*` tags, and
-publishes into corresponding subdirectories in the `gh-pages` branch.
-Development and TeX Live channels are emitted with `robots: noindex,follow`.
-You can also run the Docs workflow manually with `workflow_dispatch` and choose
-`publish_as=latest|dev|texlive`.
+```bibtex
+@article{larsson2026,
+  title         = {Moloch: A Minimalist, Feature-Rich {{Beamer}} Theme},
+  author        = {Larsson, Johan and {samcarter}},
+  volume        = {47},
+  number        = {145},
+  pages         = {67--74},
+  doi           = {10.47397/tb/47-1/tb145larsson-moloch},
+  issn          = {0896-3207},
+  url           = {https://tug.org/TUGboat/tb47-1/tb145larsson-moloch.pdf},
+  date          = {2026},
+  journaltitle  = {TUGboat}
+}
+```
 
 ## Acknowledgments
 
-Much of **Moloch** is the result of
-[Mathias Vogelgesang's](https://github.com/matze) hard work on the **Metropolis
-theme** (of which **Moloch** is a fork).
+Much of **Moloch** is the result of [Mathias
+Vogelgesang's](https://github.com/matze) hard work on the **Metropolis theme**
+(of which **Moloch** is a fork).
 
 Thanks to [samcarter](https://github.com/samcarter) for the logo!

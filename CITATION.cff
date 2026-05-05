@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the following metadata."
+title: "Moloch: A Minimalist, Feature-Rich Beamer Theme"
+authors:
+  - family-names: Larsson
+    given-names: Johan
+    orcid: "https://orcid.org/0000-0002-4029-5945"
+  - name: samcarter
+preferred-citation:
+  type: article
+  title: "Moloch: A Minimalist, Feature-Rich Beamer Theme"
+  authors:
+    - family-names: Larsson
+      given-names: Johan
+      orcid: "https://orcid.org/0000-0002-4029-5945"
+    - name: samcarter
+  year: 2026
+  journal: TUGboat
+  volume: 47
+  issue: 145
+  start: 67
+  end: 74
+  issn: "0896-3207"
+  doi: "10.47397/tb/47-1/tb145larsson-moloch"
+  url: "https://tug.org/TUGboat/tb47-1/tb145larsson-moloch.pdf"
