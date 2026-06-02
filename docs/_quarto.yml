@@ -74,6 +74,7 @@ format:
     highlight-style: github
     css: styles.css
     html-math-method: katex
+    canonical-url: true
     include-in-header:
       file: header.html
   pdf:
