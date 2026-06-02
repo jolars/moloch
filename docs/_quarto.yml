@@ -1,6 +1,8 @@
 project:
   type: book
   output-dir: _site
+  post-render:
+    - ../scripts/fix-quarto-sitemap.sh
 
 book:
   title: "Moloch"

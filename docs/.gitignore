@@ -5,3 +5,5 @@
 /site_libs/
 
 *.hd
+
+**/*.quarto_ipynb
