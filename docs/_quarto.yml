@@ -33,6 +33,8 @@ book:
 
   search: true
 
+  llms-txt: true
+
   sidebar:
     footer: '<div id="moloch-version-footer">Docs Version</div>'
 
