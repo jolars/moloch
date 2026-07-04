@@ -147,6 +147,22 @@ jobs:
             rsync -a --delete --exclude '.git' "${GITHUB_WORKSPACE}/docs/_site/" "$target/"
           done
 
+          # The TeX Live channel is only published under /texlive/<version>/, so
+          # the bare /texlive/ path 404s. Google Search Console flags that when
+          # it truncates a crawled URL. Serve a redirect to the latest version.
+          if [ -d texlive ]; then
+            printf '%s\n' \
+              '<!doctype html>' \
+              '<html lang="en">' \
+              '<meta charset="utf-8">' \
+              '<title>Moloch TeX Live documentation</title>' \
+              '<meta http-equiv="refresh" content="0; url=/texlive/latest/">' \
+              '<link rel="canonical" href="/texlive/latest/">' \
+              '<meta name="robots" content="noindex, follow">' \
+              '<p>Redirecting to the <a href="/texlive/latest/">latest TeX Live documentation</a>.</p>' \
+              > texlive/index.html
+          fi
+
           touch .nojekyll
 
           git add -A
