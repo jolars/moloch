@@ -29,7 +29,7 @@ Live-compatible snapshots.
 onto a Metropolis-like skyscraper using a vintage movie projector."
 fig-align="center" style="padding-top: 1em;"}
 
-# Introduction {-}
+## Introduction {-}
 
 Beamer is a great way to make presentations with LaTeX, but its theme selection
 is surprisingly sparse. The stock themes share an aesthetic that can be a little
