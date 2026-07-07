@@ -14,15 +14,24 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v27
+      - uses: actions/checkout@v6
+
+      - uses: cachix/install-nix-action@v31
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: cachix/cachix-action@v17
+        with:
+          name: devenv
+
+      - name: Install devenv.sh
+        run: nix profile install nixpkgs#devenv
+
       - name: document
-        run: nix develop --command l3build-wrapped doc
+        run: devenv shell l3build-wrapped doc
+
       - name: build
-        run:
-          nix develop --command l3build-wrapped ctan -q -H --show-log-on-error
+        run: devenv shell l3build-wrapped ctan -q -H --show-log-on-error
 
   versionary:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
