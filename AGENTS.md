@@ -465,8 +465,10 @@ Process:
 
 When changing user-facing manual content:
 
-1. Edit `docs/index.md` (main content) or `docs/implementation/*.md` (if
-   changing DTX structure)
+1. Edit `docs/index.md` (main content). Do **not** edit `docs/implementation/*.md`
+   directly: those are generated from the `.dtx` sources (see below) and any
+   manual edits are overwritten by `task docs`. To change them, edit the `.dtx`
+   file in `src/` and regenerate.
 2. Run full build pipeline: `task build-manual`
 3. Verify output: Check `docs/_site/moloch.pdf`
 
