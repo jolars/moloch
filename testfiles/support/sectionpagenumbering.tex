@@ -1,0 +1,27 @@
+\input regression-test
+
+\molochset{sectionpage=progressbar}
+
+\begin{document}
+
+\START
+
+% With sectionpagenumbering=none (the default) the section page is created with
+% noframenumbering, so it does not advance the frame counter. The following
+% content frame is therefore frame 1.
+\molochset{sectionpagenumbering=none}
+\section{One}
+\begin{frame}
+  \typeout{TEST sectionpagenumbering=none: framenumber=\insertframenumber}
+\end{frame}
+
+% With sectionpagenumbering=show the section page counts as a frame, so it
+% advances the counter (consuming frame 2). The following content frame is
+% therefore frame 3, not frame 2.
+\molochset{sectionpagenumbering=show}
+\section{Two}
+\begin{frame}
+  \typeout{TEST sectionpagenumbering=show: framenumber=\insertframenumber}
+\end{frame}
+
+\end{document}
