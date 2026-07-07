@@ -102,6 +102,27 @@ footer with a frame count is shown.
 }
 ```
 
+### `sectionpagenumbering`
+
+Whether or not to number section pages. Option `none` (the default)
+means that section pages are not numbered (do not count as frames),
+which matches the historical behaviour. Option `show` means that they
+count as frames, so that the frame number is contiguous across section
+pages. This mirrors the `standoutnumbering` option above. (Section pages
+are `plain`, so the number is not printed on the section page itself;
+the effect is that subsequent frames' numbers account for the section
+pages.)
+
+``` latex
+\providebool{moloch@enableSectionPageNumbering}
+\pgfkeys{
+  /moloch/inner/sectionpagenumbering/.cd,
+  .is choice,
+  none/.code={\boolfalse{moloch@enableSectionPageNumbering}},
+  show/.code={\booltrue{moloch@enableSectionPageNumbering}},
+}
+```
+
 ### `titleseparator linewidth`
 
 Set the width of the line separating the title from the author.
@@ -174,6 +195,7 @@ Set default values for inner theme options.
     sectionpage=progressbar,
     subsectionpage=none,
     standoutnumbering=none,
+    sectionpagenumbering=none,
     titleseparator linewidth=0.5pt,
     titlepage=moloch,
   }
@@ -536,7 +558,9 @@ Template for the section title slide at the beginning of each section.
     \ifbeamer@inframe
       \sectionpage
     \else
-      \frame[plain,c,noframenumbering]{\sectionpage}
+      \ifbool{moloch@enableSectionPageNumbering}
+        {\frame[plain,c]{\sectionpage}}
+        {\frame[plain,c,noframenumbering]{\sectionpage}}
     \fi
   }
 }
