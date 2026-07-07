@@ -87,33 +87,27 @@ jobs:
             exit 1
           fi
 
-      - name: Install TeX Live
-        uses: zauguin/install-texlive@v4
+      - uses: cachix/install-nix-action@v31
         with:
-          packages: >
-            l3build scheme-basic fontawesome5 pdfcol tikzfill float caption
-            hypdoc koma-script xcolor lualatex-math unicode-math fancyvrb
-            booktabs mdwtools parskip tcolorbox luatexbase
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: cachix/cachix-action@v17
+        with:
+          name: devenv
+
+      - name: Install devenv.sh
+        run: nix profile install nixpkgs#devenv
 
       - name: Restore timestamps
         uses: chetan/git-restore-mtime-action@v2
 
-      - uses: leafo/gh-actions-lua@v12
-
       - name: Extract DTX documentation
-        run: lua scripts/extract-dtx-docs.lua
+        run: devenv shell texlua scripts/extract-dtx-docs.lua
 
-      - name: Render Quarto Project
-        uses: quarto-dev/quarto-actions/render@v2
+      - name: Render Quarto project
         env:
           MOLOCH_DOC_CHANNEL: ${{ steps.targets.outputs.doc_channel }}
-        with:
-          path: docs
+        run: devenv shell bash -c 'cd docs && quarto render'
 
       - name: Publish to gh-pages
         shell: bash
