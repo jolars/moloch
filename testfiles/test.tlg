@@ -776,6 +776,7 @@ Completed box being shipped out [3]
 ........\glue(\parfillskip) 0.0 plus 1.0fil
 ........\glue(\rightskip) 0.0 plus 1.0fil
 ......\pdfcolorstack 0 pop
+.....\penalty 10000
 .....\glue(\baselineskip) 1.21667
 .....\hbox(12.38333+2.12914)x307.28987
 ......\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
@@ -854,6 +855,7 @@ Completed box being shipped out [3]
 ........\glue(\parfillskip) 0.0 plus 1.0fil
 ........\glue(\rightskip) 0.0 plus 1.0fil
 ......\pdfcolorstack 0 pop
+.....\penalty 10000
 .....\glue(\lineskip) 1.0
 .....\hbox(70.31248+0.0)x307.28987
 ......\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
@@ -1540,6 +1542,7 @@ Completed box being shipped out [4]
 ........\glue(\parfillskip) 0.0 plus 1.0fil
 ........\glue(\rightskip) 0.0 plus 1.0fil
 ......\pdfcolorstack 0 pop
+.....\penalty 10000
 .....\glue(\baselineskip) 1.21667
 .....\hbox(12.38333+0.0)x307.28987
 ......\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
@@ -1599,6 +1602,7 @@ Completed box being shipped out [4]
 ........\glue(\parfillskip) 0.0 plus 1.0fil
 ........\glue(\rightskip) 0.0 plus 1.0fil
 ......\pdfcolorstack 0 pop
+.....\penalty 10000
 .....\glue(\baselineskip) 1.21667
 .....\hbox(12.38333+0.0)x307.28987
 ......\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
@@ -1666,6 +1670,7 @@ Completed box being shipped out [4]
 ........\glue(\parfillskip) 0.0 plus 1.0fil
 ........\glue(\rightskip) 0.0 plus 1.0fil
 ......\pdfcolorstack 0 pop
+.....\penalty 10000
 .....\glue(\lineskip) 1.0
 .....\hbox(12.38333+2.12914)x307.28987
 ......\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
@@ -5232,6 +5237,7 @@ Completed box being shipped out [12]
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 0.0 plus 1.0fil
 .........\pdfcolorstack 0 pop
+........\penalty 10000
 ........\glue(\baselineskip) 1.21667
 ........\hbox(12.38333+0.0)x138.2795
 .........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
@@ -5287,6 +5293,7 @@ Completed box being shipped out [12]
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 0.0 plus 1.0fil
 .........\pdfcolorstack 0 pop
+........\penalty 10000
 ........\glue(\baselineskip) 1.21667
 ........\hbox(12.38333+0.0)x138.2795
 .........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
@@ -5344,6 +5351,7 @@ Completed box being shipped out [12]
 ...........\glue(\parfillskip) 0.0 plus 1.0fil
 ...........\glue(\rightskip) 0.0 plus 1.0fil
 .........\pdfcolorstack 0 pop
+........\penalty 10000
 ........\glue(\lineskip) 1.0
 ........\hbox(12.38333+0.0)x138.2795
 .........\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
@@ -5444,6 +5452,7 @@ Completed box being shipped out [12]
 ..........\kern 0.0
 .........\pdfcolorstack 0 pop
 .........\glue -3.65004
+........\penalty 10000
 ........\glue -0.5
 ........\hbox(17.25005+0.0)x138.2795
 .........\glue -3.65004
@@ -5539,6 +5548,7 @@ Completed box being shipped out [12]
 ..........\kern 0.0
 .........\pdfcolorstack 0 pop
 .........\glue -3.65004
+........\penalty 10000
 ........\glue -0.5
 ........\hbox(17.25005+0.0)x138.2795
 .........\glue -3.65004
@@ -5636,6 +5646,7 @@ Completed box being shipped out [12]
 ..........\kern 0.0
 .........\pdfcolorstack 0 pop
 .........\glue -3.65004
+........\penalty 10000
 ........\glue -0.5
 ........\hbox(17.25005+0.0)x138.2795
 .........\glue -3.65004
