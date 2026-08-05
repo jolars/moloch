@@ -55,6 +55,7 @@ book:
         - getting-started.md
         - customization.md
         - commands.md
+        - ltx-talk.md
         - known-issues.md
         - license.md
         - changelog/index.md
@@ -68,6 +69,7 @@ book:
         - implementation/beamercolorthememoloch.md
         - implementation/beamercolorthememoloch-tomorrow.md
         - implementation/beamercolorthememoloch-highcontrast.md
+        - implementation/moloch-talk.md
 
 highlight-style: breeze
 

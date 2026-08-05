@@ -1,0 +1,72 @@
+{
+  "amsmath": {
+    "package": "amsmath",
+    "revision": 79234,
+    "sha512": "5d6768eea6404bcde83f6fdd7025f6f63dfafc633c689a308f1465ffbeb74385daddc4cd2cf4eb6f0152e8a2c9f8ee1cdc94aa8ad796051155a299d355503c4c"
+  },
+  "biblatex": {
+    "package": "biblatex",
+    "revision": 80368,
+    "sha512": "44c405851a52ad122b05e01c8999bdab5389c6fc77493247c2b202d64ad4a89e70bb140012d3cfa2fe95f739c587d07eaf2f7878113b4d2f07adce8c0f941ffb"
+  },
+  "firstaid": {
+    "package": "firstaid",
+    "revision": 79234,
+    "sha512": "64baa443979a09b6c5eb7a27c53ed040cd04f146edb2af7f037d9d4ef7d98eb637cbc85f59eaac149bb5f1d2cc4bbf9426f47c93add55f6aa41a104e669c8af8"
+  },
+  "graphics": {
+    "package": "graphics",
+    "revision": 79234,
+    "sha512": "1fce8c76d1cc65eb416c1b40bb8b872ec886384c1a42c02110756ff08d4c5909a3675cf1098499aa9e743eb2f4df18c6487bc0849208bf3ef9efc17dd27cb7ae"
+  },
+  "l3kernel": {
+    "package": "l3kernel",
+    "revision": 80334,
+    "sha512": "fbf78865f81a7da8884a72ce564fbc73ecde366532c8d46e47cbc4336c83f6264926093f0c48de20bdfbbc576671f543f7bd5e96744ff996a9da63daa49ac9a3"
+  },
+  "latex": {
+    "package": "latex",
+    "revision": 79618,
+    "sha512": "04d6380ef7c023f63192749080c15e6e47b873aa151e838a946439f5de4455cce1a872e688cf8a366363d09ddcf03cf6b588f3db0573160486afe9cbe0f514e1"
+  },
+  "latex-lab": {
+    "package": "latex-lab",
+    "revision": 80377,
+    "sha512": "f5014fb534b9552792eb9af4d201c6103e32f3fe2939120bb591d101fc5027cb6ab9f03b42babbac035825ab5647a003d64327fae83c06d707b7084dfe5b4861"
+  },
+  "lua-unicode-math": {
+    "package": "lua-unicode-math",
+    "revision": 80357,
+    "sha512": "64aa34ee5a1472bf836d467d28996645981d03ed41be023d9918d1469ac76d8caf3a91bdff24ccb02f50ebd37d8d0737de33ca76ae26d26e2ae55683f10dad02"
+  },
+  "luamml": {
+    "package": "luamml",
+    "revision": 79442,
+    "sha512": "fbede1efc6c7a0e0c86396cba3efd5425fcb36fde44ed757332bed81bc0bf94650aab7841242b61db75184109d1af8bdde5d8e2180a4982f505ef540d7e58d86"
+  },
+  "pdfmanagement-testphase": {
+    "package": "pdfmanagement",
+    "revision": 80541,
+    "sha512": "faba83c1fafe5c9022245b74d90171794c4953a3bc7bf9c29b9d724c4e7f94f022e76c89eee35f7b96f53fd9c2420ad5a6de38888a2614352ccf60a209224417"
+  },
+  "tagpdf": {
+    "package": "tagpdf",
+    "revision": 80553,
+    "sha512": "5f42b9525cac71bb25757db26da8592e874a90ed1dd21c6bdb36d78538981be029c614b31495b10777044ce25e87b499739830faf340ab67ca987daec0d0a7ab"
+  },
+  "tex-ini-files": {
+    "package": "tex-ini-files",
+    "revision": 78524,
+    "sha512": "bb60c588186061ea9489ca7c2778d0cb2ddc9d6628d39433938596b3a5ba6d688cce7fed1840a7fb281ea3379df897303d6e1bd33cc5d2bc46e7395416739627"
+  },
+  "tools": {
+    "package": "tools",
+    "revision": 79234,
+    "sha512": "9bcf59a34fda40574fedd88583787937d33601fc1f505f12ec30e6ddb2095a5d5c52dd431e6ca354fedcd09cd1311acaed35ea858b429ba631cef7e58262d221"
+  },
+  "unicode-data": {
+    "package": "unicode-data",
+    "revision": 80380,
+    "sha512": "45f63c930ac35d6072fb51f2575bc5d56df79422b26a26523f03af95b5599bd5867c7ac527d787256fe4df9afa4ae9ff4c4b8a25d30ede1ebec951cdc34be534"
+  }
+}

@@ -1,0 +1,94 @@
+\DocumentMetadata{lang=en-US}
+\documentclass[10pt]{ltx-talk}
+\usepackage{moloch-talk}
+\setmainfont{Latin Modern Sans}
+\setsansfont{Latin Modern Sans}
+\input regression-test
+
+% Automatic frame breaks leave partially filled boxes by design.
+\vbadness=10000
+
+\ExplSyntaxOn
+\int_new:N \g__moloch_test_numbers_int
+\int_new:N \g__moloch_test_bars_int
+\AddToHook { build / page / before } [ moloch-test ]
+  {
+    \int_gzero:N \g__moloch_test_numbers_int
+    \int_gzero:N \g__moloch_test_bars_int
+  }
+\AddToHook { shipout / after }
+  {
+    \TYPE
+      {
+        TEST~frame~=~\theframe,~slide~=~\theslide,
+        ~numbers~=~\int_use:N \g__moloch_test_numbers_int,
+        ~bars~=~\int_use:N \g__moloch_test_bars_int
+      }
+  }
+
+% Observe page options when the header and footer actually render.
+\cs_new_eq:NN \MolochTestProgressbar \__moloch_progressbar:nn
+\cs_set_protected:Npn \__moloch_progressbar:nn #1#2
+  {
+    \int_gincr:N \g__moloch_test_bars_int
+    \TYPE
+      {
+        TEST~bar~=~\l__moloch_progressbar_tl,
+        ~thickness~=~\dim_eval:n { (#1) + (#2) }
+      }
+    \MolochTestProgressbar {#1} {#2}
+  }
+\EditInstance { footer-element } { framenumber }
+  { font = \int_gincr:N \g__moloch_test_numbers_int }
+\ExplSyntaxOff
+
+\molochset{sectionpage=none}
+\begin{document}
+\START
+
+% Settings made in the body must reach every overlay and survive reuse.
+\begin{frame}<1-2>[name=localfooter]
+  \molochset{progressbar=foot,framenumber=false}
+  \molochset{progressbar-linewidth=3pt}
+  \frametitle{Local footer options}
+  First overlay.\pause Second overlay.
+\end{frame}
+\begin{frame}
+  \frametitle{Defaults restored}
+  Ordinary content.
+\end{frame}
+\reuseframe<1-2>{localfooter}
+
+% An overlay-specific setting must not reach the next overlay.
+\begin{frame}<1-2>
+  \only<1>{\molochset{progressbar=head,progressbar-linewidth=2pt,framenumber=false}}
+  \frametitle{Overlay-specific options}
+  First overlay.\pause Second overlay.
+\end{frame}
+
+% Automatic page breaks must preserve the body settings on every page.
+\begin{frame}[auto-break=true]
+  \molochset{progressbar=frametitle,progressbar-linewidth=4pt,framenumber=false}
+  \frametitle{Local options with automatic breaks}
+  \rule{0pt}{0.6\textheight}First page.\par
+  \rule{0pt}{0.6\textheight}Second page.\par
+\end{frame}
+\begin{frame}
+  \frametitle{Defaults after automatic breaks}
+  Ordinary content.
+\end{frame}
+
+% Local options can also turn off a global bar and enable the frame number.
+\molochset{progressbar=head,progressbar-linewidth=5pt,framenumber=false}
+\begin{frame}
+  \molochset{progressbar=none,framenumber=true}
+  \frametitle{Local options override global options}
+  Ordinary content.
+\end{frame}
+\begin{frame}
+  \frametitle{Global options restored}
+  Ordinary content.
+\end{frame}
+
+\END
+\end{document}

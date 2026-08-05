@@ -1,0 +1,27 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+TEST variant = light (default)
+TEST body color matches the variant
+TEST color mNormaltextFg = {rgb}{0.13725,0.2157,0.23137}
+TEST color mNormaltextBg = {gray}{0.98}
+TEST color mAlertFg = {rgb}{0.92157,0.50587,0.10588}
+TEST color mExampleFg = {rgb}{0,0.50195,0.50195}
+TEST color mFrametitleFg = {gray}{0.98}
+TEST color mFrametitleBg = {rgb}{0.13725,0.2157,0.23137}
+TEST color mProgressbarFg = {rgb}{0.92157,0.50587,0.10588}
+TEST color mTitleseparatorFg = {rgb}{0.92157,0.50587,0.10588}
+TEST color mStandoutFg = {gray}{0.98}
+TEST color mStandoutBg = {rgb}{0.13725,0.2157,0.23137}
+TEST color structure = {rgb}{0.13725,0.2157,0.23137}
+TEST color alert = {rgb}{0.92157,0.50587,0.10588}
+TEST color example = {rgb}{0,0.50195,0.50195}
+TEST variant = dark
+TEST body color matches the variant
+TEST color mNormaltextFg = {gray}{0.98}
+TEST color mNormaltextBg = {rgb}{0.13725,0.2157,0.23137}
+TEST color mAlertFg = {rgb}{0.93726,0.62354,0.46275}
+TEST color mExampleFg = {rgb}{0.35294,0.74902,0.7098}
+TEST color structure = {gray}{0.98}
+TEST color alert = {rgb}{0.93726,0.62354,0.46275}
+TEST variant = light (restored)
+TEST body color matches the variant

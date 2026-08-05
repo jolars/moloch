@@ -52,10 +52,14 @@ tasks:
     desc: Save test expectations (fixtures) for all test files
     cmds:
       - l3build-wrapped save backgroundcolors
+      - l3build-wrapped save sectionpagenumbering
       - l3build-wrapped save sectionpages
       - l3build-wrapped save separation
       - l3build-wrapped save standoutnumbering
       - l3build-wrapped save test
+      # The ltx-talk tests live in another config, and naming tests explicitly
+      # resets the config list, so -c is required here.
+      - l3build-wrapped save -c config-talk colors layout lists structure tagging
 
   generate-example-images:
     desc: Compile examples and generate grid images
@@ -78,6 +82,14 @@ tasks:
             latexmk -pdf -interaction=nonstopmode -cd "$file"
           fi
         done
+      # Compile the ltx-talk examples. They live in a subdirectory so that the
+      # globs above leave them alone. pdflatex rather than lualatex: with
+      # lualatex the class selects a font with no bold face registered, which
+      # would make the screenshots misrepresent the design.
+      - |
+        for file in examples/talk/*.tex; do
+          latexmk -pdf -interaction=nonstopmode -cd "$file"
+        done
       # Generate grid images
       - mkdir -p docs/images
       - |
@@ -85,6 +97,12 @@ tasks:
           basename="${pdf##*/}"
           basename="${basename%.pdf}"
           ./scripts/pdf-to-grid.sh "$pdf" "docs/images/example-${basename}.png" 2 150
+        done
+      - |
+        for pdf in examples/talk/*.pdf; do
+          basename="${pdf##*/}"
+          basename="${basename%.pdf}"
+          ./scripts/pdf-to-grid.sh "$pdf" "docs/images/example-talk-${basename}.png" 2 150
         done
 
   tugboat-submission:

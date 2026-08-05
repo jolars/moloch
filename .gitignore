@@ -461,6 +461,8 @@ dist
 .task/
 
 examples/*.pdf
+examples/talk/*.pdf
+examples/talk/*-luamml-mathml.html
 
 # Devenv
 .devenv*

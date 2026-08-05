@@ -47,19 +47,15 @@ let
     "lua-unicode-math"
   ];
 
-  # ltx-talk is pinned instead of taken from nixpkgs. nixpkgs tracks the TeX
-  # Live 2025 final snapshot (2026-03-01, the day TeX Live 2026 branched),
-  # which carries ltx-talk 0.4.6, whereas a current TeX Live install has
-  # 0.5.2. The class is a 0.x release with a moving interface, and test
-  # output (.tlg) is sensitive to it, so pin the version and bump on purpose.
+  # Pin the experimental class so interface changes are tested deliberately.
   #
   # To bump: change the tag and version, then update the hash (Nix reports
   # the expected value on mismatch).
   ltx-talk-src = pkgs.fetchFromGitHub {
     owner = "josephwright";
     repo = "ltx-talk";
-    tag = "v0.5.2";
-    hash = "sha256-dJpTv67aeVuPOEZyr7zErUPVSkuuds1AI9x2VkZ7WA0=";
+    tag = "v0.6.9";
+    hash = "sha256-2mxx74m2VKbL8ncvL5F18JjEoVy/CHepfr4V3XN4vtI=";
   };
 
   # A minimal texlive-style package: the combined environment keys packages by
@@ -67,9 +63,9 @@ let
   # set below makes it win over the ltx-talk that scheme-medium pulls in.
   ltx-talk = {
     pname = "ltx-talk";
-    version = "0.5.2";
+    version = "0.6.9";
     outputs = [ "tex" ];
-    tex = pkgs.runCommand "ltx-talk-0.5.2-tex" { } ''
+    tex = pkgs.runCommand "ltx-talk-0.6.9-tex" { } ''
       mkdir -p work && cd work
       cp ${ltx-talk-src}/*.dtx ${ltx-talk-src}/*.ins .
       ${pkgs.texliveBasic}/bin/tex -interaction=batchmode ltx-talk.ins
@@ -77,9 +73,55 @@ let
     '';
   };
 
-  texlive = pkgs.texliveMedium.withPackages (
-    ps: [ ltx-talk ] ++ builtins.map (name: ps.${name}) texlivePackages
-  );
+  # nixpkgs still ships LaTeX 2025-11-01, but ltx-talk 0.6 requires the
+  # 2026-06-01 kernel and matching tagging packages. Keep their checksums in
+  # a separate manifest so the archived snapshot remains reproducible.
+  latexPackages = builtins.fromJSON (builtins.readFile ./nix/latex-packages.json);
+  latexOverrides = builtins.map (
+    name:
+    let
+      package = latexPackages.${name};
+      src = pkgs.fetchurl {
+        url = "https://texlive.info/tlnet-archive/2026/10/11/tlnet/archive/${package.package}.r${toString package.revision}.tar.xz";
+        inherit (package) sha512;
+      };
+    in
+    {
+      pname = name;
+      version = toString package.revision;
+      outputs = [ "tex" ];
+      tlDeps = pkgs.texlive.pkgs.${name}.tlDeps or [ ];
+      tex = pkgs.runCommand "${name}-${toString package.revision}-tex" { } ''
+        mkdir -p "$out"
+        tar -xf ${src} -C "$out" --exclude=tlpkg
+      '';
+    }
+  ) (builtins.attrNames latexPackages);
+
+  # Current l3kernel includes the backends. Suppress the old standalone
+  # package so kpathsea cannot select a stale driver from another directory.
+  l3backend = {
+    pname = "l3backend";
+    outputs = [ "tex" ];
+    tex = pkgs.runCommand "l3backend-merged-tex" { } ''
+      mkdir -p "$out"
+    '';
+  };
+
+  texlive =
+    (pkgs.texliveMedium.withPackages (
+      ps:
+      [
+        ltx-talk
+        l3backend
+      ]
+      ++ latexOverrides
+      ++ builtins.map (name: ps.${name}) texlivePackages
+    )).overrideAttrs
+      {
+        # Rebuild formats in this environment so they use the updated kernel.
+        __combine = true;
+      };
 
   l3build-wrapped = pkgs.writeShellScriptBin "l3build-wrapped" ''
     # NOTE: the trailing slash in TEXMF is required

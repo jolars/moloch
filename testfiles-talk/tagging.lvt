@@ -1,0 +1,61 @@
+\DocumentMetadata{lang=en-US,tagging=on}
+\documentclass[10pt]{ltx-talk}
+\usepackage{moloch-talk}
+\setmainfont{Latin Modern Sans}
+\setsansfont{Latin Modern Sans}
+\newtheorem{theorem}{Theorem}
+\input regression-test
+
+\title{Tagged Presentation}
+\author{An Author}
+
+\begin{document}
+\START
+
+\ExplSyntaxOn
+\tag_if_active:TF
+  { \TYPE { TEST~tagging~is~active } }
+  { \TYPE { TEST~tagging~is~inactive } }
+\ExplSyntaxOff
+
+\maketitle
+\section{Tagged Content}
+
+\molochset{progressbar=frametitle}
+\begin{frame}
+  \frametitle{Lists and Captions}
+  \begin{itemize}
+    \item First item
+    \pause
+    \item Second item
+    \begin{itemize}
+      \item Nested item
+    \end{itemize}
+  \end{itemize}
+  \begin{figure}
+    \caption{A tagged caption.}
+  \end{figure}
+\end{frame}
+
+\molochset{variant=dark,progressbar=foot}
+\begin{frame}
+  \frametitle{Theorem}
+  \begin{theorem}
+    A theorem in the dark variant.
+  \end{theorem}
+\end{frame}
+
+\begin{standout}<1-2>
+  \only<1>{First standout slide.}
+  \only<2>{Second standout slide.}
+\end{standout}
+
+\molochset{variant=light,progressbar=head}
+\begin{frame}
+  \frametitle{After Standout}
+  \TYPE{TEST final frame = \theframe}
+  The normal page style and colors are restored.
+\end{frame}
+
+\END
+\end{document}

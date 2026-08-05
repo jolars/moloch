@@ -1,0 +1,59 @@
+\DocumentMetadata{lang=en-US}
+\documentclass[10pt]{ltx-talk}
+\usepackage{moloch-talk}
+\setmainfont{Latin Modern Sans}
+\setsansfont{Latin Modern Sans}
+\input regression-test
+
+\title{Layout}
+\author[Short Author]{Full Author}
+\makeatletter
+\institute{\typeout{TEST institute size = \f@size}Institute}
+\EditInstance{footer-element}{author}{
+  font = \typeout{TEST footer author = \@shortauthor}
+}
+\EditInstance{footer-element}{framenumber}{
+  font = \typeout{TEST footer frame = \theframe}
+}
+\AddToHook{cmd/@makecaption/before}{
+  \typeout{TEST caption size = \f@size}
+}
+\renewcommand{\fnum@figure}{%
+  \typeout{TEST figure label series = \f@series}Figure%
+}
+\renewcommand{\fnum@table}{%
+  \typeout{TEST table label series = \f@series}Table%
+}
+\makeatother
+
+\begin{document}
+\START
+
+\maketitle
+
+\EditInstance{footer}{moloch}{element-order={author,subtitle,framenumber}}
+\molochset{progressbar=foot}
+\begin{frame}
+  \begin{figure}
+    \caption{A figure caption.}
+  \end{figure}
+  \begin{table}
+    \caption{A table caption.}
+  \end{table}
+\end{frame}
+
+% Hiding the number must retain the custom footer content.
+\molochset{framenumber=false}
+\begin{frame}
+  Custom footer without a frame number.
+\end{frame}
+
+% Empty metadata must not leave a separator beside the number.
+\molochset{framenumber=true}
+\EditInstance{footer}{moloch}{element-order={subtitle,framenumber}}
+\begin{frame}
+  Default footer with empty metadata.
+\end{frame}
+
+\END
+\end{document}

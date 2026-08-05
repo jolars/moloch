@@ -1,0 +1,35 @@
+\input regression-test
+
+\title{A Title}
+\author{An Author}
+
+\begin{document}
+
+\START
+
+\maketitle
+
+% A section page is a frame of its own, so it advances the frame counter:
+% the following content frame is frame 3, not frame 2.
+\section{One}
+\begin{frame}
+  \typeout{TEST sectionpage=progressbar: frame=\theframe}
+\end{frame}
+
+% With no section page the counter advances by one frame only.
+\molochset{sectionpage = none}
+\section{Two}
+\begin{frame}
+  \typeout{TEST sectionpage=none: frame=\theframe}
+\end{frame}
+
+% A standout frame is an ordinary frame as far as numbering is concerned.
+\begin{standout}
+  \typeout{TEST standout: frame=\theframe}
+\end{standout}
+
+\typeout{TEST total frames = \theframe}
+
+\END
+
+\end{document}

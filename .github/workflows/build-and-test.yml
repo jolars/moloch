@@ -30,6 +30,12 @@ jobs:
       - name: Install devenv.sh
         run: nix profile install nixpkgs#devenv
 
+      # Scoped to the ltx-talk config for now. The theme tracks an
+      # experimental class, so it is the part most likely to break; the Beamer
+      # suite has never run in CI and widening this is a separate change.
+      - name: test
+        run: devenv shell l3build-wrapped check -c config-talk -q -H --show-log-on-error
+
       - name: document
         run: devenv shell l3build-wrapped doc
 

@@ -1,0 +1,96 @@
+\DocumentMetadata{lang=en-US,tagging=on}
+\documentclass[10pt]{ltx-talk}
+\usepackage{moloch-talk}
+\setmainfont{Latin Modern Sans}
+\setsansfont{Latin Modern Sans}
+\input regression-test
+
+\ExplSyntaxOn
+\NewDocumentCommand \LOGCOLOR { m m }
+  {
+    \color_export:nnN {#2} { HTML } \l_tmpa_tl
+    \TYPE { TEST~#1~=~\l_tmpa_tl }
+  }
+
+% Observe the palette and options used after the body's groups have closed.
+\NewCommandCopy \MolochTestRule \rule
+\RenewDocumentCommand \rule { O { 0pt } m m }
+  {
+    \bool_lazy_and:nnT
+      { \dim_compare_p:nNn {#2} = \paperwidth }
+      { \dim_compare_p:nNn {#3} = \paperheight }
+      { \LOGCOLOR { background } { . } }
+    \MolochTestRule [#1] {#2} {#3}
+  }
+\cs_new_eq:NN \MolochTestProgressbar \__moloch_progressbar:nn
+\cs_set_protected:Npn \__moloch_progressbar:nn #1#2
+  {
+    \TYPE
+      {
+        TEST~bar~=~\l__moloch_progressbar_tl,
+        ~thickness~=~\dim_eval:n { (#1) + (#2) }
+      }
+    \MolochTestProgressbar {#1} {#2}
+  }
+\EditInstance { frametitle } { header }
+  {
+    font = \large \bfseries
+      \LOGCOLOR { header~foreground } { . }
+      \LOGCOLOR { header~background } { mFrametitleBg }
+  }
+\EditInstance { footer } { moloch }
+  { font = \tiny \LOGCOLOR { footer } { . } }
+\EditInstance { footer-element } { framenumber }
+  { font = \TYPE { TEST~frame~number~rendered } }
+\AddToHook { shipout / after }
+  { \TYPE { TEST~frame~=~\theframe,~slide~=~\theslide } }
+\ExplSyntaxOff
+
+\begin{document}
+\START
+
+% onlyenv typesets its contents in discarded boxes on the second overlay.
+% Neither overlay may retain these settings after the environment closes.
+\begin{frame}<1-2>
+  \frametitle{Nested settings without frame settings}
+  \begin{onlyenv}<1>
+    \molochset{variant=dark,progressbar=foot,progressbar-linewidth=3pt,framenumber=false}
+  \end{onlyenv}
+  \LOGCOLOR{body}{.}
+  \only<1>{First overlay.}
+  \only<2>{Visible second overlay.}
+\end{frame}
+
+% Nested settings must restore the frame's palette and page options.
+\begin{frame}<1-2>
+  \molochset{variant=dark,progressbar=head,progressbar-linewidth=2pt,framenumber=false}
+  \frametitle{Nested settings with frame settings}
+  \begin{onlyenv}<1>
+    \molochset{variant=light,progressbar=foot,framenumber=true}
+    \molochset{progressbar-linewidth=7pt}
+  \end{onlyenv}
+  \LOGCOLOR{body}{.}
+  \only<1>{First overlay.}
+  \only<2>{Visible second overlay.}
+\end{frame}
+
+% Restore each enclosing scope even if it makes no further settings calls.
+\begin{frame}
+  \molochset{variant=dark,progressbar=foot,progressbar-linewidth=4pt,framenumber=false}
+  \frametitle{Nested ordinary groups}
+  {\molochset{variant=light,progressbar=head,framenumber=true}
+    {\molochset{progressbar=frametitle,progressbar-linewidth=6pt}}
+    \LOGCOLOR{outer group body}{.}
+  }
+  \LOGCOLOR{body}{.}
+  Visible frame content.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Defaults restored after nested groups}
+  \LOGCOLOR{body}{.}
+  Ordinary content.
+\end{frame}
+
+\END
+\end{document}

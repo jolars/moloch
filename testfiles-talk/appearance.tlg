@@ -1,0 +1,146 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+TEST body = FAFAFA
+TEST header foreground = 23373B
+TEST header background = D9D9D9
+TEST footer = FAFAFA
+TEST background = 23373B
+[1]
+TEST frame = 1, slide = 1,headers = 1,footers = 1,bars = 1
+TEST body = FAFAFA
+TEST header foreground = 23373B
+TEST header background = D9D9D9
+TEST footer = FAFAFA
+TEST background = 23373B
+[2
+]
+TEST frame = 1, slide = 2,headers = 1,footers = 1,bars = 1
+TEST body = 23373B
+TEST header foreground = FAFAFA
+TEST header background = 23373B
+TEST footer = 394B4F
+TEST background = FAFAFA
+[3
+]
+TEST frame = 2, slide = 1,headers = 1,footers = 1,bars = 1
+TEST body = FAFAFA
+TEST header foreground = 23373B
+TEST header background = D9D9D9
+TEST footer = FAFAFA
+TEST background = 23373B
+[4
+]
+TEST frame = 3, slide = 1,headers = 1,footers = 1,bars = 1
+TEST body = 23373B
+TEST header foreground = FAFAFA
+TEST header background = 23373B
+TEST footer = 394B4F
+TEST background = FAFAFA
+[5
+]
+TEST frame = 3, slide = 2,headers = 1,footers = 1,bars = 1
+TEST body = FAFAFA
+TEST header foreground = 23373B
+TEST header background = D9D9D9
+TEST footer = FAFAFA
+TEST background = 23373B
+[6
+]
+TEST frame = 4, slide = 1,headers = 1,footers = 1,bars = 1
+TEST body = FAFAFA
+TEST header foreground = 23373B
+TEST header background = D9D9D9
+TEST footer = FAFAFA
+TEST background = 23373B
+[7
+]
+TEST frame = 4, slide = 2,headers = 1,footers = 1,bars = 1
+TEST body = 23373B
+TEST header foreground = FAFAFA
+TEST header background = 23373B
+TEST footer = 394B4F
+TEST background = FAFAFA
+[8
+]
+TEST frame = 5, slide = 1,headers = 1,footers = 1,bars = 1
+TEST header foreground = FAFAFA
+TEST header background = 23373B
+TEST footer = 394B4F
+TEST background = FAFAFA
+[9
+]
+TEST frame = 5, slide = 1,headers = 1,footers = 1,bars = 1
+TEST body = FAFAFA
+TEST header foreground = 23373B
+TEST header background = D9D9D9
+TEST footer = FAFAFA
+TEST background = 23373B
+[10
+]
+TEST frame = 6, slide = 1,headers = 1,footers = 1,bars = 1
+TEST standout body = 23373B
+TEST bullet = 23373B
+TEST enumeration label = 23373B
+TEST block title = 23373B
+TEST background = 23373B
+TEST background = D9D9D9
+[11
+]
+TEST frame = 7, slide = 1,headers = 0,footers = 0,bars = 0
+TEST background = FAFAFA
+TEST background = 23373B
+[12
+]
+TEST frame = 8, slide = 1,headers = 0,footers = 0,bars = 0
+TEST background = FAFAFA
+TEST background = 23373B
+[13
+]
+TEST frame = 8, slide = 1,headers = 0,footers = 0,bars = 0
+TEST background = FAFAFA
+TEST background = 23373B
+[14
+]
+TEST frame = 9, slide = 1,headers = 0,footers = 0,bars = 0
+TEST background = FAFAFA
+TEST background = 23373B
+[15
+]
+TEST frame = 9, slide = 1,headers = 0,footers = 0,bars = 0
+TEST background = FAFAFA
+TEST background = 23373B
+[16
+]
+TEST frame = 10, slide = 1,headers = 0,footers = 0,bars = 0
+TEST background = FAFAFA
+TEST background = 23373B
+[17
+]
+TEST frame = 10, slide = 1,headers = 0,footers = 0,bars = 0
+TEST body = 23373B
+TEST structure = 23373B
+TEST header foreground = FAFAFA
+TEST header background = 23373B
+TEST footer = 394B4F
+TEST background = FAFAFA
+[18
+]
+TEST frame = 11, slide = 1,headers = 1,footers = 1,bars = 1
+TEST standout body = FAFAFA
+TEST bullet = FAFAFA
+TEST enumeration label = FAFAFA
+TEST block title = FAFAFA
+TEST background = FAFAFA
+TEST background = 23373B
+[19
+]
+TEST frame = 12, slide = 1,headers = 0,footers = 0,bars = 0
+TEST body = FAFAFA
+TEST structure = FAFAFA
+TEST header foreground = 23373B
+TEST header background = D9D9D9
+TEST footer = FAFAFA
+TEST background = 23373B
+[20
+]
+TEST frame = 13, slide = 1,headers = 1,footers = 1,bars = 1

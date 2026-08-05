@@ -1,0 +1,60 @@
+\DocumentMetadata{lang=en-US}
+\documentclass{ltx-talk}
+\usepackage{moloch-talk}
+\setmainfont{Latin Modern Sans}
+\setsansfont{Latin Modern Sans}
+\input regression-test
+
+\ExplSyntaxOn
+\NewDocumentCommand \LOGCURRENTCOLOR { m }
+  {
+    \color_export:nnN { . } { HTML } \l_tmpa_tl
+    \TYPE { TEST~#1~=~\l_tmpa_tl }
+  }
+\ExplSyntaxOff
+
+\newcommand{\TestColorResets}[1]{%
+  \color{mAlertFg}%
+  \normalcolor
+  \LOGCURRENTCOLOR{#1 reset}%
+  \begin{minipage}{0.8\linewidth}
+    A message\footnote{%
+      % The kernel resets the color before typesetting a minipage footnote.
+      \LOGCURRENTCOLOR{#1 footnote}%
+      A visible minipage footnote.%
+    }
+  \end{minipage}%
+}
+
+\begin{document}
+\START
+
+\begin{frame}
+  \TestColorResets{light ordinary}
+\end{frame}
+\begin{standout}
+  \TestColorResets{light standout}
+\end{standout}
+\begin{frame}
+  \TestColorResets{light restored}
+\end{frame}
+
+\molochset{variant=dark}
+\begin{standout}
+  \TestColorResets{dark standout}
+\end{standout}
+\begin{frame}
+  \TestColorResets{dark restored}
+\end{frame}
+
+% Resets must follow a locally changed palette without affecting later frames.
+\begin{standout}
+  \molochset{variant=light}
+  \TestColorResets{local light standout}
+\end{standout}
+\begin{frame}
+  \TestColorResets{dark restored after local light}
+\end{frame}
+
+\END
+\end{document}
