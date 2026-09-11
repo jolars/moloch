@@ -1,0 +1,41 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme[block=fill,colortheme=default]{moloch}
+
+\newcommand{\sampleblocks}{%
+  \begin{block}{Regular block}
+    This block should have a shaded background.
+  \end{block}
+  \begin{alertblock}{Alert block}
+    This block should also have a shaded background.
+  \end{alertblock}
+  \begin{exampleblock}{Example block}
+    This block should also have a shaded background.
+  \end{exampleblock}
+}
+
+\begin{document}
+
+\begin{frame}{Fill before color theme}
+  \texttt{\small block=fill,colortheme=default}
+  \sampleblocks
+\end{frame}
+
+\molochset{colortheme=default,block=fill}
+\begin{frame}{Color theme before fill}
+  \texttt{\small colortheme=default,block=fill}
+  \sampleblocks
+\end{frame}
+
+\molochcolors{variant=dark}
+\begin{frame}{Switch to dark mode}
+  \texttt{\small\string\molochcolors\{variant=dark\}}
+  \sampleblocks
+\end{frame}
+
+\molochcolors{theme=tomorrow}
+\begin{frame}{Switch to the Tomorrow color theme}
+  \texttt{\small\string\molochcolors\{theme=tomorrow\}}
+  \sampleblocks
+\end{frame}
+
+\end{document}

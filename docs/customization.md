@@ -305,7 +305,8 @@ These basic color options control visual aspects of the theme:
 default="transparent"}
 
 Optionally adds a light grey background to block environments like `theorem` and
-`example`.
+`example`. The selected block style is preserved when changing the color theme
+or switching between light and dark variants.
 
 :::
 

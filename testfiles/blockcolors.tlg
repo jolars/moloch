@@ -1,0 +1,23 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+Package options: block=fill,colortheme=default
+block=fill,background=light
+background=light,block=fill
+block=fill,colortheme=default
+colortheme=default,block=fill
+block=fill,colortheme variant=light
+colortheme variant=light,block=fill
+block=fill,colortheme variant=dark
+colortheme variant=dark,block=fill
+Switch to tomorrow
+Switch to highcontrast
+Switch to paper
+Switch to catppuccin
+Switch to dark
+Switch back to light
+Customize normal text foreground
+Apply stored dark foreground
+Apply stored light foreground
+Transparent blocks after variant switch
+Transparent blocks after theme switch
+Filled blocks restored after group

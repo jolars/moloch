@@ -1,0 +1,85 @@
+\input regression-test
+\documentclass[hyperref={draft}]{beamer}
+\usetheme[block=fill,colortheme=default]{moloch}
+
+\makeatletter
+\newcommand{\checkfilled}[1]{%
+  \TYPE{#1}%
+  \@for\blockcolor:=block title,block body,block title alerted,block body alerted,block title example,block body example\do{%
+    \begingroup
+    \ifbeamercolorempty[bg]{\blockcolor}{%
+      \TYPE{FAIL: \blockcolor\space is transparent}%
+    }{%
+      \usebeamercolor{normal text}%
+      \convertcolorspec{named}{bg}{rgb}\slidebg
+      \usebeamercolor{\blockcolor}%
+      \convertcolorspec{named}{bg}{rgb}\blockbg
+      \ifx\slidebg\blockbg
+        \TYPE{FAIL: \blockcolor\space matches the slide background}%
+      \fi
+    }%
+    \endgroup
+  }%
+}
+\newcommand{\checktransparent}[1]{%
+  \TYPE{#1}%
+  \@for\blockcolor:=block title,block body,block title alerted,block body alerted,block title example,block body example\do{%
+    \ifbeamercolorempty[bg]{\blockcolor}{}{%
+      \TYPE{FAIL: \blockcolor\space has a background}%
+    }%
+  }%
+}
+\newcommand{\checkoptions}[1]{%
+  \begingroup
+  \molochset{block=transparent}%
+  \molochset{#1}%
+  \checkfilled{#1}%
+  \endgroup
+}
+\makeatother
+
+\begin{document}
+\START
+
+\checkfilled{Package options: block=fill,colortheme=default}
+
+\checkoptions{block=fill,background=light}
+\checkoptions{background=light,block=fill}
+\checkoptions{block=fill,colortheme=default}
+\checkoptions{colortheme=default,block=fill}
+\checkoptions{block=fill,colortheme variant=light}
+\checkoptions{colortheme variant=light,block=fill}
+\checkoptions{block=fill,colortheme variant=dark}
+\checkoptions{colortheme variant=dark,block=fill}
+
+\molochset{block=fill}
+\molochcolors{theme=tomorrow}
+\checkfilled{Switch to tomorrow}
+\molochcolors{theme=highcontrast}
+\checkfilled{Switch to highcontrast}
+\molochcolors{theme=paper}
+\checkfilled{Switch to paper}
+\molochcolors{theme=catppuccin}
+\checkfilled{Switch to catppuccin}
+\molochcolors{variant=dark}
+\checkfilled{Switch to dark}
+\molochcolors{variant=light}
+\checkfilled{Switch back to light}
+\molochcolors{normal text fg=blue}
+\checkfilled{Customize normal text foreground}
+\molochcolors{dark/normal text fg=yellow,variant=dark}
+\checkfilled{Apply stored dark foreground}
+\molochcolors{variant=light}
+\checkfilled{Apply stored light foreground}
+
+\begingroup
+\molochset{block=transparent}
+\molochcolors{variant=dark}
+\checktransparent{Transparent blocks after variant switch}
+\molochcolors{theme=tomorrow}
+\checktransparent{Transparent blocks after theme switch}
+\endgroup
+\checkfilled{Filled blocks restored after group}
+
+\END
+\end{document}

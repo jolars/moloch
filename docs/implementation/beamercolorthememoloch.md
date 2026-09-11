@@ -71,6 +71,7 @@ Sets default values for color theme options.
 \newcommand{\moloch@color@setdefaults}{
   \pgfkeys{/moloch/color/.cd,
     background=light,
+    block=transparent,
   }
 }
 ```
@@ -140,13 +141,14 @@ and alerted/example text colors. This is called after switching variants
 to ensure block colors stay consistent with the current color scheme.
 Block titles inherit from normal text foreground, while alerted and
 example block titles additionally use their respective text colors.
+Backgrounds are initialized separately so color changes preserve the
+selected block style and any backgrounds set with `\setbeamercolor`.
 
 ``` latex
 \newcommand{\moloch@setup@block@colors}{%
   \setbeamercolor{block title}{%
     use=normal text,
-    fg=normal text.fg,
-    bg=
+    fg=normal text.fg
   }%
   \setbeamercolor{block title alerted}{%
     use={block title, alerted text}
