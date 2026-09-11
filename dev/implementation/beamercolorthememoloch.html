@@ -659,8 +659,9 @@ Note
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\newcommand</span>{<span class="ex">\moloch@color@setdefaults</span>}{</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\pgfkeys</span>{/moloch/color/.cd,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    background=light,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    block=transparent,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="base-colors" class="level3" data-number="E.1.7">
 <h3 data-number="E.1.7" class="anchored" data-anchor-id="base-colors"><span class="header-section-number">E.1.7</span> Base Colors</h3>
@@ -699,22 +700,21 @@ Note
 </section>
 <section id="molochsetupblockcolors" class="level3" data-number="E.1.13">
 <h3 data-number="E.1.13" class="anchored" data-anchor-id="molochsetupblockcolors"><span class="header-section-number">E.1.13</span> <code>\moloch@setup@block@colors</code></h3>
-<p>Configures the colors for block environments to derive from normal text and alerted/example text colors. This is called after switching variants to ensure block colors stay consistent with the current color scheme. Block titles inherit from normal text foreground, while alerted and example block titles additionally use their respective text colors.</p>
+<p>Configures the colors for block environments to derive from normal text and alerted/example text colors. This is called after switching variants to ensure block colors stay consistent with the current color scheme. Block titles inherit from normal text foreground, while alerted and example block titles additionally use their respective text colors. Backgrounds are initialized separately so color changes preserve the selected block style and any backgrounds set with <code>\setbeamercolor</code>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\newcommand</span>{<span class="ex">\moloch@setup@block@colors</span>}{<span class="co">%</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{block title}{<span class="co">%</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    use=normal text,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    fg=normal text.fg,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    bg=</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{block title alerted}{<span class="co">%</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    use={block title, alerted text}</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{block title example}{<span class="co">%</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    use={block title, example text}</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{block body alerted}{use=block body, parent=block body}<span class="co">%</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{block body example}{use=block body, parent=block body}<span class="co">%</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    fg=normal text.fg</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{block title alerted}{<span class="co">%</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    use={block title, alerted text}</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{block title example}{<span class="co">%</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    use={block title, example text}</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{block body alerted}{use=block body, parent=block body}<span class="co">%</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{block body example}{use=block body, parent=block body}<span class="co">%</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="molochsetuptextcolors" class="level3" data-number="E.1.14">
 <h3 data-number="E.1.14" class="anchored" data-anchor-id="molochsetuptextcolors"><span class="header-section-number">E.1.14</span> <code>\moloch@setup@text@colors</code></h3>
