@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.3.0](https://github.com/jolars/moloch/compare/v2.2.0...v2.3.0) (2026-09-16)
+
+### Features
+- enable alerted and example standout styles (#80) ([`dfdc31e`](https://github.com/jolars/moloch/commit/dfdc31e72c40650e0fd36634101209bfab59640a))
+- add `sectionpagenumbering` for section-page frame numbering (#83) ([`bc20862`](https://github.com/jolars/moloch/commit/bc2086266b6305379e2994d6a570844c83d2e6d2))
+
+### Bug Fixes
+- preserve block fills across color changes ([`11c841d`](https://github.com/jolars/moloch/commit/11c841d6a0482f46f95fdb3faa501146d61aa80d)), fixes [#84](https://github.com/jolars/moloch/issues/84)
+- **readme:** minor typo correction ([`5d59da6`](https://github.com/jolars/moloch/commit/5d59da63dc9eb8ebd5e5d6f8733e74a951ae7874))
+
 ## [2.2.0](https://github.com/jolars/moloch/compare/v2.1.0...v2.2.0) (2026-02-17)
 
 ### Features
