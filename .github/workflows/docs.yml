@@ -38,6 +38,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v5
 
+      - name: Test Markdown negotiation Worker
+        run: node --test workers/markdown-negotiation.test.mjs
+
       - name: Determine docs targets
         id: targets
         shell: bash
@@ -123,6 +126,9 @@ jobs:
           REF_TYPE: ${{ github.ref_type }}
         run: |
           set -euo pipefail
+
+          test -s docs/_site/index.llms.md
+          test -s docs/_site/customization.llms.md
 
           tmp="$(mktemp -d)"
           cleanup() {

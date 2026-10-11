@@ -1,0 +1,12 @@
+{
+  "name": "moloch-markdown-negotiation",
+  "main": "./markdown-negotiation.mjs",
+  "compatibility_date": "2026-10-11",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "moloch.ink/*", "zone_name": "moloch.ink" }],
+  "observability": {
+    "enabled": true,
+    "traces": { "enabled": true, "head_sampling_rate": 0.01 },
+  },
+}

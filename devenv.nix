@@ -94,6 +94,8 @@ in
     pkgs.texlab # languages.texlive used to supply this
     l3build-wrapped
     pkgs.quarto
+    pkgs.nodejs
+    pkgs.wrangler
     pkgs.go-task
     pkgs.poppler-utils
   ];

@@ -4,6 +4,10 @@ project:
   post-render:
     - ../scripts/fix-quarto-sitemap.sh
 
+website:
+  # Quarto 1.10 does not forward book.llms-txt to its website configuration.
+  llms-txt: true
+
 book:
   title: "Moloch"
   subtitle: "A Minimalist, Feature-Rich Beamer Theme"
