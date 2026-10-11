@@ -132,6 +132,7 @@ toc: true
 date-format: "D MMMM YYYY"
 
 resources:
+  - "robots.txt"
   - "apple-touch-icon.png"
   - "favicon-96x96.png"
   - "favicon.ico"
