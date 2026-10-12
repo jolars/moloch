@@ -42,6 +42,7 @@ let
     "relsize"
     "mathtools"
     "lm" # provides lmodern.sty
+    "newcomputermodern"
     "fontspec"
     "unicode-math"
     "lua-unicode-math"
