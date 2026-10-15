@@ -1,0 +1,33 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+TEST light ordinary reset = 23373B
+LaTeX Font Info:    Trying to load font information for TU+lmr-base on input line ....
+(../tulmr-base.fd
+File: tulmr-base.fd ....-..-.. v... LaTeX font definitions for Latin Modern in base mode
+)
+TEST light ordinary footnote = 23373B
+[1]
+TEST light standout reset = FAFAFA
+TEST light standout footnote = FAFAFA
+[2
+]
+TEST light restored reset = 23373B
+TEST light restored footnote = 23373B
+[3
+]
+TEST dark standout reset = 23373B
+TEST dark standout footnote = 23373B
+[4
+]
+TEST dark restored reset = FAFAFA
+TEST dark restored footnote = FAFAFA
+[5
+]
+TEST local light standout reset = FAFAFA
+TEST local light standout footnote = FAFAFA
+[6
+]
+TEST dark restored after local light reset = FAFAFA
+TEST dark restored after local light footnote = FAFAFA
+[7
+]

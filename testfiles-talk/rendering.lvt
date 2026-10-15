@@ -1,0 +1,4 @@
+\DocumentMetadata{lang=en-US,tagging=on}
+\documentclass{ltx-talk}
+\usepackage{moloch-talk}
+\input{molochtalkrendering}

@@ -1,0 +1,26 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+TEST institute size = 7
+[1]
+LaTeX template Info: Declaring instance 'moloch' of type footer on line ....
+TEST caption size = 9
+TEST figure label series = b
+TEST figure label series = b
+LaTeX Font Info:    Trying to load font information for TU+lmr-base on input line ....
+(../tulmr-base.fd
+File: tulmr-base.fd ....-..-.. v... LaTeX font definitions for Latin Modern in base mode
+)
+TEST caption size = 9
+TEST table label series = b
+TEST table label series = b
+TEST footer author = Short Author
+TEST footer frame = 2
+[2
+]
+TEST footer author = Short Author
+[3
+]
+LaTeX template Info: Declaring instance 'moloch' of type footer on line ....
+TEST footer frame = 4
+[4
+]

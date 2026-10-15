@@ -1,0 +1,66 @@
+\input regression-test
+
+% Assert the resolved color values rather than comparing typeset output. The
+% class is experimental and its box output will change; the palette is what
+% this package actually promises.
+
+\makeatletter
+\newcommand{\SHOWCOLOR}[1]{%
+  \extractcolorspec{#1}\moloch@test@spec
+  \typeout{TEST color #1 = \moloch@test@spec}%
+}
+\makeatother
+
+\ExplSyntaxOn
+\NewDocumentCommand \CHECKBODYCOLOR { }
+  {
+    \color_export:nnN { . } { comma-sep-rgb } \l_tmpa_tl
+    \color_export:nnN { mNormaltextFg } { comma-sep-rgb } \l_tmpb_tl
+    \tl_if_eq:NNTF \l_tmpa_tl \l_tmpb_tl
+      { \typeout{TEST~body~color~matches~the~variant} }
+      { \typeout{TEST~body~color~does~not~match~the~variant} }
+  }
+\ExplSyntaxOff
+
+\begin{document}
+
+\START
+
+\typeout{TEST variant = light (default)}
+\CHECKBODYCOLOR
+\SHOWCOLOR{mNormaltextFg}
+\SHOWCOLOR{mNormaltextBg}
+\SHOWCOLOR{mAlertFg}
+\SHOWCOLOR{mExampleFg}
+\SHOWCOLOR{mFrametitleFg}
+\SHOWCOLOR{mFrametitleBg}
+\SHOWCOLOR{mProgressbarFg}
+\SHOWCOLOR{mTitleseparatorFg}
+\SHOWCOLOR{mStandoutFg}
+\SHOWCOLOR{mStandoutBg}
+
+% The class's own semantic colors must follow the palette, since that is what
+% drives block titles, list labels and contents entries.
+\SHOWCOLOR{structure}
+\SHOWCOLOR{alert}
+\SHOWCOLOR{example}
+
+\molochset{variant = dark}
+
+\typeout{TEST variant = dark}
+\CHECKBODYCOLOR
+\SHOWCOLOR{mNormaltextFg}
+\SHOWCOLOR{mNormaltextBg}
+\SHOWCOLOR{mAlertFg}
+\SHOWCOLOR{mExampleFg}
+\SHOWCOLOR{structure}
+\SHOWCOLOR{alert}
+
+% Switching back must restore the selected body color as well as the palette.
+\molochset{variant = light}
+\typeout{TEST variant = light (restored)}
+\CHECKBODYCOLOR
+
+\END
+
+\end{document}

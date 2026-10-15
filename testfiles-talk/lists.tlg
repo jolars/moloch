@@ -1,0 +1,26 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+MARKER circle
+FILL 23373B
+MARKER square
+FILL 23373B
+MARKER triangle
+FILL 23373B
+MARKER custom
+[1]
+MARKER circle
+FILL FAFAFA
+MARKER square
+FILL FAFAFA
+MARKER triangle
+FILL FAFAFA
+[2
+]
+LaTeX template Info: Declaring instance 'basic' of type item on line ....
+MARKER circle
+FILL EF9F76
+[3
+]
+MARKER replacement
+[4
+]

@@ -1,0 +1,9 @@
+\DocumentMetadata{}
+\documentclass{ltx-talk}
+
+\setmainfont{Latin Modern Sans}
+\setsansfont{Latin Modern Sans}
+
+\usepackage{moloch-talk}
+
+\input{molochtalkstructure}

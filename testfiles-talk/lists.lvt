@@ -1,0 +1,82 @@
+\DocumentMetadata{lang=en-US}
+\documentclass[10pt]{ltx-talk}
+\usepackage{moloch-talk}
+\setmainfont{Latin Modern Sans}
+\setsansfont{Latin Modern Sans}
+\input regression-test
+
+\ExplSyntaxOn
+\cs_new_eq:NN \__moloch_test_circle: \__moloch_itemize_circle:
+\cs_new_eq:NN \__moloch_test_square: \__moloch_itemize_square:
+\cs_new_eq:NN \__moloch_test_triangle: \__moloch_itemize_triangle:
+\cs_set_protected:Npn \__moloch_itemize_circle:
+  { \TYPE { MARKER~circle } \__moloch_test_circle: }
+\cs_set_protected:Npn \__moloch_itemize_square:
+  { \TYPE { MARKER~square } \__moloch_test_square: }
+\cs_set_protected:Npn \__moloch_itemize_triangle:
+  { \TYPE { MARKER~triangle } \__moloch_test_triangle: }
+\cs_new_eq:NN \__moloch_test_fillcolor:n \pgfsetfillcolor
+\cs_set_protected:Npn \pgfsetfillcolor #1
+  {
+    \color_export:nnN {#1} { HTML } \l_tmpa_tl
+    \TYPE { FILL~\l_tmpa_tl }
+    \__moloch_test_fillcolor:n {#1}
+  }
+\ExplSyntaxOff
+
+\begin{document}
+\START
+
+\begin{frame}
+  \frametitle{Nested lists}
+  \begin{itemize}
+    \item Circle
+    \begin{itemize}
+      \item Square
+      \begin{itemize}
+        \item Triangle
+        \begin{itemize}
+          \item Fourth-level class marker
+        \end{itemize}
+      \end{itemize}
+    \end{itemize}
+    \item[\TYPE{MARKER custom}!] Custom label
+  \end{itemize}
+  \begin{enumerate}
+    \item Numbered item
+  \end{enumerate}
+\end{frame}
+
+% Drawn markers must inherit the text color in the dark variant as well.
+\molochset{variant=dark}
+\begin{frame}
+  \frametitle{Dark lists}
+  \begin{itemize}
+    \item Circle
+    \begin{itemize}
+      \item Square
+      \begin{itemize}
+        \item Triangle
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% Marker colors must follow the class's label-format customization.
+\EditInstance{item}{basic}{label-format=\color{alert}#1}
+\begin{frame}
+  \begin{itemize}
+    \item Alert-colored marker
+  \end{itemize}
+\end{frame}
+
+% Standard label customization must still reach the list instance.
+\renewcommand{\labelitemi}{\TYPE{MARKER replacement}+}
+\begin{frame}
+  \begin{itemize}
+    \item Replacement marker
+  \end{itemize}
+\end{frame}
+
+\END
+\end{document}

@@ -1,0 +1,15 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+TEST footer color = 394B4F
+[1]
+LaTeX template Info: Declaring instance 'moloch' of type footer on line ....
+TEST footer color = 23373B
+[2
+]
+TEST footer color = FAFAFA
+[3
+]
+LaTeX template Info: Declaring instance 'moloch' of type footer on line ....
+TEST footer color = FF0000
+[4
+]

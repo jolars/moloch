@@ -1,0 +1,56 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+TEST body = 23373B
+TEST header foreground = FAFAFA
+TEST header background = 23373B
+TEST footer = 394B4F
+TEST frame number rendered
+TEST background = FAFAFA
+[1]
+TEST frame = 1, slide = 1
+TEST body = 23373B
+TEST header foreground = FAFAFA
+TEST header background = 23373B
+TEST footer = 394B4F
+TEST frame number rendered
+TEST background = FAFAFA
+[2
+]
+TEST frame = 1, slide = 2
+TEST body = FAFAFA
+TEST header foreground = 23373B
+TEST header background = D9D9D9
+TEST bar = head,thickness = 2.0pt
+TEST footer = FAFAFA
+TEST background = 23373B
+[3
+]
+TEST frame = 2, slide = 1
+TEST body = FAFAFA
+TEST header foreground = 23373B
+TEST header background = D9D9D9
+TEST bar = head,thickness = 2.0pt
+TEST footer = FAFAFA
+TEST background = 23373B
+[4
+]
+TEST frame = 2, slide = 2
+TEST outer group body = 23373B
+TEST body = FAFAFA
+TEST header foreground = 23373B
+TEST header background = D9D9D9
+TEST bar = foot,thickness = 4.0pt
+TEST footer = FAFAFA
+TEST background = 23373B
+[5
+]
+TEST frame = 3, slide = 1
+TEST body = 23373B
+TEST header foreground = FAFAFA
+TEST header background = 23373B
+TEST footer = 394B4F
+TEST frame number rendered
+TEST background = FAFAFA
+[6
+]
+TEST frame = 4, slide = 1

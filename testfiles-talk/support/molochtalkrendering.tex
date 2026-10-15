@@ -1,0 +1,95 @@
+\setmainfont{Latin Modern Sans}
+\setsansfont{Latin Modern Sans}
+\input regression-test
+
+\ExplSyntaxOn
+\int_new:N \g__moloch_test_background_int
+\NewCommandCopy \MolochTestRule \rule
+% Observe the background actually drawn at shipout, after body groups close.
+\RenewDocumentCommand \rule { O { 0pt } m m }
+  {
+    \bool_lazy_and:nnT
+      { \dim_compare_p:nNn {#2} = \paperwidth }
+      { \dim_compare_p:nNn {#3} = \paperheight }
+      {
+        \int_gincr:N \g__moloch_test_background_int
+        \color_export:nnN { . } { comma-sep-rgb } \l_tmpa_tl
+        \color_export:nnN { mStandoutBg } { comma-sep-rgb } \l_tmpb_tl
+        \tl_if_eq:NNTF \l_tmpa_tl \l_tmpb_tl
+          { \TYPE { TEST~background~color~=~standout } }
+          {
+            \color_export:nnN { mNormaltextBg } { comma-sep-rgb } \l_tmpb_tl
+            \tl_if_eq:NNTF \l_tmpa_tl \l_tmpb_tl
+              { \TYPE { TEST~background~color~=~normal } }
+              { \TYPE { TEST~background~color~=~incorrect } }
+          }
+      }
+    \MolochTestRule [#1] {#2} {#3}
+  }
+\AddToHook { shipout / before }
+  { \int_gzero:N \g__moloch_test_background_int }
+\AddToHook { shipout / after }
+  {
+    \TYPE
+      {
+        TEST~frame~=~\theframe,~slide~=~\theslide,
+        ~background~fills~=~\int_use:N \g__moloch_test_background_int
+      }
+  }
+\cs_new_eq:NN \MolochTestSectionPageBody \__moloch_section_page_body:
+\cs_set_protected:Npn \__moloch_section_page_body:
+  {
+    \TYPE { TEST~section~alignment~=~\l__talk_frame_alignment_tl }
+    \MolochTestSectionPageBody
+  }
+\use:e
+  {
+    \exp_not:N \NewDocumentCommand \exp_not:N \TestContentFrame { m }
+      {
+        \exp_not:N \begin { frame }
+          \bool_if:NT \l__talk_frame_title_bool { { } }
+          \exp_not:N \TYPE
+            { TEST~content~alignment~=~\exp_not:N \l__talk_frame_alignment_tl }
+          \exp_not:N #1
+        \exp_not:N \end { frame }
+      }
+  }
+\ExplSyntaxOff
+
+\SetKeys[talk/frame]{vertical-alignment=top}
+
+\begin{document}
+\START
+
+% Both section-page styles must override the document's top alignment.
+\section{Progress Bar}
+\TestContentFrame{Top-aligned content after the section page.}
+\molochset{sectionpage=simple}
+\section{Simple}
+\TestContentFrame{Top-aligned content after the simple section page.}
+\molochset{sectionpage=none}
+
+% Saved content must retain its background on every overlay when replayed.
+\begin{standout}<1-2>[name=message]
+  \only<1>{First standout slide.}
+  \only<2>{Second standout slide.}
+\end{standout}
+\TestContentFrame{Ordinary content after the original standout.}
+\reuseframe<1-2>{message}
+\TestContentFrame{Ordinary content after the reused standout.}
+
+% A skipped standout must not tint the next frame.
+\begin{standout}<0>
+  A standout that is not rendered.
+\end{standout}
+\TestContentFrame{Ordinary content after the skipped standout.}
+
+% Deferred standouts render automatically at the end of the document.
+\begin{standout}[supplementary-frame=true]
+  A deferred standout.\pause
+  Its second overlay.
+\end{standout}
+\TestContentFrame{Ordinary content after declaring the deferred standout.}
+
+% The harness ends the log automatically after supplementary frames ship out.
+\end{document}

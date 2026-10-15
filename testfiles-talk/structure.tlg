@@ -1,0 +1,18 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+[1]
+LaTeX Font Info:    Trying to load font information for TU+lmr-base on input line ....
+(../tulmr-base.fd
+File: tulmr-base.fd ....-..-.. v... LaTeX font definitions for Latin Modern in base mode
+) [2
+]
+TEST sectionpage=progressbar: frame=3
+[3
+]
+TEST sectionpage=none: frame=4
+[4
+]
+TEST standout: frame=5
+[5
+]
+TEST total frames = 5

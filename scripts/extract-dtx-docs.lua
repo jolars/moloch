@@ -154,6 +154,7 @@ return {{CodeBlock = CodeBlock}}
 		{ name = "beamercolorthememoloch", title = "Color Theme" },
 		{ name = "beamercolorthememoloch-tomorrow", title = "Color Theme: Tomorrow" },
 		{ name = "beamercolorthememoloch-highcontrast", title = "Color Theme: High Contrast" },
+		{ name = "moloch-talk", title = "ltx-talk Theme" },
 	}
 
 	print("Extracting and converting DTX documentation...\n")

@@ -1,0 +1,173 @@
+\DocumentMetadata{lang=en-US}
+\documentclass[10pt]{ltx-talk}
+\usepackage{moloch-talk}
+\setmainfont{Latin Modern Sans}
+\setsansfont{Latin Modern Sans}
+\input regression-test
+
+% Automatic frame breaks leave partially filled boxes by design.
+\vbadness=10000
+
+\ExplSyntaxOn
+\NewDocumentCommand \LOGCOLOR { m m }
+  {
+    \color_export:nnN {#2} { HTML } \l_tmpa_tl
+    \TYPE { TEST~#1~=~\l_tmpa_tl }
+  }
+\int_new:N \g__moloch_test_headers_int
+\int_new:N \g__moloch_test_footers_int
+\int_new:N \g__moloch_test_bars_int
+\AddToHook { build / page / before } [ moloch-test ]
+  {
+    \int_gzero:N \g__moloch_test_headers_int
+    \int_gzero:N \g__moloch_test_footers_int
+    \int_gzero:N \g__moloch_test_bars_int
+  }
+\AddToHook { shipout / after }
+  {
+    \TYPE
+      {
+        TEST~frame~=~\theframe,~slide~=~\theslide,
+        ~headers~=~\int_use:N \g__moloch_test_headers_int,
+        ~footers~=~\int_use:N \g__moloch_test_footers_int,
+        ~bars~=~\int_use:N \g__moloch_test_bars_int
+      }
+  }
+
+% Observe the colors used to draw pages after the body groups have closed.
+\NewCommandCopy \MolochTestRule \rule
+\RenewDocumentCommand \rule { O { 0pt } m m }
+  {
+    \bool_lazy_and:nnT
+      { \dim_compare_p:nNn {#2} = \paperwidth }
+      { \dim_compare_p:nNn {#3} = \paperheight }
+      { \LOGCOLOR { background } { . } }
+    \MolochTestRule [#1] {#2} {#3}
+  }
+\cs_new_eq:NN \MolochTestProgressbar \__moloch_progressbar:nn
+\cs_set_protected:Npn \__moloch_progressbar:nn #1#2
+  {
+    \int_gincr:N \g__moloch_test_bars_int
+    \MolochTestProgressbar {#1} {#2}
+  }
+\EditInstance { frametitle } { header }
+  {
+    font = \large \bfseries
+      \int_gincr:N \g__moloch_test_headers_int
+      \LOGCOLOR { header~foreground } { . }
+      \LOGCOLOR { header~background } { mFrametitleBg }
+  }
+\EditInstance { footer } { moloch }
+  {
+    font = \tiny
+      \int_gincr:N \g__moloch_test_footers_int
+      \LOGCOLOR { footer } { . }
+  }
+
+% List labels and block titles select the semantic structure color themselves.
+\NewCommandCopy \MolochTestFillColor \pgfsetfillcolor
+\cs_set_protected:Npn \pgfsetfillcolor #1
+  { \LOGCOLOR { bullet } {#1} \MolochTestFillColor {#1} }
+\NewCommandCopy \MolochTestEnumLabel \labelenumi
+\renewcommand \labelenumi
+  { \LOGCOLOR { enumeration~label } { . } \MolochTestEnumLabel }
+\ExplSyntaxOff
+
+\newcommand{\BreakContent}{%
+  \rule{0pt}{0.6\textheight}First page.\par
+  \rule{0pt}{0.6\textheight}Second page.\par
+}
+\newcommand{\StandoutStructure}{%
+  \small
+  \LOGCOLOR{standout body}{.}
+  \begin{itemize}
+    \item A visible bullet.
+  \end{itemize}
+  \begin{enumerate}
+    \item A visible number.
+  \end{enumerate}
+  \begin{block}{\LOGCOLOR{block title}{.}A visible title}
+    A block body.
+  \end{block}
+}
+
+\molochset{sectionpage=none,progressbar=head}
+\begin{document}
+\START
+
+% A local palette must reach all overlays and disappear after the frame.
+\begin{frame}<1-2>[name=dark]
+  \molochset{variant=dark}
+  \frametitle{Local dark variant}
+  \LOGCOLOR{body}{.}
+  Dark content.\pause Second overlay.
+\end{frame}
+\begin{frame}
+  \frametitle{Light restored}
+  \LOGCOLOR{body}{.}
+  Light content.
+\end{frame}
+
+% A palette selected only on one overlay must not leak to the next overlay.
+\begin{frame}<1-2>
+  \only<1>{\molochset{variant=dark}}
+  \frametitle{Overlay-specific variant}
+  \LOGCOLOR{body}{.}
+  Content.\pause Second overlay.
+\end{frame}
+\reuseframe<1-2>{dark}
+
+% Every automatic page must use the local palette, in either direction.
+\molochset{variant=dark}
+\begin{frame}[auto-break=true]
+  \molochset{variant=light}
+  \frametitle{Local light variant with automatic breaks}
+  \LOGCOLOR{body}{.}
+  \BreakContent
+\end{frame}
+\begin{frame}
+  \frametitle{Dark restored}
+  \LOGCOLOR{body}{.}
+  Dark content.
+\end{frame}
+
+\molochset{variant=light}
+\begin{standout}
+  % A local variant must preserve the standout foreground and structure.
+  \molochset{variant=dark}
+  \StandoutStructure
+\end{standout}
+
+% Plain pages must suppress all progress-bar positions across frame breaks.
+\molochset{progressbar=head}
+\begin{standout}[auto-break=true,name=breakmessage]
+  \BreakContent
+\end{standout}
+\molochset{progressbar=frametitle}
+\reuseframe[auto-break=true]{breakmessage}
+\molochset{progressbar=foot}
+\begin{standout}[auto-break=true]
+  \BreakContent
+\end{standout}
+\begin{frame}
+  \frametitle{Ordinary page style restored}
+  \LOGCOLOR{body}{.}
+  \LOGCOLOR{structure}{structure}
+  Ordinary content.
+\end{frame}
+
+% Switching locally to light must also retain the standout foreground.
+\molochset{variant=dark}
+\begin{standout}
+  \molochset{variant=light}
+  \StandoutStructure
+\end{standout}
+\begin{frame}
+  \frametitle{Dark page style restored}
+  \LOGCOLOR{body}{.}
+  \LOGCOLOR{structure}{structure}
+  Ordinary dark content.
+\end{frame}
+
+\END
+\end{document}

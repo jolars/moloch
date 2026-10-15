@@ -1,0 +1,381 @@
+\DocumentMetadata{lang=en-US,tagging=on}
+\PassOptionsToPackage{lighttt}{lmodern}
+\documentclass[10pt,aspect-ratio=4:3]{ltx-talk}
+
+\usepackage{moloch-talk}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage[backend=bibtex,style=numeric,sorting=nyt,defernumbers=true]{biblatex}
+
+% The class pairs opacity changes across groups, while TeX Live 2025 resets
+% opacity automatically at the end of a group. Defer that reset to opacity_end.
+\ExplSyntaxOn
+\cs_if_exist:NF \opacity_begin:n
+  {
+    \cs_new_protected:Npn \opacity_begin:n #1
+      {
+        \group_begin:
+          \cs_set_eq:NN \group_insert_after:N \use_none:n
+          \opacity_select:n {#1}
+        \group_end:
+      }
+    \cs_new_eq:NN \opacity_end: \__opacity_backend_reset:
+  }
+\ExplSyntaxOff
+
+\ifLuaTeX
+  % Register all font weights so that the class's bold headings render correctly.
+  \setmainfont{Latin Modern Sans}
+  \setsansfont{Latin Modern Sans}
+  \setmonofont{Latin Modern Mono Light}
+\else
+  \usepackage[T1]{fontenc}
+\fi
+
+\addbibresource{../assets/references.bib}
+\DeclareBibliographyCategory{foundations}
+\addtocategory{foundations}{Knuth92,ConcreteMath}
+
+\title{Moloch}
+\subtitle{A Minimal Theme for ltx-talk}
+\date{\today}
+\author{The Author}
+\institute{Some Institution, Some University}
+
+% The class builds title pages from named elements rather than \titlegraphic.
+\makeatletter
+\newcommand{\@logo}{\hfill\includegraphics[width=3.5cm,alt={Moloch logo}]{../assets/logo.pdf}}
+\makeatother
+\DeclareInstance{titlepage-element}{logo}{talk}{after-skip=1em}
+
+\begin{document}
+
+\maketitle[element-order={logo,title,subtitle,titleseparator,author,institute,date}]
+
+\begin{frame}
+  \frametitle{Table of Contents}
+  \tableofcontents
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame*}
+  \frametitle{Moloch}
+
+  The Moloch theme has minimal visual noise. It is a fork of the
+  \href{https://github.com/matze/mtheme}{Metropolis theme} by Matthias Vogelgesang,
+  which in turn was inspired by the
+  \href{https://github.com/hsrmbeamertheme/hsrmbeamertheme}{HSRM theme}
+  by Benjamin Weiss. \medskip
+
+  Enable the theme for \texttt{ltx-talk} by calling
+  \begin{verbatim}
+\DocumentMetadata{lang=en-US,tagging=on}
+\documentclass{ltx-talk}
+\usepackage{moloch-talk}
+  \end{verbatim}
+\end{frame*}
+
+\begin{frame*}
+  \frametitle{Sections}
+  Sections group slides of the same topic by introducing a section page between
+  them. A progress bar indicates how far along in the presentation you are.
+
+  \begin{verbatim}
+\section{Title Customization}
+  \end{verbatim}
+
+  Place section commands between frames. Section pages count toward the frame
+  number in \texttt{ltx-talk}.
+\end{frame*}
+
+\section{Title Customization}
+
+\begin{frame*}
+  \frametitle{Moloch Frame Titles}
+  Use the class's template interface to change the font of frame titles:
+  \begin{verbatim}
+\EditInstance{frametitle}{header}{
+  font=\Large\bfseries
+}
+  \end{verbatim}
+
+  The following slides show two font choices. The title band has a fixed height,
+  so wrapped titles may need a taller band.
+\end{frame*}
+
+{
+\EditInstance{frametitle}{header}{font=\Large\bfseries}
+\begin{frame}
+  \frametitle{Larger Bold Titles}
+  This frame uses \texttt{\string\Large\string\bfseries} for its title.
+\end{frame}
+}
+
+{
+\EditInstance{frametitle}{header}{font=\large\itshape}
+\begin{frame}
+  \frametitle{Italic Titles}
+  This frame uses \texttt{\string\large\string\itshape} for its title.
+\end{frame}
+}
+
+\section{Elements}
+
+\begin{frame*}
+  \frametitle{Typography}
+  \begin{verbatim}
+The theme provides sensible defaults to
+\emph{emphasize} text, \alert{accent} parts or show
+\textbf{bold} results.
+  \end{verbatim}
+  \begin{center}
+    becomes
+  \end{center}
+  The theme provides sensible defaults to \emph{emphasize} text,
+  \alert{accent} parts or show \textbf{bold} results.
+\end{frame*}
+
+\begin{frame}
+  \frametitle{Font Features Test}
+  \begin{itemize}
+    \item Regular
+    \item \textit{Italic}
+    \item \textbf{Bold}
+    \item \textbf{\textit{Bold Italic}}
+    \item \texttt{Monospace}
+    \item \texttt{\textit{Monospace Italic}}
+    \item \texttt{\textbf{Monospace Bold}}
+    \item \texttt{\textbf{\textit{Monospace Bold Italic}}}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lists}
+  \begin{columns}
+    \begin{column}[t]{0.3\textwidth}
+      Items
+      \begin{itemize}
+        \item Milk
+        \item Eggs
+        \item Potatoes
+      \end{itemize}
+    \end{column}
+
+    \begin{column}[t]{0.33\textwidth}
+      Enumerations
+      \begin{enumerate}
+        \item First,
+        \item Second, and
+        \item Last.
+      \end{enumerate}
+    \end{column}
+
+    \begin{column}[t]{0.33\textwidth}
+      Descriptions
+      \begin{description}
+        \item[Beamer] The original theme.
+        \item[ltx-talk] This demo.
+      \end{description}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}<1-4>
+  \frametitle{Animation}
+  \begin{itemize}
+    \item<1-> \alert<4>{This is\only<4>{ really} important}
+    \item<2-> Now this
+    \item<3-> And now this
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Figures}
+  \begin{figure}
+    \centering
+    \newcounter{density}
+    \setcounter{density}{20}
+    \begin{tikzpicture}[scale=0.8]
+      \def\couleur{mAlertFg}
+      \path[coordinate] (0,0) coordinate(A)
+        ++(90:5cm) coordinate(B)
+        ++(0:5cm) coordinate(C)
+        ++(-90:5cm) coordinate(D);
+      \draw[fill=\couleur!\thedensity] (A) -- (B) -- (C) -- (D) -- cycle;
+      \foreach \x in {1,...,40}{%
+        \pgfmathsetcounter{density}{\thedensity+20}
+        \path[coordinate] coordinate(X) at (A){};
+        \path[coordinate] (A) -- (B) coordinate[pos=.10](A)
+          -- (C) coordinate[pos=.10](B)
+          -- (D) coordinate[pos=.10](C)
+          -- (X) coordinate[pos=.10](D);
+        \draw[fill=\couleur!\thedensity] (A) -- (B) -- (C) -- (D) -- cycle;
+      }
+    \end{tikzpicture}
+    \caption{Rotated square from
+      \href{https://texample.net/tikz/examples/rotated-polygons/}{texample.net}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Tables}
+  \begin{table}
+    \centering
+    \caption{Sample city population figures from the Beamer demo.}
+    \begin{tabular}{@{} lr @{}}
+      \toprule
+      City        & Population \\
+      \midrule
+      Mexico City & 20,116,842 \\
+      Shanghai    & 19,210,000 \\
+      Peking      & 15,796,450 \\
+      Istanbul    & 14,160,467 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame*}
+  \frametitle{Blocks}
+  The class provides a \verb|block| environment. Its title uses the theme's
+  structure color, and its body shares the slide background.
+
+  \begin{verbatim}
+\begin{block}{Default}
+  Block content.
+\end{block}
+  \end{verbatim}
+
+  \begin{block}{Default}
+    Block content with an \alert{alerted result}.
+  \end{block}
+\end{frame*}
+
+\begin{frame}
+  \frametitle{Progress Bars}
+  Progress bars visualize the progress of the presentation. \medskip
+
+  By default, bars appear on section pages. Choose
+  \texttt{sectionpage=progressbar}, \texttt{simple}, or \texttt{none} to change
+  this. \medskip
+
+  Enable progress bars on frames with
+  \texttt{progressbar=none}, \texttt{head}, \texttt{frametitle}, or \texttt{foot}.
+\end{frame}
+
+\molochset{progressbar=head}
+\begin{frame}
+  \frametitle{Progress Bar at the Top}
+  This frame uses \texttt{progressbar=head}.
+\end{frame}
+
+\molochset{progressbar=foot}
+\begin{frame}
+  \frametitle{Progress Bar at the Bottom}
+  This frame uses \texttt{progressbar=foot}.
+\end{frame}
+
+\molochset{progressbar=frametitle,progressbar-linewidth=1pt}
+\begin{frame*}
+  \frametitle{Progress Bar Customization}
+  Customize the thickness of the bars using
+  \texttt{progressbar-linewidth=<length>}. \medskip
+
+  This frame and the following pages use
+  \begin{verbatim}
+\molochset{
+  progressbar=frametitle,
+  progressbar-linewidth=1pt
+}
+  \end{verbatim}
+\end{frame*}
+
+\begin{frame*}
+  \frametitle{The Title Page}
+  Change the title separator's thickness with
+  \texttt{titleseparator-linewidth=<length>}. \medskip
+
+  The class builds title pages from template elements. The logo in this demo is
+  a custom element, included by passing its name to \verb|\maketitle|:
+  \begin{verbatim}
+\maketitle[element-order={logo,title,subtitle,
+  titleseparator,author,institute,date}]
+  \end{verbatim}
+\end{frame*}
+
+\begin{frame}
+  \frametitle{Math}
+  \begin{equation*}
+    e = \lim_{n\to\infty} \left(1 + \frac{1}{n}\right)^n
+  \end{equation*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Quotes}
+  \begin{quote}
+    Verily, I say unto you, the days spoken of in the Apocalypse are nigh!
+  \end{quote}
+\end{frame}
+
+{
+\EditInstance{footer}{moloch}{element-order={author,framenumber}}
+\begin{frame*}
+  \frametitle{Frame Footer}
+  Edit Moloch's footer instance to show the author on the left and the frame
+  number on the right, while keeping the progress bar:
+  \begin{verbatim}
+\EditInstance{footer}{moloch}{
+  element-order={author,framenumber}
+}
+  \end{verbatim}
+\end{frame*}
+}
+
+\molochset{variant=dark}
+\begin{frame}
+  \frametitle{Dark Variant}
+  Switch variants between frames with \texttt{\string\molochset\{variant=dark\}}.
+  The theme updates the background, ordinary text, and \alert{alerted text}.
+\end{frame}
+\molochset{variant=light}
+
+\begin{frame}
+  \frametitle{References}
+  Here are some references~\cite{Knuth92,ConcreteMath,Simpson,Er01,greenwade93}.
+  The reference list at the end uses \texttt{biblatex}, with its entries split
+  across two frames.
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}
+  \frametitle{Summary}
+  Get the source of this theme and the demo presentation from
+  \begin{center}
+    \url{github.com/jolars/moloch}
+  \end{center}
+
+  The theme is licensed under the
+  \href{https://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
+    Attribution-ShareAlike 4.0 International License}.
+\end{frame}
+
+\begin{standout}
+  Questions?
+\end{standout}
+
+\molochset{framenumber=false,progressbar=none}
+\begin{frame}
+  \frametitle{References: Foundations}
+  \small
+  \printbibliography[heading=none,category=foundations]
+\end{frame}
+
+\begin{frame}
+  \frametitle{References: Further Reading}
+  \small
+  \printbibliography[heading=none,notcategory=foundations]
+\end{frame}
+
+\end{document}

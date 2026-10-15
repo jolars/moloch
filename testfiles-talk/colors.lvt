@@ -1,0 +1,6 @@
+\DocumentMetadata{}
+\documentclass{ltx-talk}
+
+\usepackage{moloch-talk}
+
+\input{molochtalkcolors}

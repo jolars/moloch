@@ -373,7 +373,6 @@ Completed box being shipped out [2]
 .....\hbox(21.33755+15.86256)x307.28987, glue set 32.64862fil
 ......\glue(\leftskip) 0.0 plus 1.0fil
 ......\hbox(0.0+0.0)x0.0
-......\mathon
 ......\vbox(21.33755+15.86256)x241.99265
 .......\pdfcolorstack 0 push {0.13725 0.2157 0.23137 rg 0.13725 0.2157 0.23137 RG}
 .......\glue(\parskip) 0.0
@@ -461,7 +460,6 @@ Completed box being shipped out [2]
 ........\glue(\rightskip) 0.0 plus 1.0fil
 .......\pdfcolorstack 0 pop
 .......\pdfcolorstack 0 pop
-......\mathoff
 ......\penalty 10000
 ......\glue(\parfillskip) 0.0
 ......\glue(\rightskip) 0.0 plus 1.0fil
@@ -5210,7 +5208,6 @@ Completed box being shipped out [12]
 .......\pdfliteral{1 0 0 1 2000.02579 2000.02579 cm }
 .......\pdfliteral{1 0 0 1 -2000.02579 -2000.02579 cm }
 .......\glue 0.0 plus 1.0fill
-.......\mathon
 .......\vbox(56.49374+51.01875)x138.2795
 ........\hbox(0.0+0.0)x138.2795, glue set 69.13976fil
 .........\hbox(0.0+0.0)x0.0
@@ -5388,7 +5385,6 @@ Completed box being shipped out [12]
 ........\pdfliteral{1 0 0 1 -2000.02579 -2000.02579 cm }
 ........\pdfliteral{1 0 0 1 2000.02579 2000.02579 cm }
 ........\pdfliteral{1 0 0 1 -2000.02579 -2000.02579 cm }
-.......\mathoff
 .......\pdfliteral{1 0 0 1 2000.02579 2000.02579 cm }
 .......\pdfliteral{1 0 0 1 -2000.02579 -2000.02579 cm }
 .......\pdfliteral{1 0 0 1 2000.02579 2000.02579 cm }
@@ -5398,7 +5394,6 @@ Completed box being shipped out [12]
 .......\pdfliteral{1 0 0 1 2000.02579 2000.02579 cm }
 .......\pdfliteral{1 0 0 1 -2000.02579 -2000.02579 cm }
 .......\glue 0.0 plus 1.0fill
-.......\mathon
 .......\vbox(64.95459+59.47961)x138.2795
 ........\hbox(0.0+0.0)x138.2795, glue set 58.18977fil
 .........\hbox(0.0+0.0)x0.0
@@ -5702,7 +5697,6 @@ Completed box being shipped out [12]
 ........\pdfliteral{1 0 0 1 -2000.02579 -2000.02579 cm }
 ........\pdfliteral{1 0 0 1 2000.02579 2000.02579 cm }
 ........\pdfliteral{1 0 0 1 -2000.02579 -2000.02579 cm }
-.......\mathoff
 .......\pdfliteral{1 0 0 1 2000.02579 2000.02579 cm }
 .......\pdfliteral{1 0 0 1 -2000.02579 -2000.02579 cm }
 .......\pdfliteral{1 0 0 1 2000.02579 2000.02579 cm }

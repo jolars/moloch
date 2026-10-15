@@ -1,0 +1,40 @@
+\DocumentMetadata{lang=en-US}
+\documentclass{ltx-talk}
+\usepackage{moloch-talk}
+\setmainfont{Latin Modern Sans}
+\setsansfont{Latin Modern Sans}
+\input regression-test
+
+\ExplSyntaxOn
+\EditInstance { footer } { moloch }
+  {
+    font = \tiny
+      \color_export:nnN { . } { HTML } \l_tmpa_tl
+      \TYPE { TEST~footer~color~=~\l_tmpa_tl }
+  }
+\ExplSyntaxOff
+
+\begin{document}
+\START
+
+\begin{frame}
+  Default footer color.
+\end{frame}
+
+% An empty color must inherit the current color in either palette.
+\EditInstance{footer}{moloch}{color=}
+\begin{frame}
+  Inherited footer color in the light palette.
+\end{frame}
+\molochset{variant=dark}
+\begin{frame}
+  Inherited footer color in the dark palette.
+\end{frame}
+
+\EditInstance{footer}{moloch}{color=red}
+\begin{frame}
+  Explicit footer color.
+\end{frame}
+
+\END
+\end{document}

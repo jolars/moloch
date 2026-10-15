@@ -1,0 +1,94 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+TEST section alignment = center
+LaTeX Font Info:    Trying to load font information for TU+lmr-base on input line ....
+(../tulmr-base.fd
+File: tulmr-base.fd ....-..-.. v... LaTeX font definitions for Latin Modern in base mode
+)
+TEST background color = normal
+[1]
+TEST frame = 1, slide = 1,background fills = 1
+TEST content alignment = top
+TEST background color = normal
+[2
+]
+TEST frame = 2, slide = 1,background fills = 1
+TEST section alignment = center
+TEST background color = normal
+[3
+]
+TEST frame = 3, slide = 1,background fills = 1
+TEST content alignment = top
+TEST background color = normal
+[4
+]
+TEST frame = 4, slide = 1,background fills = 1
+TEST background color = normal
+TEST background color = standout
+[5
+]
+TEST frame = 5, slide = 1,background fills = 2
+TEST background color = normal
+TEST background color = standout
+[6
+]
+TEST frame = 5, slide = 2,background fills = 2
+TEST content alignment = top
+TEST background color = normal
+[7
+]
+TEST frame = 6, slide = 1,background fills = 1
+TEST background color = normal
+TEST background color = standout
+[8
+]
+TEST frame = 7, slide = 1,background fills = 2
+TEST background color = normal
+TEST background color = standout
+[9
+]
+TEST frame = 7, slide = 2,background fills = 2
+TEST content alignment = top
+TEST background color = normal
+[10
+]
+TEST frame = 8, slide = 1,background fills = 1
+TEST content alignment = top
+TEST background color = normal
+[11
+]
+TEST frame = 9, slide = 1,background fills = 1
+TEST content alignment = top
+TEST background color = normal
+[12
+]
+TEST frame = 11, slide = 1,background fills = 1
+TEST background color = normal
+TEST background color = standout
+[13
+]
+TEST frame = 12, slide = 1,background fills = 2
+TEST background color = normal
+TEST background color = standout
+[14
+]
+TEST frame = 12, slide = 2,background fills = 2
+<<latex-list-css.html>><<latex-align-css.html>> (rendering.aux)
+MathML statistic
+================
+==> 0 MathML fragments read
+==> 0 different MathML fragments
+==> 0 math fragments found
+==> 0 fitting MathML AF found
+==> 0 MathML AF attached
+Package tagpdf Info: Finalizing the tagging structure:
+(tagpdf)             Writing out ~56 structure objects
+(tagpdf)             with ~49 'MC' leaf nodes.
+(tagpdf)             Be patient if there are lots of objects!
+Package tagpdf Info: writing ParentTree
+Package tagpdf Info: writing IDTree
+Package tagpdf Info: writing RoleMap
+Package tagpdf Info: writing ClassMap
+Package tagpdf Info: writing NameSpaces
+Package tagpdf Info: writing StructElems
+Package tagpdf Info: writing Root
