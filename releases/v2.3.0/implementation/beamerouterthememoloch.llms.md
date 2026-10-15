@@ -1,0 +1,286 @@
+# Appendix C — Outer Theme
+
+> **NOTE:**
+>
+> **Source file:** [`src/beamerouterthememoloch.dtx`](https://github.com/jolars/moloch/blob/main/src/beamerouterthememoloch.dtx)
+
+## C.1 Moloch Outer Theme
+
+A `beamer` outer theme dictates the style of the frame elements traditionally set outside the body of each slide: the head, footline, and frame title.
+
+## C.2 Package Dependencies
+
+``` latex
+\RequirePackage{calc}
+\RequirePackage{pgfopts}
+```
+
+## C.3 Memoization and Tikz Externalization
+
+To avoid generating externalized figures of the progressbar we have to disable them with “tikzexternalenable” and “tikzexternaldisable”. However, if the “external” library is not loaded we would get undefined control sequence problems, hence we define them as no-ops if they are not defined yet. We do the same for the “mmzUnmemoizable” command from the memoize package, in order to avoid memoization of the progress bars.
+
+``` latex
+\providecommand{\tikzexternalenable}{}
+\providecommand{\tikzexternaldisable}{}
+\providecommand{\mmzUnmemoizable}{}
+```
+
+## C.4 Options
+
+### C.4.1 `progressbar`
+
+Adds a progress bar to the top, bottom, or frametitle of each slide.
+
+``` latex
+\pgfkeys{
+  /moloch/outer/progressbar/.cd,
+  .is choice,
+  none/.code={%
+      \setbeamertemplate{headline}[plain]
+      \setbeamertemplate{frametitle}[plain]
+      \setbeamertemplate{footline}[plain]
+    },
+  head/.code={\pgfkeys{/moloch/outer/progressbar=none}
+      \addtobeamertemplate{headline}{}{%
+        \usebeamertemplate*{progress bar in head/foot}
+      }
+    },
+  frametitle/.code={\pgfkeys{/moloch/outer/progressbar=none}
+      \addtobeamertemplate{frametitle}{}{%
+        \usebeamertemplate*{progress bar in head/foot}
+      }
+    },
+  foot/.code={\pgfkeys{/moloch/outer/progressbar=none}
+      \addtobeamertemplate{footline}{}{%
+        \usebeamertemplate*{progress bar in head/foot}%
+      }
+    },
+}
+```
+
+### C.4.2 `progressbar linewidth`
+
+Sets the linewidth of the progress bar for sectionpages and frames.
+
+``` latex
+\newlength{\moloch@progressonsectionpage}
+\newlength{\moloch@progressonsectionpage@linewidth}
+\newlength{\moloch@progressinheadfoot}
+\newlength{\moloch@progressinheadfoot@linewidth}
+\pgfkeys{
+  /moloch/outer/.cd,
+  progressbarlinewidth/.code={
+      \setlength{\moloch@progressonsectionpage@linewidth}{#1}
+      \setlength{\moloch@progressinheadfoot@linewidth}{#1}
+    },
+}
+```
+
+### C.4.3 `progressbar aliases`
+
+Allows `progressbar linewidth` to be used in `\molochset`.
+
+``` latex
+\pgfkeys{
+  /moloch/outer/.cd,
+  progressbar linewidth/.code=\pgfkeysalso{progressbarlinewidth=#1},
+}
+```
+
+### C.4.4 `frametitle margin`
+
+Sets the margins of the frame title.
+
+``` latex
+\pgfkeys{
+  /moloch/outer/.cd,
+  frametitlemarginleft/.code=\renewcommand{\moloch@frametitle@margin@left}{#1},
+  frametitlemarginright/.code=\renewcommand{\moloch@frametitle@margin@right}{#1},
+  frametitlemargintop/.code=\renewcommand{\moloch@frametitle@margin@top}{#1},
+  frametitlemarginbottom/.code=\renewcommand{\moloch@frametitle@margin@bottom}{#1},
+}
+```
+
+### C.4.5 `frametitle margin aliases`
+
+Allows `frametitle margin x` to be used in `\molochset`.
+
+``` latex
+\pgfkeys{
+  /moloch/outer/.cd,
+  frametitle margin left/.code=\pgfkeysalso{frametitlemarginleft=#1},
+  frametitle margin right/.code=\pgfkeysalso{frametitlemarginright=#1},
+  frametitle margin top/.code=\pgfkeysalso{frametitlemargintop=#1},
+  frametitle margin bottom/.code=\pgfkeysalso{frametitlemarginbottom=#1},
+}
+```
+
+### C.4.6 `\moloch@outer@setdefaults`
+
+Sets default values for outer theme options.
+
+``` latex
+\newcommand{\moloch@outer@setdefaults}{
+  \pgfkeys{/moloch/outer/.cd,
+    progressbar=none,
+    progressbar linewidth=1pt,
+  }
+}
+```
+
+## C.5 Deprecated Options
+
+These options are deprecated and will be removed in a future version.
+
+### C.5.1 `numbering`
+
+Adds slide numbers to the bottom right of each slide.
+
+``` latex
+\pgfkeys{
+  /moloch/outer/numbering/.cd,
+  .is choice,
+  none/.code={%
+      \PackageWarning{moloch}{The ``numbering'' option is deprecated.
+        Use beamer's ``page number in head/foot'' template instead}%
+      \setbeamertemplate{page number in head/foot}[default]
+    },
+  counter/.code={%
+      \PackageWarning{moloch}{The ``numbering'' option is deprecated.
+        Use beamer's ``page number in head/foot'' template instead}%
+      \setbeamertemplate{page number in head/foot}[framenumber]
+    },
+  fraction/.code={%
+      \PackageWarning{moloch}{The ``numbering'' option is deprecated.
+        Use beamer's ``page number in head/foot'' template instead}%
+      \setbeamertemplate{page number in head/foot}[totalframenumber]
+    },
+}
+```
+
+## C.6 Slide Numbering
+
+Moloch defaults to numbering frames. To modify this, simply copy this line to your preamble and replace `framenumber`.
+
+``` latex
+\setbeamertemplate{page number in head/foot}[framenumber]
+```
+
+## C.7 Head and Footline
+
+All good `beamer` presentations should already remove the navigation symbols, but Moloch removes them automatically (just in case).
+
+``` latex
+\setbeamertemplate{navigation symbols}{}
+```
+
+### C.7.1 `headline`
+
+Template for the headline at the top of each frame, which is empty by default.
+
+``` latex
+\defbeamertemplate{headline}{plain}{}
+```
+
+### C.7.2 `footline`
+
+Template for the footline at the bottom of each frame, which includes the slide number on the right.
+
+``` latex
+\defbeamertemplate{footline}{plain}{%
+  \begin{beamercolorbox}[
+      leftskip=4pt,%
+      rightskip=5pt,%
+      wd=\textwidth,%
+    ]{footline}%
+    \usebeamercolor[fg]{page number in head/foot}%
+    \usebeamerfont{page number in head/foot}%
+    \usebeamertemplate*{frame footer}%
+    \hfill%
+    \usebeamertemplate*{page number in head/foot}\vskip4pt%
+  \end{beamercolorbox}%
+}
+```
+
+## C.8 Frametitle
+
+### C.8.1 `frametitle`
+
+Templates for the frame title, which is optionally underlined with a progress bar.
+
+``` latex
+\newcommand{\moloch@frametitlestrut@start}{%
+  \rule{0pt}{\moloch@frametitle@margin@top + \ht\strutbox}%
+}%
+
+\newcommand{\moloch@frametitlestrut@end}{%
+  \rule[-\moloch@frametitle@margin@bottom]{0pt}{\moloch@frametitle@margin@bottom}%
+}
+
+\newcommand{\moloch@frametitle@margin@left}{\dimexpr0.85\ht\strutbox\relax}
+\newcommand{\moloch@frametitle@margin@right}{\dimexpr0.85\ht\strutbox\relax}
+\newcommand{\moloch@frametitle@margin@top}{\dimexpr\ht\strutbox\relax}
+\newcommand{\moloch@frametitle@margin@bottom}{\dimexpr\ht\strutbox\relax}
+
+\defbeamertemplate{frametitle}{plain}{%
+  \nointerlineskip%
+  \begin{beamercolorbox}[%
+      wd=\paperwidth,%
+      leftskip=\moloch@frametitle@margin@left,%
+      rightskip=\the\glueexpr \moloch@frametitle@margin@right plus 1fil\relax,%
+    ]{frametitle}%
+    \usebeamerfont{frametitle}%
+    \moloch@frametitlestrut@start%
+    \moloch@frametitleformat{\insertframetitle}%
+    {%
+      \ifx\insertframesubtitle\@empty%
+        \else%
+        {%
+          \par%
+          \usebeamerfont{framesubtitle}%
+          \usebeamercolor[fg]{framesubtitle}%
+          \insertframesubtitle%
+        }%
+      \fi
+    }%
+    \moloch@frametitlestrut@end%
+  \end{beamercolorbox}%
+}
+\setbeamertemplate{frametitle continuation}{%
+  \romannumeral\insertcontinuationcount}
+```
+
+### C.8.2 `progress bar in head/foot`
+
+Template for the progress bar optionally displayed below the frame title on each page. Much of this code is duplicated in the inner theme’s template `progress bar in section page`.
+
+``` latex
+\setbeamertemplate{progress bar in head/foot}{
+  \nointerlineskip%
+  \pgfmathsetlength{\moloch@progressinheadfoot}{%
+    \paperwidth * min(1,\insertframenumber/\inserttotalframenumber)%
+  }%
+  \begin{beamercolorbox}[wd=\paperwidth]{progress bar in head/foot}
+    \tikzexternaldisable%
+    \begin{tikzpicture}
+      \mmzUnmemoizable%
+      \fill[bg]
+      (0,0)
+      rectangle
+      (\paperwidth, \moloch@progressinheadfoot@linewidth);
+      \fill[fg]
+      (0,0)
+      rectangle
+      (\moloch@progressinheadfoot, \moloch@progressinheadfoot@linewidth);
+    \end{tikzpicture}
+    \tikzexternalenable%
+  \end{beamercolorbox}
+}
+```
+
+## C.9 Process Package Options
+
+``` latex
+\moloch@outer@setdefaults
+\ProcessPgfPackageOptions{/moloch/outer}
+```
