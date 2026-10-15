@@ -593,16 +593,16 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This part of Moloch is experimental. It targets <a href="https://ctan.org/pkg/ltx-talk">ltx-talk</a>, which is itself an experimental 0.x class whose author warns that “changes may occur to almost all interfaces”. Expect both the class and this theme to move.</p>
+<p>This part of Moloch is experimental. It targets <a href="https://ctan.org/pkg/ltx-talk">ltx-talk</a>, which is itself an experimental 0.x class whose author warns that “changes may occur to almost all interfaces”. Expect changes to both the class and this theme.</p>
 </div>
 </div>
 <p><code>ltx-talk</code> is a presentation class by Joseph Wright, built around tagged PDF. That is the main reason to prefer it over Beamer: Beamer cannot currently produce properly tagged, accessible output, and <code>ltx-talk</code> is designed to.</p>
-<p>Moloch ships a version of its design for that class, as the <code>moloch-talk</code> package.</p>
+<p>Moloch provides its design for this class through the <code>moloch-talk</code> package.</p>
 <section id="requirements" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="requirements"><span class="header-section-number">5.1</span> Requirements</h2>
-<p>Moloch is tested with <code>ltx-talk</code> 0.6.9, which needs a LaTeX kernel from 2026-06-01 or later. With an older kernel you will see:</p>
+<p>Moloch is tested with <code>ltx-talk</code> 0.6.9, which needs a LaTeX kernel from 2026-06-01 or later. With an older kernel, you will see:</p>
 <pre><code>! LaTeX Error: Class ltx-talk Error: LaTeX kernel too old.</code></pre>
-<p>Only <code>pdflatex</code> and <code>lualatex</code> are supported by the class. Use <code>lualatex</code> if you want tagged output.</p>
+<p>The class supports only <code>pdflatex</code> and <code>lualatex</code>. Use <code>lualatex</code> if you want tagged output.</p>
 </section>
 <section id="usage" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="usage"><span class="header-section-number">5.2</span> Usage</h2>
@@ -640,73 +640,73 @@ Warning
 <figcaption>An example of Moloch for <code>ltx-talk</code>.</figcaption>
 </figure>
 </div>
-<p>The <code>\DocumentMetadata</code> line is required, and must come before <code>\documentclass</code>. Set <code>lang</code> to the presentation’s language and use <code>tagging=on</code> to enable tagged output.</p>
+<p>The <code>\DocumentMetadata</code> line is required and must come before <code>\documentclass</code>. Set <code>lang</code> to the presentation’s language and use <code>tagging=on</code> to enable tagged output.</p>
 <p>The class defaults to a 16:9 aspect ratio, while Beamer defaults to 4:3. To match the Beamer demo, use <code>\documentclass[10pt,aspect-ratio=4:3]{ltx-talk}</code>. The slides still have different physical dimensions: <code>ltx-talk</code> fixes the slide height at 100mm, while Beamer’s default 4:3 slides are 96mm high.</p>
 </section>
 <section id="options" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="options"><span class="header-section-number">5.3</span> Options</h2>
-<p>Options can be given when loading the package, or later with <code>\molochset</code>. Changes to the palette, progress bar, and frame number inside a frame apply to that frame. The surrounding settings return afterward.</p>
+<p>You can set options when loading the package or later with <code>\molochset</code>. Changes to the palette, progress bar, and frame number settings inside a frame apply to that frame. The previous settings are restored afterward.</p>
 <div class="describe-option" data-option-name="variant" data-values="light, dark" default="light">
 <p><span class="option-name">variant</span> [<u><strong>light</strong></u>, dark]</p>
-<p>Selects the light or dark version of the color palette. Unlike in the Beamer theme, this can also be changed in the middle of a document. A change inside a frame applies to its text, header, footer, and background. The surrounding palette returns after the frame.</p>
+<p>Selects the light or dark version of the color palette. Unlike in the Beamer theme, you can also change the palette in the middle of a document. A change inside a frame applies to its text, header, footer, and background. The previous palette is restored after the frame.</p>
 </div>
 <div class="describe-option" data-option-name="progressbar" data-values="none, head, frametitle, foot" default="none">
 <p><span class="option-name">progressbar</span> [<u><strong>none</strong></u>, head, frametitle, foot]</p>
-<p>Adds a progress bar at the top of the slide, directly below the frame title band, or at the bottom. The bar is not drawn on the title page, on section pages or on standout frames.</p>
+<p>Adds a progress bar at the top of the slide, directly below the frame title band, or at the bottom. The bar is not drawn on the title page, on section pages, or on standout frames.</p>
 </div>
 <div class="describe-option" data-option-name="sectionpage" data-values="none, simple, progressbar" default="progressbar">
 <p><span class="option-name">sectionpage</span> [none, simple, <u><strong>progressbar</strong></u>]</p>
-<p>Whether a section page is produced at each <code>\section</code>, and whether it carries a progress bar. Note that <code>\section</code> is ignored entirely by the class when it appears inside a frame, so section pages can only be produced from outside one.</p>
+<p>Controls whether each <code>\section</code> produces a section page and whether that page carries a progress bar. The class ignores <code>\section</code> entirely when it appears inside a frame, so place it outside a frame to produce a section page.</p>
 </div>
 <div class="describe-option" data-option-name="framenumber" data-values="true, false" default="true">
 <p><span class="option-name">framenumber</span> [<u><strong>true</strong></u>, false]</p>
-<p>Whether the frame number is shown in the bottom right corner.</p>
+<p>Controls whether the frame number appears in the bottom right corner.</p>
 </div>
 <div class="describe-key" data-key-name="progressbar-linewidth" type="<length>" default="1pt">
 <p><span class="key-name">progressbar-linewidth</span> [<span class="key-type"><em>&lt;length&gt;</em></span>] — <span class="key-default">default: 1pt</span></p>
-<p>The thickness of the progress bar.</p>
+<p>Sets the thickness of the progress bar.</p>
 </div>
 <div class="describe-key" data-key-name="titleseparator-linewidth" type="<length>" default="0.5pt">
 <p><span class="key-name">titleseparator-linewidth</span> [<span class="key-type"><em>&lt;length&gt;</em></span>] — <span class="key-default">default: 0.5pt</span></p>
-<p>The thickness of the rule between the title block and the author block on the title page.</p>
+<p>Sets the thickness of the rule between the title block and the author block on the title page.</p>
 </div>
 </section>
 <section id="customization-beyond-these-options" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="customization-beyond-these-options"><span class="header-section-number">5.4</span> Customization beyond these options</h2>
-<p>The option list above is deliberately short. <code>ltx-talk</code> is built so that appearance is adjusted through the LaTeX template layer, and that is the right tool for anything not covered here. For example, to change the height of the frame title band and the font it uses:</p>
+<p>The option list above is deliberately short. Use the LaTeX template layer to adjust aspects of the appearance that these options do not cover. For example, to change the height of the frame title band and the font it uses:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\geometry</span>{tmargin = 15mm, headheight = 15mm}</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\EditInstance</span>{frametitle}{header}{font = <span class="fu">\Large\bfseries</span>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>or to change the palette, which is defined as ordinary colors:</p>
+<p>The palette uses ordinary color definitions. To change a color:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\definecolor</span>{mFrametitleBg}{HTML}{4C566A}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>See the <code>ltx-talk</code> manual for the templates and keys that are available.</p>
+<p>See the <code>ltx-talk</code> manual for the available templates and keys.</p>
 <section id="footer" class="level3" data-number="5.4.1">
 <h3 data-number="5.4.1" class="anchored" data-anchor-id="footer"><span class="header-section-number">5.4.1</span> Footer</h3>
 <p>Moloch uses its own <code>footer</code> instance, named <code>moloch</code>. Edit this instance to add content while keeping the theme’s margins and progress bar:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\EditInstance</span>{footer}{moloch}{element-order={author,framenumber}}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This places the author on the left and the frame number on the right. The footer uses short metadata when available, such as the optional argument to <code>\author</code>. Empty elements are omitted, and <code>framenumber=false</code> hides the frame number without hiding other content. You can also adjust <code>font</code>, <code>color</code>, <code>left-hspace</code>, <code>right-hspace</code>, and <code>separator</code>, or customize each element through the class’s <code>footer-element</code> instances.</p>
-<p>Captions use smaller text and bold labels, while retaining the class’s unnumbered format.</p>
+<p>Captions use smaller text and bold labels while retaining the class’s unnumbered format.</p>
 <p>Itemize lists use the same drawn markers as the Beamer theme: a filled circle, square, and triangle for the first three nesting levels. The fourth level retains the class’s default marker. Customize the markers with <code>\renewcommand{\labelitemi}{...}</code> (or <code>\labelitemii</code> and <code>\labelitemiii</code>), or use <code>\item[&lt;label&gt;]</code> for an individual item.</p>
 </section>
 </section>
 <section id="differences-from-the-beamer-theme" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="differences-from-the-beamer-theme"><span class="header-section-number">5.5</span> Differences from the Beamer theme</h2>
-<p>This is a starting point rather than a port of everything, and some of the differences are imposed by the class rather than chosen.</p>
-<p>The title block is centered vertically, rather than sitting slightly above center in golden-ratio proportion as it does in Beamer.</p>
-<p>Not implemented yet:</p>
+<p>Moloch for <code>ltx-talk</code> is a starting point rather than a complete port of the Beamer theme. Some differences reflect features not yet implemented; others follow from the class’s design.</p>
+<p>The title block is centered vertically. In Beamer, it sits slightly above center in golden-ratio proportion.</p>
+<p>Moloch for <code>ltx-talk</code> does not yet support the following features:</p>
 <ul>
 <li>The alternative color themes (<code>tomorrow</code>, <code>highcontrast</code>, <code>catppuccin</code>, <code>paper</code>). Only the default palette is available, in light and dark.</li>
 <li>The <code>titleformat</code> options for small caps and capitalization.</li>
 <li><code>standout=alerted</code> and <code>standout=example</code>.</li>
 </ul>
-<p>Imposed by the class:</p>
+<p>The class imposes the following limitations and differences from Beamer:</p>
 <ul>
 <li><p><strong>The frame title band’s height is fixed.</strong> Long titles wrap, but the band cannot grow to fit. Increase <code>tmargin</code> and <code>headheight</code> with <code>\geometry</code> when titles need more space, and increase <code>headsep</code> to keep the extra lines inside the band. For example, for a two-line title:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\geometry</span>{tmargin=20mm,headheight=20mm,headsep=8mm}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p><strong><code>\framesubtitle</code> produces no output.</strong> The class stores it but does not currently typeset it.</p></li>
+<li><p><strong><code>\framesubtitle</code> produces no output.</strong> The class stores the subtitle but does not currently typeset it.</p></li>
 <li><p><strong>Section pages and standout frames count as frames</strong>, so they advance the frame number. The Beamer theme does not count them by default.</p></li>
 <li><p><strong>No predefined <code>alertblock</code>, <code>exampleblock</code>, or theorem environments.</strong> Define theorem environments with <code>\newtheorem</code>. Blocks cannot be filled with a background color: <code>block</code> is a fixed environment in the class rather than a template.</p></li>
 <li><p><strong>No <code>\titlegraphic</code>.</strong> The class has no such command.</p></li>
-<li><p>With <code>lualatex</code>, the class selects New Computer Modern Sans by file name, which leaves no bold face registered, so bold text silently comes out in the regular weight. Either compile with <code>pdflatex</code> or set the fonts up yourself with <code>fontspec</code>.</p></li>
+<li><p>With <code>lualatex</code>, the class selects New Computer Modern Sans by file name, leaving no bold face registered. Bold text therefore silently appears in the regular weight. Either compile with <code>pdflatex</code> or set up the fonts yourself with <code>fontspec</code>.</p></li>
 </ul>
 
 
