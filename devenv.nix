@@ -142,10 +142,4 @@ in
     pkgs.go-task
     pkgs.poppler-utils
   ];
-
-  # https://devenv.sh/basics/
-  # Quarto 1.10 emits options that its bundled Pandoc 3.7 cannot read.
-  env.QUARTO_PANDOC = "${pkgs.pandoc}/bin";
-
-  # See full reference at https://devenv.sh/reference/options/
 }
