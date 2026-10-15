@@ -93,8 +93,8 @@ jobs:
       - name: Install TeX Live
         uses: zauguin/install-texlive@v4
         with:
-          # Bypass the action's mirror list and let CTAN select a mirror.
-          repository: https://mirrors.ctan.org/systems/texlive/tlnet
+          # Keep the database and its signature on the same mirror.
+          repository: https://ctan.math.illinois.edu/systems/texlive/tlnet
           packages: >
             l3build scheme-basic fontawesome5 pdfcol tikzfill float caption
             hypdoc koma-script xcolor lualatex-math unicode-math fancyvrb
