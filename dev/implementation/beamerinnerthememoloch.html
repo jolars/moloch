@@ -1044,17 +1044,17 @@ Note
 <h2 data-number="B.5" class="anchored" data-anchor-id="section-pages"><span class="header-section-number">B.5</span> Section Pages</h2>
 <section id="section-page" class="level3" data-number="B.5.1">
 <h3 data-number="B.5.1" class="anchored" data-anchor-id="section-page"><span class="header-section-number">B.5.1</span> <code>section Page</code></h3>
-<p>Template for the section title slide at the beginning of each section.</p>
+<p>Template for the section title slide at the beginning of each section. Divider pages use full titles, leaving short titles for navigation.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\defbeamertemplate</span>{section page}{simple}{</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">\begin</span>{<span class="ex">center</span>}</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\usebeamercolor</span>[fg]{section title}</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\usebeamerfont</span>{section title}</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@sectiontitleformat</span>{<span class="fu">\insertsectionhead</span>}<span class="fu">\par</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@sectiontitleformat</span>{<span class="fu">\insertsection</span>}<span class="fu">\par</span></span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\usebeamercolor</span>[fg]{subsection title}<span class="co">%</span></span>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\usebeamerfont</span>{subsection title}<span class="co">%</span></span>
 <span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\strut</span><span class="co">%</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\ifx\insertsubsectionhead\@empty\else</span><span class="co">%</span></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\insertsubsectionhead</span><span class="co">%</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\ifx\insertsubsection\@empty\else</span><span class="co">%</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\insertsubsection</span><span class="co">%</span></span>
 <span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\fi</span></span>
 <span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">\end</span>{<span class="ex">center</span>}</span>
 <span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\vspace</span>{<span class="fu">\baselineskip</span> - 1ex + <span class="fu">\moloch@titleseparator@linewidth</span>}</span>
@@ -1065,14 +1065,14 @@ Note
 <span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\raggedright</span></span>
 <span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\usebeamercolor</span>[fg]{section title}</span>
 <span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\usebeamerfont</span>{section title}</span>
-<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@sectiontitleformat</span>{<span class="fu">\insertsectionhead</span>}<span class="fu">\\</span>[-0.5<span class="fu">\baselineskip</span>]</span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@sectiontitleformat</span>{<span class="fu">\insertsection</span>}<span class="fu">\\</span>[-0.5<span class="fu">\baselineskip</span>]</span>
 <span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\usebeamertemplate*</span>{progress bar in section page}</span>
 <span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\par</span></span>
 <span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\usebeamercolor</span>[fg]{subsection title}<span class="co">%</span></span>
 <span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\usebeamerfont</span>{subsection title}<span class="co">%</span></span>
 <span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\strut</span><span class="co">%</span></span>
-<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\ifx\insertsubsectionhead\@empty\else</span><span class="co">%</span></span>
-<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\insertsubsectionhead</span><span class="co">%</span></span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\ifx\insertsubsection\@empty\else</span><span class="co">%</span></span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\insertsubsection</span><span class="co">%</span></span>
 <span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\fi</span></span>
 <span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>  <span class="kw">\end</span>{<span class="ex">minipage</span>}</span>
 <span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\par</span></span>

@@ -92,7 +92,7 @@ Split two-column titlepage layout.
 
 sectionpage \[none, simple, ***progressbar***\]
 
-Adds a slide at the start of each section (`simple`) with an optional thin progress bar below the section title (`progressbar`). The `none` option disables the section page.
+Adds a slide at the start of each section (`simple`) with an optional thin progress bar below the section title (`progressbar`). The `none` option disables the section page. Section pages display the full title even when you provide a short title with `\section[Short title]{Full title}`.
 
 ``` latex
 \documentclass{beamer}
@@ -121,7 +121,7 @@ Example of the `sectionpage` options.
 
 subsectionpage \[***none***, simple, progressbar\]
 
-Optionally adds a slide at the start of each subsection. If enabled with the `simple` or `progressbar` options, the style of the `section page` will be updated to match the style of the `subsection page`. Note that section slides and subsection slides can appear consecutively if both are enabled; you may want to use this option together with `sectionpage=none` depending on the section structure of your presentation.
+Optionally adds a slide at the start of each subsection, displaying the full section and subsection titles. If enabled with the `simple` or `progressbar` options, the style of the `section page` will be updated to match the style of the `subsection page`. Note that section slides and subsection slides can appear consecutively if both are enabled; you may want to use this option together with `sectionpage=none` depending on the section structure of your presentation.
 
 standoutnumbering \[***none***, hide, show\]
 

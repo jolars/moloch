@@ -485,19 +485,19 @@ Set the date on the title page. Default variant for moloch titlepage.
 
 ### B.5.1 `section Page`
 
-Template for the section title slide at the beginning of each section.
+Template for the section title slide at the beginning of each section. Divider pages use full titles, leaving short titles for navigation.
 
 ``` latex
 \defbeamertemplate{section page}{simple}{
   \begin{center}
     \usebeamercolor[fg]{section title}
     \usebeamerfont{section title}
-    \moloch@sectiontitleformat{\insertsectionhead}\par
+    \moloch@sectiontitleformat{\insertsection}\par
     \usebeamercolor[fg]{subsection title}%
     \usebeamerfont{subsection title}%
     \strut%
-    \ifx\insertsubsectionhead\@empty\else%
-      \insertsubsectionhead%
+    \ifx\insertsubsection\@empty\else%
+      \insertsubsection%
     \fi
   \end{center}
   \vspace{\baselineskip - 1ex + \moloch@titleseparator@linewidth}
@@ -508,14 +508,14 @@ Template for the section title slide at the beginning of each section.
     \raggedright
     \usebeamercolor[fg]{section title}
     \usebeamerfont{section title}
-    \moloch@sectiontitleformat{\insertsectionhead}\\[-0.5\baselineskip]
+    \moloch@sectiontitleformat{\insertsection}\\[-0.5\baselineskip]
     \usebeamertemplate*{progress bar in section page}
     \par
     \usebeamercolor[fg]{subsection title}%
     \usebeamerfont{subsection title}%
     \strut%
-    \ifx\insertsubsectionhead\@empty\else%
-      \insertsubsectionhead%
+    \ifx\insertsubsection\@empty\else%
+      \insertsubsection%
     \fi
   \end{minipage}
   \par
