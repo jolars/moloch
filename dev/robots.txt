@@ -1,0 +1,5 @@
+User-agent: *
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
+Allow: /
+
+Sitemap: https://moloch.ink/sitemap.xml
