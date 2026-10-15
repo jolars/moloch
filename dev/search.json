@@ -310,7 +310,18 @@
     "href": "changelog/index.html",
     "title": "Changelog",
     "section": "",
-    "text": "2.2.0 (2026-02-17)",
+    "text": "Unreleased",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Changelog</span>"
+    ]
+  },
+  {
+    "objectID": "changelog/index.html#unreleased",
+    "href": "changelog/index.html#unreleased",
+    "title": "Changelog",
+    "section": "",
+    "text": "Highlights\nMoloch is now also available as a ltx-talk theme! The theme is still experimental but please feel free to try it out and report any issues you encounter.",
     "crumbs": [
       "User Guide",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Changelog</span>"
@@ -320,8 +331,8 @@
     "objectID": "changelog/index.html#section",
     "href": "changelog/index.html#section",
     "title": "Changelog",
-    "section": "",
-    "text": "Features\n\nincrease margin between frame title and subtitle (f8e8725)\nincrease top-bottom margins for frametitle, use strut (f537931)\n\n\n\nBug Fixes\n\nadd missing color option for title separator (1221aed), closes #70",
+    "section": "2.2.0 (2026-02-17)",
+    "text": "2.2.0 (2026-02-17)\n\nFeatures\n\nincrease margin between frame title and subtitle (f8e8725)\nincrease top-bottom margins for frametitle, use strut (f537931)\n\n\n\nBug Fixes\n\nadd missing color option for title separator (1221aed), closes #70",
     "crumbs": [
       "User Guide",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Changelog</span>"

@@ -16,7 +16,7 @@ Published
 
 > **NOTE:**
 >
-> You are reading the **dev** documentation channel. Use the version switcher in the top banner to jump between `latest`, `dev`, and TeX Live-compatible snapshots.
+> You are reading the **dev** documentation channel. Use the version switcher in the sidebar to jump between `latest`, `dev`, and TeX Live-compatible snapshots.
 
 ![](images/og.jpg)
 

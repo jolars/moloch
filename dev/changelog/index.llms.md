@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Highlights
+
+Moloch is now also available as a [ltx-talk](https://www.texdev.net/ltx-talk/) theme! The theme is still experimental but please feel free to try it out and report any issues you encounter.
+
 ## [2.2.0](https://github.com/jolars/moloch/compare/v2.1.0...v2.2.0) (2026-02-17)
 
 ### Features
