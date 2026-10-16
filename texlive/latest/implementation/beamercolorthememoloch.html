@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <!-- Custom header for Moloch documentation -->
-<meta id="moloch-doc-channel" content="texlive-latest
+<meta id="moloch-doc-channel" content="texlive-2026
 ">
 <meta name="robots" content="noindex,follow
 ">
@@ -200,7 +200,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="twitter:description" content="Moloch is a minimalist, feature-rich Beamer theme for LaTeX presentations with a clean design and extensive customization options.">
 <meta name="twitter:image" content="https://moloch.ink/implementation/images/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://moloch.ink/implementation/beamercolorthememoloch.html">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -438,26 +437,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ltx-talk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ltx-talk</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../known-issues.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Known Issues</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Known Issues</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../license.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">License</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">License</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../changelog/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Changelog</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Changelog</span></span></a>
   </div>
 </li>
       </ul>
@@ -520,12 +513,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../implementation/beamercolorthememoloch-highcontrast.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Color Theme: High Contrast</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../implementation/moloch-talk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">ltx-talk Theme</span></span></a>
   </div>
 </li>
       </ul>
@@ -671,9 +658,8 @@ Note
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\newcommand</span>{<span class="ex">\moloch@color@setdefaults</span>}{</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\pgfkeys</span>{/moloch/color/.cd,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    background=light,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    block=transparent,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="base-colors" class="level3" data-number="E.1.7">
 <h3 data-number="E.1.7" class="anchored" data-anchor-id="base-colors"><span class="header-section-number">E.1.7</span> Base Colors</h3>
@@ -712,21 +698,22 @@ Note
 </section>
 <section id="molochsetupblockcolors" class="level3" data-number="E.1.13">
 <h3 data-number="E.1.13" class="anchored" data-anchor-id="molochsetupblockcolors"><span class="header-section-number">E.1.13</span> <code>\moloch@setup@block@colors</code></h3>
-<p>Configures the colors for block environments to derive from normal text and alerted/example text colors. This is called after switching variants to ensure block colors stay consistent with the current color scheme. Block titles inherit from normal text foreground, while alerted and example block titles additionally use their respective text colors. Backgrounds are initialized separately so color changes preserve the selected block style and any backgrounds set with <code>\setbeamercolor</code>.</p>
+<p>Configures the colors for block environments to derive from normal text and alerted/example text colors. This is called after switching variants to ensure block colors stay consistent with the current color scheme. Block titles inherit from normal text foreground, while alerted and example block titles additionally use their respective text colors.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\newcommand</span>{<span class="ex">\moloch@setup@block@colors</span>}{<span class="co">%</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{block title}{<span class="co">%</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    use=normal text,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    fg=normal text.fg</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{block title alerted}{<span class="co">%</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    use={block title, alerted text}</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{block title example}{<span class="co">%</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    use={block title, example text}</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{block body alerted}{use=block body, parent=block body}<span class="co">%</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{block body example}{use=block body, parent=block body}<span class="co">%</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    fg=normal text.fg,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    bg=</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{block title alerted}{<span class="co">%</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    use={block title, alerted text}</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{block title example}{<span class="co">%</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    use={block title, example text}</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{block body alerted}{use=block body, parent=block body}<span class="co">%</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{block body example}{use=block body, parent=block body}<span class="co">%</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="molochsetuptextcolors" class="level3" data-number="E.1.14">
 <h3 data-number="E.1.14" class="anchored" data-anchor-id="molochsetuptextcolors"><span class="header-section-number">E.1.14</span> <code>\moloch@setup@text@colors</code></h3>
@@ -849,30 +836,18 @@ Note
 <span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@light@standout@bg\empty\else</span></span>
 <span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{standout}{bg=<span class="fu">\moloch@store@light@standout@bg</span>}<span class="co">%</span></span>
 <span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
-<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@light@standout@alerted@fg\empty\else</span></span>
-<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{standout alerted}{fg=<span class="fu">\moloch@store@light@standout@alerted@fg</span>}<span class="co">%</span></span>
-<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
-<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@light@standout@alerted@bg\empty\else</span></span>
-<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{standout alerted}{bg=<span class="fu">\moloch@store@light@standout@alerted@bg</span>}<span class="co">%</span></span>
-<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
-<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@light@standout@example@fg\empty\else</span></span>
-<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{standout example}{fg=<span class="fu">\moloch@store@light@standout@example@fg</span>}<span class="co">%</span></span>
-<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
-<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@light@standout@example@bg\empty\else</span></span>
-<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{standout example}{bg=<span class="fu">\moloch@store@light@standout@example@bg</span>}<span class="co">%</span></span>
-<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
-<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@light@normal@text@fg\empty\else</span></span>
-<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{normal text}{fg=<span class="fu">\moloch@store@light@normal@text@fg</span>}<span class="co">%</span></span>
-<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@setup@text@colors</span></span>
-<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@setup@block@colors</span></span>
-<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
-<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@light@normal@text@bg\empty\else</span></span>
-<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{normal text}{bg=<span class="fu">\moloch@store@light@normal@text@bg</span>}<span class="co">%</span></span>
-<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
-<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@light@title@separator\empty\else</span></span>
-<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{title separator}{fg=<span class="fu">\moloch@store@light@title@separator</span>}<span class="co">%</span></span>
-<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
-<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@light@normal@text@fg\empty\else</span></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{normal text}{fg=<span class="fu">\moloch@store@light@normal@text@fg</span>}<span class="co">%</span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@setup@text@colors</span></span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@setup@block@colors</span></span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@light@normal@text@bg\empty\else</span></span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{normal text}{bg=<span class="fu">\moloch@store@light@normal@text@bg</span>}<span class="co">%</span></span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@light@title@separator\empty\else</span></span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{title separator}{fg=<span class="fu">\moloch@store@light@title@separator</span>}<span class="co">%</span></span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="molochapplystoredarkcolors" class="level3" data-number="E.1.22">
 <h3 data-number="E.1.22" class="anchored" data-anchor-id="molochapplystoredarkcolors"><span class="header-section-number">E.1.22</span> <code>\moloch@apply@store@dark@colors</code></h3>
@@ -906,30 +881,18 @@ Note
 <span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@dark@standout@bg\empty\else</span></span>
 <span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{standout}{bg=<span class="fu">\moloch@store@dark@standout@bg</span>}<span class="co">%</span></span>
 <span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
-<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@dark@standout@alerted@fg\empty\else</span></span>
-<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{standout alerted}{fg=<span class="fu">\moloch@store@dark@standout@alerted@fg</span>}<span class="co">%</span></span>
-<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
-<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@dark@standout@alerted@bg\empty\else</span></span>
-<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{standout alerted}{bg=<span class="fu">\moloch@store@dark@standout@alerted@bg</span>}<span class="co">%</span></span>
-<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
-<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@dark@standout@example@fg\empty\else</span></span>
-<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{standout example}{fg=<span class="fu">\moloch@store@dark@standout@example@fg</span>}<span class="co">%</span></span>
-<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
-<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@dark@standout@example@bg\empty\else</span></span>
-<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{standout example}{bg=<span class="fu">\moloch@store@dark@standout@example@bg</span>}<span class="co">%</span></span>
-<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
-<span id="cb17-42"><a href="#cb17-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@dark@normal@text@fg\empty\else</span></span>
-<span id="cb17-43"><a href="#cb17-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{normal text}{fg=<span class="fu">\moloch@store@dark@normal@text@fg</span>}<span class="co">%</span></span>
-<span id="cb17-44"><a href="#cb17-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@setup@text@colors</span></span>
-<span id="cb17-45"><a href="#cb17-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@setup@block@colors</span></span>
-<span id="cb17-46"><a href="#cb17-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
-<span id="cb17-47"><a href="#cb17-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@dark@normal@text@bg\empty\else</span></span>
-<span id="cb17-48"><a href="#cb17-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{normal text}{bg=<span class="fu">\moloch@store@dark@normal@text@bg</span>}<span class="co">%</span></span>
-<span id="cb17-49"><a href="#cb17-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
-<span id="cb17-50"><a href="#cb17-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@dark@title@separator\empty\else</span></span>
-<span id="cb17-51"><a href="#cb17-51" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{title separator}{fg=<span class="fu">\moloch@store@dark@title@separator</span>}<span class="co">%</span></span>
-<span id="cb17-52"><a href="#cb17-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
-<span id="cb17-53"><a href="#cb17-53" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@dark@normal@text@fg\empty\else</span></span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{normal text}{fg=<span class="fu">\moloch@store@dark@normal@text@fg</span>}<span class="co">%</span></span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@setup@text@colors</span></span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@setup@block@colors</span></span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@dark@normal@text@bg\empty\else</span></span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{normal text}{bg=<span class="fu">\moloch@store@dark@normal@text@bg</span>}<span class="co">%</span></span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\ifx\moloch@store@dark@title@separator\empty\else</span></span>
+<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\setbeamercolor</span>{title separator}{fg=<span class="fu">\moloch@store@dark@title@separator</span>}<span class="co">%</span></span>
+<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fi</span></span>
+<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="semantic-color-helper" class="level3" data-number="E.1.23">
 <h3 data-number="E.1.23" class="anchored" data-anchor-id="semantic-color-helper"><span class="header-section-number">E.1.23</span> Semantic Color Helper</h3>
@@ -948,10 +911,6 @@ Note
 <li><p><code>mProgressbarBg</code> - Progress bar background</p></li>
 <li><p><code>mStandoutFg</code> - Standout frame foreground</p></li>
 <li><p><code>mStandoutBg</code> - Standout frame background</p></li>
-<li><p><code>mStandoutAlertedFg</code> - Alerted standout foreground</p></li>
-<li><p><code>mStandoutAlertedBg</code> - Alerted standout background</p></li>
-<li><p><code>mStandoutExampleFg</code> - Example standout foreground</p></li>
-<li><p><code>mStandoutExampleBg</code> - Example standout background</p></li>
 <li><p><code>mFootnoteFg</code> - Footnote foreground</p></li>
 </ul>
 <p>Color themes should define all these colors (using any color specification method: HTML, RGB, color names, or color expressions), then call this helper to apply them to the appropriate Beamer color elements.</p>
@@ -967,9 +926,7 @@ Note
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{footnote}{fg=mFootnoteFg}<span class="co">%</span></span>
 <span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{footnote mark}{fg=.}<span class="co">%</span></span>
 <span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{standout}{fg=mStandoutFg, bg=mStandoutBg}<span class="co">%</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{standout alerted}{fg=mStandoutAlertedFg, bg=mStandoutAlertedBg}<span class="co">%</span></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setbeamercolor</span>{standout example}{fg=mStandoutExampleFg, bg=mStandoutExampleBg}<span class="co">%</span></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="color-theme-presets" class="level3" data-number="E.1.25">
 <h3 data-number="E.1.25" class="anchored" data-anchor-id="color-theme-presets"><span class="header-section-number">E.1.25</span> Color Theme Presets</h3>
@@ -991,40 +948,32 @@ Note
 <span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mTitleseparatorFg}{mProgressbarFg}</span>
 <span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutFg}{mNormaltextBg}</span>
 <span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutBg}{mNormaltextFg}</span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedFg}{HTML}{F7F0EA}</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedBg}{HTML}{9E3D12}</span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleFg}{HTML}{EAF4F3}</span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleBg}{HTML}{0E4D4F}</span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFootnoteFg}{mNormaltextFg!90}</span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Register dark variant - use brighter colors for better contrast</span></span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@register@dark@colors</span>{<span class="co">%</span></span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mNormaltextFg}{black!2}</span>
-<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mNormaltextBg}{HTML}{23373b}</span>
-<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mAlertFg}{HTML}{EF9F76}</span>
-<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mExampleFg}{HTML}{5ABFB5}</span>
-<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFrametitleFg}{mNormaltextBg}</span>
-<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFrametitleBg}{black!15}</span>
-<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mProgressbarFg}{mAlertFg}</span>
-<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mProgressbarBg}{mProgressbarFg!50!black!30}</span>
-<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mTitleseparatorFg}{mProgressbarFg}</span>
-<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutFg}{mNormaltextBg}</span>
-<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutBg}{black!15}</span>
-<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedFg}{HTML}{23373B}</span>
-<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedBg}{HTML}{F3C4A0}</span>
-<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleFg}{HTML}{23373B}</span>
-<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleBg}{HTML}{BFE6E2}</span>
-<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFootnoteFg}{mNormaltextFg!90}</span>
-<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
-<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
-<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Apply current variant after registering both</span></span>
-<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@apply@current@variant</span></span>
-<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFootnoteFg}{mNormaltextFg!90}</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Register dark variant - use brighter colors for better contrast</span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@register@dark@colors</span>{<span class="co">%</span></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mNormaltextFg}{black!2}</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mNormaltextBg}{HTML}{23373b}</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mAlertFg}{HTML}{EF9F76}</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mExampleFg}{HTML}{5ABFB5}</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFrametitleFg}{mNormaltextBg}</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFrametitleBg}{black!15}</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mProgressbarFg}{mAlertFg}</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mProgressbarBg}{mProgressbarFg!50!black!30}</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mTitleseparatorFg}{mProgressbarFg}</span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutFg}{mNormaltextBg}</span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutBg}{black!15}</span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFootnoteFg}{mNormaltextFg!90}</span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Apply current variant after registering both</span></span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@apply@current@variant</span></span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="molochcolorthemetomorrow" class="level3" data-number="E.1.27">
 <h3 data-number="E.1.27" class="anchored" data-anchor-id="molochcolorthemetomorrow"><span class="header-section-number">E.1.27</span> <code>\moloch@colortheme@tomorrow</code></h3>
@@ -1042,39 +991,31 @@ Note
 <span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mTitleseparatorFg}{HTML}{8959a8}</span>
 <span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutFg}{white}</span>
 <span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutBg}{HTML}{1d1f21}</span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedFg}{HTML}{FFFFFF}</span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedBg}{HTML}{A63D3D}</span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleFg}{HTML}{FFFFFF}</span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleBg}{HTML}{2E5578}</span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mFootnoteFg}{HTML}{1d1f21}</span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@register@dark@colors</span>{<span class="co">%</span></span>
-<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mNormaltextFg}{white}</span>
-<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mNormaltextBg}{HTML}{282a2e}</span>
-<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mAlertFg}{HTML}{de935f}</span>
-<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mExampleFg}{HTML}{7aa6da}</span>
-<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFrametitleFg}{white}</span>
-<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mFrametitleBg}{HTML}{1d1f21}</span>
-<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mProgressbarFg}{HTML}{b294bb}</span>
-<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mProgressbarBg}{mProgressbarFg!50!black!30}</span>
-<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mTitleseparatorFg}{HTML}{b294bb}</span>
-<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutFg}{white}</span>
-<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutBg}{HTML}{1d1f21}</span>
-<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedFg}{HTML}{1D1F21}</span>
-<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedBg}{HTML}{CC6666}</span>
-<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleFg}{HTML}{1D1F21}</span>
-<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleBg}{HTML}{81A2BE}</span>
-<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mFootnoteFg}{HTML}{1d1f21}</span>
-<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
-<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
-<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Apply current variant after registering both</span></span>
-<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@apply@current@variant</span></span>
-<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mFootnoteFg}{HTML}{1d1f21}</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@register@dark@colors</span>{<span class="co">%</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mNormaltextFg}{white}</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mNormaltextBg}{HTML}{282a2e}</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mAlertFg}{HTML}{de935f}</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mExampleFg}{HTML}{7aa6da}</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFrametitleFg}{white}</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mFrametitleBg}{HTML}{1d1f21}</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mProgressbarFg}{HTML}{b294bb}</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mProgressbarBg}{mProgressbarFg!50!black!30}</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mTitleseparatorFg}{HTML}{b294bb}</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutFg}{white}</span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutBg}{HTML}{1d1f21}</span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mFootnoteFg}{HTML}{1d1f21}</span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Apply current variant after registering both</span></span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@apply@current@variant</span></span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="molochcolorthemepaper" class="level3" data-number="E.1.28">
 <h3 data-number="E.1.28" class="anchored" data-anchor-id="molochcolorthemepaper"><span class="header-section-number">E.1.28</span> <code>\moloch@colortheme@paper</code></h3>
@@ -1092,39 +1033,31 @@ Note
 <span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mTitleseparatorFg}{HTML}{F15854}</span>
 <span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutFg}{white}</span>
 <span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutBg}{black!60}</span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedFg}{HTML}{FFFFFF}</span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedBg}{HTML}{B01E58}</span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleFg}{HTML}{FFFFFF}</span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleBg}{HTML}{1E4C8A}</span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFootnoteFg}{black!90}</span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
-<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@register@dark@colors</span>{<span class="co">%</span></span>
-<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mNormaltextFg}{white}</span>
-<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mNormaltextBg}{black!80}</span>
-<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mAlertFg}{HTML}{F17CB0}</span>
-<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mExampleFg}{HTML}{88BDE6}</span>
-<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFrametitleFg}{white}</span>
-<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFrametitleBg}{black!80}</span>
-<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mProgressbarFg}{HTML}{90CD97}</span>
-<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mProgressbarBg}{black!70}</span>
-<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mTitleseparatorFg}{HTML}{F15854}</span>
-<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutFg}{white}</span>
-<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutBg}{black!60}</span>
-<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedFg}{HTML}{FFFFFF}</span>
-<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedBg}{HTML}{E5276F}</span>
-<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleFg}{HTML}{FFFFFF}</span>
-<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleBg}{HTML}{265DAB}</span>
-<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFootnoteFg}{black!90}</span>
-<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
-<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
-<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-44"><a href="#cb21-44" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Apply current variant after registering both</span></span>
-<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@apply@current@variant</span></span>
-<span id="cb21-46"><a href="#cb21-46" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFootnoteFg}{black!90}</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@register@dark@colors</span>{<span class="co">%</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mNormaltextFg}{white}</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mNormaltextBg}{black!80}</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mAlertFg}{HTML}{F17CB0}</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mExampleFg}{HTML}{88BDE6}</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFrametitleFg}{white}</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFrametitleBg}{black!80}</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mProgressbarFg}{HTML}{90CD97}</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mProgressbarBg}{black!70}</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mTitleseparatorFg}{HTML}{F15854}</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutFg}{white}</span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutBg}{black!60}</span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFootnoteFg}{black!90}</span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Apply current variant after registering both</span></span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@apply@current@variant</span></span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="molochcolorthemehighcontrast" class="level3" data-number="E.1.29">
 <h3 data-number="E.1.29" class="anchored" data-anchor-id="molochcolorthemehighcontrast"><span class="header-section-number">E.1.29</span> <code>\moloch@colortheme@highcontrast</code></h3>
@@ -1147,42 +1080,34 @@ Note
 <span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mTitleseparatorFg}{mAlertFg}</span>
 <span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutFg}{black}</span>
 <span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutBg}{white}</span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedFg}{HTML}{FFFFFF}</span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedBg}{HTML}{AD003D}</span>
-<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleFg}{HTML}{FFFFFF}</span>
-<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleBg}{HTML}{005580}</span>
-<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFootnoteFg}{mNormaltextFg!90}</span>
-<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
-<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
-<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\definecolor</span>{mAlertDark}{HTML}{F7768E}<span class="co">%</span></span>
-<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\definecolor</span>{mExampleDark}{HTML}{7AA2F7}<span class="co">%</span></span>
-<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Register dark variant</span></span>
-<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@register@dark@colors</span>{<span class="co">%</span></span>
-<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mNormaltextFg}{white}</span>
-<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mNormaltextBg}{black}</span>
-<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mAlertFg}{HTML}{DCA237}</span>
-<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mExampleFg}{HTML}{6FB2E4}</span>
-<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFrametitleFg}{black}</span>
-<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFrametitleBg}{white}</span>
-<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mProgressbarFg}{mAlertFg}</span>
-<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mProgressbarBg}{mProgressbarFg!50!black!70}</span>
-<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mTitleseparatorFg}{mAlertFg}</span>
-<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutFg}{white}</span>
-<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutBg}{black}</span>
-<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedFg}{HTML}{FFFFFF}</span>
-<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedBg}{HTML}{AD003D}</span>
-<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleFg}{HTML}{FFFFFF}</span>
-<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleBg}{HTML}{005580}</span>
-<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFootnoteFg}{mNormaltextFg!90}</span>
-<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
-<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
-<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Apply current variant after registering both</span></span>
-<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@apply@current@variant</span></span>
-<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFootnoteFg}{mNormaltextFg!90}</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\definecolor</span>{mAlertDark}{HTML}{F7768E}<span class="co">%</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\definecolor</span>{mExampleDark}{HTML}{7AA2F7}<span class="co">%</span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Register dark variant</span></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@register@dark@colors</span>{<span class="co">%</span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mNormaltextFg}{white}</span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mNormaltextBg}{black}</span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mAlertFg}{HTML}{DCA237}</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mExampleFg}{HTML}{6FB2E4}</span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFrametitleFg}{black}</span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFrametitleBg}{white}</span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mProgressbarFg}{mAlertFg}</span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mProgressbarBg}{mProgressbarFg!50!black!70}</span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mTitleseparatorFg}{mAlertFg}</span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutFg}{white}</span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mStandoutBg}{black}</span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFootnoteFg}{mNormaltextFg!90}</span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
+<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
+<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Apply current variant after registering both</span></span>
+<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@apply@current@variant</span></span>
+<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="molochcolorthemecatppuccin" class="level3" data-number="E.1.30">
 <h3 data-number="E.1.30" class="anchored" data-anchor-id="molochcolorthemecatppuccin"><span class="header-section-number">E.1.30</span> <code>\moloch@colortheme@catppuccin</code></h3>
@@ -1200,39 +1125,31 @@ Note
 <span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mTitleseparatorFg}{HTML}{40A02B}</span>
 <span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutFg}{HTML}{CAD3F5}</span>
 <span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutBg}{HTML}{303446}</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedFg}{HTML}{EFF1F5}</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedBg}{HTML}{D20F39}</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleFg}{HTML}{EFF1F5}</span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleBg}{HTML}{1E66F5}</span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFootnoteFg}{mNormaltextFg!90}</span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@register@dark@colors</span>{<span class="co">%</span></span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mNormaltextFg}{HTML}{CAD3F5}</span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mNormaltextBg}{HTML}{24273A}</span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mAlertFg}{HTML}{ED8796}</span>
-<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mExampleFg}{HTML}{8AADF4}</span>
-<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mFrametitleFg}{HTML}{CAD3F5}</span>
-<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mFrametitleBg}{HTML}{24273A}</span>
-<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mProgressbarFg}{HTML}{EED49F}</span>
-<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mProgressbarBg}{mProgressbarFg!20!black!90}</span>
-<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mTitleseparatorFg}{HTML}{A6DA95}</span>
-<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutFg}{HTML}{4C4F69}</span>
-<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutBg}{HTML}{CCD0DA}</span>
-<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedFg}{HTML}{24273A}</span>
-<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutAlertedBg}{HTML}{ED8796}</span>
-<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleFg}{HTML}{24273A}</span>
-<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutExampleBg}{HTML}{8AADF4}</span>
-<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFootnoteFg}{mNormaltextFg!90}</span>
-<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
-<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
-<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Apply current variant after registering both</span></span>
-<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@apply@current@variant</span></span>
-<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFootnoteFg}{mNormaltextFg!90}</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@register@dark@colors</span>{<span class="co">%</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mNormaltextFg}{HTML}{CAD3F5}</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mNormaltextBg}{HTML}{24273A}</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mAlertFg}{HTML}{ED8796}</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mExampleFg}{HTML}{8AADF4}</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mFrametitleFg}{HTML}{CAD3F5}</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mFrametitleBg}{HTML}{24273A}</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mProgressbarFg}{HTML}{EED49F}</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mProgressbarBg}{mProgressbarFg!20!black!90}</span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mTitleseparatorFg}{HTML}{A6DA95}</span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutFg}{HTML}{4C4F69}</span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\definecolor</span>{mStandoutBg}{HTML}{CCD0DA}</span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\colorlet</span>{mFootnoteFg}{mNormaltextFg!90}</span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\moloch@apply@semantic@colors</span></span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Apply current variant after registering both</span></span>
+<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\moloch@apply@current@variant</span></span>
+<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="new-color-system" class="level3" data-number="E.1.31">
 <h3 data-number="E.1.31" class="anchored" data-anchor-id="new-color-system"><span class="header-section-number">E.1.31</span> New Color System</h3>
@@ -1284,366 +1201,270 @@ Note
 <span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>  store/dark/standout fg/.store in=<span class="fu">\moloch@store@dark@standout@fg</span>,</span>
 <span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a>  store/light/standout bg/.store in=<span class="fu">\moloch@store@light@standout@bg</span>,</span>
 <span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a>  store/dark/standout bg/.store in=<span class="fu">\moloch@store@dark@standout@bg</span>,</span>
-<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a>  store/light/standout alerted fg/.store in=<span class="fu">\moloch@store@light@standout@alerted@fg</span>,</span>
-<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a>  store/dark/standout alerted fg/.store in=<span class="fu">\moloch@store@dark@standout@alerted@fg</span>,</span>
-<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a>  store/light/standout alerted bg/.store in=<span class="fu">\moloch@store@light@standout@alerted@bg</span>,</span>
-<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a>  store/dark/standout alerted bg/.store in=<span class="fu">\moloch@store@dark@standout@alerted@bg</span>,</span>
-<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a>  store/light/standout example fg/.store in=<span class="fu">\moloch@store@light@standout@example@fg</span>,</span>
-<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a>  store/dark/standout example fg/.store in=<span class="fu">\moloch@store@dark@standout@example@fg</span>,</span>
-<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a>  store/light/standout example bg/.store in=<span class="fu">\moloch@store@light@standout@example@bg</span>,</span>
-<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a>  store/dark/standout example bg/.store in=<span class="fu">\moloch@store@dark@standout@example@bg</span>,</span>
-<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a>  store/light/normal text fg/.store in=<span class="fu">\moloch@store@light@normal@text@fg</span>,</span>
-<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a>  store/dark/normal text fg/.store in=<span class="fu">\moloch@store@dark@normal@text@fg</span>,</span>
-<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a>  store/light/normal text bg/.store in=<span class="fu">\moloch@store@light@normal@text@bg</span>,</span>
-<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a>  store/dark/normal text bg/.store in=<span class="fu">\moloch@store@dark@normal@text@bg</span>,</span>
-<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a>  store/light/title separator/.store in=<span class="fu">\moloch@store@light@title@separator</span>,</span>
-<span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a>  store/dark/title separator/.store in=<span class="fu">\moloch@store@dark@title@separator</span>,</span>
-<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Initialize storage macros as empty</span></span>
-<span id="cb24-51"><a href="#cb24-51" aria-hidden="true" tabindex="-1"></a>  <span class="co">% This prevents errors when checking if macros are set</span></span>
-<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a>  store/light/alerted text=,</span>
-<span id="cb24-53"><a href="#cb24-53" aria-hidden="true" tabindex="-1"></a>  store/dark/alerted text=,</span>
-<span id="cb24-54"><a href="#cb24-54" aria-hidden="true" tabindex="-1"></a>  store/light/frametitle fg=,</span>
-<span id="cb24-55"><a href="#cb24-55" aria-hidden="true" tabindex="-1"></a>  store/dark/frametitle fg=,</span>
-<span id="cb24-56"><a href="#cb24-56" aria-hidden="true" tabindex="-1"></a>  store/light/frametitle bg=,</span>
-<span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a>  store/dark/frametitle bg=,</span>
-<span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a>  store/light/example text=,</span>
-<span id="cb24-59"><a href="#cb24-59" aria-hidden="true" tabindex="-1"></a>  store/dark/example text=,</span>
-<span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a>  store/light/progressbar fg=,</span>
-<span id="cb24-61"><a href="#cb24-61" aria-hidden="true" tabindex="-1"></a>  store/dark/progressbar fg=,</span>
-<span id="cb24-62"><a href="#cb24-62" aria-hidden="true" tabindex="-1"></a>  store/light/progressbar bg=,</span>
-<span id="cb24-63"><a href="#cb24-63" aria-hidden="true" tabindex="-1"></a>  store/dark/progressbar bg=,</span>
-<span id="cb24-64"><a href="#cb24-64" aria-hidden="true" tabindex="-1"></a>  store/light/standout fg=,</span>
-<span id="cb24-65"><a href="#cb24-65" aria-hidden="true" tabindex="-1"></a>  store/dark/standout fg=,</span>
-<span id="cb24-66"><a href="#cb24-66" aria-hidden="true" tabindex="-1"></a>  store/light/standout bg=,</span>
-<span id="cb24-67"><a href="#cb24-67" aria-hidden="true" tabindex="-1"></a>  store/dark/standout bg=,</span>
-<span id="cb24-68"><a href="#cb24-68" aria-hidden="true" tabindex="-1"></a>  store/light/standout alerted fg=,</span>
-<span id="cb24-69"><a href="#cb24-69" aria-hidden="true" tabindex="-1"></a>  store/dark/standout alerted fg=,</span>
-<span id="cb24-70"><a href="#cb24-70" aria-hidden="true" tabindex="-1"></a>  store/light/standout alerted bg=,</span>
-<span id="cb24-71"><a href="#cb24-71" aria-hidden="true" tabindex="-1"></a>  store/dark/standout alerted bg=,</span>
-<span id="cb24-72"><a href="#cb24-72" aria-hidden="true" tabindex="-1"></a>  store/light/standout example fg=,</span>
-<span id="cb24-73"><a href="#cb24-73" aria-hidden="true" tabindex="-1"></a>  store/dark/standout example fg=,</span>
-<span id="cb24-74"><a href="#cb24-74" aria-hidden="true" tabindex="-1"></a>  store/light/standout example bg=,</span>
-<span id="cb24-75"><a href="#cb24-75" aria-hidden="true" tabindex="-1"></a>  store/dark/standout example bg=,</span>
-<span id="cb24-76"><a href="#cb24-76" aria-hidden="true" tabindex="-1"></a>  store/light/normal text fg=,</span>
-<span id="cb24-77"><a href="#cb24-77" aria-hidden="true" tabindex="-1"></a>  store/dark/normal text fg=,</span>
-<span id="cb24-78"><a href="#cb24-78" aria-hidden="true" tabindex="-1"></a>  store/light/normal text bg=,</span>
-<span id="cb24-79"><a href="#cb24-79" aria-hidden="true" tabindex="-1"></a>  store/dark/normal text bg=,</span>
-<span id="cb24-80"><a href="#cb24-80" aria-hidden="true" tabindex="-1"></a>  store/light/title separator=,</span>
-<span id="cb24-81"><a href="#cb24-81" aria-hidden="true" tabindex="-1"></a>  store/dark/title separator=,</span>
-<span id="cb24-82"><a href="#cb24-82" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Color setting commands</span></span>
-<span id="cb24-83"><a href="#cb24-83" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Each color has three variants:</span></span>
-<span id="cb24-84"><a href="#cb24-84" aria-hidden="true" tabindex="-1"></a>  <span class="co">% 1. Variant-agnostic: sets current variant + stores for current</span></span>
-<span id="cb24-85"><a href="#cb24-85" aria-hidden="true" tabindex="-1"></a>  <span class="co">% 2. light/&lt;color&gt;: sets if in light mode, always stores for light</span></span>
-<span id="cb24-86"><a href="#cb24-86" aria-hidden="true" tabindex="-1"></a>  <span class="co">% 3. dark/&lt;color&gt;: sets if in dark mode, always stores for dark</span></span>
-<span id="cb24-87"><a href="#cb24-87" aria-hidden="true" tabindex="-1"></a>  progressbar fg/.code={<span class="co">%</span></span>
-<span id="cb24-88"><a href="#cb24-88" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{progress bar}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-89"><a href="#cb24-89" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\moloch@setup@progressbar@parents</span></span>
-<span id="cb24-90"><a href="#cb24-90" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-91"><a href="#cb24-91" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/progressbar fg=#1}<span class="co">%</span></span>
-<span id="cb24-92"><a href="#cb24-92" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
-<span id="cb24-93"><a href="#cb24-93" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/progressbar fg=#1}<span class="co">%</span></span>
-<span id="cb24-94"><a href="#cb24-94" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-95"><a href="#cb24-95" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-96"><a href="#cb24-96" aria-hidden="true" tabindex="-1"></a>  light/progressbar fg/.code={<span class="co">%</span></span>
-<span id="cb24-97"><a href="#cb24-97" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/progressbar fg=#1}<span class="co">%</span></span>
-<span id="cb24-98"><a href="#cb24-98" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
-<span id="cb24-99"><a href="#cb24-99" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{progress bar}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-100"><a href="#cb24-100" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\moloch@setup@progressbar@parents</span></span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a>  store/light/normal text fg/.store in=<span class="fu">\moloch@store@light@normal@text@fg</span>,</span>
+<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a>  store/dark/normal text fg/.store in=<span class="fu">\moloch@store@dark@normal@text@fg</span>,</span>
+<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a>  store/light/normal text bg/.store in=<span class="fu">\moloch@store@light@normal@text@bg</span>,</span>
+<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a>  store/dark/normal text bg/.store in=<span class="fu">\moloch@store@dark@normal@text@bg</span>,</span>
+<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a>  store/light/title separator/.store in=<span class="fu">\moloch@store@light@title@separator</span>,</span>
+<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a>  store/dark/title separator/.store in=<span class="fu">\moloch@store@dark@title@separator</span>,</span>
+<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Initialize storage macros as empty</span></span>
+<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a>  <span class="co">% This prevents errors when checking if macros are set</span></span>
+<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a>  store/light/alerted text=,</span>
+<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a>  store/dark/alerted text=,</span>
+<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a>  store/light/frametitle fg=,</span>
+<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a>  store/dark/frametitle fg=,</span>
+<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a>  store/light/frametitle bg=,</span>
+<span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a>  store/dark/frametitle bg=,</span>
+<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a>  store/light/example text=,</span>
+<span id="cb24-51"><a href="#cb24-51" aria-hidden="true" tabindex="-1"></a>  store/dark/example text=,</span>
+<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a>  store/light/progressbar fg=,</span>
+<span id="cb24-53"><a href="#cb24-53" aria-hidden="true" tabindex="-1"></a>  store/dark/progressbar fg=,</span>
+<span id="cb24-54"><a href="#cb24-54" aria-hidden="true" tabindex="-1"></a>  store/light/progressbar bg=,</span>
+<span id="cb24-55"><a href="#cb24-55" aria-hidden="true" tabindex="-1"></a>  store/dark/progressbar bg=,</span>
+<span id="cb24-56"><a href="#cb24-56" aria-hidden="true" tabindex="-1"></a>  store/light/standout fg=,</span>
+<span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a>  store/dark/standout fg=,</span>
+<span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a>  store/light/standout bg=,</span>
+<span id="cb24-59"><a href="#cb24-59" aria-hidden="true" tabindex="-1"></a>  store/dark/standout bg=,</span>
+<span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a>  store/light/normal text fg=,</span>
+<span id="cb24-61"><a href="#cb24-61" aria-hidden="true" tabindex="-1"></a>  store/dark/normal text fg=,</span>
+<span id="cb24-62"><a href="#cb24-62" aria-hidden="true" tabindex="-1"></a>  store/light/normal text bg=,</span>
+<span id="cb24-63"><a href="#cb24-63" aria-hidden="true" tabindex="-1"></a>  store/dark/normal text bg=,</span>
+<span id="cb24-64"><a href="#cb24-64" aria-hidden="true" tabindex="-1"></a>  store/light/title separator=,</span>
+<span id="cb24-65"><a href="#cb24-65" aria-hidden="true" tabindex="-1"></a>  store/dark/title separator=,</span>
+<span id="cb24-66"><a href="#cb24-66" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Color setting commands</span></span>
+<span id="cb24-67"><a href="#cb24-67" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Each color has three variants:</span></span>
+<span id="cb24-68"><a href="#cb24-68" aria-hidden="true" tabindex="-1"></a>  <span class="co">% 1. Variant-agnostic: sets current variant + stores for current</span></span>
+<span id="cb24-69"><a href="#cb24-69" aria-hidden="true" tabindex="-1"></a>  <span class="co">% 2. light/&lt;color&gt;: sets if in light mode, always stores for light</span></span>
+<span id="cb24-70"><a href="#cb24-70" aria-hidden="true" tabindex="-1"></a>  <span class="co">% 3. dark/&lt;color&gt;: sets if in dark mode, always stores for dark</span></span>
+<span id="cb24-71"><a href="#cb24-71" aria-hidden="true" tabindex="-1"></a>  progressbar fg/.code={<span class="co">%</span></span>
+<span id="cb24-72"><a href="#cb24-72" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{progress bar}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-73"><a href="#cb24-73" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\moloch@setup@progressbar@parents</span></span>
+<span id="cb24-74"><a href="#cb24-74" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-75"><a href="#cb24-75" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/progressbar fg=#1}<span class="co">%</span></span>
+<span id="cb24-76"><a href="#cb24-76" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
+<span id="cb24-77"><a href="#cb24-77" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/progressbar fg=#1}<span class="co">%</span></span>
+<span id="cb24-78"><a href="#cb24-78" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-79"><a href="#cb24-79" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-80"><a href="#cb24-80" aria-hidden="true" tabindex="-1"></a>  light/progressbar fg/.code={<span class="co">%</span></span>
+<span id="cb24-81"><a href="#cb24-81" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/progressbar fg=#1}<span class="co">%</span></span>
+<span id="cb24-82"><a href="#cb24-82" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
+<span id="cb24-83"><a href="#cb24-83" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{progress bar}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-84"><a href="#cb24-84" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\moloch@setup@progressbar@parents</span></span>
+<span id="cb24-85"><a href="#cb24-85" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-86"><a href="#cb24-86" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-87"><a href="#cb24-87" aria-hidden="true" tabindex="-1"></a>  dark/progressbar fg/.code={<span class="co">%</span></span>
+<span id="cb24-88"><a href="#cb24-88" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/progressbar fg=#1}<span class="co">%</span></span>
+<span id="cb24-89"><a href="#cb24-89" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-90"><a href="#cb24-90" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{progress bar}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-91"><a href="#cb24-91" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\moloch@setup@progressbar@parents</span></span>
+<span id="cb24-92"><a href="#cb24-92" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-93"><a href="#cb24-93" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-94"><a href="#cb24-94" aria-hidden="true" tabindex="-1"></a>  progressbar bg/.code={<span class="co">%</span></span>
+<span id="cb24-95"><a href="#cb24-95" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{progress bar}{bg=#1}<span class="co">%</span></span>
+<span id="cb24-96"><a href="#cb24-96" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\moloch@setup@progressbar@parents</span></span>
+<span id="cb24-97"><a href="#cb24-97" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-98"><a href="#cb24-98" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/progressbar bg=#1}<span class="co">%</span></span>
+<span id="cb24-99"><a href="#cb24-99" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
+<span id="cb24-100"><a href="#cb24-100" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/progressbar bg=#1}<span class="co">%</span></span>
 <span id="cb24-101"><a href="#cb24-101" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
 <span id="cb24-102"><a href="#cb24-102" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-103"><a href="#cb24-103" aria-hidden="true" tabindex="-1"></a>  dark/progressbar fg/.code={<span class="co">%</span></span>
-<span id="cb24-104"><a href="#cb24-104" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/progressbar fg=#1}<span class="co">%</span></span>
-<span id="cb24-105"><a href="#cb24-105" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-106"><a href="#cb24-106" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{progress bar}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-103"><a href="#cb24-103" aria-hidden="true" tabindex="-1"></a>  light/progressbar bg/.code={<span class="co">%</span></span>
+<span id="cb24-104"><a href="#cb24-104" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/progressbar bg=#1}<span class="co">%</span></span>
+<span id="cb24-105"><a href="#cb24-105" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
+<span id="cb24-106"><a href="#cb24-106" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{progress bar}{bg=#1}<span class="co">%</span></span>
 <span id="cb24-107"><a href="#cb24-107" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\moloch@setup@progressbar@parents</span></span>
 <span id="cb24-108"><a href="#cb24-108" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
 <span id="cb24-109"><a href="#cb24-109" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-110"><a href="#cb24-110" aria-hidden="true" tabindex="-1"></a>  progressbar bg/.code={<span class="co">%</span></span>
-<span id="cb24-111"><a href="#cb24-111" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{progress bar}{bg=#1}<span class="co">%</span></span>
-<span id="cb24-112"><a href="#cb24-112" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\moloch@setup@progressbar@parents</span></span>
-<span id="cb24-113"><a href="#cb24-113" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-114"><a href="#cb24-114" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/progressbar bg=#1}<span class="co">%</span></span>
-<span id="cb24-115"><a href="#cb24-115" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
-<span id="cb24-116"><a href="#cb24-116" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/progressbar bg=#1}<span class="co">%</span></span>
-<span id="cb24-117"><a href="#cb24-117" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-118"><a href="#cb24-118" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-119"><a href="#cb24-119" aria-hidden="true" tabindex="-1"></a>  light/progressbar bg/.code={<span class="co">%</span></span>
-<span id="cb24-120"><a href="#cb24-120" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/progressbar bg=#1}<span class="co">%</span></span>
-<span id="cb24-121"><a href="#cb24-121" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
-<span id="cb24-122"><a href="#cb24-122" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{progress bar}{bg=#1}<span class="co">%</span></span>
-<span id="cb24-123"><a href="#cb24-123" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\moloch@setup@progressbar@parents</span></span>
-<span id="cb24-124"><a href="#cb24-124" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-125"><a href="#cb24-125" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-126"><a href="#cb24-126" aria-hidden="true" tabindex="-1"></a>  dark/progressbar bg/.code={<span class="co">%</span></span>
-<span id="cb24-127"><a href="#cb24-127" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/progressbar bg=#1}<span class="co">%</span></span>
-<span id="cb24-128"><a href="#cb24-128" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-129"><a href="#cb24-129" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{progress bar}{bg=#1}<span class="co">%</span></span>
-<span id="cb24-130"><a href="#cb24-130" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\moloch@setup@progressbar@parents</span></span>
-<span id="cb24-131"><a href="#cb24-131" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-132"><a href="#cb24-132" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-133"><a href="#cb24-133" aria-hidden="true" tabindex="-1"></a>  normal text fg/.code={<span class="co">%</span></span>
-<span id="cb24-134"><a href="#cb24-134" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{normal text}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-135"><a href="#cb24-135" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\moloch@setup@text@colors</span></span>
-<span id="cb24-136"><a href="#cb24-136" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\moloch@setup@block@colors</span></span>
+<span id="cb24-110"><a href="#cb24-110" aria-hidden="true" tabindex="-1"></a>  dark/progressbar bg/.code={<span class="co">%</span></span>
+<span id="cb24-111"><a href="#cb24-111" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/progressbar bg=#1}<span class="co">%</span></span>
+<span id="cb24-112"><a href="#cb24-112" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-113"><a href="#cb24-113" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{progress bar}{bg=#1}<span class="co">%</span></span>
+<span id="cb24-114"><a href="#cb24-114" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\moloch@setup@progressbar@parents</span></span>
+<span id="cb24-115"><a href="#cb24-115" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-116"><a href="#cb24-116" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-117"><a href="#cb24-117" aria-hidden="true" tabindex="-1"></a>  normal text fg/.code={<span class="co">%</span></span>
+<span id="cb24-118"><a href="#cb24-118" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{normal text}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-119"><a href="#cb24-119" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\moloch@setup@text@colors</span></span>
+<span id="cb24-120"><a href="#cb24-120" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\moloch@setup@block@colors</span></span>
+<span id="cb24-121"><a href="#cb24-121" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-122"><a href="#cb24-122" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/normal text fg=#1}<span class="co">%</span></span>
+<span id="cb24-123"><a href="#cb24-123" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
+<span id="cb24-124"><a href="#cb24-124" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/normal text fg=#1}<span class="co">%</span></span>
+<span id="cb24-125"><a href="#cb24-125" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-126"><a href="#cb24-126" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-127"><a href="#cb24-127" aria-hidden="true" tabindex="-1"></a>  light/normal text fg/.code={<span class="co">%</span></span>
+<span id="cb24-128"><a href="#cb24-128" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/normal text fg=#1}<span class="co">%</span></span>
+<span id="cb24-129"><a href="#cb24-129" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
+<span id="cb24-130"><a href="#cb24-130" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{normal text}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-131"><a href="#cb24-131" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\moloch@setup@text@colors</span></span>
+<span id="cb24-132"><a href="#cb24-132" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\moloch@setup@block@colors</span></span>
+<span id="cb24-133"><a href="#cb24-133" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-134"><a href="#cb24-134" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-135"><a href="#cb24-135" aria-hidden="true" tabindex="-1"></a>  dark/normal text fg/.code={<span class="co">%</span></span>
+<span id="cb24-136"><a href="#cb24-136" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/normal text fg=#1}<span class="co">%</span></span>
 <span id="cb24-137"><a href="#cb24-137" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-138"><a href="#cb24-138" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/normal text fg=#1}<span class="co">%</span></span>
-<span id="cb24-139"><a href="#cb24-139" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
-<span id="cb24-140"><a href="#cb24-140" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/normal text fg=#1}<span class="co">%</span></span>
+<span id="cb24-138"><a href="#cb24-138" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{normal text}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-139"><a href="#cb24-139" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\moloch@setup@text@colors</span></span>
+<span id="cb24-140"><a href="#cb24-140" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\moloch@setup@block@colors</span></span>
 <span id="cb24-141"><a href="#cb24-141" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
 <span id="cb24-142"><a href="#cb24-142" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-143"><a href="#cb24-143" aria-hidden="true" tabindex="-1"></a>  light/normal text fg/.code={<span class="co">%</span></span>
-<span id="cb24-144"><a href="#cb24-144" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/normal text fg=#1}<span class="co">%</span></span>
-<span id="cb24-145"><a href="#cb24-145" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
-<span id="cb24-146"><a href="#cb24-146" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{normal text}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-147"><a href="#cb24-147" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\moloch@setup@text@colors</span></span>
-<span id="cb24-148"><a href="#cb24-148" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\moloch@setup@block@colors</span></span>
+<span id="cb24-143"><a href="#cb24-143" aria-hidden="true" tabindex="-1"></a>  normal text bg/.code={<span class="co">%</span></span>
+<span id="cb24-144"><a href="#cb24-144" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{normal text}{bg=#1}<span class="co">%</span></span>
+<span id="cb24-145"><a href="#cb24-145" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-146"><a href="#cb24-146" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/normal text bg=#1}<span class="co">%</span></span>
+<span id="cb24-147"><a href="#cb24-147" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
+<span id="cb24-148"><a href="#cb24-148" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/normal text bg=#1}<span class="co">%</span></span>
 <span id="cb24-149"><a href="#cb24-149" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
 <span id="cb24-150"><a href="#cb24-150" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-151"><a href="#cb24-151" aria-hidden="true" tabindex="-1"></a>  dark/normal text fg/.code={<span class="co">%</span></span>
-<span id="cb24-152"><a href="#cb24-152" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/normal text fg=#1}<span class="co">%</span></span>
-<span id="cb24-153"><a href="#cb24-153" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-154"><a href="#cb24-154" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{normal text}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-155"><a href="#cb24-155" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\moloch@setup@text@colors</span></span>
-<span id="cb24-156"><a href="#cb24-156" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\moloch@setup@block@colors</span></span>
-<span id="cb24-157"><a href="#cb24-157" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-158"><a href="#cb24-158" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-159"><a href="#cb24-159" aria-hidden="true" tabindex="-1"></a>  normal text bg/.code={<span class="co">%</span></span>
-<span id="cb24-160"><a href="#cb24-160" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{normal text}{bg=#1}<span class="co">%</span></span>
-<span id="cb24-161"><a href="#cb24-161" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-162"><a href="#cb24-162" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/normal text bg=#1}<span class="co">%</span></span>
-<span id="cb24-163"><a href="#cb24-163" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
-<span id="cb24-164"><a href="#cb24-164" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/normal text bg=#1}<span class="co">%</span></span>
-<span id="cb24-165"><a href="#cb24-165" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-166"><a href="#cb24-166" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-167"><a href="#cb24-167" aria-hidden="true" tabindex="-1"></a>  light/normal text bg/.code={<span class="co">%</span></span>
-<span id="cb24-168"><a href="#cb24-168" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/normal text bg=#1}<span class="co">%</span></span>
-<span id="cb24-169"><a href="#cb24-169" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
-<span id="cb24-170"><a href="#cb24-170" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{normal text}{bg=#1}<span class="co">%</span></span>
-<span id="cb24-171"><a href="#cb24-171" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-172"><a href="#cb24-172" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-173"><a href="#cb24-173" aria-hidden="true" tabindex="-1"></a>  dark/normal text bg/.code={<span class="co">%</span></span>
-<span id="cb24-174"><a href="#cb24-174" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/normal text bg=#1}<span class="co">%</span></span>
-<span id="cb24-175"><a href="#cb24-175" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-176"><a href="#cb24-176" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{normal text}{bg=#1}<span class="co">%</span></span>
+<span id="cb24-151"><a href="#cb24-151" aria-hidden="true" tabindex="-1"></a>  light/normal text bg/.code={<span class="co">%</span></span>
+<span id="cb24-152"><a href="#cb24-152" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/normal text bg=#1}<span class="co">%</span></span>
+<span id="cb24-153"><a href="#cb24-153" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
+<span id="cb24-154"><a href="#cb24-154" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{normal text}{bg=#1}<span class="co">%</span></span>
+<span id="cb24-155"><a href="#cb24-155" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-156"><a href="#cb24-156" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-157"><a href="#cb24-157" aria-hidden="true" tabindex="-1"></a>  dark/normal text bg/.code={<span class="co">%</span></span>
+<span id="cb24-158"><a href="#cb24-158" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/normal text bg=#1}<span class="co">%</span></span>
+<span id="cb24-159"><a href="#cb24-159" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-160"><a href="#cb24-160" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{normal text}{bg=#1}<span class="co">%</span></span>
+<span id="cb24-161"><a href="#cb24-161" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-162"><a href="#cb24-162" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-163"><a href="#cb24-163" aria-hidden="true" tabindex="-1"></a>  alerted text/.code={<span class="co">%</span></span>
+<span id="cb24-164"><a href="#cb24-164" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{alerted text}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-165"><a href="#cb24-165" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{block title alerted}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-166"><a href="#cb24-166" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-167"><a href="#cb24-167" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/alerted text=#1}<span class="co">%</span></span>
+<span id="cb24-168"><a href="#cb24-168" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
+<span id="cb24-169"><a href="#cb24-169" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/alerted text=#1}<span class="co">%</span></span>
+<span id="cb24-170"><a href="#cb24-170" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-171"><a href="#cb24-171" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-172"><a href="#cb24-172" aria-hidden="true" tabindex="-1"></a>  light/alerted text/.code={<span class="co">%</span></span>
+<span id="cb24-173"><a href="#cb24-173" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/alerted text=#1}<span class="co">%</span></span>
+<span id="cb24-174"><a href="#cb24-174" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
+<span id="cb24-175"><a href="#cb24-175" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{alerted text}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-176"><a href="#cb24-176" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{block title alerted}{fg=#1}<span class="co">%</span></span>
 <span id="cb24-177"><a href="#cb24-177" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
 <span id="cb24-178"><a href="#cb24-178" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-179"><a href="#cb24-179" aria-hidden="true" tabindex="-1"></a>  alerted text/.code={<span class="co">%</span></span>
-<span id="cb24-180"><a href="#cb24-180" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{alerted text}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-181"><a href="#cb24-181" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{block title alerted}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-182"><a href="#cb24-182" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-183"><a href="#cb24-183" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/alerted text=#1}<span class="co">%</span></span>
-<span id="cb24-184"><a href="#cb24-184" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
-<span id="cb24-185"><a href="#cb24-185" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/alerted text=#1}<span class="co">%</span></span>
-<span id="cb24-186"><a href="#cb24-186" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-187"><a href="#cb24-187" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-188"><a href="#cb24-188" aria-hidden="true" tabindex="-1"></a>  light/alerted text/.code={<span class="co">%</span></span>
-<span id="cb24-189"><a href="#cb24-189" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/alerted text=#1}<span class="co">%</span></span>
-<span id="cb24-190"><a href="#cb24-190" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
-<span id="cb24-191"><a href="#cb24-191" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{alerted text}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-192"><a href="#cb24-192" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{block title alerted}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-179"><a href="#cb24-179" aria-hidden="true" tabindex="-1"></a>  dark/alerted text/.code={<span class="co">%</span></span>
+<span id="cb24-180"><a href="#cb24-180" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/alerted text=#1}<span class="co">%</span></span>
+<span id="cb24-181"><a href="#cb24-181" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-182"><a href="#cb24-182" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{alerted text}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-183"><a href="#cb24-183" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{block title alerted}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-184"><a href="#cb24-184" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-185"><a href="#cb24-185" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-186"><a href="#cb24-186" aria-hidden="true" tabindex="-1"></a>  example text/.code={<span class="co">%</span></span>
+<span id="cb24-187"><a href="#cb24-187" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{example text}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-188"><a href="#cb24-188" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{block title example}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-189"><a href="#cb24-189" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-190"><a href="#cb24-190" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/example text=#1}<span class="co">%</span></span>
+<span id="cb24-191"><a href="#cb24-191" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
+<span id="cb24-192"><a href="#cb24-192" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/example text=#1}<span class="co">%</span></span>
 <span id="cb24-193"><a href="#cb24-193" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
 <span id="cb24-194"><a href="#cb24-194" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-195"><a href="#cb24-195" aria-hidden="true" tabindex="-1"></a>  dark/alerted text/.code={<span class="co">%</span></span>
-<span id="cb24-196"><a href="#cb24-196" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/alerted text=#1}<span class="co">%</span></span>
-<span id="cb24-197"><a href="#cb24-197" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-198"><a href="#cb24-198" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{alerted text}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-199"><a href="#cb24-199" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{block title alerted}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-195"><a href="#cb24-195" aria-hidden="true" tabindex="-1"></a>  light/example text/.code={<span class="co">%</span></span>
+<span id="cb24-196"><a href="#cb24-196" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/example text=#1}<span class="co">%</span></span>
+<span id="cb24-197"><a href="#cb24-197" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
+<span id="cb24-198"><a href="#cb24-198" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{example text}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-199"><a href="#cb24-199" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{block title example}{fg=#1}<span class="co">%</span></span>
 <span id="cb24-200"><a href="#cb24-200" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
 <span id="cb24-201"><a href="#cb24-201" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-202"><a href="#cb24-202" aria-hidden="true" tabindex="-1"></a>  example text/.code={<span class="co">%</span></span>
-<span id="cb24-203"><a href="#cb24-203" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{example text}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-204"><a href="#cb24-204" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{block title example}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-205"><a href="#cb24-205" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-206"><a href="#cb24-206" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/example text=#1}<span class="co">%</span></span>
-<span id="cb24-207"><a href="#cb24-207" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
-<span id="cb24-208"><a href="#cb24-208" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/example text=#1}<span class="co">%</span></span>
-<span id="cb24-209"><a href="#cb24-209" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-210"><a href="#cb24-210" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-211"><a href="#cb24-211" aria-hidden="true" tabindex="-1"></a>  light/example text/.code={<span class="co">%</span></span>
-<span id="cb24-212"><a href="#cb24-212" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/example text=#1}<span class="co">%</span></span>
-<span id="cb24-213"><a href="#cb24-213" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
-<span id="cb24-214"><a href="#cb24-214" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{example text}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-215"><a href="#cb24-215" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{block title example}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-216"><a href="#cb24-216" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-217"><a href="#cb24-217" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-218"><a href="#cb24-218" aria-hidden="true" tabindex="-1"></a>  dark/example text/.code={<span class="co">%</span></span>
-<span id="cb24-219"><a href="#cb24-219" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/example text=#1}<span class="co">%</span></span>
-<span id="cb24-220"><a href="#cb24-220" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-221"><a href="#cb24-221" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{example text}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-222"><a href="#cb24-222" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{block title example}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-202"><a href="#cb24-202" aria-hidden="true" tabindex="-1"></a>  dark/example text/.code={<span class="co">%</span></span>
+<span id="cb24-203"><a href="#cb24-203" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/example text=#1}<span class="co">%</span></span>
+<span id="cb24-204"><a href="#cb24-204" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-205"><a href="#cb24-205" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{example text}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-206"><a href="#cb24-206" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{block title example}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-207"><a href="#cb24-207" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-208"><a href="#cb24-208" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-209"><a href="#cb24-209" aria-hidden="true" tabindex="-1"></a>  frametitle fg/.code={<span class="co">%</span></span>
+<span id="cb24-210"><a href="#cb24-210" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{frametitle}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-211"><a href="#cb24-211" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-212"><a href="#cb24-212" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/frametitle fg=#1}<span class="co">%</span></span>
+<span id="cb24-213"><a href="#cb24-213" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
+<span id="cb24-214"><a href="#cb24-214" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/frametitle fg=#1}<span class="co">%</span></span>
+<span id="cb24-215"><a href="#cb24-215" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-216"><a href="#cb24-216" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-217"><a href="#cb24-217" aria-hidden="true" tabindex="-1"></a>  frametitle bg/.code={<span class="co">%</span></span>
+<span id="cb24-218"><a href="#cb24-218" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{frametitle}{bg=#1}<span class="co">%</span></span>
+<span id="cb24-219"><a href="#cb24-219" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-220"><a href="#cb24-220" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/frametitle bg=#1}<span class="co">%</span></span>
+<span id="cb24-221"><a href="#cb24-221" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
+<span id="cb24-222"><a href="#cb24-222" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/frametitle bg=#1}<span class="co">%</span></span>
 <span id="cb24-223"><a href="#cb24-223" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
 <span id="cb24-224"><a href="#cb24-224" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-225"><a href="#cb24-225" aria-hidden="true" tabindex="-1"></a>  frametitle fg/.code={<span class="co">%</span></span>
-<span id="cb24-226"><a href="#cb24-226" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{frametitle}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-227"><a href="#cb24-227" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-228"><a href="#cb24-228" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/frametitle fg=#1}<span class="co">%</span></span>
-<span id="cb24-229"><a href="#cb24-229" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
-<span id="cb24-230"><a href="#cb24-230" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/frametitle fg=#1}<span class="co">%</span></span>
-<span id="cb24-231"><a href="#cb24-231" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-232"><a href="#cb24-232" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-233"><a href="#cb24-233" aria-hidden="true" tabindex="-1"></a>  frametitle bg/.code={<span class="co">%</span></span>
-<span id="cb24-234"><a href="#cb24-234" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{frametitle}{bg=#1}<span class="co">%</span></span>
-<span id="cb24-235"><a href="#cb24-235" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-236"><a href="#cb24-236" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/frametitle bg=#1}<span class="co">%</span></span>
-<span id="cb24-237"><a href="#cb24-237" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
-<span id="cb24-238"><a href="#cb24-238" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/frametitle bg=#1}<span class="co">%</span></span>
-<span id="cb24-239"><a href="#cb24-239" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-240"><a href="#cb24-240" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-241"><a href="#cb24-241" aria-hidden="true" tabindex="-1"></a>  light/frametitle fg/.code={<span class="co">%</span></span>
-<span id="cb24-242"><a href="#cb24-242" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/frametitle fg=#1}<span class="co">%</span></span>
-<span id="cb24-243"><a href="#cb24-243" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
-<span id="cb24-244"><a href="#cb24-244" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{frametitle}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-245"><a href="#cb24-245" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-246"><a href="#cb24-246" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-247"><a href="#cb24-247" aria-hidden="true" tabindex="-1"></a>  dark/frametitle fg/.code={<span class="co">%</span></span>
-<span id="cb24-248"><a href="#cb24-248" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/frametitle fg=#1}<span class="co">%</span></span>
-<span id="cb24-249"><a href="#cb24-249" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-250"><a href="#cb24-250" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{frametitle}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-251"><a href="#cb24-251" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-252"><a href="#cb24-252" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-253"><a href="#cb24-253" aria-hidden="true" tabindex="-1"></a>  light/frametitle bg/.code={<span class="co">%</span></span>
-<span id="cb24-254"><a href="#cb24-254" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/frametitle bg=#1}<span class="co">%</span></span>
-<span id="cb24-255"><a href="#cb24-255" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
-<span id="cb24-256"><a href="#cb24-256" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{frametitle}{bg=#1}<span class="co">%</span></span>
-<span id="cb24-257"><a href="#cb24-257" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-258"><a href="#cb24-258" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-259"><a href="#cb24-259" aria-hidden="true" tabindex="-1"></a>  dark/frametitle bg/.code={<span class="co">%</span></span>
-<span id="cb24-260"><a href="#cb24-260" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/frametitle bg=#1}<span class="co">%</span></span>
-<span id="cb24-261"><a href="#cb24-261" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-262"><a href="#cb24-262" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{frametitle}{bg=#1}<span class="co">%</span></span>
-<span id="cb24-263"><a href="#cb24-263" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-264"><a href="#cb24-264" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-265"><a href="#cb24-265" aria-hidden="true" tabindex="-1"></a>  standout fg/.code={<span class="co">%</span></span>
-<span id="cb24-266"><a href="#cb24-266" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{standout}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-267"><a href="#cb24-267" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-268"><a href="#cb24-268" aria-hidden="true" tabindex="-1"></a>  light/standout fg/.code={<span class="co">%</span></span>
-<span id="cb24-269"><a href="#cb24-269" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/standout fg=#1}<span class="co">%</span></span>
-<span id="cb24-270"><a href="#cb24-270" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
-<span id="cb24-271"><a href="#cb24-271" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{standout}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-272"><a href="#cb24-272" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-273"><a href="#cb24-273" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-274"><a href="#cb24-274" aria-hidden="true" tabindex="-1"></a>  dark/standout fg/.code={<span class="co">%</span></span>
-<span id="cb24-275"><a href="#cb24-275" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/standout fg=#1}<span class="co">%</span></span>
-<span id="cb24-276"><a href="#cb24-276" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-277"><a href="#cb24-277" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{standout}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-278"><a href="#cb24-278" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-279"><a href="#cb24-279" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-280"><a href="#cb24-280" aria-hidden="true" tabindex="-1"></a>  standout bg/.code={<span class="co">%</span></span>
-<span id="cb24-281"><a href="#cb24-281" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{standout}{bg=#1}<span class="co">%</span></span>
-<span id="cb24-282"><a href="#cb24-282" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-283"><a href="#cb24-283" aria-hidden="true" tabindex="-1"></a>  light/standout bg/.code={<span class="co">%</span></span>
-<span id="cb24-284"><a href="#cb24-284" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/standout bg=#1}<span class="co">%</span></span>
-<span id="cb24-285"><a href="#cb24-285" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
-<span id="cb24-286"><a href="#cb24-286" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{standout}{bg=#1}<span class="co">%</span></span>
-<span id="cb24-287"><a href="#cb24-287" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-288"><a href="#cb24-288" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-289"><a href="#cb24-289" aria-hidden="true" tabindex="-1"></a>  dark/standout bg/.code={<span class="co">%</span></span>
-<span id="cb24-290"><a href="#cb24-290" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/standout bg=#1}<span class="co">%</span></span>
-<span id="cb24-291"><a href="#cb24-291" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-292"><a href="#cb24-292" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{standout}{bg=#1}<span class="co">%</span></span>
-<span id="cb24-293"><a href="#cb24-293" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-294"><a href="#cb24-294" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-295"><a href="#cb24-295" aria-hidden="true" tabindex="-1"></a>  standout alerted fg/.code={<span class="co">%</span></span>
-<span id="cb24-296"><a href="#cb24-296" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{standout alerted}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-297"><a href="#cb24-297" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-298"><a href="#cb24-298" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/standout alerted fg=#1}<span class="co">%</span></span>
-<span id="cb24-299"><a href="#cb24-299" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
-<span id="cb24-300"><a href="#cb24-300" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/standout alerted fg=#1}<span class="co">%</span></span>
-<span id="cb24-301"><a href="#cb24-301" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-302"><a href="#cb24-302" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-303"><a href="#cb24-303" aria-hidden="true" tabindex="-1"></a>  light/standout alerted fg/.code={<span class="co">%</span></span>
-<span id="cb24-304"><a href="#cb24-304" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/standout alerted fg=#1}<span class="co">%</span></span>
-<span id="cb24-305"><a href="#cb24-305" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
-<span id="cb24-306"><a href="#cb24-306" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{standout alerted}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-307"><a href="#cb24-307" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-308"><a href="#cb24-308" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-309"><a href="#cb24-309" aria-hidden="true" tabindex="-1"></a>  dark/standout alerted fg/.code={<span class="co">%</span></span>
-<span id="cb24-310"><a href="#cb24-310" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/standout alerted fg=#1}<span class="co">%</span></span>
-<span id="cb24-311"><a href="#cb24-311" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-312"><a href="#cb24-312" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{standout alerted}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-313"><a href="#cb24-313" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-314"><a href="#cb24-314" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-315"><a href="#cb24-315" aria-hidden="true" tabindex="-1"></a>  standout alerted bg/.code={<span class="co">%</span></span>
-<span id="cb24-316"><a href="#cb24-316" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{standout alerted}{bg=#1}<span class="co">%</span></span>
-<span id="cb24-317"><a href="#cb24-317" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-318"><a href="#cb24-318" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/standout alerted bg=#1}<span class="co">%</span></span>
-<span id="cb24-319"><a href="#cb24-319" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
-<span id="cb24-320"><a href="#cb24-320" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/standout alerted bg=#1}<span class="co">%</span></span>
-<span id="cb24-321"><a href="#cb24-321" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-322"><a href="#cb24-322" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-323"><a href="#cb24-323" aria-hidden="true" tabindex="-1"></a>  light/standout alerted bg/.code={<span class="co">%</span></span>
-<span id="cb24-324"><a href="#cb24-324" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/standout alerted bg=#1}<span class="co">%</span></span>
-<span id="cb24-325"><a href="#cb24-325" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
-<span id="cb24-326"><a href="#cb24-326" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{standout alerted}{bg=#1}<span class="co">%</span></span>
-<span id="cb24-327"><a href="#cb24-327" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-328"><a href="#cb24-328" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-329"><a href="#cb24-329" aria-hidden="true" tabindex="-1"></a>  dark/standout alerted bg/.code={<span class="co">%</span></span>
-<span id="cb24-330"><a href="#cb24-330" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/standout alerted bg=#1}<span class="co">%</span></span>
-<span id="cb24-331"><a href="#cb24-331" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-332"><a href="#cb24-332" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{standout alerted}{bg=#1}<span class="co">%</span></span>
-<span id="cb24-333"><a href="#cb24-333" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-334"><a href="#cb24-334" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-335"><a href="#cb24-335" aria-hidden="true" tabindex="-1"></a>  standout example fg/.code={<span class="co">%</span></span>
-<span id="cb24-336"><a href="#cb24-336" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{standout example}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-337"><a href="#cb24-337" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-338"><a href="#cb24-338" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/standout example fg=#1}<span class="co">%</span></span>
-<span id="cb24-339"><a href="#cb24-339" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
-<span id="cb24-340"><a href="#cb24-340" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/standout example fg=#1}<span class="co">%</span></span>
-<span id="cb24-341"><a href="#cb24-341" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-342"><a href="#cb24-342" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-343"><a href="#cb24-343" aria-hidden="true" tabindex="-1"></a>  light/standout example fg/.code={<span class="co">%</span></span>
-<span id="cb24-344"><a href="#cb24-344" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/standout example fg=#1}<span class="co">%</span></span>
-<span id="cb24-345"><a href="#cb24-345" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
-<span id="cb24-346"><a href="#cb24-346" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{standout example}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-347"><a href="#cb24-347" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-348"><a href="#cb24-348" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-349"><a href="#cb24-349" aria-hidden="true" tabindex="-1"></a>  dark/standout example fg/.code={<span class="co">%</span></span>
-<span id="cb24-350"><a href="#cb24-350" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/standout example fg=#1}<span class="co">%</span></span>
-<span id="cb24-351"><a href="#cb24-351" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-352"><a href="#cb24-352" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{standout example}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-353"><a href="#cb24-353" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-354"><a href="#cb24-354" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-355"><a href="#cb24-355" aria-hidden="true" tabindex="-1"></a>  standout example bg/.code={<span class="co">%</span></span>
-<span id="cb24-356"><a href="#cb24-356" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{standout example}{bg=#1}<span class="co">%</span></span>
-<span id="cb24-357"><a href="#cb24-357" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-358"><a href="#cb24-358" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/standout example bg=#1}<span class="co">%</span></span>
-<span id="cb24-359"><a href="#cb24-359" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
-<span id="cb24-360"><a href="#cb24-360" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/standout example bg=#1}<span class="co">%</span></span>
-<span id="cb24-361"><a href="#cb24-361" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-362"><a href="#cb24-362" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-363"><a href="#cb24-363" aria-hidden="true" tabindex="-1"></a>  light/standout example bg/.code={<span class="co">%</span></span>
-<span id="cb24-364"><a href="#cb24-364" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/standout example bg=#1}<span class="co">%</span></span>
-<span id="cb24-365"><a href="#cb24-365" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
-<span id="cb24-366"><a href="#cb24-366" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{standout example}{bg=#1}<span class="co">%</span></span>
-<span id="cb24-367"><a href="#cb24-367" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-368"><a href="#cb24-368" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-369"><a href="#cb24-369" aria-hidden="true" tabindex="-1"></a>  dark/standout example bg/.code={<span class="co">%</span></span>
-<span id="cb24-370"><a href="#cb24-370" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/standout example bg=#1}<span class="co">%</span></span>
-<span id="cb24-371"><a href="#cb24-371" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-372"><a href="#cb24-372" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{standout example}{bg=#1}<span class="co">%</span></span>
-<span id="cb24-373"><a href="#cb24-373" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-374"><a href="#cb24-374" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-375"><a href="#cb24-375" aria-hidden="true" tabindex="-1"></a>  title separator/.code={<span class="co">%</span></span>
-<span id="cb24-376"><a href="#cb24-376" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{title separator}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-377"><a href="#cb24-377" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-378"><a href="#cb24-378" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/title separator=#1}<span class="co">%</span></span>
-<span id="cb24-379"><a href="#cb24-379" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
-<span id="cb24-380"><a href="#cb24-380" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/title separator=#1}<span class="co">%</span></span>
-<span id="cb24-381"><a href="#cb24-381" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-382"><a href="#cb24-382" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-383"><a href="#cb24-383" aria-hidden="true" tabindex="-1"></a>  light/title separator/.code={<span class="co">%</span></span>
-<span id="cb24-384"><a href="#cb24-384" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/title separator=#1}<span class="co">%</span></span>
-<span id="cb24-385"><a href="#cb24-385" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
-<span id="cb24-386"><a href="#cb24-386" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{title separator}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-387"><a href="#cb24-387" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-388"><a href="#cb24-388" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-389"><a href="#cb24-389" aria-hidden="true" tabindex="-1"></a>  dark/title separator/.code={<span class="co">%</span></span>
-<span id="cb24-390"><a href="#cb24-390" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/title separator=#1}<span class="co">%</span></span>
-<span id="cb24-391"><a href="#cb24-391" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
-<span id="cb24-392"><a href="#cb24-392" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{title separator}{fg=#1}<span class="co">%</span></span>
-<span id="cb24-393"><a href="#cb24-393" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
-<span id="cb24-394"><a href="#cb24-394" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-395"><a href="#cb24-395" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb24-225"><a href="#cb24-225" aria-hidden="true" tabindex="-1"></a>  light/frametitle fg/.code={<span class="co">%</span></span>
+<span id="cb24-226"><a href="#cb24-226" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/frametitle fg=#1}<span class="co">%</span></span>
+<span id="cb24-227"><a href="#cb24-227" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
+<span id="cb24-228"><a href="#cb24-228" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{frametitle}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-229"><a href="#cb24-229" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-230"><a href="#cb24-230" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-231"><a href="#cb24-231" aria-hidden="true" tabindex="-1"></a>  dark/frametitle fg/.code={<span class="co">%</span></span>
+<span id="cb24-232"><a href="#cb24-232" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/frametitle fg=#1}<span class="co">%</span></span>
+<span id="cb24-233"><a href="#cb24-233" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-234"><a href="#cb24-234" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{frametitle}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-235"><a href="#cb24-235" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-236"><a href="#cb24-236" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-237"><a href="#cb24-237" aria-hidden="true" tabindex="-1"></a>  light/frametitle bg/.code={<span class="co">%</span></span>
+<span id="cb24-238"><a href="#cb24-238" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/frametitle bg=#1}<span class="co">%</span></span>
+<span id="cb24-239"><a href="#cb24-239" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
+<span id="cb24-240"><a href="#cb24-240" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{frametitle}{bg=#1}<span class="co">%</span></span>
+<span id="cb24-241"><a href="#cb24-241" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-242"><a href="#cb24-242" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-243"><a href="#cb24-243" aria-hidden="true" tabindex="-1"></a>  dark/frametitle bg/.code={<span class="co">%</span></span>
+<span id="cb24-244"><a href="#cb24-244" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/frametitle bg=#1}<span class="co">%</span></span>
+<span id="cb24-245"><a href="#cb24-245" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-246"><a href="#cb24-246" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{frametitle}{bg=#1}<span class="co">%</span></span>
+<span id="cb24-247"><a href="#cb24-247" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-248"><a href="#cb24-248" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-249"><a href="#cb24-249" aria-hidden="true" tabindex="-1"></a>  standout fg/.code={<span class="co">%</span></span>
+<span id="cb24-250"><a href="#cb24-250" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{standout}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-251"><a href="#cb24-251" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-252"><a href="#cb24-252" aria-hidden="true" tabindex="-1"></a>  light/standout fg/.code={<span class="co">%</span></span>
+<span id="cb24-253"><a href="#cb24-253" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/standout fg=#1}<span class="co">%</span></span>
+<span id="cb24-254"><a href="#cb24-254" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
+<span id="cb24-255"><a href="#cb24-255" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{standout}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-256"><a href="#cb24-256" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-257"><a href="#cb24-257" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-258"><a href="#cb24-258" aria-hidden="true" tabindex="-1"></a>  dark/standout fg/.code={<span class="co">%</span></span>
+<span id="cb24-259"><a href="#cb24-259" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/standout fg=#1}<span class="co">%</span></span>
+<span id="cb24-260"><a href="#cb24-260" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-261"><a href="#cb24-261" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{standout}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-262"><a href="#cb24-262" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-263"><a href="#cb24-263" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-264"><a href="#cb24-264" aria-hidden="true" tabindex="-1"></a>  standout bg/.code={<span class="co">%</span></span>
+<span id="cb24-265"><a href="#cb24-265" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{standout}{bg=#1}<span class="co">%</span></span>
+<span id="cb24-266"><a href="#cb24-266" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-267"><a href="#cb24-267" aria-hidden="true" tabindex="-1"></a>  light/standout bg/.code={<span class="co">%</span></span>
+<span id="cb24-268"><a href="#cb24-268" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/standout bg=#1}<span class="co">%</span></span>
+<span id="cb24-269"><a href="#cb24-269" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
+<span id="cb24-270"><a href="#cb24-270" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{standout}{bg=#1}<span class="co">%</span></span>
+<span id="cb24-271"><a href="#cb24-271" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-272"><a href="#cb24-272" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-273"><a href="#cb24-273" aria-hidden="true" tabindex="-1"></a>  dark/standout bg/.code={<span class="co">%</span></span>
+<span id="cb24-274"><a href="#cb24-274" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/standout bg=#1}<span class="co">%</span></span>
+<span id="cb24-275"><a href="#cb24-275" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-276"><a href="#cb24-276" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{standout}{bg=#1}<span class="co">%</span></span>
+<span id="cb24-277"><a href="#cb24-277" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-278"><a href="#cb24-278" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-279"><a href="#cb24-279" aria-hidden="true" tabindex="-1"></a>  title separator/.code={<span class="co">%</span></span>
+<span id="cb24-280"><a href="#cb24-280" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\setbeamercolor</span>{title separator}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-281"><a href="#cb24-281" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-282"><a href="#cb24-282" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/title separator=#1}<span class="co">%</span></span>
+<span id="cb24-283"><a href="#cb24-283" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\else</span></span>
+<span id="cb24-284"><a href="#cb24-284" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/title separator=#1}<span class="co">%</span></span>
+<span id="cb24-285"><a href="#cb24-285" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-286"><a href="#cb24-286" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-287"><a href="#cb24-287" aria-hidden="true" tabindex="-1"></a>  light/title separator/.code={<span class="co">%</span></span>
+<span id="cb24-288"><a href="#cb24-288" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/light/title separator=#1}<span class="co">%</span></span>
+<span id="cb24-289"><a href="#cb24-289" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark\else</span></span>
+<span id="cb24-290"><a href="#cb24-290" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{title separator}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-291"><a href="#cb24-291" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-292"><a href="#cb24-292" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-293"><a href="#cb24-293" aria-hidden="true" tabindex="-1"></a>  dark/title separator/.code={<span class="co">%</span></span>
+<span id="cb24-294"><a href="#cb24-294" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\pgfkeys</span>{/moloch/colors/store/dark/title separator=#1}<span class="co">%</span></span>
+<span id="cb24-295"><a href="#cb24-295" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\ifmoloch@variant@dark</span></span>
+<span id="cb24-296"><a href="#cb24-296" aria-hidden="true" tabindex="-1"></a>        <span class="fu">\setbeamercolor</span>{title separator}{fg=#1}<span class="co">%</span></span>
+<span id="cb24-297"><a href="#cb24-297" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\fi</span></span>
+<span id="cb24-298"><a href="#cb24-298" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-299"><a href="#cb24-299" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="molochcolors" class="level3" data-number="E.1.33">
 <h3 data-number="E.1.33" class="anchored" data-anchor-id="molochcolors"><span class="header-section-number">E.1.33</span> <code>\molochcolors</code></h3>

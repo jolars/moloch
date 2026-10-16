@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <!-- Custom header for Moloch documentation -->
-<meta id="moloch-doc-channel" content="texlive-latest
+<meta id="moloch-doc-channel" content="texlive-2026
 ">
 <meta name="robots" content="noindex,follow
 ">
@@ -203,7 +203,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="twitter:description" content="Moloch is a minimalist, feature-rich Beamer theme for LaTeX presentations with a clean design and extensive customization options.">
 <meta name="twitter:image" content="https://moloch.ink/images/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://moloch.ink/customization.html">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -441,26 +440,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ltx-talk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ltx-talk</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./known-issues.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Known Issues</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Known Issues</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./license.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">License</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">License</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./changelog/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Changelog</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Changelog</span></span></a>
   </div>
 </li>
       </ul>
@@ -523,12 +516,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./implementation/beamercolorthememoloch-highcontrast.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Color Theme: High Contrast</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./implementation/moloch-talk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">ltx-talk Theme</span></span></a>
   </div>
 </li>
       </ul>
@@ -665,7 +652,7 @@ Docs Version
 </div>
 <div class="describe-option" data-option-name="sectionpage" data-values="none, simple, progressbar" default="progressbar">
 <p><span class="option-name">sectionpage</span> [none, simple, <u><strong>progressbar</strong></u>]</p>
-<p>Adds a slide at the start of each section (<code>simple</code>) with an optional thin progress bar below the section title (<code>progressbar</code>). The <code>none</code> option disables the section page. Section pages display the full title even when you provide a short title with <code>\section[Short title]{Full title}</code>.</p>
+<p>Adds a slide at the start of each section (<code>simple</code>) with an optional thin progress bar below the section title (<code>progressbar</code>). The <code>none</code> option disables the section page.</p>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>{<span class="ex">beamer</span>}</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\usetheme</span>{moloch}</span>
@@ -693,7 +680,7 @@ Docs Version
 </div>
 <div class="describe-option" data-option-name="subsectionpage" data-values="none, simple, progressbar" default="none">
 <p><span class="option-name">subsectionpage</span> [<u><strong>none</strong></u>, simple, progressbar]</p>
-<p>Optionally adds a slide at the start of each subsection, displaying the full section and subsection titles. If enabled with the <code>simple</code> or <code>progressbar</code> options, the style of the <code>section page</code> will be updated to match the style of the <code>subsection page</code>. Note that section slides and subsection slides can appear consecutively if both are enabled; you may want to use this option together with <code>sectionpage=none</code> depending on the section structure of your presentation.</p>
+<p>Optionally adds a slide at the start of each subsection. If enabled with the <code>simple</code> or <code>progressbar</code> options, the style of the <code>section page</code> will be updated to match the style of the <code>subsection page</code>. Note that section slides and subsection slides can appear consecutively if both are enabled; you may want to use this option together with <code>sectionpage=none</code> depending on the section structure of your presentation.</p>
 </div>
 <div class="describe-option" data-option-name="standoutnumbering" data-values="none, hide, show" default="none">
 <p><span class="option-name">standoutnumbering</span> [<u><strong>none</strong></u>, hide, show]</p>
@@ -816,7 +803,7 @@ Docs Version
 <p>These basic color options control visual aspects of the theme:</p>
 <div class="describe-option" data-option-name="block" data-values="transparent, fill" default="transparent">
 <p><span class="option-name">block</span> [<u><strong>transparent</strong></u>, fill]</p>
-<p>Optionally adds a light grey background to block environments like <code>theorem</code> and <code>example</code>. The selected block style is preserved when changing the color theme or switching between light and dark variants.</p>
+<p>Optionally adds a light grey background to block environments like <code>theorem</code> and <code>example</code>.</p>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>{<span class="ex">beamer</span>}</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\usetheme</span>{moloch}</span>
@@ -1084,22 +1071,6 @@ Docs Version
 <div class="describe-key" data-key-name="standout bg" type="<color>" default="theme-dependent">
 <p><span class="key-name">standout bg</span> [<span class="key-type"><em>&lt;color&gt;</em></span>] — <span class="key-default">default: theme-dependent</span></p>
 <p>Sets the background color for standout frames.</p>
-</div>
-<div class="describe-key" data-key-name="standout alerted fg" type="<color>" default="theme-dependent">
-<p><span class="key-name">standout alerted fg</span> [<span class="key-type"><em>&lt;color&gt;</em></span>] — <span class="key-default">default: theme-dependent</span></p>
-<p>Sets the foreground color for alerted standout frames (created with <code>\begin{frame}[standout=alerted]</code>).</p>
-</div>
-<div class="describe-key" data-key-name="standout alerted bg" type="<color>" default="theme-dependent">
-<p><span class="key-name">standout alerted bg</span> [<span class="key-type"><em>&lt;color&gt;</em></span>] — <span class="key-default">default: theme-dependent</span></p>
-<p>Sets the background color for alerted standout frames.</p>
-</div>
-<div class="describe-key" data-key-name="standout example fg" type="<color>" default="theme-dependent">
-<p><span class="key-name">standout example fg</span> [<span class="key-type"><em>&lt;color&gt;</em></span>] — <span class="key-default">default: theme-dependent</span></p>
-<p>Sets the foreground color for example standout frames (created with <code>\begin{frame}[standout=example]</code>).</p>
-</div>
-<div class="describe-key" data-key-name="standout example bg" type="<color>" default="theme-dependent">
-<p><span class="key-name">standout example bg</span> [<span class="key-type"><em>&lt;color&gt;</em></span>] — <span class="key-default">default: theme-dependent</span></p>
-<p>Sets the background color for example standout frames.</p>
 </div>
 </section>
 <section id="example-customizing-colors-per-variant" class="level4" data-number="3.4.4.3">
@@ -1587,7 +1558,7 @@ Docs Version
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Moloch v2.3.0 | Copyright 2024-2025, Johan Larsson</p>
+<p>Moloch v2.2.0 | Copyright 2024-2025, Johan Larsson</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

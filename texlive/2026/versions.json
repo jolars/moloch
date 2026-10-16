@@ -1,0 +1,19 @@
+{
+  "entries": [
+    {
+      "id": "latest",
+      "label": "Latest release",
+      "href": "/"
+    },
+    {
+      "id": "dev",
+      "label": "Development (main)",
+      "href": "/dev/"
+    },
+    {
+      "id": "texlive-latest",
+      "label": "TeX Live (latest branch)",
+      "href": "/texlive/latest/"
+    }
+  ]
+}
