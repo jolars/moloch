@@ -152,7 +152,12 @@ jobs:
 
           for target in ${TARGETS}; do
             mkdir -p "$target"
-            rsync -a --delete --exclude '.git' "${GITHUB_WORKSPACE}/docs/_site/" "$target/"
+            excludes=(--exclude '.git')
+            if [ "$target" = . ]; then
+              # Publishing the root must preserve independently built channels.
+              excludes+=(--exclude '/dev/' --exclude '/latest/' --exclude '/releases/' --exclude '/texlive/')
+            fi
+            rsync -a --delete "${excludes[@]}" "${GITHUB_WORKSPACE}/docs/_site/" "$target/"
           done
 
           # Root deployments delete files absent from the rendered output.
