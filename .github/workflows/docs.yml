@@ -155,6 +155,10 @@ jobs:
             rsync -a --delete --exclude '.git' "${GITHUB_WORKSPACE}/docs/_site/" "$target/"
           done
 
+          # Root deployments delete files absent from the rendered output.
+          # Restore the custom domain so GitHub Pages keeps serving it.
+          printf '%s\n' 'moloch.ink' > CNAME
+
           # Crawlers read robots.txt at the root, regardless of the docs channel.
           cp "${GITHUB_WORKSPACE}/docs/_site/robots.txt" robots.txt
 
