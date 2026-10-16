@@ -2,10 +2,9 @@
 title: "Moloch"
 title-meta: "Moloch: A Minimalist, Feature-Rich Beamer Theme"
 description-meta: >-
-  Moloch is a minimalist, feature-rich Beamer theme for LaTeX. It
-  provides a clean and modern design with a focus on content, while
-  still offering many customization options to enhance the presentation
-  experience.
+  Moloch is a minimalist, feature-rich Beamer theme for LaTeX. It provides a
+  clean and modern design with a focus on content, while still offering many
+  customization options to enhance the presentation experience.
 title-prefix: ""
 image: images/og.jpg
 image-alt: "Moloch logo"
@@ -14,9 +13,6 @@ open-graph:
   title: "Moloch: A Minimalist, Feature-Rich Beamer Theme"
 twitter-card:
   title: "Moloch: A Minimalist, Feature-Rich Beamer Theme"
-format:
-  html:
-    toc: false
 ---
 
 ::: {.callout-note}
