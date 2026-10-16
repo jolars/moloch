@@ -124,6 +124,9 @@ jobs:
         run: |
           set -euo pipefail
 
+          test -s docs/_site/index.llms.md
+          test -s docs/_site/customization.llms.md
+
           tmp="$(mktemp -d)"
           cleanup() {
             git worktree remove --force "$tmp" 2>/dev/null || true
