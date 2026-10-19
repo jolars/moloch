@@ -55,8 +55,8 @@ let
   ltx-talk-src = pkgs.fetchFromGitHub {
     owner = "josephwright";
     repo = "ltx-talk";
-    tag = "v0.6.9";
-    hash = "sha256-2mxx74m2VKbL8ncvL5F18JjEoVy/CHepfr4V3XN4vtI=";
+    tag = "v0.6.10";
+    hash = "sha256-bxR2hgd1MQZSoI3fQsEREeAZz4k/51Pses7stt0zNrs=";
   };
 
   # A minimal texlive-style package: the combined environment keys packages by
@@ -64,9 +64,9 @@ let
   # set below makes it win over the ltx-talk that scheme-medium pulls in.
   ltx-talk = {
     pname = "ltx-talk";
-    version = "0.6.9";
+    version = "0.6.10";
     outputs = [ "tex" ];
-    tex = pkgs.runCommand "ltx-talk-0.6.9-tex" { } ''
+    tex = pkgs.runCommand "ltx-talk-0.6.10-tex" { } ''
       mkdir -p work && cd work
       cp ${ltx-talk-src}/*.dtx ${ltx-talk-src}/*.ins .
       ${pkgs.texliveBasic}/bin/tex -interaction=batchmode ltx-talk.ins
