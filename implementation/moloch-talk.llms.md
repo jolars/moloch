@@ -641,7 +641,7 @@ The Beamer theme places the title block slightly above the vertical center, in g
   {
     \UseTemplate { titlepage } { talk }
       {
-        framestyle = plain ,
+        frame-style = plain ,
         horizontal-alignment = left ,
         vertical-alignment = center ,
         element-order =

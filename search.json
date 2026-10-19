@@ -178,7 +178,7 @@
     "href": "ltx-talk.html",
     "title": "5  ltx-talk",
     "section": "",
-    "text": "5.1 Requirements\nltx-talk is a presentation class by Joseph Wright, built around tagged PDF. That is the main reason to prefer it over Beamer: Beamer cannot currently produce properly tagged, accessible output, and ltx-talk is designed to.\nMoloch provides its design for this class through the moloch-talk package.\nMoloch is tested with ltx-talk 0.6.9, which needs a LaTeX kernel from 2026-06-01 or later. With an older kernel, you will see:\nThe class supports only pdflatex and lualatex. Use lualatex if you want tagged output.",
+    "text": "5.1 Requirements\nltx-talk is a presentation class by Joseph Wright, built around tagged PDF. That is the main reason to prefer it over Beamer: Beamer cannot currently produce properly tagged, accessible output, and ltx-talk is designed to.\nMoloch provides its design for this class through the moloch-talk package.\nMoloch is tested with ltx-talk 0.6.10, which needs a LaTeX kernel from 2026-06-01 or later. With an older kernel, you will see:\nThe class supports only pdflatex and lualatex. Use lualatex if you want tagged output.",
     "crumbs": [
       "User Guide",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>ltx-talk</span>"
@@ -310,7 +310,7 @@
     "href": "changelog/index.html",
     "title": "Changelog",
     "section": "",
-    "text": "2.3.0 (2026-10-15)",
+    "text": "2.3.1 (2026-10-19)",
     "crumbs": [
       "User Guide",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Changelog</span>"
@@ -321,7 +321,7 @@
     "href": "changelog/index.html#section",
     "title": "Changelog",
     "section": "",
-    "text": "Highlights\nMoloch is now also available as a ltx-talk theme! The theme is still experimental but please feel free to try it out and report any issues you encounter.\n\n\nFeatures\n\nadd an ltx-talk version of the theme (#86) (862938a), closes #76\nenable alerted and example standout styles (#80) (dfdc31e)\nadd sectionpagenumbering for section-page frame numbering (#83) (bc20862)\n\n\n\nBug Fixes\n\nuse full titles on divider pages (291ff48), fixes #87\nci: use a single TeX Live mirror (9507cad)\nci: bypass broken TeX Live mirror list (5451656)\npreserve block fills across color changes (11c841d), fixes #84\nreadme: minor typo correction (5d59da6)",
+    "text": "Bug Fixes\n\nsupport ltx-talk 0.6.10 (dc10638), fixes #89",
     "crumbs": [
       "User Guide",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Changelog</span>"
@@ -331,8 +331,8 @@
     "objectID": "changelog/index.html#section-1",
     "href": "changelog/index.html#section-1",
     "title": "Changelog",
-    "section": "2.2.0 (2026-02-17)",
-    "text": "2.2.0 (2026-02-17)\n\nFeatures\n\nincrease margin between frame title and subtitle (f8e8725)\nincrease top-bottom margins for frametitle, use strut (f537931)\n\n\n\nBug Fixes\n\nadd missing color option for title separator (1221aed), closes #70",
+    "section": "2.3.0 (2026-10-15)",
+    "text": "2.3.0 (2026-10-15)\n\nHighlights\nMoloch is now also available as a ltx-talk theme! The theme is still experimental but please feel free to try it out and report any issues you encounter.\n\n\nFeatures\n\nadd an ltx-talk version of the theme (#86) (862938a), closes #76\nenable alerted and example standout styles (#80) (dfdc31e)\nadd sectionpagenumbering for section-page frame numbering (#83) (bc20862)\n\n\n\nBug Fixes\n\nuse full titles on divider pages (291ff48), fixes #87\nci: use a single TeX Live mirror (9507cad)\nci: bypass broken TeX Live mirror list (5451656)\npreserve block fills across color changes (11c841d), fixes #84\nreadme: minor typo correction (5d59da6)",
     "crumbs": [
       "User Guide",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Changelog</span>"
@@ -342,8 +342,8 @@
     "objectID": "changelog/index.html#section-2",
     "href": "changelog/index.html#section-2",
     "title": "Changelog",
-    "section": "2.1.0 (2025-12-18)",
-    "text": "2.1.0 (2025-12-18)\n\nFeatures\n\nadd titlepage option with moloch, plain, slit styles (505426d)\n\n\n\nBug Fixes\n\nalias colortheme variant to colorthemevariant (70a2bf2)\ndon’t expose all colortheme settings as package options (4827f60)\ndon’t wrap titlepage frame in group (b6be996)",
+    "section": "2.2.0 (2026-02-17)",
+    "text": "2.2.0 (2026-02-17)\n\nFeatures\n\nincrease margin between frame title and subtitle (f8e8725)\nincrease top-bottom margins for frametitle, use strut (f537931)\n\n\n\nBug Fixes\n\nadd missing color option for title separator (1221aed), closes #70",
     "crumbs": [
       "User Guide",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Changelog</span>"
@@ -353,8 +353,8 @@
     "objectID": "changelog/index.html#section-3",
     "href": "changelog/index.html#section-3",
     "title": "Changelog",
-    "section": "2.0.0 (2025-12-05)",
-    "text": "2.0.0 (2025-12-05)\n\n⚠ BREAKING CHANGES\n\nrefactor color theme\n\n\n\nFeatures\n\nadd frametitle margin options (bc02e8a)\nadd catppuccin theme (3452624)\nadd new “Paper” color theme (05de59a)\nchange default progressbar linewidth to 1pt (3b71fc9)\ndraw all itemize symbols manually (a82527c)\nrefactor color theme (37d3a37)\ntune color themes (a11710f)\nuse brighter aler and example colors in dark hcontr (8babd1e)\n\n\n\nBug Fixes\n\nenable background macro for alternative color themes (59b4d79)\nremove and fix examples (35523ee)\nremove example text bg in highcontrast theme (528ea8d)\nwork-around division by zero in progress bar arithmetic (28fc1a2)",
+    "section": "2.1.0 (2025-12-18)",
+    "text": "2.1.0 (2025-12-18)\n\nFeatures\n\nadd titlepage option with moloch, plain, slit styles (505426d)\n\n\n\nBug Fixes\n\nalias colortheme variant to colorthemevariant (70a2bf2)\ndon’t expose all colortheme settings as package options (4827f60)\ndon’t wrap titlepage frame in group (b6be996)",
     "crumbs": [
       "User Guide",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Changelog</span>"
@@ -364,8 +364,8 @@
     "objectID": "changelog/index.html#section-4",
     "href": "changelog/index.html#section-4",
     "title": "Changelog",
-    "section": "1.1.0 (2025-09-25)",
-    "text": "1.1.0 (2025-09-25)\n\nFeatures\n\nredesign itemize environment (#50) (8594369)\nuse beamer-like itemize item and subitem templates (81037c6), closes #49\n\n\n\nBug Fixes\n\nmove command substitutions into inner and outer themes (fd86a30), closes #47\nuse \\ht\\strutbox instead of X height in title padding (93792f2), closes #54",
+    "section": "2.0.0 (2025-12-05)",
+    "text": "2.0.0 (2025-12-05)\n\n⚠ BREAKING CHANGES\n\nrefactor color theme\n\n\n\nFeatures\n\nadd frametitle margin options (bc02e8a)\nadd catppuccin theme (3452624)\nadd new “Paper” color theme (05de59a)\nchange default progressbar linewidth to 1pt (3b71fc9)\ndraw all itemize symbols manually (a82527c)\nrefactor color theme (37d3a37)\ntune color themes (a11710f)\nuse brighter aler and example colors in dark hcontr (8babd1e)\n\n\n\nBug Fixes\n\nenable background macro for alternative color themes (59b4d79)\nremove and fix examples (35523ee)\nremove example text bg in highcontrast theme (528ea8d)\nwork-around division by zero in progress bar arithmetic (28fc1a2)",
     "crumbs": [
       "User Guide",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Changelog</span>"
@@ -375,8 +375,8 @@
     "objectID": "changelog/index.html#section-5",
     "href": "changelog/index.html#section-5",
     "title": "Changelog",
-    "section": "1.0.1 (2025-04-01)",
-    "text": "1.0.1 (2025-04-01)\n\nBug Fixes\n\nadd missing files for updating version tags (ba01d33)\nuse proper package names (0c4d38e)",
+    "section": "1.1.0 (2025-09-25)",
+    "text": "1.1.0 (2025-09-25)\n\nFeatures\n\nredesign itemize environment (#50) (8594369)\nuse beamer-like itemize item and subitem templates (81037c6), closes #49\n\n\n\nBug Fixes\n\nmove command substitutions into inner and outer themes (fd86a30), closes #47\nuse \\ht\\strutbox instead of X height in title padding (93792f2), closes #54",
     "crumbs": [
       "User Guide",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Changelog</span>"
@@ -386,8 +386,8 @@
     "objectID": "changelog/index.html#section-6",
     "href": "changelog/index.html#section-6",
     "title": "Changelog",
-    "section": "1.0.0 (2025-04-01)",
-    "text": "1.0.0 (2025-04-01)\n\nFeatures\n\nadd customization of bar line width (#42) (be0d8f2)\nsupport \\thanks in title page (#45) (de3db5e)",
+    "section": "1.0.1 (2025-04-01)",
+    "text": "1.0.1 (2025-04-01)\n\nBug Fixes\n\nadd missing files for updating version tags (ba01d33)\nuse proper package names (0c4d38e)",
     "crumbs": [
       "User Guide",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Changelog</span>"
@@ -397,8 +397,8 @@
     "objectID": "changelog/index.html#section-7",
     "href": "changelog/index.html#section-7",
     "title": "Changelog",
-    "section": "0.6.0 (2025-01-17)",
-    "text": "0.6.0 (2025-01-17)\n\nFeatures\n\nadd back highcontrast theme from metropolis (3039994)\nadd new color theme based on the tomorrow color theme (13e7300)\nadd option to customize frame numbering of standout pages (d6d0e3c), closes #33\ndeprecate \\mreducelistspacing (3d87ec2)\nredesign section and subsection pages (#30) (5a98c69)\nuse golden rule in top-bottom spacing of title page (85eabc7)\n\n\n\nReverts\n\n“feat: deprecate \\mreducelistspacing” (eb4bf54)\n“test: remove standoutnumbering test” (ce7540d)",
+    "section": "1.0.0 (2025-04-01)",
+    "text": "1.0.0 (2025-04-01)\n\nFeatures\n\nadd customization of bar line width (#42) (be0d8f2)\nsupport \\thanks in title page (#45) (de3db5e)",
     "crumbs": [
       "User Guide",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Changelog</span>"
@@ -408,8 +408,8 @@
     "objectID": "changelog/index.html#section-8",
     "href": "changelog/index.html#section-8",
     "title": "Changelog",
-    "section": "0.5.0 (2024-10-30)",
-    "text": "0.5.0 (2024-10-30)\n\nFeatures\n\nreplace \\vfill with \\vfil in title frame (8f2a59e)\nswitch from fill to fil (#21) (873ae15)\n\n\n\nBug Fixes\n\nremove duplicated footnote color specifications (#26) (1306af5)\nremove extra space below progressbar section pages (#27) (e5be480)\nset use=block title in block body for fill (e8921a6), closes #28\ntag files with date (28003e7)",
+    "section": "0.6.0 (2025-01-17)",
+    "text": "0.6.0 (2025-01-17)\n\nFeatures\n\nadd back highcontrast theme from metropolis (3039994)\nadd new color theme based on the tomorrow color theme (13e7300)\nadd option to customize frame numbering of standout pages (d6d0e3c), closes #33\ndeprecate \\mreducelistspacing (3d87ec2)\nredesign section and subsection pages (#30) (5a98c69)\nuse golden rule in top-bottom spacing of title page (85eabc7)\n\n\n\nReverts\n\n“feat: deprecate \\mreducelistspacing” (eb4bf54)\n“test: remove standoutnumbering test” (ce7540d)",
     "crumbs": [
       "User Guide",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Changelog</span>"
@@ -419,8 +419,8 @@
     "objectID": "changelog/index.html#section-9",
     "href": "changelog/index.html#section-9",
     "title": "Changelog",
-    "section": "0.4.0 (2024-07-09)",
-    "text": "0.4.0 (2024-07-09)\n\nFeatures\n\nadd a small amount of vertical space before subtitle (b224a9b)\nsupport memoize package (closes #16) (1ca26e8)\nsupport title format modifications (#18) (46a4f49)\n\n\n\nBug Fixes\n\nadd % at the end of some commands (33b9833)\nconvert raw command in manual to text (ac305e9)",
+    "section": "0.5.0 (2024-10-30)",
+    "text": "0.5.0 (2024-10-30)\n\nFeatures\n\nreplace \\vfill with \\vfil in title frame (8f2a59e)\nswitch from fill to fil (#21) (873ae15)\n\n\n\nBug Fixes\n\nremove duplicated footnote color specifications (#26) (1306af5)\nremove extra space below progressbar section pages (#27) (e5be480)\nset use=block title in block body for fill (e8921a6), closes #28\ntag files with date (28003e7)",
     "crumbs": [
       "User Guide",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Changelog</span>"
@@ -430,8 +430,8 @@
     "objectID": "changelog/index.html#section-10",
     "href": "changelog/index.html#section-10",
     "title": "Changelog",
-    "section": "0.3.0 (2024-03-06)",
-    "text": "0.3.0 (2024-03-06)\n\nFeatures\n\nbring back the numbering option and deprecate it (9a013e4)\nmake framenumber slide numbering the default (54e0fce)\nredesign title page (9e6506e)\nreinstate support for block option (bf63dcd)\nremove custom linespread setting (6a85ef4), closes #8\nremove parskip setting (5477051), closes #9\nsupport subtitles (1c49957)\n\n\n\nBug Fixes\n\napply upstream beamer fix for empty shortauthor (b8b2d10)\nimprove vertical centering of title slide (6a14981)\nremove extraneous line space after minipage (c0b9826)\nremove extraneous space in frametitle continuation template (66f7d83)\nremove font configuration for bibliography; closes #5 (ccd19fe)",
+    "section": "0.4.0 (2024-07-09)",
+    "text": "0.4.0 (2024-07-09)\n\nFeatures\n\nadd a small amount of vertical space before subtitle (b224a9b)\nsupport memoize package (closes #16) (1ca26e8)\nsupport title format modifications (#18) (46a4f49)\n\n\n\nBug Fixes\n\nadd % at the end of some commands (33b9833)\nconvert raw command in manual to text (ac305e9)",
     "crumbs": [
       "User Guide",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Changelog</span>"
@@ -441,8 +441,8 @@
     "objectID": "changelog/index.html#section-11",
     "href": "changelog/index.html#section-11",
     "title": "Changelog",
-    "section": "0.2.0 (2024-01-23)",
-    "text": "0.2.0 (2024-01-23)\n\n⚠ BREAKING CHANGES\n\nremove titleformat configuration\nuse beamer’s own frame numbering template\n\n\n\nFeatures\n\nremove titleformat configuration (e19f93c)\nuse beamer’s own frame numbering template (01b698c)",
+    "section": "0.3.0 (2024-03-06)",
+    "text": "0.3.0 (2024-03-06)\n\nFeatures\n\nbring back the numbering option and deprecate it (9a013e4)\nmake framenumber slide numbering the default (54e0fce)\nredesign title page (9e6506e)\nreinstate support for block option (bf63dcd)\nremove custom linespread setting (6a85ef4), closes #8\nremove parskip setting (5477051), closes #9\nsupport subtitles (1c49957)\n\n\n\nBug Fixes\n\napply upstream beamer fix for empty shortauthor (b8b2d10)\nimprove vertical centering of title slide (6a14981)\nremove extraneous line space after minipage (c0b9826)\nremove extraneous space in frametitle continuation template (66f7d83)\nremove font configuration for bibliography; closes #5 (ccd19fe)",
     "crumbs": [
       "User Guide",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Changelog</span>"
@@ -451,6 +451,17 @@
   {
     "objectID": "changelog/index.html#section-12",
     "href": "changelog/index.html#section-12",
+    "title": "Changelog",
+    "section": "0.2.0 (2024-01-23)",
+    "text": "0.2.0 (2024-01-23)\n\n⚠ BREAKING CHANGES\n\nremove titleformat configuration\nuse beamer’s own frame numbering template\n\n\n\nFeatures\n\nremove titleformat configuration (e19f93c)\nuse beamer’s own frame numbering template (01b698c)",
+    "crumbs": [
+      "User Guide",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Changelog</span>"
+    ]
+  },
+  {
+    "objectID": "changelog/index.html#section-13",
+    "href": "changelog/index.html#section-13",
     "title": "Changelog",
     "section": "0.1.0 (2024-01-15)",
     "text": "0.1.0 (2024-01-15)\n\n⚠ BREAKING CHANGES\n\nremove \\plain macro\ndrop deprecated options\nremove appendix redefinition\nremove pgfplots theme\nremove high-contrast theme\nuncouple fira fonts from theme\nsimplify blocks and remove blocks with background\n\n\n\nFeatures\n\ndisable hyphenation in frame titles (253234e)\ndrop deprecated options (548ede8)\ngroup institute with author and subdue color (0f3f6da)\nincrease minipage width for section pages (160fe58)\nmodify bullet symbols for itemize lists (0042dcb)\nmodify example color to teal instead of light green (1a2f157)\nremove \\plain macro (95f24ae)\nremove appendix redefinition (17edfad)\nremove high-contrast theme (9932e55)\nremove pgfplots theme (c2f1bef)\nsimplify blocks and remove blocks with background (d5317d4)\nuncouple fira fonts from theme (f960aba)\n\n\n\nBug Fixes\n\navoid overflow warnings from titlepage definition (c1c5b85)\nfix frametitle patchmd (a302893)\nfix progress bar in inner theme too (47dcf8d)\nfix reference to Knuth in demo (fbfcc0b)\ninsert missing parenthesis (e72eaa9)\nmetropolis -&gt; moloch (24cbc04)\nset maxium progressbar to 1 (b401410)\n\n\n\nReverts\n\n“build: use alternative texlive action” (5d32f73)\n“fix: avoid overflow warnings from titlepage definition” (24c5409)\n\n\n\nMiscellaneous Chores\n\nremove newline (cd97b2d)",
@@ -1016,7 +1027,7 @@
     "href": "implementation/moloch-talk.html#title-page",
     "title": "Appendix H — ltx-talk Theme",
     "section": "H.10 Title Page",
-    "text": "H.10 Title Page\nThe class builds its title page from a list of named elements, each of which is an instance of the titlepage-element template, and takes the content of an element named x from the macro . A separator rule is therefore added by defining the content and declaring a matching instance, then naming it in the element order.\n\\tl_new:c { @titleseparator }\n\\tl_set:cn { @titleseparator }\n  { \\noindent \\rule { \\textwidth } { \\l__moloch_titlerule_dim } }\n\\DeclareInstance { titlepage-element } { titleseparator } { talk }\n  {\n    before-skip = 0.4em ,\n    after-skip = 0.8em ,\n    color = mTitleseparatorFg\n  }\nThe remaining elements only need Moloch’s fonts and spacing.\n\\EditInstance { titlepage-element } { title }\n  { font = \\Large \\bfseries , color = mNormaltextFg }\n\\EditInstance { titlepage-element } { subtitle }\n  { font = \\large , color = mNormaltextFg , before-skip = 0.3em }\n\\EditInstance { titlepage-element } { author }\n  { font = \\small , before-skip = 0em , after-skip = 0.5em }\n\\EditInstance { titlepage-element } { institute }\n  { font = \\scriptsize , color = mNormaltextFg!80!mNormaltextBg }\n\\EditInstance { titlepage-element } { date }\n  { font = \\small , before-skip = 1em }\n\nH.10.1 \\__moloch_titlepage:n\nThe titlepage template has no instance, so its defaults cannot be edited and has to be redefined instead.\nThe Beamer theme places the title block slightly above the vertical center, in golden-ratio proportion. This theme uses the class’s centered alignment instead.\n\\cs_new_protected:Npn \\__moloch_titlepage:n #1\n  {\n    \\UseTemplate { titlepage } { talk }\n      {\n        framestyle = plain ,\n        horizontal-alignment = left ,\n        vertical-alignment = center ,\n        element-order =\n          { title , subtitle , titleseparator , author , institute , date } ,\n        #1\n      }\n  }\n\n\nH.10.2 \\maketitle\nWhether the frame environment takes a mandatory title argument depends on the class option frame-title-arg, which is already fixed by the time this package loads. The empty group is therefore inserted at definition time, as the class itself does. Everything must sit in a single macro body, because the frame environment collects its content up to a literal {frame}.\n\\use:e\n  {\n    \\exp_not:N \\RenewDocumentCommand \\exp_not:N \\maketitle { O { } }\n      {\n        \\exp_not:N \\bool_if:NTF \\exp_not:N \\l__talk_frame_bool\n          { \\exp_not:N \\__moloch_titlepage:n { \\exp_not:N #1 } }\n          {\n            \\exp_not:N \\begin { frame }\n              \\bool_if:NT \\l__talk_frame_title_bool { { } }\n              \\exp_not:N \\__moloch_titlepage:n { \\exp_not:N #1 }\n            \\exp_not:N \\end { frame }\n          }\n      }\n  }",
+    "text": "H.10 Title Page\nThe class builds its title page from a list of named elements, each of which is an instance of the titlepage-element template, and takes the content of an element named x from the macro . A separator rule is therefore added by defining the content and declaring a matching instance, then naming it in the element order.\n\\tl_new:c { @titleseparator }\n\\tl_set:cn { @titleseparator }\n  { \\noindent \\rule { \\textwidth } { \\l__moloch_titlerule_dim } }\n\\DeclareInstance { titlepage-element } { titleseparator } { talk }\n  {\n    before-skip = 0.4em ,\n    after-skip = 0.8em ,\n    color = mTitleseparatorFg\n  }\nThe remaining elements only need Moloch’s fonts and spacing.\n\\EditInstance { titlepage-element } { title }\n  { font = \\Large \\bfseries , color = mNormaltextFg }\n\\EditInstance { titlepage-element } { subtitle }\n  { font = \\large , color = mNormaltextFg , before-skip = 0.3em }\n\\EditInstance { titlepage-element } { author }\n  { font = \\small , before-skip = 0em , after-skip = 0.5em }\n\\EditInstance { titlepage-element } { institute }\n  { font = \\scriptsize , color = mNormaltextFg!80!mNormaltextBg }\n\\EditInstance { titlepage-element } { date }\n  { font = \\small , before-skip = 1em }\n\nH.10.1 \\__moloch_titlepage:n\nThe titlepage template has no instance, so its defaults cannot be edited and has to be redefined instead.\nThe Beamer theme places the title block slightly above the vertical center, in golden-ratio proportion. This theme uses the class’s centered alignment instead.\n\\cs_new_protected:Npn \\__moloch_titlepage:n #1\n  {\n    \\UseTemplate { titlepage } { talk }\n      {\n        frame-style = plain ,\n        horizontal-alignment = left ,\n        vertical-alignment = center ,\n        element-order =\n          { title , subtitle , titleseparator , author , institute , date } ,\n        #1\n      }\n  }\n\n\nH.10.2 \\maketitle\nWhether the frame environment takes a mandatory title argument depends on the class option frame-title-arg, which is already fixed by the time this package loads. The empty group is therefore inserted at definition time, as the class itself does. Everything must sit in a single macro body, because the frame environment collects its content up to a literal {frame}.\n\\use:e\n  {\n    \\exp_not:N \\RenewDocumentCommand \\exp_not:N \\maketitle { O { } }\n      {\n        \\exp_not:N \\bool_if:NTF \\exp_not:N \\l__talk_frame_bool\n          { \\exp_not:N \\__moloch_titlepage:n { \\exp_not:N #1 } }\n          {\n            \\exp_not:N \\begin { frame }\n              \\bool_if:NT \\l__talk_frame_title_bool { { } }\n              \\exp_not:N \\__moloch_titlepage:n { \\exp_not:N #1 }\n            \\exp_not:N \\end { frame }\n          }\n      }\n  }",
     "crumbs": [
       "Appendices",
       "Implementation",

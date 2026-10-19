@@ -10,7 +10,7 @@ Moloch provides its design for this class through the `moloch-talk` package.
 
 ## 5.1 Requirements
 
-Moloch is tested with `ltx-talk` 0.6.9, which needs a LaTeX kernel from 2026-06-01 or later. With an older kernel, you will see:
+Moloch is tested with `ltx-talk` 0.6.10, which needs a LaTeX kernel from 2026-06-01 or later. With an older kernel, you will see:
 
     ! LaTeX Error: Class ltx-talk Error: LaTeX kernel too old.
 
