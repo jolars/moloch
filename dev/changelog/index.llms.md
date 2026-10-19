@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.3.1](https://github.com/jolars/moloch/compare/v2.3.0...v2.3.1) (2026-10-19)
+
+### Bug Fixes
+
+- support `ltx-talk` 0.6.10 ([`dc10638`](https://github.com/jolars/moloch/commit/dc10638a0118ea8fe80f5fdf7c888d70a91e0710)), fixes [\#89](https://github.com/jolars/moloch/issues/89)
+
 ## [2.3.0](https://github.com/jolars/moloch/compare/v2.2.0...v2.3.0) (2026-10-15)
 
 ### Highlights
